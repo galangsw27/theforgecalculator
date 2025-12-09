@@ -229,7 +229,7 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
     }
 };
 
-export const ITEM_VARIANTS: Record<string, Record<string, Record<string, {name: string, chance: string, probability: number}[]>>> = {
+export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name: string, chance: string, probability: number }[]>>> = {
     weapon: {
         "Dagger": {
             "stonewake": [
@@ -247,10 +247,10 @@ export const ITEM_VARIANTS: Record<string, Record<string, Record<string, {name: 
         // I'll add a few key ones to ensure functionality works
         "Straight Sword": {
             "kingdom": [
-                 { name: "Falchion", chance: "1/1", probability: 1.0 },
-                 { name: "Cutlass", chance: "1/2", probability: 0.5 },
-                 { name: "Rapier", chance: "1/4", probability: 0.25 },
-                 { name: "Chaos", chance: "1/16", probability: 0.0625 }
+                { name: "Falchion", chance: "1/1", probability: 1.0 },
+                { name: "Cutlass", chance: "1/2", probability: 0.5 },
+                { name: "Rapier", chance: "1/4", probability: 0.25 },
+                { name: "Chaos", chance: "1/16", probability: 0.0625 }
             ]
         },
         "Colossal Sword": {
@@ -265,3 +265,78 @@ export const ITEM_VARIANTS: Record<string, Record<string, Record<string, {name: 
     // Note: In a real full implementation, I would map all variants. 
     // For this response, I'm ensuring the logic works with defaults if not found.
 };
+
+// Best Weapons Recipes
+export const BEST_WEAPONS_RECIPES = {
+    "Uchi Katana": [
+        { tier: "Top 1", recipe: [{ ore: "Darkryte", count: 9 }, { ore: "Magmaite", count: 4 }], multiplier: 5.8, chance: 62 },
+        { tier: "Top 2", recipe: [{ ore: "Darkryte", count: 6 }, { ore: "Demonite", count: 4 }, { ore: "Eye Ore", count: 3 }], multiplier: 5.5, chance: 64 },
+        { tier: "Top 3", recipe: [{ ore: "Darkryte", count: 8 }, { ore: "Magmaite", count: 4 }], multiplier: 5.86, chance: 72 },
+        { tier: "End game", recipe: [{ ore: "Darkryte", count: 6 }, { ore: "Magmaite", count: 6 }], multiplier: 5.65, chance: 72 },
+        { tier: "End Game", recipe: [{ ore: "Darkryte", count: 4 }, { ore: "Magmaite", count: 3 }, { ore: "Eye Ore", count: 3 }, { ore: "Fireite", count: 3 }], multiplier: 5.05, chance: 64 },
+        { tier: "Mid/End Game", recipe: [{ ore: "Demonite", count: 4 }, { ore: "Magmaite", count: 3 }, { ore: "Eye Ore", count: 3 }, { ore: "Fireite", count: 3 }], multiplier: 4.81, chance: 64 },
+        { tier: "Mid Game", recipe: [{ ore: "Eye Ore", count: 4 }, { ore: "Magmaite", count: 4 }], multiplier: 4.5, chance: 72 },
+        { tier: "Mid Game", recipe: [{ ore: "Eye Ore", count: 6 }, { ore: "Rivalite", count: 6 }], multiplier: 3.6, chance: 72 }
+    ],
+    "Falchion Straight Swords": [
+        { tier: "Best Weapon - Chaos 1/16 Chance", recipe: [{ ore: "Darkryte", count: 4 }, { ore: "Magmaite", count: 2 }], multiplier: 5.87, chance: 86 },
+        { tier: "Insane", recipe: [{ ore: "Darkryte", count: 3 }, { ore: "Eye Ore", count: 2 }, { ore: "Magmaite", count: 2 }], multiplier: 5.27, chance: 74 },
+        { tier: "End Game", recipe: [{ ore: "Demonite", count: 4 }, { ore: "Fireite", count: 2 }, { ore: "Magmaite", count: 1 }], multiplier: 5.14, chance: 74 },
+        { tier: "End/Late Game", recipe: [{ ore: "Eye Ore", count: 3 }, { ore: "Fireite", count: 3 }, { ore: "Magmaite", count: 1 }], multiplier: 4.35, chance: 74 },
+        { tier: "Mid Game", recipe: [{ ore: "Rivalite", count: 3 }, { ore: "Ruby", count: 3 }], multiplier: 3.14, chance: 86 }
+    ],
+    "Iron hand Gauntlets": [
+        { tier: "Insane", recipe: [{ ore: "Darkryte", count: 6 }, { ore: "Magmaite", count: 3 }], multiplier: 5.87, chance: 65 },
+        { tier: "End Game", recipe: [{ ore: "Darkryte", count: 3 }, { ore: "Magmaite", count: 3 }, { ore: "Fireite", count: 2 }, { ore: "Eye Ore", count: 1 }], multiplier: 5.21, chance: 65 },
+        { tier: "Late Game", recipe: [{ ore: "Magmaite", count: 3 }, { ore: "Fireite", count: 3 }, { ore: "Rivalite", count: 2 }, { ore: "Eye Ore", count: 1 }], multiplier: 4.35, chance: 65 },
+        { tier: "Mid Game", recipe: [{ ore: "Eye Ore", count: 4 }, { ore: "Rivalite", count: 3 }, { ore: "Ruby", count: 2 }], multiplier: 3.54, chance: 65 }
+    ],
+    "Great Colossal Swords": [
+        { tier: "Insane", recipe: [{ ore: "Darkryte", count: 35 }, { ore: "Magmaite", count: 15 }], multiplier: 5.81, chance: 70 },
+        { tier: "Insane", recipe: [{ ore: "Demonite", count: 35 }, { ore: "Magmaite", count: 15 }], multiplier: 5.35, chance: 70 },
+        { tier: "End Game", recipe: [{ ore: "Darkryte", count: 12 }, { ore: "Demonite", count: 6 }, { ore: "Eye Ore", count: 10 }, { ore: "Magmaite", count: 10 }], multiplier: 5.33, chance: 65 },
+        { tier: "Late/End Game", recipe: [{ ore: "Magmaite", count: 16 }, { ore: "Fireite", count: 4 }, { ore: "Eye Ore", count: 10 }], multiplier: 4.58, chance: 65 },
+        { tier: "Mid Game", recipe: [{ ore: "Eye Ore", count: 16 }, { ore: "Rivalite", count: 14 }, { ore: "Ruby", count: 10 }], multiplier: 3.50, chance: 65 },
+        { tier: "Mid Game", recipe: [{ ore: "Eye Ore", count: 10 }, { ore: "Rivalite", count: 18 }, { ore: "Ruby", count: 12 }], multiplier: 3.38, chance: 65 }
+    ]
+};
+
+// Best Armor Recipes
+export const BEST_ARMOR_RECIPES = {
+    "INSANE": [
+        { piece: "Chestplate", recipe: [{ ore: "Darkryte", count: 20 }, { ore: "Demonite", count: 13 }, { ore: "Mythril", count: 6 }], multiplier: 5.80, chance: 73 },
+        { piece: "Helmet", recipe: [{ ore: "Darkryte", count: 12 }, { ore: "Demonite", count: 8 }, { ore: "Mythril", count: 6 }], multiplier: 5.41, chance: 51 },
+        { piece: "Leggings", recipe: [{ ore: "Darkryte", count: 12 }, { ore: "Demonite", count: 10 }, { ore: "Mythril", count: 8 }], multiplier: 5.29, chance: 49 }
+    ],
+    "Eye Ore Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Darkryte", count: 16 }, { ore: "Demonite", count: 12 }, { ore: "Eye Ore", count: 12 }], multiplier: 5.37, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Darkryte", count: 9 }, { ore: "Obsidian", count: 9 }, { ore: "Eye Ore", count: 9 }], multiplier: 4.22, chance: 51 },
+        { piece: "Leggings", recipe: [{ ore: "Darkryte", count: 12 }, { ore: "Obsidian", count: 9 }, { ore: "Eye Ore", count: 9 }], multiplier: 4.42, chance: 49 }
+    ],
+    "Fastest Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Darkryte", count: 17 }, { ore: "Demonite", count: 13 }, { ore: "Lightite", count: 13 }], multiplier: 5.54, chance: 78 },
+        { piece: "Helmet", recipe: [{ ore: "Darkryte", count: 9 }, { ore: "Demonite", count: 8 }, { ore: "Lightite", count: 9 }], multiplier: 5.13, chance: 51 },
+        { piece: "Leggings", recipe: [{ ore: "Darkryte", count: 10 }, { ore: "Demonite", count: 10 }, { ore: "Lightite", count: 10 }], multiplier: 5.17, chance: 49 }
+    ],
+    "INSANE #2": [
+        { piece: "Chestplate", recipe: [{ ore: "Demonite", count: 14 }, { ore: "Mythril", count: 11 }, { ore: "Eye Ore", count: 11 }], multiplier: 4.58, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Demonite", count: 9 }, { ore: "Mythril", count: 8 }, { ore: "Eye Ore", count: 9 }], multiplier: 4.37, chance: 51 },
+        { piece: "Leggings", recipe: [{ ore: "Demonite", count: 11 }, { ore: "Mythril", count: 9 }, { ore: "Eye Ore", count: 10 }], multiplier: 4.40, chance: 49 }
+    ],
+    "End Game/Late": [
+        { piece: "Chestplate", recipe: [{ ore: "Lightite", count: 14 }, { ore: "Mythril", count: 12 }, { ore: "Eye Ore", count: 13 }], multiplier: 4.08, chance: 73 },
+        { piece: "Helmet", recipe: [{ ore: "Lightite", count: 9 }, { ore: "Mythril", count: 8 }, { ore: "Eye Ore", count: 9 }], multiplier: 4.06, chance: 51 },
+        { piece: "Leggings", recipe: [{ ore: "Lightite", count: 11 }, { ore: "Mythril", count: 9 }, { ore: "Eye Ore", count: 10 }], multiplier: 4.07, chance: 49 }
+    ],
+    "Late Game": [
+        { piece: "Chestplate", recipe: [{ ore: "Mythril", count: 16 }, { ore: "Eye Ore", count: 10 }, { ore: "Obsidian", count: 10 }], multiplier: 3.92, chance: 71 },
+        { piece: "Helmet", recipe: [{ ore: "Mythril", count: 9 }, { ore: "Uranium", count: 9 }, { ore: "Obsidian", count: 9 }], multiplier: 3.08, chance: 47 },
+        { piece: "Leggings", recipe: [{ ore: "Mythril", count: 12 }, { ore: "Eye Ore", count: 10 }, { ore: "Obsidian", count: 8 }], multiplier: 3.86, chance: 49 }
+    ],
+    "Mid Game": [
+        { piece: "Chestplate", recipe: [{ ore: "Ruby", count: 16 }, { ore: "Emerald", count: 10 }, { ore: "Cuprite", count: 10 }], multiplier: 2.69, chance: 64 },
+        { piece: "Helmet", recipe: [{ ore: "Ruby", count: 9 }, { ore: "Emerald", count: 9 }, { ore: "Cuprite", count: 9 }], multiplier: 2.67, chance: 47 },
+        { piece: "Leggings", recipe: [{ ore: "Ruby", count: 12 }, { ore: "Emerald", count: 10 }, { ore: "Cuprite", count: 8 }], multiplier: 2.80, chance: 49 }
+    ]
+};
+
