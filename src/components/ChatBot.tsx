@@ -83,7 +83,7 @@ export default function ChatBot() {
             const errorMessage: Message = {
                 id: Date.now().toString(),
                 role: 'assistant',
-                content: "Maaf, batas pertanyaan Anda sudah habis (maksimal 5). Silakan tunggu 2 jam lagi atau hubungi WA : 081226716818"
+                content: "Maaf, batas pertanyaan Anda sudah habis (maksimal 5). Silakan tunggu 2 jam lagi atau hubungi [Admin](https://wa.me/6281226716818)"
             };
             setMessages(prev => [...prev, errorMessage]);
             return;
@@ -242,8 +242,8 @@ Pertanyaan: ${userMessage.content}
             {/* Chat Window */}
             {isOpen && (
                 <div className={`fixed z-50 bg-[#0f172a] border border-white/10 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 ${isExpanded
-                        ? 'inset-4 md:inset-10 rounded-2xl'
-                        : 'bottom-24 right-6 w-[450px] h-[600px] rounded-2xl'
+                    ? 'inset-4 md:inset-10 rounded-2xl'
+                    : 'bottom-24 right-6 w-[450px] h-[600px] rounded-2xl'
                     }`}>
 
                     {/* Header */}
