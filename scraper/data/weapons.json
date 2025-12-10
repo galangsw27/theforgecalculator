@@ -1,0 +1,232 @@
+[
+  {
+    "name": "Dagger",
+    "url": "https://www.theforgewiki.org/weapons/dagger.html",
+    "Damage": "5 DMG",
+    "ATK Speed": "0.35s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/1",
+    "Base Price": "45$",
+    "description": "?? A lightweight, razor-edged dagger forged for assassins  slim, balanced, and built for lethal efficiency. Its ergonomic handle and whisper-silent profile make it easy to conceal, while the keen double edge delivers precise, devastating strikes in close quarters. ?"
+  },
+  {
+    "name": "Falchion Knife",
+    "url": "https://www.theforgewiki.org/weapons/falchion-knife.html",
+    "Damage": "5 DMG",
+    "ATK Speed": "0.35s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/2",
+    "Base Price": "45$",
+    "description": "?? A sleek, curved blade built for swift cuts and smooth handling. Its distinct shape allows for fast, flowing attacks, making it a stylish yet deadly sidearm favored by agile fighters. ?"
+  },
+  {
+    "name": "Gladius Daggers",
+    "url": "https://www.theforgewiki.org/weapons/gladius-daggers.html",
+    "Damage": "5 DMG",
+    "ATK Speed": "0.39s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/4",
+    "Base Price": "20$",
+    "description": "?? Twin daggers shaped after the iconic Roman Gladius. Short, sharp, and perfectly balanced for rapid thrusts  combining ancient design with modern lethality. ?"
+  },
+  {
+    "name": "Hook",
+    "url": "https://www.theforgewiki.org/weapons/hook.html",
+    "Damage": "5.5 DMG",
+    "ATK Speed": "0.39s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/16",
+    "Base Price": "45$",
+    "description": "?? A sharp, lightweight weapon shaped like an S. Typically used for butchery, but can be used as a deadly melee weapon. ?"
+  },
+  {
+    "name": "Falchion Sword",
+    "url": "https://www.theforgewiki.org/weapons/falchion-sword.html",
+    "Damage": "7.5 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "8 Studs",
+    "Chance": "1/16",
+    "Base Price": "84$",
+    "description": "?? A curved, single-edged sword that bridges the gap between nimble daggers and heavy greatswords. Its sweeping slashes flow smoothly from one to the next, rewarding clean spacing, smart footwork, and constant pressure. ?"
+  },
+  {
+    "name": "Gladius Sword",
+    "url": "https://www.theforgewiki.org/weapons/gladius-sword.html",
+    "Damage": "7.5 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "8 Studs",
+    "Chance": "1/2",
+    "Base Price": "84$",
+    "description": "?? The most deadly sword according to experts during the Roman Empire. Its double-edged design facilitates thrusts in close combat. ?"
+  },
+  {
+    "name": "Cutlass",
+    "url": "https://www.theforgewiki.org/weapons/cutlass.html",
+    "Damage": "7.5 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "8 Studs",
+    "Chance": "1/4",
+    "Base Price": "84$",
+    "description": "?? A curved, broad-bladed sword favored by sailors and privateers. Its sweeping cuts and balanced weight make it quick to handle, deadly in tight quarters, and effortlessly intimidating. ?"
+  },
+  {
+    "name": "Rapier",
+    "url": "https://www.theforgewiki.org/weapons/rapier.html",
+    "Damage": "7.5 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "8 Studs",
+    "Chance": "1/8",
+    "Base Price": "84$",
+    "description": "?? A slender, needle-point blade built for precision and speed. Designed for swift thrusts and surgical strikes, the rapier pierces armor gaps with ease, rewarding accuracy over brute strength. ?"
+  },
+  {
+    "name": "Chaos",
+    "url": "https://www.theforgewiki.org/weapons/chaos.html",
+    "Damage": "9.375 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "8 Studs",
+    "Chance": "1/64",
+    "Base Price": "84$",
+    "description": "?? A jagged, brutal blade said to echo the fury of a fallen god. Its wild curvature delivers unpredictable, bone-shattering strikes, tearing through anything caught in its path. ?"
+  },
+  {
+    "name": "Crusader Sword",
+    "url": "https://www.theforgewiki.org/weapons/crusader-sword.html",
+    "Damage": "12 DMG",
+    "ATK Speed": "1.0s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/1",
+    "Base Price": "TBA",
+    "description": "?? A weighty greatsword carried by battle-worn crusaders. Each swing carves a wide arc through the air, trading speed for reach, power, and unwavering frontline presence. ?"
+  },
+  {
+    "name": "Long Sword",
+    "url": "https://www.theforgewiki.org/weapons/long-sword.html",
+    "Damage": "12 DMG",
+    "ATK Speed": "1.11s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/2",
+    "Base Price": "$356",
+    "description": "?? A reliable, battle-tested blade known for its balance of reach and control. The Long Sword delivers steady, decisive cuts, offering both offense and defense to any fighter who values versatility over brute force or speed. ?"
+  },
+  {
+    "name": "Ironhand",
+    "url": "https://www.theforgewiki.org/weapons/ironhand.html",
+    "Damage": "7.6 DMG",
+    "ATK Speed": "0.51s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/1",
+    "Base Price": "153$",
+    "description": "?? A reinforced gauntlet that turns a Forger's fist into a battering ram. Every punch lands with heavy impact, trading reach for raw, close-range stopping power. ?"
+  },
+  {
+    "name": "Boxing Gloves",
+    "url": "https://www.theforgewiki.org/weapons/boxing-gloves.html",
+    "Damage": "8 DMG",
+    "ATK Speed": "0.59s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/4",
+    "Base Price": "153$",
+    "description": "� Lightweight gauntlets designed for speed and agility. Less durable but easier to punch with, perfect for quick combos. ?"
+  },
+  {
+    "name": "Relevator",
+    "url": "https://www.theforgewiki.org/weapons/relevator.html",
+    "Damage": "9.6 DMG",
+    "ATK Speed": "0.69s",
+    "ATK Range": "6 Studs",
+    "Chance": "1/16",
+    "Base Price": "153$",
+    "description": "?? Heavy-duty gauntlets designed to maximize punching power. Slower than other gauntlets but deals devastating damage. ?"
+  },
+  {
+    "name": "Uchigatana",
+    "url": "https://www.theforgewiki.org/weapons/uchigatana.html",
+    "Damage": "8.5 DMG",
+    "ATK Speed": "0.60s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/1",
+    "Base Price": "243$",
+    "description": "?? A finely tempered katana built for precise, flowing strikes. Its razor-thin edge and long reach reward clean spacing, quick reactions, and relentless offensive pressure."
+  },
+  {
+    "name": "Tachi",
+    "url": "https://www.theforgewiki.org/weapons/tachi.html",
+    "Damage": "8.925 DMG",
+    "ATK Speed": "0.63s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/3",
+    "Base Price": "$243",
+    "description": "?? A gracefully curved, finely tempered blade crafted for sweeping strikes and fluid motion. The Tachi excels in fast-paced combat, cutting with elegant power while maintaining deadly precision in every arc. ?"
+  },
+  {
+    "name": "Double Battle Axe",
+    "url": "https://www.theforgewiki.org/weapons/double-battle-axe.html",
+    "Damage": "15.75 DMG",
+    "ATK Speed": "1.05s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/1",
+    "Base Price": "690$",
+    "description": "?? A brutal twin-headed battle axe built to shatter shields and break enemy lines. Every swing is slow and committing, but when it lands, it carves a vicious path through anything caught in its arc."
+  },
+  {
+    "name": "Scythe",
+    "url": "https://www.theforgewiki.org/weapons/scythe.html",
+    "Damage": "14.25 DMG",
+    "ATK Speed": "0.95s",
+    "ATK Range": "9 Studs",
+    "Chance": "1/2",
+    "Base Price": "$690",
+    "description": "?? A long, sweeping blade forged for wide, harvesting arcs. The Scythe excels at controlling space, carving through foes with elegant, reaping strikes that cut from impossible angles. ?"
+  },
+  {
+    "name": "Great Sword",
+    "url": "https://www.theforgewiki.org/weapons/great-sword.html",
+    "Damage": "20 DMG",
+    "ATK Speed": "1.12s",
+    "ATK Range": "10 Studs",
+    "Chance": "1/1",
+    "Base Price": "$915",
+    "description": "?? A broad, heavy blade forged for raw impact  each swing carrying enough weight to break shields, stagger foes, and carve a path through even the toughest defenses. ?"
+  },
+  {
+    "name": "Forge Hammer",
+    "url": "https://www.theforgewiki.org/weapons/hammer.html",
+    "Damage": "22 DMG",
+    "ATK Speed": "1.24s",
+    "ATK Range": "10 Studs",
+    "Chance": "1/2",
+    "Base Price": "915$",
+    "description": "?? A colossal forge hammer that turns every swing into a crater. Its crushing blows are slow and deliberate, but anything caught under the head is left shattered, staggered, or broken outright."
+  },
+  {
+    "name": "Skull Crusher",
+    "url": "https://www.theforgewiki.org/weapons/skull-crusher.html",
+    "Damage": "24 DMG",
+    "ATK Speed": "1.4s",
+    "ATK Range": "10 Studs",
+    "Chance": "1/4",
+    "Base Price": "$915",
+    "description": "?? A brutally heavy war hammer engineered to shatter armor and bone alike. Its reinforced twin heads deliver crushing force with every swing, making it a fearsome weapon in the hands of those strong enough to wield it. ?"
+  },
+  {
+    "name": "Dragon Slayer",
+    "url": "https://www.theforgewiki.org/weapons/dragon-slayer.html",
+    "Damage": "22 DMG",
+    "ATK Speed": "1.12s",
+    "ATK Range": "10 Studs",
+    "Chance": "1/3",
+    "Base Price": "$915",
+    "description": "?? A colossal slab of iron forged not for elegance, but for annihilation. Swung by a warrior who carved his legend through darkness itself, this blade delivers crushing, unstoppable strikes that feel more like a falling tower than a sword. ?"
+  },
+  {
+    "name": "Comically Large Spoon",
+    "url": "https://www.theforgewiki.org/weapons/comically-large-spoon.html",
+    "Damage": "18 DMG",
+    "ATK Speed": "1.12s",
+    "ATK Range": "10 Studs",
+    "Chance": "1/16",
+    "Base Price": "$915",
+    "description": "?? An absurdly oversized utensil swung with surprising force  ridiculous in concept, yet undeniably effective when used to smack threats into submission with comedic brutality. ?"
+  }
+]

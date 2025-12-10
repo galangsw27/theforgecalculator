@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Human (Race)",
+    "url": "https://www.theforgewiki.org/races/human-race.html",
+    "description": ""
+  },
+  {
+    "name": "Elf (Race)",
+    "url": "https://www.theforgewiki.org/races/elf-race.html",
+    "Glorious": "+7% Luck",
+    "Superior Genes": "1.05 Height and 15% Extra Stamina",
+    "description": ""
+  },
+  {
+    "name": "Zombie (Race)",
+    "url": "https://www.theforgewiki.org/races/zombie-race.html",
+    "description": "Zombie is a uncommon race that offers some mild benefits. It mainly supports regeneration and healing."
+  },
+  {
+    "name": "Goblin (Race)",
+    "url": "https://www.theforgewiki.org/races/goblin-race.html",
+    "description": ""
+  },
+  {
+    "name": "Undead (Race)",
+    "url": "https://www.theforgewiki.org/races/undead-race.html",
+    "description": ""
+  },
+  {
+    "name": "Orc (Race)",
+    "url": "https://www.theforgewiki.org/races/orc-race.html",
+    "description": ""
+  },
+  {
+    "name": "Dwarf (Race)",
+    "url": "https://www.theforgewiki.org/races/dwarf-race.html",
+    "description": ""
+  },
+  {
+    "name": "Shadow (Race)",
+    "url": "https://www.theforgewiki.org/races/shadow-race.html",
+    "description": ""
+  },
+  {
+    "name": "Minotaur (Race)",
+    "url": "https://www.theforgewiki.org/races/minotaur-race.html",
+    "Bull's Fury - When the Player's Health is under 50%, activate rage mode": "Increase movement speed and physical damage by 30%",
+    "description": ""
+  },
+  {
+    "name": "Dragonborn (Race)",
+    "url": "https://www.theforgewiki.org/races/dragonborn-race.html",
+    "description": ""
+  },
+  {
+    "name": "Golem (Race)",
+    "url": "https://www.theforgewiki.org/races/golem-race.html",
+    "description": ""
+  },
+  {
+    "name": "Angel (Race)",
+    "url": "https://www.theforgewiki.org/races/angel-race.html",
+    "description": ""
+  },
+  {
+    "name": "Demon (Race)",
+    "url": "https://www.theforgewiki.org/races/demon-race.html",
+    "description": ""
+  },
+  {
+    "name": "Race Tier List",
+    "url": "https://www.theforgewiki.org/races/race-tier-list.html",
+    "description": "This tier list is a general PvE / progression ranking. It looks at overall value (damage, survivability, mobility and economy) rather than raw rarity. Every race is usable  higher tiers are simply more efficient or forgiving in most scenarios."
+  }
+]

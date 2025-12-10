@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Stone Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/stone-pickaxe.html",
+    "Mining Power": "10",
+    "Mining Speed": "Base",
+    "Multi-Ore": "1",
+    "Cost": "Free (Starter)",
+    "Location": "Starting Item",
+    "description": "� The most basic pickaxe available. Every Forger starts their journey with this humble tool. ?"
+  },
+  {
+    "name": "Bronze Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/bronze-pickaxe.html",
+    "Mining Power": "15",
+    "Mining Speed": "+10%",
+    "Multi-Ore": "1",
+    "Cost": "$150",
+    "Location": "Miner Fred's Shop",
+    "description": "?? A sturdy upgrade from the stone pickaxe. Bronze offers improved mining power for early-game progression. ?"
+  },
+  {
+    "name": "Iron Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/iron-pickaxe.html",
+    "Mining Power": "22",
+    "Mining Speed": "+18%",
+    "Multi-Ore": "1",
+    "Cost": "$500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A reliable iron pickaxe that serves as a solid mid-early game tool for mining harder ores. ?"
+  },
+  {
+    "name": "Golden Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/golden-pickaxe.html",
+    "Mining Power": "30",
+    "Mining Speed": "+25%",
+    "Multi-Ore": "1",
+    "Cost": "$1,500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A gleaming golden pickaxe that offers excellent mining speed. A popular choice for mid-game miners. ?"
+  },
+  {
+    "name": "Stonewake's Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/stonewakes-pickaxe.html",
+    "Mining Power": "35",
+    "Mining Speed": "+28%",
+    "Multi-Ore": "2",
+    "Cost": "$3,333",
+    "Location": "Miner Fred's Shop",
+    "description": "� A legendary pickaxe named after the master miner Stonewake. Features multi-ore mining capability. ?"
+  },
+  {
+    "name": "Platinum Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/platinum-pickaxe.html",
+    "Mining Power": "40",
+    "Mining Speed": "+32%",
+    "Multi-Ore": "1",
+    "Cost": "$4,400",
+    "Location": "Miner Fred's Shop",
+    "description": "� A premium platinum pickaxe with excellent mining speed. A solid choice for serious miners. ?"
+  },
+  {
+    "name": "Arcane Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/arcane-pickaxe.html",
+    "Mining Power": "50",
+    "Mining Speed": "+35%",
+    "Multi-Ore": "2",
+    "Cost": "$125,000",
+    "Location": "Miner Fred's Shop",
+    "description": "?? A mystical pickaxe imbued with arcane energy. Capable of mining multiple ores simultaneously. ?"
+  },
+  {
+    "name": "Cobalt Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/cobalt-pickaxe.html",
+    "Mining Power": "55",
+    "Mining Speed": "+38%",
+    "Multi-Ore": "2",
+    "Cost": "$10,000",
+    "Location": "Miner Fred's Shop",
+    "description": "?? A sturdy cobalt pickaxe forged from rare blue ore. Excellent for mining in deeper caverns. ?"
+  },
+  {
+    "name": "Titanium Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/titanium-pickaxe.html",
+    "Mining Power": "60",
+    "Mining Speed": "+40%",
+    "Multi-Ore": "2",
+    "Cost": "$22,500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A lightweight yet incredibly strong titanium pickaxe. Perfect for extended mining sessions. ?"
+  },
+  {
+    "name": "Uranium Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/uranium-pickaxe.html",
+    "Mining Power": "67",
+    "Mining Speed": "+41%",
+    "Multi-Ore": "2",
+    "Cost": "$37,500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A radioactive pickaxe that glows with an eerie green light. Extremely powerful for mining rare ores. ?"
+  },
+  {
+    "name": "Mythril Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/mythril-pickaxe.html",
+    "Mining Power": "80",
+    "Mining Speed": "+55%",
+    "Multi-Ore": "2",
+    "Cost": "$67,500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A legendary pickaxe forged from mythical mythril ore. One of the finest mining tools available. ?"
+  },
+  {
+    "name": "Lightite Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/lightite-pickaxe.html",
+    "Mining Power": "100",
+    "Mining Speed": "+45%",
+    "Multi-Ore": "1",
+    "Cost": "$98,500",
+    "Location": "Miner Fred's Shop",
+    "description": "� A radiant pickaxe infused with pure light energy. Capable of mining the most resilient ores. ?"
+  },
+  {
+    "name": "Magma Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/magma-pickaxe.html",
+    "Mining Power": "135",
+    "Mining Speed": "+46%",
+    "Multi-Ore": "2",
+    "Cost": "$150,000",
+    "Location": "Ashen Passage (beside Amber)",
+    "description": "� A blazing pickaxe forged in volcanic fire. Its molten edge cuts through ore like butter. ?"
+  },
+  {
+    "name": "Demonic Pickaxe",
+    "url": "https://www.theforgewiki.org/pickaxe/demonic-pickaxe.html",
+    "Mining Power": "175",
+    "Mining Speed": "+47.5%",
+    "Multi-Ore": "3",
+    "Cost": "$500,000",
+    "Location": "Demonic Pickaxe Altar (Volcanic Depths)",
+    "description": "� The ultimate pickaxe, forged in the depths of hell itself. Unmatched mining power and the ability to mine 3 ores at once. ?"
+  }
+]

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Info, Coins, Zap } from 'lucide-react';
+import ChatBot from './src/components/ChatBot';
 import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES } from './constants';
 import { Ore, Slot, ForgeMode, Area, Trait, ForgedItem } from './types';
 
@@ -117,7 +118,7 @@ export default function App() {
                                 const factor = (percentage - 10) / 20;
                                 value = scale.min + (scale.max - scale.min) * factor;
                             }
-                            desc = desc.replace(`{${key}}`, value.toFixed(1));
+                            desc = desc.replace(`{${key} } `, value.toFixed(1));
                         }
                         traitsList.push({
                             oreName: slot.ore.name,
@@ -358,7 +359,7 @@ export default function App() {
                         <div className="absolute top-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
                             <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1">Multiplier</span>
                             <div className={`text-4xl md:text-5xl font-cinzel font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 drop-shadow-sm transition-all duration-300 ${totalMultiplier > 0 ? 'opacity-100 scale-100' : 'opacity-50 scale-95'}`}>
-                                {totalMultiplier > 0 ? `${totalMultiplier.toFixed(2)}x` : '0.00x'}
+                                {totalMultiplier > 0 ? `${totalMultiplier.toFixed(2)} x` : '0.00x'}
                             </div>
                         </div>
 
@@ -376,8 +377,9 @@ export default function App() {
                                     flex flex-col items-center justify-center p-2 bg-black/40
                                     ${slotOre
                                                 ? `shadow-[0_0_15px_-5px_var(--tw-shadow-color)]`
-                                                : 'border-dashed border-white/10 hover:border-white/20 hover:bg-white/5'}
-                                `}
+                                                : 'border-dashed border-white/10 hover:border-white/20 hover:bg-white/5'
+                                            }
+`}
                                         style={slotOre ? { borderColor: slotOre.color, '--tw-shadow-color': slotOre.color } as React.CSSProperties : {}}
                                     >
                                         {slotOre ? (
@@ -438,8 +440,9 @@ export default function App() {
                             flex-1 rounded-xl font-cinzel font-bold text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 shadow-xl
                             ${totalOres >= 3
                                         ? `${themeBg} text-white hover:brightness-110 hover:-translate-y-1 ${themeGlow}`
-                                        : 'bg-gray-800 text-gray-500 cursor-not-allowed'}
-                        `}
+                                        : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                                    }
+`}
                             >
                                 {isForging ? (
                                     <><Sparkles className="animate-spin" /> FORGING...</>
@@ -495,11 +498,12 @@ export default function App() {
                                     key={area}
                                     onClick={() => setActiveArea(area)}
                                     className={`
-                                px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all
+px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all
                                 ${activeArea === area
                                             ? 'bg-white/10 text-white border-white/20'
-                                            : 'text-gray-600 border-transparent hover:text-gray-400'}
-                            `}
+                                            : 'text-gray-600 border-transparent hover:text-gray-400'
+                                        }
+`}
                                 >
                                     {area}
                                 </button>
@@ -675,6 +679,9 @@ export default function App() {
                     </div>
                 </div>
             )}
+
+            {/* --- ChatBot --- */}
+            <ChatBot />
 
         </div>
     );

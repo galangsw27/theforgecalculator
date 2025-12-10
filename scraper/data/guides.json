@@ -1,0 +1,74 @@
+[
+  {
+    "name": "The Forge Beginner Guide",
+    "url": "https://www.theforgewiki.org/guides/the-forge-beginner-guide/",
+    "Entrance": "Pebbles, Stone, Iron ? no enemies",
+    "Deeper areas": "Protected by Zombies",
+    "Even deeper": "Rocks and giant boulders with stronger enemies",
+    "Rerolls": "Re-randomize stats on crafted weapons/armor",
+    "Luck Totems": "Boost drop rates temporarily",
+    "Mining Totems": "Boost mining speed temporarily",
+    "description": "The complete starter guide for new players. Learn pickaxe progression, race rolling, money making, quests, and everything you need to go from beginner to mid-game!"
+  },
+  {
+    "name": "Best Money Making Guide for The Forge",
+    "url": "https://www.theforgewiki.org/guides/forge-money-guide/",
+    "Playstyle": "Active, PvE Combat",
+    "Requirements": "Combat-ready gear",
+    "XP Gain": "High (levels up fast!)",
+    "Consistency": "Consistent drops",
+    "Best For": "Fighters & Grinders",
+    "description": "The complete guide to earning cash fast in The Forge. Two proven methods that will have you buying pickaxes and gear in no time!"
+  },
+  {
+    "name": "All Armor Recipes in The Forge",
+    "url": "https://www.theforgewiki.org/guides/the-forge-armor-recipes/",
+    "description": "Complete crafting guide for light, medium, and heavy armor sets including exact ore requirements."
+  },
+  {
+    "name": "Best Weapon Recipes in The Forge",
+    "url": "https://www.theforgewiki.org/guides/the-forge-weapon-recipes/",
+    "Dagger": "3",
+    "Straight Sword": "8",
+    "Gauntlet": "11",
+    "Katana": "15",
+    "Great Sword": "20",
+    "Great Axe": "37",
+    "Colossal Sword": "46",
+    "Light Armor": "3 (Helmet, More for Leggings/Chest)",
+    "Medium Armor": "17",
+    "Heavy Armor": "46",
+    "description": "Complete crafting guide for the strongest weapons including exact ore requirements and multipliers."
+  },
+  {
+    "name": "How to Unlock the Goblin Cave",
+    "url": "https://www.theforgewiki.org/guides/how-to-unlock-goblin-cave/",
+    "Quest 2": "3x Topaz",
+    "Quest 3": "5x Diamond",
+    "Quest 4": "5x Emerald",
+    "Quest 5": "5x Ruby",
+    "TOTAL": "18 Gems",
+    "description": "Complete guide to finding the Goblin Village, completing all 5 Goblin King quests, and unlocking the secret Goblin Cave in The Forge."
+  },
+  {
+    "name": "How to Get the Demonic Pickaxe",
+    "url": "https://www.theforgewiki.org/guides/how-to-get-demonic-pickaxe/",
+    "description": "Complete step-by-step guide to unlocking the most powerful pickaxe in The Forge. Master the Volcanic Depths quest, farm Demonite ore, and obtain the legendary Demonite Key!"
+  },
+  {
+    "name": "Pickaxe Progression Guide",
+    "url": "https://www.theforgewiki.org/guides/pickaxe-progression-guide/",
+    "Bronze": "Buy",
+    "Iron": "Buy",
+    "Gold": "Skip",
+    "Platinum": "Skip",
+    "Stonewakes": "Buy",
+    "Cobalt": "Buy",
+    "Titanium": "Optional",
+    "Mithril": "Buy",
+    "Uranium": "Skip",
+    "Lightite": "Skip",
+    "Arcane": "Best",
+    "description": "The optimal upgrade path from starter pickaxe to endgame mining power. Learn which pickaxes to buy, which to skip, and how to unlock the secret Arcane Pickaxe!"
+  }
+]

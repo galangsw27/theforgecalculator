@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Tier List",
+    "url": "https://www.theforgewiki.org/runes/tier-list.html",
+    "description": "This tier list ranks all runes in The Forge based on their effectiveness and versatility. Understanding rune rankings helps you prioritize which runes to farm and equip."
+  },
+  {
+    "name": "Miner Shard",
+    "url": "https://www.theforgewiki.org/runes/miner-shard.html",
+    "Rarity": "Rare",
+    "Drops": "Delver Zombie  Bomber",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Frost Speck",
+    "url": "https://www.theforgewiki.org/runes/frost-speck.html",
+    "Rarity": "Rare",
+    "Drops": "Elite Zombie",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Flame Spark",
+    "url": "https://www.theforgewiki.org/runes/flame-spark.html",
+    "Rarity": "Rare",
+    "Drops": "Elite ZombieDeathaxe Skeleton",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Venom Crumb",
+    "url": "https://www.theforgewiki.org/runes/venom-crumb.html",
+    "Rarity": "Rare",
+    "Drops": "ZombieElite Zombie",
+    "Sold For": "$25",
+    "Drop": "ZombieElite Zombie",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Chill Dust",
+    "url": "https://www.theforgewiki.org/runes/chill-dust.html",
+    "Rarity": "Rare",
+    "Drops": "Elite ZombieBrute Zombie",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Blast Chip",
+    "url": "https://www.theforgewiki.org/runes/blast-chip.html",
+    "Rarity": "Rare",
+    "Drops": "Delver Zombie",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Drain Edge",
+    "url": "https://www.theforgewiki.org/runes/drain-edge.html",
+    "Rarity": "Rare",
+    "Drops": "Reaper",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Briar Notch",
+    "url": "https://www.theforgewiki.org/runes/briar-notch.html",
+    "Rarity": "Rare",
+    "Drops": "Deathaxe Skeleton  Elite Deathaxe Skeleton",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Rage Mark",
+    "url": "https://www.theforgewiki.org/runes/rage-mark.html",
+    "Rarity": "Rare",
+    "Drops": "Elite Rouge Skeleton",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Ward Patch",
+    "url": "https://www.theforgewiki.org/runes/ward-patch.html",
+    "Rarity": "Rare",
+    "Drops": "ZombieElite ZombieBrute Zombie",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  },
+  {
+    "name": "Rot Stitch",
+    "url": "https://www.theforgewiki.org/runes/rot-stitch.html",
+    "Rarity": "Rare",
+    "Drops": "Zombie",
+    "Sold For": "$25",
+    "Price": "$25",
+    "description": ""
+  }
+]
