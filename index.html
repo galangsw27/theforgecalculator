@@ -1,101 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Forge Calculator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              background: '#0a0a0a',
-              card: '#141414',
-              'card-border': '#2a2a2a',
-              weapon: {
-                DEFAULT: '#FF6600',
-                glow: 'rgba(255, 102, 0, 0.4)',
-                dim: 'rgba(255, 102, 0, 0.1)',
-              },
-              armor: {
-                DEFAULT: '#19b9b9',
-                glow: 'rgba(25, 185, 185, 0.4)',
-                dim: 'rgba(9, 119, 119, 0.1)',
-              },
-              rarity: {
-                common: '#8c8c8c',
-                uncommon: '#4CAF50',
-                rare: '#2196F3',
-                epic: '#9c27b0',
-                legendary: '#f0b209',
-                mythical: '#d13429',
-                relic: '#ffeb3b',
-              }
-            },
-            fontFamily: {
-              cinzel: ['Cinzel', 'serif'],
-              sans: ['Segoe UI', 'sans-serif'],
-            },
-            animation: {
-              'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-            },
-            keyframes: {
-              'pulse-glow': {
-                '0%, 100%': { opacity: 1 },
-                '50%': { opacity: .5 },
-              },
-              'float': {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        background-color: #050505;
-        background-image: 
-          radial-gradient(circle at 15% 50%, rgba(255, 102, 0, 0.05) 0%, transparent 25%),
-          radial-gradient(circle at 85% 30%, rgba(25, 185, 185, 0.05) 0%, transparent 25%);
-        color: #e0e0e0;
-      }
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #0f0f0f;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 3px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Forge Calculator - Roblox Wiki & Tools</title>
+  <meta name="description"
+    content="The ultimate calculator and wiki for Roblox The Forge. Find info on Ores, Weapons, Armor, Enemies, and more. Includes an AI Assistant!" />
+  <meta name="keywords" content="Roblox, The Forge, Calculator, Wiki, Ore, Weapon, Armor, RPG, Guide" />
+  <meta name="author" content="Fantasy Forge Calculator Team" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fantasy-forge-calculator.vercel.app/" />
+  <meta property="og:title" content="The Forge Calculator - Roblox Wiki & Tools" />
+  <meta property="og:description"
+    content="The ultimate calculator and wiki for Roblox The Forge. Find info on Ores, Weapons, Armor, Enemies, and more." />
+  <meta property="og:image" content="/favicon.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="The Forge Calculator - Roblox Wiki & Tools" />
+  <meta property="twitter:description"
+    content="The ultimate calculator and wiki for Roblox The Forge. Find info on Ores, Weapons, Armor, Enemies, and more." />
+  <meta property="twitter:image" content="/favicon.png" />
 </head>
-  <body>
-    <div id="root"></div>
+
+<body>
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

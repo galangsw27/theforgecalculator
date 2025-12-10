@@ -10,6 +10,9 @@ interface Message {
     content: string;
 }
 
+// Flag to enable/disable rate limiting (useful for development)
+const RATE_LIMIT_ENABLED = true;
+
 export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -73,20 +76,22 @@ export default function ChatBot() {
 
         // Check Rate Limit
         const now = Date.now();
-        if (resetTime > 0 && now > resetTime) {
-            // Reset if time passed during session
-            setRequestCount(0);
-            setResetTime(0);
-            localStorage.removeItem('chatRequestCount');
-            localStorage.removeItem('chatResetTime');
-        } else if (requestCount >= 5) {
-            const errorMessage: Message = {
-                id: Date.now().toString(),
-                role: 'assistant',
-                content: "Maaf, batas pertanyaan Anda sudah habis (maksimal 5). Silakan tunggu 2 jam lagi atau hubungi [Admin](https://wa.me/6281226716818)"
-            };
-            setMessages(prev => [...prev, errorMessage]);
-            return;
+        if (RATE_LIMIT_ENABLED) {
+            if (resetTime > 0 && now > resetTime) {
+                // Reset if time passed during session
+                setRequestCount(0);
+                setResetTime(0);
+                localStorage.removeItem('chatRequestCount');
+                localStorage.removeItem('chatResetTime');
+            } else if (requestCount >= 5) {
+                const errorMessage: Message = {
+                    id: Date.now().toString(),
+                    role: 'assistant',
+                    content: "Maaf, batas pertanyaan Anda sudah habis (maksimal 5). Silakan tunggu 2 jam lagi atau hubungi [Admin](https://wa.me/6281226716818)"
+                };
+                setMessages(prev => [...prev, errorMessage]);
+                return;
+            }
         }
 
         const userMessage: Message = { id: Date.now().toString(), role: 'user', content: input };
@@ -122,10 +127,11 @@ Gunakan informasi dari wiki ini untuk menjawab:
 ${contextText}
 
 Aturan menjawab:
+- HANYA jawab berdasarkan informasi di atas.
+- Jika jawaban TIDAK ADA di konteks wiki di atas, JANGAN MENGARANG. Katakan saja: "Maaf, saya tidak tahu tentang itu karena tidak ada di data wiki saya."
 - Jawab dengan bahasa yang natural dan friendly, seperti teman yang lagi bantu
 - Jangan terlalu formal atau kaku
 - Kalau ada info di wiki, jelaskan dengan cara yang mudah dimengerti
-- Kalau tidak ada info yang cukup, bilang aja dengan jujur dan kasih saran untuk cek wiki langsung
 - Boleh pakai emoji sesekali untuk lebih friendly 😊
 - Jangan pakai format markdown yang berlebihan, cukup teks biasa yang enak dibaca
 - Fokus kasih info yang berguna dan praktis
@@ -242,8 +248,8 @@ Pertanyaan: ${userMessage.content}
             {/* Chat Window */}
             {isOpen && (
                 <div className={`fixed z-50 bg-[#0f172a] border border-white/10 shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 ${isExpanded
-                    ? 'inset-4 md:inset-10 rounded-2xl'
-                    : 'bottom-24 right-6 w-[450px] h-[600px] rounded-2xl'
+                    ? 'inset-0 md:inset-10 rounded-none md:rounded-2xl'
+                    : 'bottom-20 right-4 left-4 sm:left-auto sm:bottom-24 sm:right-6 sm:w-[450px] h-[500px] sm:h-[600px] rounded-2xl'
                     }`}>
 
                     {/* Header */}
@@ -325,19 +331,28 @@ Pertanyaan: ${userMessage.content}
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                                placeholder="Tanya tentang ore, senjata..."
-                                className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors placeholder:text-gray-600"
+                                placeholder={RATE_LIMIT_ENABLED && requestCount >= 5 ? "Batas pertanyaan habis" : "Tanya tentang ore, senjata..."}
+                                disabled={RATE_LIMIT_ENABLED && requestCount >= 5 && (!resetTime || Date.now() < resetTime)}
+                                className="w-full bg-black/40 border border-white/10 rounded-xl py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors placeholder:text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
                             />
                             <button
                                 onClick={handleSend}
-                                disabled={!input.trim() || isLoading}
+                                disabled={!input.trim() || isLoading || (RATE_LIMIT_ENABLED && requestCount >= 5 && (!resetTime || Date.now() < resetTime))}
                                 className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-blue-600 rounded-lg text-white hover:bg-blue-500 disabled:opacity-50 disabled:hover:bg-blue-600 transition-colors"
                             >
                                 <Send size={14} />
                             </button>
                         </div>
                         <div className="text-[10px] text-center text-gray-600 mt-2">
-                            Powered by Gemini AI & The Forge Wiki
+                            {RATE_LIMIT_ENABLED ? (
+                                requestCount >= 5 ? (
+                                    <span className="text-red-400">Limit reached. Resets in {Math.ceil((resetTime - Date.now()) / 60000)} mins</span>
+                                ) : (
+                                    <span>Questions left: {5 - requestCount} | Powered by OpenRouter & Wiki</span>
+                                )
+                            ) : (
+                                <span>Powered by OpenRouter & Wiki (Dev Mode)</span>
+                            )}
                         </div>
                     </div>
                 </div>

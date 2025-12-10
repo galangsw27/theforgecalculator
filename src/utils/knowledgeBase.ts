@@ -39,14 +39,25 @@ export function searchKnowledgeBase(query: string): SearchResult[] {
     if (!query) return [];
 
     const lowerQuery = query.toLowerCase().replace(/[?.,!]/g, '');
-    const tokens = lowerQuery.split(/\s+/).filter(t => t.length > 1); // Allow 2 char words like "HP"
+    const tokens = lowerQuery.split(/\s+/).filter(t => t.length > 1);
 
-    // Keyword mappings for boosting
-    const isAskingLocation = tokens.some(t => ['dimana', 'lokasi', 'tempat', 'where', 'location'].includes(t));
-    const isAskingEnemy = tokens.some(t => ['musuh', 'lawan', 'enemy', 'enemies', 'monster'].includes(t));
-    const isAskingWeapon = tokens.some(t => ['senjata', 'pedang', 'weapon', 'sword', 'bow'].includes(t));
-    const isAskingOre = tokens.some(t => ['ore', 'batu', 'tambang', 'mining'].includes(t));
-    const isAskingDrop = tokens.some(t => ['dapat', 'drop', 'loot', 'hasil'].includes(t));
+    // Synonym Mapping
+    const synonyms: { [key: string]: string[] } = {
+        'armor': ['baju', 'zirah', 'pakaian', 'rompi'],
+        'weapon': ['senjata', 'pedang', 'tombak', 'panah', 'bow', 'sword'],
+        'enemy': ['musuh', 'lawan', 'monster', 'boss', 'raja'],
+        'location': ['dimana', 'lokasi', 'tempat', 'daerah', 'area', 'spot'],
+        'ore': ['batu', 'tambang', 'mineral', 'mining'],
+        'drop': ['dapat', 'hasil', 'loot', 'jatuh'],
+        'mechanic': ['cara', 'mekanik', 'sistem', 'tutorial']
+    };
+
+    // Check for intent based on synonyms
+    const isAskingLocation = tokens.some(t => synonyms['location'].includes(t) || t === 'location');
+    const isAskingEnemy = tokens.some(t => synonyms['enemy'].includes(t) || t === 'enemy');
+    const isAskingWeapon = tokens.some(t => synonyms['weapon'].includes(t) || t === 'weapon');
+    const isAskingOre = tokens.some(t => synonyms['ore'].includes(t) || t === 'ore');
+    const isAskingArmor = tokens.some(t => synonyms['armor'].includes(t) || t === 'armor');
 
     // Calculate score for each item
     const scoredItems = ALL_DATA.map(item => {
@@ -66,12 +77,13 @@ export function searchKnowledgeBase(query: string): SearchResult[] {
         });
 
         // 3. Contextual Boosting
-        if (isAskingLocation && (item['Area'] || item['Location'])) score += 15;
-        if (isAskingEnemy && itemType === 'enemy') score += 15;
-        if (isAskingWeapon && itemType === 'weapon') score += 15;
-        if (isAskingOre && itemType === 'ore') score += 15;
+        if (isAskingLocation && (item['Area'] || item['Location'] || itemType === 'location')) score += 20;
+        if (isAskingEnemy && itemType === 'enemy') score += 20;
+        if (isAskingWeapon && itemType === 'weapon') score += 20;
+        if (isAskingOre && itemType === 'ore') score += 20;
+        if (isAskingArmor && itemType === 'armor') score += 20;
 
-        // Boost if the item name is one of the tokens (e.g. "Bomber" in "dimana bomber")
+        // Boost if the item name is one of the tokens
         if (tokens.some(t => itemName === t)) score += 30;
 
         return { item, score };
@@ -79,14 +91,14 @@ export function searchKnowledgeBase(query: string): SearchResult[] {
 
     // Filter and Sort
     const results = scoredItems
-        .filter(r => r.score > 0)
+        .filter(r => r.score > 10) // Increased threshold to reduce noise
         .sort((a, b) => b.score - a.score)
         .map(r => r.item);
 
     console.log(`Search Query: "${query}"`);
     console.log(`Top Results:`, results.slice(0, 3).map(i => i.name));
 
-    return results.slice(0, 8);
+    return results.slice(0, 5); // Reduced limit to keep context focused
 }
 
 export function formatContext(results: SearchResult[]): string {

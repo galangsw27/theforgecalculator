@@ -266,6 +266,19 @@ export default function App() {
                         </button>
                     </div>
                 </div>
+                {/* Marquee Animation */}
+                <div className="bg-black/40 border-b border-white/5 overflow-hidden py-1 flex">
+                    <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex-shrink-0 flex">
+                        {Array(10).fill(0).map((_, i) => (
+                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">Thanks To | Forgewiki & Nipozy & Trhees</span>
+                        ))}
+                    </div>
+                    <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex-shrink-0 flex" aria-hidden="true">
+                        {Array(10).fill(0).map((_, i) => (
+                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">Thanks To | Forgewiki & Nipozy & Trhees</span>
+                        ))}
+                    </div>
+                </div>
             </header>
 
             <main className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -379,7 +392,7 @@ export default function App() {
                                                 ? `shadow-[0_0_15px_-5px_var(--tw-shadow-color)]`
                                                 : 'border-dashed border-white/10 hover:border-white/20 hover:bg-white/5'
                                             }
-`}
+                                `}
                                         style={slotOre ? { borderColor: slotOre.color, '--tw-shadow-color': slotOre.color } as React.CSSProperties : {}}
                                     >
                                         {slotOre ? (
