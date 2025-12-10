@@ -232,38 +232,110 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
 export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name: string, chance: string, probability: number }[]>>> = {
     weapon: {
         "Dagger": {
-            "stonewake": [
-                { name: "Dagger", chance: "1/1", probability: 1.0 },
-                { name: "Falchion Knife", chance: "1/2", probability: 0.5 },
-                { name: "Gladius Dagger", chance: "1/16", probability: 0.0625 }
-            ],
             "kingdom": [
                 { name: "Dagger", chance: "1/1", probability: 1.0 },
+                { name: "Falchion Knife", chance: "1/2", probability: 0.5 },
                 { name: "Gladius Dagger", chance: "1/4", probability: 0.25 },
                 { name: "Hook", chance: "1/16", probability: 0.0625 }
             ]
         },
-        // ... (Truncated for brevity, assuming full structure is similar to the HTML input)
-        // I'll add a few key ones to ensure functionality works
         "Straight Sword": {
             "kingdom": [
                 { name: "Falchion", chance: "1/1", probability: 1.0 },
-                { name: "Cutlass", chance: "1/2", probability: 0.5 },
-                { name: "Rapier", chance: "1/4", probability: 0.25 },
+                { name: "Gladius", chance: "1/2", probability: 0.5 },
+                { name: "Cutlass", chance: "1/4", probability: 0.25 },
+                { name: "Rapier", chance: "1/8", probability: 0.125 },
                 { name: "Chaos", chance: "1/16", probability: 0.0625 }
+            ]
+        },
+        "Gauntlet": {
+            "kingdom": [
+                { name: "Ironhand", chance: "1/1", probability: 1.0 },
+                { name: "Boxing Gloves", chance: "1/4", probability: 0.25 },
+                { name: "Relevator", chance: "1/16", probability: 0.0625 }
+            ]
+        },
+        "Katana": {
+            "kingdom": [
+                { name: "Uchigatana", chance: "1/1", probability: 1.0 },
+                { name: "Tachi", chance: "1/2", probability: 0.5 }
+            ]
+        },
+        "Great Sword": {
+            "kingdom": [
+                { name: "Crusader Sword", chance: "1/1", probability: 1.0 },
+                { name: "Long Sword", chance: "1/2", probability: 0.5 }
+            ]
+        },
+        "Great Axe": {
+            "kingdom": [
+                { name: "Double Battle Axe", chance: "1/1", probability: 1.0 },
+                { name: "Scythe", chance: "1/2", probability: 0.5 }
             ]
         },
         "Colossal Sword": {
             "kingdom": [
                 { name: "Great Sword", chance: "1/1", probability: 1.0 },
-                { name: "Hammer", chance: "1/4", probability: 0.25 },
-                { name: "Skull Crusher", chance: "1/8", probability: 0.125 },
-                { name: "Dragon Slayer", chance: "1/16", probability: 0.0625 }
+                { name: "Hammer", chance: "1/2", probability: 0.5 },
+                { name: "Skull Crusher", chance: "1/2", probability: 0.5 },
+                { name: "Dragon Slayer", chance: "1/3", probability: 0.333 },
+                { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }
+            ]
+        }
+    },
+    armor: {
+        "Light Helmet": {
+            "kingdom": [
+                { name: "Light Helmet", chance: "1/1", probability: 1.0 }
+            ]
+        },
+        "Light Leggings": {
+            "kingdom": [
+                { name: "Light Leggings", chance: "1/2", probability: 0.5 }
+            ]
+        },
+        "Light Chestplate": {
+            "kingdom": [
+                { name: "Light Chestplate", chance: "1/3", probability: 0.333 }
+            ]
+        },
+        "Medium Helmet": {
+            "kingdom": [
+                { name: "Medium Helmet", chance: "1/1", probability: 1.0 },
+                { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }
+            ]
+        },
+        "Medium Leggings": {
+            "kingdom": [
+                { name: "Medium Leggings", chance: "1/2", probability: 0.5 },
+                { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }
+            ]
+        },
+        "Medium Chestplate": {
+            "kingdom": [
+                { name: "Medium Chestplate", chance: "1/3", probability: 0.333 },
+                { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }
+            ]
+        },
+        "Heavy Helmet": {
+            "kingdom": [
+                { name: "Knight Helmet", chance: "1/1", probability: 1.0 },
+                { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }
+            ]
+        },
+        "Heavy Leggings": {
+            "kingdom": [
+                { name: "Knight Leggings", chance: "1/2", probability: 0.5 },
+                { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }
+            ]
+        },
+        "Heavy Chestplate": {
+            "kingdom": [
+                { name: "Knight Chestplate", chance: "1/3", probability: 0.333 },
+                { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }
             ]
         }
     }
-    // Note: In a real full implementation, I would map all variants. 
-    // For this response, I'm ensuring the logic works with defaults if not found.
 };
 
 // Best Weapons Recipes

@@ -179,16 +179,22 @@ export default function App() {
                 }
             }
 
-            // 2. Determine Variant (Simple random from available variants for now)
+            // 2. Determine Variant with weighted random selection
             let itemName = rolledType;
             const variants = ITEM_VARIANTS[activeTab]?.[rolledType]?.[activeArea];
 
-            // Fallback logic for variants
+            // Weighted random selection for variants
             if (variants && variants.length > 0) {
-                // Simple weighted random for variant
-                // Just pick one for demo purposes if weights aren't fully normalized in data
-                const variant = variants[Math.floor(Math.random() * variants.length)];
-                itemName = variant.name;
+                // Sort variants by probability (descending) to check from rarest to most common
+                const sortedVariants = [...variants].sort((a, b) => a.probability - b.probability);
+
+                // Roll for each variant starting from rarest
+                for (const variant of sortedVariants) {
+                    if (Math.random() <= variant.probability) {
+                        itemName = variant.name;
+                        break;
+                    }
+                }
             } else {
                 // Find base item name matching type if no variants found (fallback)
                 const base = Object.entries(BASE_ITEM_STATS[activeTab]).find(([_, stat]) => stat.type === rolledType);
