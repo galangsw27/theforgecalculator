@@ -60,6 +60,9 @@ const dataFiles = [
     { file: 'mechanics.json', type: 'Mechanic' },
     { file: 'guides.json', type: 'Guide' },
     { file: 'codes.json', type: 'Code' },
+    { file: 'achievements.json', type: 'Achievement' },
+    { file: 'story.json', type: 'Story' },
+    { file: 'npcs.json', type: 'NPC' },
 ];
 
 /**
