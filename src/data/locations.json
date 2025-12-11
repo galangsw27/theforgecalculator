@@ -1,13 +1,78 @@
 [
   {
     "name": "Stonewake's Cross",
-    "url": "https://www.theforgewiki.org/locations/stonewakes-cross.html",
-    "description": "Stonewake's Cross is the first major hub players visit in The Forge. It gathers all core services in one place: forging, enhancing, runes, potions, tools, selling, and race rerolls � everything needed to build a strong Forger before venturing deeper."
+    "url": "https://forgewiki.org/wiki/Locations",
+    "description": "The first major hub players visit. It gathers all core services in one place: forging, enhancing, runes, potions, tools, selling, and race rerolls – everything needed to build a strong Forger before venturing deeper.",
+    "npcs": [
+      "Sensei Moro",
+      "Greedy Cey",
+      "Marbles",
+      "Maria",
+      "Miner Fred",
+      "Wizard",
+      "Umut The Brave",
+      "Nord",
+      "Enhancer",
+      "Runemaker",
+      "Tomo the Explorist",
+      "Bard",
+      "Suspicious Fisher",
+      "Undead"
+    ],
+    "enemies": [
+      "Zombie",
+      "Delver Zombie",
+      "Elite Zombie",
+      "Brute Zombie"
+    ]
   },
   {
     "name": "Forgotten Kingdom",
-    "url": "https://www.theforgewiki.org/locations/forgotten-kingdom.html",
-    "Farm crystal ores": "Arcane, Blue, Crimson, and more",
-    "description": "The Forgotten Kingdom � once the largest kingdom, now a fallen castle with forgotten memories. Supplying all the core services from forging to enchanting and featuring even more life-threatening quests. Traces of ancient magic still run through its crumbling walls, luring only the bravest to uncover its secrets."
+    "url": "https://forgewiki.org/wiki/Locations",
+    "description": "Island Two, once the largest kingdom, now a fallen castle with forgotten memories. Supplying all the core services from forging to enchanting and featuring even more life-threatening quests. Traces of ancient magic still run through its crumbling walls, luring only the bravest to uncover its secrets.",
+    "features": [
+      "Farm crystal ores: Arcane, Blue, Crimson, and more"
+    ],
+    "npcs": [
+      "Sensei Moro (FG)",
+      "Greedy Cey (FG)",
+      "Wo",
+      "Maria (FG)",
+      "Miner Fred (FG)",
+      "Wizard (FG)",
+      "Umut The Brave (FG)",
+      "Nord (FG)",
+      "Enhancer (FG)",
+      "Runemaker (FG)",
+      "Captain Rowan",
+      "Line",
+      "Farmer",
+      "Suspicious Fisher (FG)",
+      "Barakkulf",
+      "Walter",
+      "Malik",
+      "Henry",
+      "Isaac",
+      "Masked Stranger",
+      "Amber",
+      "Azuk",
+      "Gurak",
+      "Goblin King",
+      "Zesty",
+      "Zesty2",
+      "Skal"
+    ],
+    "enemies": [
+      "Bomber",
+      "Skeleton Rogue",
+      "Axe Skeleton",
+      "Deathaxe Skeleton",
+      "Elite Skeleton Rogue",
+      "Elite Deathaxe Skeleton",
+      "Blight Pyromancer",
+      "Reaper",
+      "Slime",
+      "Blazing Slime"
+    ]
   }
 ]

@@ -1,107 +1,115 @@
 [
   {
-    "name": "Tier List",
-    "url": "https://www.theforgewiki.org/runes/tier-list.html",
-    "description": "This tier list ranks all runes in The Forge based on their effectiveness and versatility. Understanding rune rankings helps you prioritize which runes to farm and equip."
-  },
-  {
     "name": "Miner Shard",
-    "url": "https://www.theforgewiki.org/runes/miner-shard.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Delver Zombie  Bomber",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Luck": "5-16% overall luck increase",
+      "Yield": "3-10% chance to drop 1 extra ore from mines",
+      "Swift Mining": "4-12% faster mining",
+      "Mine Power": "8-15% extra mine damage"
+    },
+    "obtainment": "Delver Zombie, Bomber",
+    "description": "A mining-focused rune that enhances luck, ore yield, mining speed, and mining power."
   },
   {
     "name": "Frost Speck",
-    "url": "https://www.theforgewiki.org/runes/frost-speck.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Elite Zombie",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Ice": "Freezes enemies for a short duration. Has a small chance to trigger and a short cooldown"
+    },
+    "obtainment": "Unobtainable",
+    "description": "A frost rune that can freeze enemies, currently unobtainable in-game."
   },
   {
     "name": "Flame Spark",
-    "url": "https://www.theforgewiki.org/runes/flame-spark.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Elite ZombieDeathaxe Skeleton",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Burn": "Deals 5-10% of weapon damage as fire per second for 1-2 seconds. 15-25% chance on hit"
+    },
+    "obtainment": "Deathaxe Skeleton, Elite Deathaxe Skeleton, Blazing Slime, Reaper",
+    "description": "A fire rune that inflicts burning damage over time on hit."
   },
   {
     "name": "Venom Crumb",
-    "url": "https://www.theforgewiki.org/runes/venom-crumb.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "ZombieElite Zombie",
-    "Sold For": "$25",
-    "Drop": "ZombieElite Zombie",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Poison": "Deals 4-7% of weapon damage as poison per second for 3-6 seconds. 25-35% chance on hit"
+    },
+    "obtainment": "Blight Pyromancer",
+    "description": "A poison rune that inflicts toxic damage over an extended duration."
   },
   {
     "name": "Chill Dust",
-    "url": "https://www.theforgewiki.org/runes/chill-dust.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Elite ZombieBrute Zombie",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Snow": "Slows enemy movement and attack speed"
+    },
+    "obtainment": "Unobtainable",
+    "description": "A cold rune that slows enemies, currently unobtainable in-game."
   },
   {
     "name": "Blast Chip",
-    "url": "https://www.theforgewiki.org/runes/blast-chip.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Delver Zombie",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Explosion": "Causes an explosion at location of victim, dealing 20-40% of weapon damage as AOE damage. 8-20% chance on hit"
+    },
+    "obtainment": "Bomber",
+    "description": "An explosive rune that creates area-of-effect damage on hit."
   },
   {
     "name": "Drain Edge",
-    "url": "https://www.theforgewiki.org/runes/drain-edge.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Reaper",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Heal": "Heal 5-13% of physical damage dealt on-hit"
+    },
+    "obtainment": "Reaper",
+    "description": "A lifesteal rune that heals the user based on damage dealt."
   },
   {
     "name": "Briar Notch",
-    "url": "https://www.theforgewiki.org/runes/briar-notch.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Deathaxe Skeleton  Elite Deathaxe Skeleton",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Thorns": "Reflect 2-10% physical damage taken. Maximum damage given limits at 5% max health of user. 0.05 seconds cooldown"
+    },
+    "obtainment": "Deathaxe Skeleton, Elite Deathaxe Skeleton",
+    "description": "A defensive rune that reflects damage back to attackers."
   },
   {
     "name": "Rage Mark",
-    "url": "https://www.theforgewiki.org/runes/rage-mark.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Elite Rouge Skeleton",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Berserk": "Boosts physical damage and movement speed by 12-26% for 4-7 seconds. Has 50-60 seconds cooldown. Activates when health is below 35%"
+    },
+    "obtainment": "Elite Skeleton Rogue",
+    "description": "A berserker rune that triggers when low on health, boosting damage and speed."
   },
   {
     "name": "Ward Patch",
-    "url": "https://www.theforgewiki.org/runes/ward-patch.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "ZombieElite ZombieBrute Zombie",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Shield": "Reduces incoming damage by 6-14% with a 5-15% chance per hit"
+    },
+    "obtainment": "Obtainable in tutorial",
+    "description": "A defensive rune that has a chance to reduce incoming damage."
   },
   {
     "name": "Rot Stitch",
-    "url": "https://www.theforgewiki.org/runes/rot-stitch.html",
+    "url": "https://forgewiki.org/wiki/Runes",
     "Rarity": "Rare",
-    "Drops": "Zombie",
-    "Sold For": "$25",
-    "Price": "$25",
-    "description": ""
+    "abilities": {
+      "Toxic Veins": "Deals poison damage around the user while health is below 35%"
+    },
+    "obtainment": "Unobtainable",
+    "description": "A poison aura rune that activates when low on health, currently unobtainable."
   }
 ]

@@ -1,74 +1,37 @@
 [
   {
-    "name": "The Forge Beginner Guide",
-    "url": "https://www.theforgewiki.org/guides/the-forge-beginner-guide/",
-    "Entrance": "Pebbles, Stone, Iron ? no enemies",
-    "Deeper areas": "Protected by Zombies",
-    "Even deeper": "Rocks and giant boulders with stronger enemies",
-    "Rerolls": "Re-randomize stats on crafted weapons/armor",
-    "Luck Totems": "Boost drop rates temporarily",
-    "Mining Totems": "Boost mining speed temporarily",
-    "description": "The complete starter guide for new players. Learn pickaxe progression, race rolling, money making, quests, and everything you need to go from beginner to mid-game!"
+    "title": "Quick Tips",
+    "category": "Beginner's Guide",
+    "content": "Luck Stat & Race Rerolls: The Luck stat does NOT affect your race reroll chances. It only impacts mining drops and loot.\nSave Your Runes: Don't apply runes until you get the Arcane Pickaxe. Lower-tier pickaxes will be replaced quickly."
   },
   {
-    "name": "Best Money Making Guide for The Forge",
-    "url": "https://www.theforgewiki.org/guides/forge-money-guide/",
-    "Playstyle": "Active, PvE Combat",
-    "Requirements": "Combat-ready gear",
-    "XP Gain": "High (levels up fast!)",
-    "Consistency": "Consistent drops",
-    "Best For": "Fighters & Grinders",
-    "description": "The complete guide to earning cash fast in The Forge. Two proven methods that will have you buying pickaxes and gear in no time!"
+    "title": "Pickaxe Progression",
+    "category": "Beginner's Guide",
+    "content": "Recommended Upgrade Path: Iron Pickaxe (World 1 Shop) -> Stonewake's Pickaxe (World 1 Cave) -> Cobalt Pickaxe (World 2 Shop) -> Titanium Pickaxe (World 2 Shop) -> Mythril Pickaxe (World 2 Shop) -> Arcane Pickaxe (Bard Quest World 1).\n\nMoney-Saving Tip: Before upgrading to your next pickaxe, buy a Bronze Pickaxe first. Then sell your current pickaxe to recover gold. This lets you keep mining while freeing up funds to afford the next tier faster.\n\nRune Tip: Only apply runes to the Arcane Pickaxe. Equip all 3 Luck Runes for maximum luck (up to 16% bonus each).\n\nEarning Money for Arcane Pickaxe: Complete Monkey Quest, Line's Quest, and work on Rowan's and Moro's quests. Farm high-tier mobs for Essence or forge/sell Heavy Armor/Colossal Swords."
   },
   {
-    "name": "All Armor Recipes in The Forge",
-    "url": "https://www.theforgewiki.org/guides/the-forge-armor-recipes/",
-    "description": "Complete crafting guide for light, medium, and heavy armor sets including exact ore requirements."
+    "title": "Money Making Methods",
+    "category": "Beginner's Guide",
+    "content": "1. Farm High-Tier Mobs for Essence: Kill high-tier enemies to collect Essence, then sell it for significant profit.\n2. Forge & Sell Heavy Armor or Colossal Swords: These high-tier items fetch the best prices and are ideal for converting ores into gold."
   },
   {
-    "name": "Best Weapon Recipes in The Forge",
-    "url": "https://www.theforgewiki.org/guides/the-forge-weapon-recipes/",
-    "Dagger": "3",
-    "Straight Sword": "8",
-    "Gauntlet": "11",
-    "Katana": "15",
-    "Great Sword": "20",
-    "Great Axe": "37",
-    "Colossal Sword": "46",
-    "Light Armor": "3 (Helmet, More for Leggings/Chest)",
-    "Medium Armor": "17",
-    "Heavy Armor": "46",
-    "description": "Complete crafting guide for the strongest weapons including exact ore requirements and multipliers."
+    "title": "Best Races",
+    "category": "Beginner's Guide",
+    "content": "Mining: 1st: Angel (+30% Luck), 2nd: Dwarf (+15% Mining Damage).\nCombat: Demon (Best for fighting enemies).\nUtility: Dwarf (+5% Forge Quality), Goblin (-12% Shop Prices)."
   },
   {
-    "name": "How to Unlock the Goblin Cave",
-    "url": "https://www.theforgewiki.org/guides/how-to-unlock-goblin-cave/",
-    "Quest 2": "3x Topaz",
-    "Quest 3": "5x Diamond",
-    "Quest 4": "5x Emerald",
-    "Quest 5": "5x Ruby",
-    "TOTAL": "18 Gems",
-    "description": "Complete guide to finding the Goblin Village, completing all 5 Goblin King quests, and unlocking the secret Goblin Cave in The Forge."
+    "title": "Best Gamepasses",
+    "category": "Beginner's Guide",
+    "content": "Recommended Purchase Order:\n1. Double Storage: Doubles inventory capacity.\n2. Fast Forge: Significantly speeds up forging time.\n3. Sell Anywhere: Sell items from anywhere.\n4. Better Forge: Essential for improving forge quality.\n5. Supporter: Increases luck and xp gain by 10%.\n6. Forge Anywhere: Access forge from any location."
   },
   {
-    "name": "How to Get the Demonic Pickaxe",
-    "url": "https://www.theforgewiki.org/guides/how-to-get-demonic-pickaxe/",
-    "description": "Complete step-by-step guide to unlocking the most powerful pickaxe in The Forge. Master the Volcanic Depths quest, farm Demonite ore, and obtain the legendary Demonite Key!"
+    "title": "Runes Guide",
+    "category": "Beginner's Guide",
+    "content": "Farming Miner Runes: Kill Bombers in World 2.\n\nWeapon Rune Optimization:\n- Fast Attack Speed: Use Lethality substats.\n- Slow Attack Speed: Use Attack Speed substats.\n- Universal: One Drain Rune and one Blast Rune.\n\nArmor Rune Optimization:\n- Substats: Vitality or Movement Speed.\n- Recommended: Briar Runes.\n\nRune Recommendations by Gear:\n- Dagger: Drain Edge + Blast Chip (AS/Lethality or Crit)\n- Straight Sword: Blast Chip + Drain Edge/Blast Chip (AS/Lethality or Crit)\n- Gauntlet: Drain Edge + Blast Chip (AS/Lethality or Crit)\n- Katana: Blast Chip + Drain Edge/Blast Chip (AS/Lethality or Crit)\n- Colossal Sword: Blast Chip + Blast Chip (Lethality)\n- Armor: Any (Mainly Vitality and Surge)\n- Pickaxe: Luck > Mine Power/Speed > Yield"
   },
   {
-    "name": "Pickaxe Progression Guide",
-    "url": "https://www.theforgewiki.org/guides/pickaxe-progression-guide/",
-    "Bronze": "Buy",
-    "Iron": "Buy",
-    "Gold": "Skip",
-    "Platinum": "Skip",
-    "Stonewakes": "Buy",
-    "Cobalt": "Buy",
-    "Titanium": "Optional",
-    "Mithril": "Buy",
-    "Uranium": "Skip",
-    "Lightite": "Skip",
-    "Arcane": "Best",
-    "description": "The optimal upgrade path from starter pickaxe to endgame mining power. Learn which pickaxes to buy, which to skip, and how to unlock the secret Arcane Pickaxe!"
+    "title": "Quest Priority Guide",
+    "category": "Beginner's Guide",
+    "content": "World 1 Priorities:\n1. Sensei Moro Quest (Top priority)\n2. Bard Quest (Required for Arcane Pickaxe)\n! Cat Quest (Very low priority)\n\nWorld 2 Priorities:\n1. Sensei Moro Quest (Top priority)\n2. Masked Stranger Daily Quests (High priority)\n3. Captain Rowan Quest (Prioritize in World 2)\n4. Line's Quest (High priority)\n5. Monkey Quest (Good for quick money)\n! Goblin King Quest (Very low priority)"
   }
 ]

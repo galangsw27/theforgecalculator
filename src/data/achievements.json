@@ -1,0 +1,250 @@
+[
+    {
+        "name": "Weapon Smith",
+        "description": "Increases attack speed based on level. Level up by Forging Weapons.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+4% Attack Speed",
+                "requirement": "10 Weapons Forged"
+            },
+            {
+                "level": 2,
+                "reward": "+8% Attack Speed",
+                "requirement": "? Weapons Forged"
+            },
+            {
+                "level": 3,
+                "reward": "+12% Attack Speed",
+                "requirement": "? Weapons Forged"
+            },
+            {
+                "level": 4,
+                "reward": "+16% Attack Speed",
+                "requirement": "? Weapons Forged"
+            },
+            {
+                "level": 5,
+                "reward": "+20% Attack Speed",
+                "requirement": "? Weapons Forged"
+            }
+        ]
+    },
+    {
+        "name": "Monster Slayer",
+        "description": "Increases Stamina based on level. Level up by killing Mobs.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+8% Stamina",
+                "requirement": "25 Mobs Killed"
+            },
+            {
+                "level": 2,
+                "reward": "+16% Stamina",
+                "requirement": "? Mobs Killed"
+            },
+            {
+                "level": 3,
+                "reward": "+24% Stamina",
+                "requirement": "? Mobs Killed"
+            },
+            {
+                "level": 4,
+                "reward": "+32% Stamina",
+                "requirement": "? Mobs Killed"
+            },
+            {
+                "level": 5,
+                "reward": "+40% Stamina",
+                "requirement": "? Mobs Killed"
+            }
+        ]
+    },
+    {
+        "name": "Master Miner",
+        "description": "Increases Mine Power based on level. Level up by Mining Rocks and collecting Ores.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+5% Mine Power",
+                "requirement": "100 Rocks Mined"
+            },
+            {
+                "level": 2,
+                "reward": "+10% Mine Power",
+                "requirement": "? Rocks Mined"
+            },
+            {
+                "level": 3,
+                "reward": "+15% Mine Power",
+                "requirement": "? Rocks Mined"
+            },
+            {
+                "level": 4,
+                "reward": "+20% Mine Power",
+                "requirement": "? Rocks Mined"
+            },
+            {
+                "level": 5,
+                "reward": "+25% Mine Power",
+                "requirement": "? Rocks Mined"
+            }
+        ]
+    },
+    {
+        "name": "Armor Smith",
+        "description": "Increases Max Health based on level. Level up by Forging Armor.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+5% Max Health",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 2,
+                "reward": "+10% Max Health",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 3,
+                "reward": "+15% Max Health",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 4,
+                "reward": "+20% Max Health",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 5,
+                "reward": "+25% Max Health",
+                "requirement": "Unknown"
+            }
+        ]
+    },
+    {
+        "name": "Experience Master",
+        "description": "Increases XP Multiplier based on level. Level up by increasing the level of your character.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+6% XP Multiplier Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 2,
+                "reward": "+12% XP Multiplier Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 3,
+                "reward": "+18% XP Multiplier Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 4,
+                "reward": "+24% XP Multiplier Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 5,
+                "reward": "+30% XP Multiplier Boost",
+                "requirement": "Unknown"
+            }
+        ]
+    },
+    {
+        "name": "Rune Master",
+        "description": "Increases Critical Chance based on level. Level up by applying Runes.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+7% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 2,
+                "reward": "+14% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 3,
+                "reward": "+21% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 4,
+                "reward": "+28% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 5,
+                "reward": "+35% Critical Chance Boost",
+                "requirement": "Unknown"
+            }
+        ]
+    },
+    {
+        "name": "Dedicated Player",
+        "description": "Increases Luck based on level. Level up by playing the game and increasing your overall Time Played.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+8% Luck",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 2,
+                "reward": "+16% Luck",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 3,
+                "reward": "+24% Luck",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 4,
+                "reward": "+32% Luck",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 5,
+                "reward": "+40% Luck",
+                "requirement": "Unknown"
+            }
+        ]
+    },
+    {
+        "name": "Upgrade Master",
+        "description": "Increases Critical Chance based on level. Level up by Enhancing Weapons and Armor.",
+        "levels": [
+            {
+                "level": 1,
+                "reward": "+7% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 2,
+                "reward": "+14% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 3,
+                "reward": "+21% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 4,
+                "reward": "+28% Critical Chance Boost",
+                "requirement": "Unknown"
+            },
+            {
+                "level": 5,
+                "reward": "+35% Critical Chance Boost",
+                "requirement": "Unknown"
+            }
+        ]
+    }
+]

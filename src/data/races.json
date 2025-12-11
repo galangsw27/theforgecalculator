@@ -1,75 +1,133 @@
 [
   {
-    "name": "Human (Race)",
-    "url": "https://www.theforgewiki.org/races/human-race.html",
-    "description": ""
+    "name": "Human",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Common",
+    "Chance": "50%",
+    "abilities": {
+      "Versatile": "+5% Experience Boost",
+      "Adaptable": "+5% Luck Boost"
+    },
+    "description": "The default starting race. Humans are adaptable and well-rounded, offering modest bonuses to experience and luck."
   },
   {
-    "name": "Elf (Race)",
-    "url": "https://www.theforgewiki.org/races/elf-race.html",
-    "Glorious": "+7% Luck",
-    "Superior Genes": "1.05 Height and 15% Extra Stamina",
-    "description": ""
+    "name": "Elf",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Uncommon",
+    "Chance": "20%",
+    "abilities": {
+      "Glorious": "+7% Luck",
+      "Superior Genes": "1.05 Height and +15% Extra Stamina"
+    },
+    "description": "Elves are graceful beings with enhanced luck and stamina, making them excellent for exploration and mining."
   },
   {
-    "name": "Zombie (Race)",
-    "url": "https://www.theforgewiki.org/races/zombie-race.html",
-    "description": "Zombie is a uncommon race that offers some mild benefits. It mainly supports regeneration and healing."
+    "name": "Zombie",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Uncommon",
+    "Chance": "20%",
+    "abilities": {
+      "Undying": "+10% Health Regeneration",
+      "Rotting Flesh": "Heal 5% HP on enemy kill"
+    },
+    "description": "Zombies are undead creatures with regenerative abilities, supporting a sustain-focused playstyle."
   },
   {
-    "name": "Goblin (Race)",
-    "url": "https://www.theforgewiki.org/races/goblin-race.html",
-    "description": ""
+    "name": "Goblin",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Rare",
+    "Chance": "5%",
+    "abilities": {
+      "Greedy": "+15% Gold from enemies",
+      "Small Stature": "0.8 Height, +10% Movement Speed",
+      "Scavenger": "+10% Luck Boost"
+    },
+    "description": "Goblins are small, greedy creatures that excel at gathering gold and finding rare loot."
   },
   {
-    "name": "Undead (Race)",
-    "url": "https://www.theforgewiki.org/races/undead-race.html",
-    "description": ""
+    "name": "Undead",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Rare",
+    "Chance": "5%",
+    "abilities": {
+      "Deathly": "+15% Damage to enemies",
+      "Hollow Body": "-10% Max HP, +10% Movement Speed",
+      "Soul Harvest": "Heal 3% HP on enemy kill"
+    },
+    "description": "The Undead are powerful but fragile, trading health for increased damage and mobility."
   },
   {
-    "name": "Orc (Race)",
-    "url": "https://www.theforgewiki.org/races/orc-race.html",
-    "description": ""
+    "name": "Dwarf",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Epic",
+    "Chance": "2%",
+    "abilities": {
+      "Forge Master": "+20% Mining Damage",
+      "Stout Body": "0.75 Height, +15% Defense",
+      "Treasure Hunter": "+20% Luck Boost"
+    },
+    "description": "Dwarves are master miners with exceptional luck and defensive capabilities."
   },
   {
-    "name": "Dwarf (Race)",
-    "url": "https://www.theforgewiki.org/races/dwarf-race.html",
-    "description": ""
+    "name": "Shadow",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Epic",
+    "Chance": "2%",
+    "abilities": {
+      "Phantom Step": "15% chance to dodge damage (negate fully)",
+      "Shadow Cloak": "+15% Attack Speed",
+      "Dark Embrace": "+10% Damage, -5% Max HP"
+    },
+    "description": "Shadows are elusive fighters with high evasion and attack speed, perfect for aggressive playstyles."
   },
   {
-    "name": "Shadow (Race)",
-    "url": "https://www.theforgewiki.org/races/shadow-race.html",
-    "description": ""
+    "name": "Minotaur",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Legendary",
+    "Chance": "1%",
+    "abilities": {
+      "Bull's Fury": "When HP is below 50%, gain +30% Movement Speed and +30% Physical Damage",
+      "Titan's Strength": "+20% Base Damage",
+      "Thick Hide": "+20% Defense, 1.2 Height"
+    },
+    "description": "Minotaurs are massive warriors that become more dangerous when wounded, perfect for tank builds."
   },
   {
-    "name": "Minotaur (Race)",
-    "url": "https://www.theforgewiki.org/races/minotaur-race.html",
-    "Bull's Fury - When the Player's Health is under 50%, activate rage mode": "Increase movement speed and physical damage by 30%",
-    "description": ""
+    "name": "Dragonborn",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Legendary",
+    "Chance": "1%",
+    "abilities": {
+      "Dragon's Fire": "25% chance to deal +30% fire damage on hit",
+      "Scales of Steel": "+25% Defense",
+      "Elemental Resistance": "+15% Resistance to all elemental damage"
+    },
+    "description": "Dragonborn are powerful dragon-human hybrids with fire abilities and exceptional defense."
   },
   {
-    "name": "Dragonborn (Race)",
-    "url": "https://www.theforgewiki.org/races/dragonborn-race.html",
-    "description": ""
+    "name": "Angel",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Mythical",
+    "Chance": "0.5%",
+    "abilities": {
+      "Wings": "-20% Dash Cooldown, +50% Dash Distance, +15% Longer Dash IFrame, +20% Movement Speed, +25% Jump Boost, +20% Stamina",
+      "Mighty Clover": "+30% Luck Boost",
+      "Smite": "50% chance to call upon Smite on-hit for 30% of physical damage",
+      "Holy Hand": "Have infinite stamina while below 20% health"
+    },
+    "description": "Angels are divine beings with incredible mobility, luck, and powerful smite abilities."
   },
   {
-    "name": "Golem (Race)",
-    "url": "https://www.theforgewiki.org/races/golem-race.html",
-    "description": ""
-  },
-  {
-    "name": "Angel (Race)",
-    "url": "https://www.theforgewiki.org/races/angel-race.html",
-    "description": ""
-  },
-  {
-    "name": "Demon (Race)",
-    "url": "https://www.theforgewiki.org/races/demon-race.html",
-    "description": ""
-  },
-  {
-    "name": "Race Tier List",
-    "url": "https://www.theforgewiki.org/races/race-tier-list.html",
-    "description": "This tier list is a general PvE / progression ranking. It looks at overall value (damage, survivability, mobility and economy) rather than raw rarity. Every race is usable  higher tiers are simply more efficient or forgiving in most scenarios."
+    "name": "Demon",
+    "url": "https://forgewiki.org/wiki/Races",
+    "Rarity": "Mythical",
+    "Chance": "0.5%",
+    "abilities": {
+      "Demonic Powers": "+20% Movement Speed, +20% Attack Speed, +20% Physical Damage, +20% Stronger Fire Damage, +30% Height, +10% Width & Depth",
+      "Backfire": "25% chance to burn the enemy when damage is taken",
+      "Cursed Aura": "While in combat, have a small area around you that deals 10% damage of your weapon per second",
+      "Devil's Finger": "When you dash, teleport with hellfire particles and have 35% chance to create a hellfire circle dealing 45% of your weapon damage per second for 3 seconds"
+    },
+    "description": "Demons are fearsome beings with overwhelming offensive power and hellfire abilities."
   }
 ]

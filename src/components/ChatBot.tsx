@@ -3,6 +3,7 @@ import { MessageSquare, Send, X, Bot, User, Sparkles, Loader2, Maximize2, Minimi
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { searchKnowledgeBase, formatContext } from '../utils/knowledgeBase';
+import { searchVectorDocuments, formatVectorContext, isVectorSearchAvailable } from '../utils/vectorSearch';
 
 interface Message {
     id: string;
@@ -17,7 +18,7 @@ export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { id: '1', role: 'assistant', content: "Halo! Saya adalah **Asisten Forge**. Tanyakan apa saja tentang **ore**, **senjata**, musuh, atau mekanik game!" }
+        { id: '1', role: 'assistant', content: "Halo! Saya adalah **Forge Assistant** 🔥\n\nTanyakan apa saja tentang **ore**, **senjata**, **armor**, **musuh**, atau mekanik game The Forge!\n\n*Powered by AI + Wiki Database*" }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -111,33 +112,56 @@ export default function ChatBot() {
         }
 
         try {
-            // 1. Search Knowledge Base
-            const contextResults = searchKnowledgeBase(userMessage.content);
-            const contextText = formatContext(contextResults);
+            // 1. Search with Vector Search (Supabase) or fallback to keyword search
+            let contextText: string;
+            let searchMethod: string;
+
+            if (isVectorSearchAvailable()) {
+                // Use semantic vector search
+                const vectorResults = await searchVectorDocuments(userMessage.content, 0.6, 6);
+                if (vectorResults.length > 0) {
+                    contextText = formatVectorContext(vectorResults);
+                    searchMethod = '🔍 Semantic Search';
+                    console.log('Using vector search, found:', vectorResults.length, 'results');
+                } else {
+                    // Fallback to keyword search if no vector results
+                    const keywordResults = searchKnowledgeBase(userMessage.content);
+                    contextText = formatContext(keywordResults);
+                    searchMethod = '📚 Keyword Search (fallback)';
+                    console.log('Vector search returned 0 results, using keyword fallback');
+                }
+            } else {
+                // Supabase not configured, use keyword search
+                const keywordResults = searchKnowledgeBase(userMessage.content);
+                contextText = formatContext(keywordResults);
+                searchMethod = '📚 Local Search';
+                console.log('Vector search not available, using local search');
+            }
 
             // 2. Call OpenRouter API
             const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '';
 
             if (apiKey) {
                 try {
-                    const prompt = `
-Kamu adalah teman yang sangat paham tentang game Roblox "The Forge". Jawab pertanyaan user dengan cara yang santai, natural, dan seperti sedang ngobrol dengan teman.
+                    const prompt = `Kamu adalah **Forge Assistant**, teman yang ahli tentang game Roblox "The Forge". Jawab dengan gaya santai, fun, dan helpful seperti ngobrol sama teman.
 
-Gunakan informasi dari wiki ini untuk menjawab:
+## 📖 Data Wiki (${searchMethod}):
 ${contextText}
 
-Aturan menjawab:
-- HANYA jawab berdasarkan informasi di atas.
-- Jika jawaban TIDAK ADA di konteks wiki di atas, JANGAN MENGARANG. Katakan saja: "Maaf, saya tidak tahu tentang itu karena tidak ada di data wiki saya."
-- Jawab dengan bahasa yang natural dan friendly, seperti teman yang lagi bantu
-- Jangan terlalu formal atau kaku
-- Kalau ada info di wiki, jelaskan dengan cara yang mudah dimengerti
-- Boleh pakai emoji sesekali untuk lebih friendly 😊
-- Jangan pakai format markdown yang berlebihan, cukup teks biasa yang enak dibaca
-- Fokus kasih info yang berguna dan praktis
+## 🎯 Cara Menjawab:
+1. **Prioritaskan data wiki** - Jawab berdasarkan informasi di atas
+2. **Jujur kalau gak tahu** - Kalau tidak ada di wiki, bilang: "Hmm, info itu belum ada di database wiki ku nih 🤔 Coba tanya yang lain atau lebih spesifik!"
+3. **Gaya kasual tapi informatif** - Seperti teman gamer yang bantu
+4. **Format rapi** - Pakai bullet points kalau ada list, bold untuk hal penting
+5. **Kasih tips** - Kalau relevan, kasih saran gameplay yang berguna
+6. **Emoji boleh** - Tapi jangan berlebihan
+7. **Bahasa Indonesia** - Kecuali nama item/ore tetap pakai nama aslinya
 
-Pertanyaan: ${userMessage.content}
-`;
+## 💬 Pertanyaan User:
+"${userMessage.content}"
+
+Jawab dengan natural dan membantu:`;
+
                     // Create placeholder message for streaming
                     const botMessageId = (Date.now() + 1).toString();
                     setMessages(prev => [...prev, { id: botMessageId, role: 'assistant', content: '' }]);

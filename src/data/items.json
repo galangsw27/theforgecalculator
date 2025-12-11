@@ -1,38 +1,138 @@
 [
   {
-    "name": "Item Tips",
-    "description": "Buy the Simple Lantern early - cave visibility is essential. Stack totems before boss fights for maximum effect.",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Health Potion",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "cost": "150 Gold",
+    "effect": "Recover I restores 30 health over 5 seconds, Recover II restores 75 health over 5 seconds",
+    "description": "A basic healing potion that restores health over time."
   },
   {
-    "name": "Potion Strategy",
-    "description": "Use Luck Potions when farming rare ores. Miner Potions are best for long cave sessions.",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Damage Potion",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "cost": "250 Gold",
+    "effect": "+10% bonus damage for 60 seconds",
+    "description": "Temporarily increases damage output."
   },
   {
-    "name": "Essence Farming",
-    "description": "Higher-tier essences drop from stronger enemies. Save Superior Essences for endgame gear upgrades.",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Miner Potion",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "cost": "500 Gold",
+    "effect": "+15% mining speed for 300 seconds",
+    "description": "Boosts mining efficiency for extended periods."
   },
   {
-    "name": "The Forge Wiki",
-    "description": "Your complete guide to The Forge on Roblox. Find detailed information on ores, weapons, armor, enemies, and more.",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Speed Potion",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "cost": "200 Gold",
+    "effect": "+15% bonus movement speed for 60 seconds",
+    "description": "Temporarily increases movement speed."
   },
   {
-    "name": "Categories",
-    "description": "Ores Weapons Armor Enemies",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Luck Potion",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "cost": "350 Gold",
+    "effect": "+20% Luck for 300 seconds, raising the odds of rare drops while farming",
+    "description": "Increases luck for finding rare items and ores."
   },
   {
-    "name": "Info",
-    "description": "Terms of Service\n                        Privacy Policy\n                        Contact",
-    "url": "https://www.theforgewiki.org/items/",
-    "category": "items"
+    "name": "Luck Totem",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "effect": "Summons a Luck Totem for 5 minutes, increasing Luck by 50%",
+    "description": "A powerful totem that greatly boosts luck in an area."
+  },
+  {
+    "name": "Warrior Totem",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "effect": "Summons a Warrior Totem that strongly boosts damage for about 5 minutes",
+    "description": "A combat totem that enhances damage output."
+  },
+  {
+    "name": "Vitality Totem",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "effect": "Summons a Vitality Totem that steadily regenerates health for around 5 minutes",
+    "description": "A healing totem that provides sustained health regeneration."
+  },
+  {
+    "name": "XP Totem",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "effect": "Summons an XP Totem for 5 minutes that increases XP gain by 100%",
+    "description": "Doubles experience earned while active."
+  },
+  {
+    "name": "Miner Totem",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Consumable",
+    "effect": "Summons a Miner Totem for 5 minutes, granting 20% faster mining and 15% extra mining damage",
+    "description": "A mining totem that boosts mining speed and damage."
+  },
+  {
+    "name": "Tiny Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "A faint remnant of a creature's life force. Used to slightly empower low-tier gear and early weapons."
+  },
+  {
+    "name": "Small Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "A modest fragment of raw spirit, harvested from lesser foes. Entry-level upgrade fuel for beginner and mid-range builds."
+  },
+  {
+    "name": "Medium Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "A solid core of condensed vitality from stronger creatures. Ideal for mid-tier upgrades and step-up gear."
+  },
+  {
+    "name": "Greater Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "A refined and potent concentration of life force from powerful adversaries. Essential for advanced enhancements and late-game weapons."
+  },
+  {
+    "name": "Epic Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "An extraordinary crystal of swirling energy, fused with the memories of countless fallen enemies. Cornerstone of high-end upgrades and signature builds."
+  },
+  {
+    "name": "Superior Essence",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Essence",
+    "description": "A gleaming reservoir of pure essence from the mightiest foes. Used for top-tier upgrades and unlocking additional rune slots on endgame gear."
+  },
+  {
+    "name": "Portal Tool",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Misc",
+    "description": "Summons a shimmering fast-travel portal that warps you directly to other islands. Unlocked after completing all of Sensei Moro's quests and reaching Level 10."
+  },
+  {
+    "name": "Unknown Key",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Misc",
+    "description": "A mysterious, unmarked key. Its lock has yet to be discovered, but it clearly belongs to a hidden mechanism somewhere in the first world."
+  },
+  {
+    "name": "Demonite Key",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Misc",
+    "description": "Summoned by the demon Skal in the Volcanic Depths, this key is bound to a specific lock within the Volcanic Depths."
+  },
+  {
+    "name": "Simple Lantern",
+    "url": "https://forgewiki.org/wiki/Items",
+    "category": "Misc",
+    "cost": "350 Gold",
+    "description": "A crucial early-game lantern that permanently unlocks cave visibility. Once purchased, it auto-activates whenever you enter a cave, turning pitch-black tunnels into warm candlelight."
   }
 ]

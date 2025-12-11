@@ -33,7 +33,7 @@ export default {
                 }
             },
             fontFamily: {
-                cinzel: ['Cinzel', 'serif'],
+                fredoka: ['"Fredoka One"', 'Regular'],
             },
             boxShadow: {
                 'glow-orange': '0 0 30px -5px rgba(255, 107, 53, 0.5)',

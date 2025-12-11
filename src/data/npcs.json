@@ -1,0 +1,289 @@
+[
+    {
+        "name": "Sensei Moro",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Stonewake's Cross",
+        "description": "Gives the tutorial and main quests to new players."
+    },
+    {
+        "name": "Greedy Cey",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Stonewake's Cross",
+        "description": "Buys items from players."
+    },
+    {
+        "name": "Marbles",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Stonewake's Cross",
+        "description": "Buys weapons and armor from players."
+    },
+    {
+        "name": "Maria",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Stonewake's Cross",
+        "description": "Runs a potion shop."
+    },
+    {
+        "name": "Miner Fred",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Stonewake's Cross",
+        "description": "Runs a pickaxe shop."
+    },
+    {
+        "name": "Wizard",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Stonewake's Cross",
+        "description": "Allows players to reroll races."
+    },
+    {
+        "name": "Umut The Brave",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Stonewake's Cross",
+        "description": "Gives quests related to slaying enemies."
+    },
+    {
+        "name": "Nord",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Stonewake's Cross",
+        "description": "Gives quests related to mining."
+    },
+    {
+        "name": "Enhancer",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Stonewake's Cross",
+        "description": "Upgrades weapons and armor."
+    },
+    {
+        "name": "Runemaker",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Stonewake's Cross",
+        "description": "Applies runes to weapons and armor."
+    },
+    {
+        "name": "Tomo the Explorist",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Stonewake's Cross",
+        "description": "Wandering explorer, his quest is to find his cat Tomo Cat."
+    },
+    {
+        "name": "Bard",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Stonewake's Cross",
+        "description": "Plays music by the campfire. Gives a quest to unlock the gate to Fallen Angel's Cave."
+    },
+    {
+        "name": "Suspicious Fisher",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Stonewake's Cross",
+        "description": "Stares at the water and “definitely isn’t hiding anything”."
+    },
+    {
+        "name": "Undead",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Hidden NPC",
+        "location": "Stonewake's Cross",
+        "description": "The Undead is secretly hiding in the Secret Cave where you can find the guitar."
+    },
+    {
+        "name": "Sensei Moro (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "Gives forging and mining quests to the player in Forgotten Kingdom."
+    },
+    {
+        "name": "Greedy Cey (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Forgotten Kingdom",
+        "description": "Buys items from players in Forgotten Kingdom."
+    },
+    {
+        "name": "Wo",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Forgotten Kingdom",
+        "description": "Buys weapons and armor from players."
+    },
+    {
+        "name": "Maria (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Forgotten Kingdom",
+        "description": "Runs a potion shop in Forgotten Kingdom."
+    },
+    {
+        "name": "Miner Fred (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Merchant",
+        "location": "Forgotten Kingdom",
+        "description": "Runs a pickaxe shop in Forgotten Kingdom."
+    },
+    {
+        "name": "Wizard (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Forgotten Kingdom",
+        "description": "Allows players to reroll races in Forgotten Kingdom."
+    },
+    {
+        "name": "Umut The Brave (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "Gives quests related to slaying enemies in Forgotten Kingdom."
+    },
+    {
+        "name": "Nord (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "Gives quests related to mining in Forgotten Kingdom."
+    },
+    {
+        "name": "Enhancer (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Forgotten Kingdom",
+        "description": "Upgrades weapons and armor in Forgotten Kingdom."
+    },
+    {
+        "name": "Runemaker (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Forgotten Kingdom",
+        "description": "Applies runes to weapons and armor in Forgotten Kingdom."
+    },
+    {
+        "name": "Captain Rowan",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "Wandering explorer with no current function."
+    },
+    {
+        "name": "Line",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Service",
+        "location": "Forgotten Kingdom",
+        "description": "Crafts potions for you."
+    },
+    {
+        "name": "Farmer",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "Plays music by the campfire."
+    },
+    {
+        "name": "Suspicious Fisher (FG)",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "Stares at the water and “definitely isn’t hiding anything” in Forgotten Kingdom."
+    },
+    {
+        "name": "Barakkulf",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "A dwarf that gives mining quests."
+    },
+    {
+        "name": "Walter",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "Captain Rowan's soldier."
+    },
+    {
+        "name": "Malik",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "Captain Rowan's soldier."
+    },
+    {
+        "name": "Henry",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "Captain Rowan's soldier."
+    },
+    {
+        "name": "Isaac",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "Captain Rowan's soldier."
+    },
+    {
+        "name": "Masked Stranger",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "Professional aura farmer that gives enemy-related quests."
+    },
+    {
+        "name": "Amber",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "A happy miner with the Magma Pickaxe."
+    },
+    {
+        "name": "Azuk",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "An Orc guard."
+    },
+    {
+        "name": "Gurak",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Guard",
+        "location": "Forgotten Kingdom",
+        "description": "An Orc guard."
+    },
+    {
+        "name": "Goblin King",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "Quest Giver",
+        "location": "Forgotten Kingdom",
+        "description": "Gives money-related quests and the key to the goblin cave."
+    },
+    {
+        "name": "Zesty",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "Goblin King fanner."
+    },
+    {
+        "name": "Zesty2",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "Goblin King fanner."
+    },
+    {
+        "name": "Skal",
+        "url": "https://forgewiki.org/wiki/NPCs",
+        "role": "NPC",
+        "location": "Forgotten Kingdom",
+        "description": "You must give Skal a Demonite to open the door and get the Demon Pickaxe."
+    }
+]

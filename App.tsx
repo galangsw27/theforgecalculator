@@ -1,28 +1,13 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Info, Coins, Zap } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home } from 'lucide-react';
 import ChatBot from './src/components/ChatBot';
+import LandingPage from './src/components/LandingPage';
+import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
 import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES } from './constants';
-import { Ore, Slot, ForgeMode, Area, Trait, ForgedItem } from './types';
+import { Ore, Slot, ForgeMode, Area, ForgedItem } from './types';
 
 // --- Helper Components ---
-
-const RarityBadge = ({ rarity }: { rarity: string }) => {
-    const colors: Record<string, string> = {
-        common: 'text-gray-400 border-gray-400/20 bg-gray-400/10',
-        uncommon: 'text-green-400 border-green-400/20 bg-green-400/10',
-        rare: 'text-blue-400 border-blue-400/20 bg-blue-400/10',
-        epic: 'text-purple-400 border-purple-400/20 bg-purple-400/10',
-        legendary: 'text-yellow-400 border-yellow-400/20 bg-yellow-400/10',
-        mythical: 'text-red-500 border-red-500/20 bg-red-500/10',
-        relic: 'text-yellow-200 border-yellow-200/20 bg-yellow-200/10',
-    };
-
-    return (
-        <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded border ${colors[rarity] || colors.common}`}>
-            {rarity}
-        </span>
-    );
-};
 
 const OreIcon = ({ ore }: { ore: Ore }) => (
     <div
@@ -37,9 +22,9 @@ const OreIcon = ({ ore }: { ore: Ore }) => (
     </div>
 );
 
-// --- Main App ---
-
-export default function App() {
+// --- Calculator Component ---
+function Calculator() {
+    const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState<ForgeMode>('weapon');
     const [activeArea, setActiveArea] = useState<Area>('kingdom');
     const [slots, setSlots] = useState<Slot[]>([
@@ -58,11 +43,9 @@ export default function App() {
     // Theme Colors
     const themeColor = activeTab === 'weapon' ? 'text-weapon' : 'text-armor';
     const themeBg = activeTab === 'weapon' ? 'bg-weapon' : 'bg-armor';
-    const themeBorder = activeTab === 'weapon' ? 'border-weapon' : 'border-armor';
     const themeGlow = activeTab === 'weapon' ? 'shadow-weapon-glow' : 'shadow-armor-glow';
 
     // --- Logic ---
-
     const oreMix = useMemo(() => {
         return slots
             .filter(s => s.oreId !== null && s.count > 0)
@@ -70,7 +53,7 @@ export default function App() {
                 const ore = ORE_DATA.find(o => o.id === s.oreId);
                 return { ...s, ore };
             })
-            .filter((s): s is Slot & { ore: Ore } => !!s.ore); // Ensure ore is defined
+            .filter((s): s is Slot & { ore: Ore } => !!s.ore);
     }, [slots]);
 
     const totalOres = useMemo(() => oreMix.reduce((a, b) => a + b.count, 0), [oreMix]);
@@ -83,7 +66,6 @@ export default function App() {
 
     const probabilities = useMemo<Record<string, number>>(() => {
         const table = activeTab === 'weapon' ? WEAPON_PROBABILITIES : ARMOR_PROBABILITIES;
-        // Find closest count key
         const counts = Object.keys(table).map(Number).sort((a, b) => a - b);
         let closest = counts[0];
         for (const c of counts) {
@@ -91,25 +73,19 @@ export default function App() {
                 closest = c;
             }
         }
-        // Use fallback if total ores is very high (cap at max key)
         if (totalOres > counts[counts.length - 1]) closest = counts[counts.length - 1];
-
-        // If totalOres < 3, return empty or base
         if (totalOres < 3) return {};
-
         return table[closest] || {};
     }, [activeTab, totalOres]);
 
     const activeTraits = useMemo(() => {
         const traitsList: { oreName: string; description: string; percentage: number; color: string, type: any }[] = [];
-
         oreMix.forEach(slot => {
             const percentage = (slot.count / totalOres) * 100;
             if (percentage >= 10 && slot.ore.traits.length > 0) {
                 slot.ore.traits.forEach(trait => {
                     if (trait.type === 'all' || trait.type === activeTab) {
                         let desc = trait.description;
-                        // simple scaling logic
                         for (const [key, rawScale] of Object.entries(trait.scaling)) {
                             const scale = rawScale as { min: number; max: number };
                             let value = scale.min;
@@ -135,11 +111,9 @@ export default function App() {
     }, [oreMix, totalOres, activeTab]);
 
     // --- Actions ---
-
     const handleAddOre = (ore: Ore) => {
         const newSlots = [...slots];
         const existingSlot = newSlots.find(s => s.oreId === ore.id);
-
         if (existingSlot) {
             existingSlot.count += 1;
             setSlots(newSlots);
@@ -165,10 +139,7 @@ export default function App() {
     const handleForge = () => {
         if (totalOres < 3) return;
         setIsForging(true);
-
-        // Simulation
         setTimeout(() => {
-            // 1. Determine Type
             let rolledType = Object.keys(probabilities)[0];
             const rand = Math.random();
             let cumulative = 0;
@@ -179,17 +150,10 @@ export default function App() {
                     break;
                 }
             }
-
-            // 2. Determine Variant with weighted random selection
             let itemName = rolledType;
             const variants = ITEM_VARIANTS[activeTab]?.[rolledType]?.[activeArea];
-
-            // Weighted random selection for variants
             if (variants && variants.length > 0) {
-                // Sort variants by probability (descending) to check from rarest to most common
                 const sortedVariants = [...variants].sort((a, b) => a.probability - b.probability);
-
-                // Roll for each variant starting from rarest
                 for (const variant of sortedVariants) {
                     if (Math.random() <= variant.probability) {
                         itemName = variant.name;
@@ -197,15 +161,11 @@ export default function App() {
                     }
                 }
             } else {
-                // Find base item name matching type if no variants found (fallback)
                 const base = Object.entries(BASE_ITEM_STATS[activeTab]).find(([_, stat]) => stat.type === rolledType);
                 if (base) itemName = base[0];
             }
-
-            // 3. Calc Stats
             const baseStats = BASE_ITEM_STATS[activeTab][itemName] || BASE_ITEM_STATS[activeTab][rolledType] || { price: 0, type: rolledType };
             const finalStats = { ...baseStats };
-
             if (activeTab === 'weapon') {
                 finalStats.damage = (baseStats.damage || 0) * totalMultiplier;
                 finalStats.price = baseStats.price * totalMultiplier;
@@ -213,10 +173,7 @@ export default function App() {
                 finalStats.def = (baseStats.def || 0) * totalMultiplier;
                 finalStats.price = baseStats.price * totalMultiplier;
             }
-
-            // 4. Create Result
             const mainOre = oreMix.sort((a, b) => b.count - a.count)[0]?.ore || ORE_DATA[0];
-
             const result: ForgedItem = {
                 id: Date.now(),
                 itemName,
@@ -228,7 +185,6 @@ export default function App() {
                 timestamp: new Date().toLocaleTimeString(),
                 mode: activeTab
             };
-
             setForgeResult(result);
             setInventory(prev => [result, ...prev]);
             setIsForging(false);
@@ -243,26 +199,25 @@ export default function App() {
 
     return (
         <div className="min-h-screen font-sans text-gray-200 selection:bg-white/20 pb-20">
-
             {/* --- Header --- */}
             <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/5 bg-black/50">
                 <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                            <Hammer className="text-white" size={18} />
-                        </div>
-                        <h1 className="font-cinzel font-bold text-xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                            The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2">Calculator</span>
+                        <Link to="/" className="w-8 h-8 rounded bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20 hover:scale-110 transition-transform">
+                            <Home className="text-white" size={16} />
+                        </Link>
+                        <h1 className="font-fredoka font-bold text-xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                            The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2">{t('app.calculator')}</span>
                         </h1>
                     </div>
-
                     <div className="flex items-center gap-4">
+                        <LanguageSwitcher />
                         <button
                             onClick={() => setShowInventory(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-medium"
                         >
                             <Coins size={14} className="text-yellow-500" />
-                            <span>Inventory ({inventory.length})</span>
+                            <span>{t('app.inventory')} ({inventory.length})</span>
                         </button>
                     </div>
                 </div>
@@ -270,29 +225,27 @@ export default function App() {
                 <div className="bg-black/40 border-b border-white/5 overflow-hidden py-1 flex">
                     <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex-shrink-0 flex">
                         {Array(10).fill(0).map((_, i) => (
-                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">Thanks To | Forgewiki & Nipozy & Trhees</span>
+                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">{t('app.thanksTo')}</span>
                         ))}
                     </div>
                     <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex-shrink-0 flex" aria-hidden="true">
                         {Array(10).fill(0).map((_, i) => (
-                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">Thanks To | Forgewiki & Nipozy & Trhees</span>
+                            <span key={i} className="text-[10px] text-gray-500 font-mono mx-4">{t('app.thanksTo')}</span>
                         ))}
                     </div>
                 </div>
             </header>
 
             <main className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
-
                 {/* --- LEFT COLUMN: Chances --- */}
                 <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
                     <div className="bg-card border border-card-border rounded-xl overflow-hidden shadow-2xl">
                         <div className="p-4 border-b border-white/5 bg-white/5 flex justify-between items-center">
-                            <h2 className={`font-cinzel font-bold ${themeColor} flex items-center gap-2`}>
-                                <Zap size={16} /> Forge Chances
+                            <h2 className={`font-fredoka font-bold ${themeColor} flex items-center gap-2`}>
+                                <Zap size={16} /> {t('app.forgeChances')}
                             </h2>
-                            <span className="text-xs text-gray-500">Based on {totalOres} ores</span>
+                            <span className="text-xs text-gray-500">{t('app.basedOn')} {totalOres} {t('app.ores')}</span>
                         </div>
-
                         <div className="p-2">
                             <div className="space-y-1">
                                 {Object.entries(probabilities).length > 0 ? (
@@ -303,17 +256,12 @@ export default function App() {
                                                 <span className={`text-xs font-bold font-mono ${themeColor}`}>{(prob * 100).toFixed(1)}%</span>
                                             </div>
                                             <div className="h-1.5 w-full bg-black/50 rounded-full overflow-hidden">
-                                                <div
-                                                    className={`h-full rounded-full transition-all duration-500 ${themeBg}`}
-                                                    style={{ width: `${prob * 100}%` }}
-                                                />
+                                                <div className={`h-full rounded-full transition-all duration-500 ${themeBg}`} style={{ width: `${prob * 100}%` }} />
                                             </div>
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="p-8 text-center text-gray-600 text-sm italic">
-                                        Add at least 3 ores to see probabilities.
-                                    </div>
+                                    <div className="p-8 text-center text-gray-600 text-sm italic">{t('app.addOres')}</div>
                                 )}
                             </div>
                         </div>
@@ -322,23 +270,21 @@ export default function App() {
                     {/* Stats Preview */}
                     <div className="bg-card border border-card-border rounded-xl overflow-hidden shadow-xl">
                         <div className="p-4 border-b border-white/5">
-                            <h2 className="font-cinzel font-bold text-gray-400 text-sm">Active Traits</h2>
+                            <h2 className="font-fredoka font-bold text-gray-400 text-sm">{t('app.activeTraits')}</h2>
                         </div>
                         <div className="p-4 space-y-3">
                             {activeTraits.length > 0 ? (
-                                activeTraits.map((t, idx) => (
+                                activeTraits.map((t_item, idx) => (
                                     <div key={idx} className="bg-black/30 border border-white/10 rounded-lg p-3 text-xs">
                                         <div className="flex justify-between mb-1">
-                                            <span style={{ color: t.color }} className="font-bold">{t.oreName}</span>
-                                            <span className="text-gray-500">{t.percentage.toFixed(0)}%</span>
+                                            <span style={{ color: t_item.color }} className="font-bold">{t_item.oreName}</span>
+                                            <span className="text-gray-500">{t_item.percentage.toFixed(0)}%</span>
                                         </div>
-                                        <p className="text-gray-400 leading-relaxed">{t.description}</p>
+                                        <p className="text-gray-400 leading-relaxed">{t_item.description}</p>
                                     </div>
                                 ))
                             ) : (
-                                <div className="text-center text-gray-600 text-xs py-4">
-                                    No traits active. (Need &gt;10% mix)
-                                </div>
+                                <div className="text-center text-gray-600 text-xs py-4">{t('app.noTraits')}</div>
                             )}
                         </div>
                     </div>
@@ -346,7 +292,6 @@ export default function App() {
 
                 {/* --- CENTER COLUMN: The Forge --- */}
                 <div className="lg:col-span-6 flex flex-col gap-6 order-1 lg:order-2">
-
                     {/* Mode Switcher */}
                     <div className="flex justify-center">
                         <div className="p-1 bg-black/40 border border-white/10 rounded-full flex gap-1 backdrop-blur-md">
@@ -354,24 +299,23 @@ export default function App() {
                                 onClick={() => setActiveTab('weapon')}
                                 className={`px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all ${activeTab === 'weapon' ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/50' : 'text-gray-500 hover:text-gray-300'}`}
                             >
-                                <Sword size={16} /> Weapon
+                                <Sword size={16} /> {t('app.weapon')}
                             </button>
                             <button
                                 onClick={() => setActiveTab('armor')}
                                 className={`px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all ${activeTab === 'armor' ? 'bg-teal-600 text-white shadow-lg shadow-teal-900/50' : 'text-gray-500 hover:text-gray-300'}`}
                             >
-                                <Shield size={16} /> Armor
+                                <Shield size={16} /> {t('app.armor')}
                             </button>
                         </div>
                     </div>
 
                     {/* The Cauldron */}
                     <div className={`relative bg-card border border-card-border rounded-2xl p-6 md:p-8 shadow-2xl transition-all duration-500 ${activeTab === 'weapon' ? 'shadow-orange-900/10' : 'shadow-teal-900/10'}`}>
-
                         {/* Multiplier */}
                         <div className="absolute top-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1">Multiplier</span>
-                            <div className={`text-4xl md:text-5xl font-cinzel font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 drop-shadow-sm transition-all duration-300 ${totalMultiplier > 0 ? 'opacity-100 scale-100' : 'opacity-50 scale-95'}`}>
+                            <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1">{t('app.multiplier')}</span>
+                            <div className={`text-4xl md:text-5xl font-fredoka font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500 drop-shadow-sm transition-all duration-300 ${totalMultiplier > 0 ? 'opacity-100 scale-100' : 'opacity-50 scale-95'}`}>
                                 {totalMultiplier > 0 ? `${totalMultiplier.toFixed(2)} x` : '0.00x'}
                             </div>
                         </div>
@@ -381,18 +325,10 @@ export default function App() {
                             {slots.map((slot) => {
                                 const slotOre = slot.oreId ? ORE_DATA.find(o => o.id === slot.oreId) : null;
                                 const percentage = totalOres > 0 && slotOre ? ((slot.count / totalOres) * 100).toFixed(1) : "0.0";
-
                                 return (
                                     <div
                                         key={slot.id}
-                                        className={`
-                                    relative aspect-[3/4.5] rounded-xl border-2 transition-all duration-300 group
-                                    flex flex-col items-center justify-center p-2 bg-black/40
-                                    ${slotOre
-                                                ? `shadow-[0_0_15px_-5px_var(--tw-shadow-color)]`
-                                                : 'border-dashed border-white/10 hover:border-white/20 hover:bg-white/5'
-                                            }
-                                `}
+                                        className={`relative aspect-[3/4.5] rounded-xl border-2 transition-all duration-300 group flex flex-col items-center justify-center p-2 bg-black/40 ${slotOre ? `shadow-[0_0_15px_-5px_var(--tw-shadow-color)]` : 'border-dashed border-white/10 hover:border-white/20 hover:bg-white/5'}`}
                                         style={slotOre ? { borderColor: slotOre.color, '--tw-shadow-color': slotOre.color } as React.CSSProperties : {}}
                                     >
                                         {slotOre ? (
@@ -408,30 +344,16 @@ export default function App() {
                                                     </div>
                                                 </div>
                                                 <div className="text-center w-full">
-                                                    <div className="text-[10px] font-bold text-white truncate px-1" style={{ color: slotOre.color }}>
-                                                        {slotOre.name}
-                                                    </div>
-                                                    <div className="text-[9px] text-gray-500 mt-0.5">
-                                                        {slotOre.multiplier}x
-                                                    </div>
-                                                    <div className="text-[9px] font-mono text-gray-400 mt-1 bg-white/5 rounded px-1 inline-block">
-                                                        {percentage}%
-                                                    </div>
+                                                    <div className="text-[10px] font-bold text-white truncate px-1" style={{ color: slotOre.color }}>{slotOre.name}</div>
+                                                    <div className="text-[9px] text-gray-500 mt-0.5">{slotOre.multiplier}x</div>
+                                                    <div className="text-[9px] font-mono text-gray-400 mt-1 bg-white/5 rounded px-1 inline-block">{percentage}%</div>
                                                 </div>
-                                                {/* Remove button */}
-                                                <button
-                                                    onClick={() => updateSlotCount(slot.id, -1)}
-                                                    className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-red-400 rounded-lg"
-                                                >
-                                                    <div className="bg-red-500/10 p-2 rounded-full border border-red-500/20">
-                                                        <Trash2 size={16} />
-                                                    </div>
+                                                <button onClick={() => updateSlotCount(slot.id, -1)} className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-red-400 rounded-lg">
+                                                    <div className="bg-red-500/10 p-2 rounded-full border border-red-500/20"><Trash2 size={16} /></div>
                                                 </button>
                                             </>
                                         ) : (
-                                            <div className="text-center text-gray-600">
-                                                <div className="text-xs uppercase font-bold tracking-wider">Empty</div>
-                                            </div>
+                                            <div className="text-center text-gray-600"><div className="text-xs uppercase font-bold tracking-wider">{t('app.empty')}</div></div>
                                         )}
                                     </div>
                                 );
@@ -440,50 +362,33 @@ export default function App() {
 
                         {/* Actions */}
                         <div className="mt-8 flex gap-3">
-                            <button
-                                onClick={() => setSlots(slots.map(s => ({ ...s, oreId: null, count: 0 })))}
-                                className="px-4 py-3 rounded-xl border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
+                            <button onClick={() => setSlots(slots.map(s => ({ ...s, oreId: null, count: 0 })))} className="px-4 py-3 rounded-xl border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
                                 <Trash2 size={20} />
                             </button>
                             <button
                                 onClick={handleForge}
                                 disabled={totalOres < 3 || isForging}
-                                className={`
-                            flex-1 rounded-xl font-cinzel font-bold text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 shadow-xl
-                            ${totalOres >= 3
-                                        ? `${themeBg} text-white hover:brightness-110 hover:-translate-y-1 ${themeGlow}`
-                                        : 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                                    }
-`}
+                                className={`flex-1 rounded-xl font-fredoka font-bold text-lg tracking-widest flex items-center justify-center gap-3 transition-all duration-300 shadow-xl ${totalOres >= 3 ? `${themeBg} text-white hover:brightness-110 hover:-translate-y-1 ${themeGlow}` : 'bg-gray-800 text-gray-500 cursor-not-allowed'}`}
                             >
-                                {isForging ? (
-                                    <><Sparkles className="animate-spin" /> FORGING...</>
-                                ) : (
-                                    <><Hammer className="animate-pulse" /> FORGE ITEM</>
-                                )}
+                                {isForging ? (<><Sparkles className="animate-spin" /> {t('app.forging')}</>) : (<><Hammer className="animate-pulse" /> {t('app.forgeItem')}</>)}
                             </button>
                         </div>
-
                     </div>
+
                     {/* Best Recipes Section */}
                     <div className="mt-6">
-                        <button
-                            onClick={() => setShowBestRecipes(!showBestRecipes)}
-                            className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-purple-500/50"
-                        >
+                        <button onClick={() => setShowBestRecipes(!showBestRecipes)} className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-purple-500/50">
                             <Sparkles size={20} />
-                            {showBestRecipes ? 'Hide' : 'Show'} Best Recipes
+                            {showBestRecipes ? t('app.hideRecipes') : t('app.showRecipes')} {t('app.bestRecipes')}
                             <ArrowRight size={16} className={`transition-transform ${showBestRecipes ? 'rotate-90' : ''}`} />
                         </button>
-
                         {showBestRecipes && (
                             <div className="mt-4 bg-card border border-card-border rounded-xl p-6 shadow-2xl">
                                 <div className="flex gap-2 mb-4">
-                                    <button onClick={() => setActiveTab('weapon')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'weapon' ? 'bg-orange-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Sword size={16} className="inline mr-2" />Weapons</button>
-                                    <button onClick={() => setActiveTab('armor')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'armor' ? 'bg-teal-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Shield size={16} className="inline mr-2" />Armor</button>
+                                    <button onClick={() => setActiveTab('weapon')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'weapon' ? 'bg-orange-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Sword size={16} className="inline mr-2" />{t('app.weapons')}</button>
+                                    <button onClick={() => setActiveTab('armor')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'armor' ? 'bg-teal-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Shield size={16} className="inline mr-2" />{t('app.armor')}</button>
                                 </div>
-                                {activeTab === 'weapon' ? (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_WEAPONS_RECIPES).map(([weaponType, recipes]) => (<div key={weaponType} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-cinzel font-bold text-orange-400 mb-3">{weaponType}</h3><div className="space-y-2">{recipes.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.tier}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>) : (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_ARMOR_RECIPES).map(([setName, pieces]) => (<div key={setName} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-cinzel font-bold text-teal-400 mb-3">{setName}</h3><div className="space-y-2">{pieces.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.piece}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>)}
+                                {activeTab === 'weapon' ? (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_WEAPONS_RECIPES).map(([weaponType, recipes]) => (<div key={weaponType} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-fredoka font-bold text-orange-400 mb-3">{weaponType}</h3><div className="space-y-2">{recipes.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.tier}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>) : (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_ARMOR_RECIPES).map(([setName, pieces]) => (<div key={setName} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-fredoka font-bold text-teal-400 mb-3">{setName}</h3><div className="space-y-2">{pieces.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.piece}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>)}
                             </div>
                         )}
                     </div>
@@ -491,33 +396,15 @@ export default function App() {
 
                 {/* --- RIGHT COLUMN: Ore Selection --- */}
                 <div className="lg:col-span-3 h-[600px] lg:h-auto flex flex-col gap-4 order-3">
-
                     {/* Search & Filter */}
                     <div className="bg-card border border-card-border rounded-xl p-4 space-y-4 shadow-lg">
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={14} />
-                            <input
-                                type="text"
-                                placeholder="Search ores..."
-                                value={searchQuery}
-                                onChange={e => setSearchQuery(e.target.value)}
-                                className="w-full bg-black/40 border border-white/10 rounded-lg py-2 pl-9 pr-4 text-sm text-gray-200 focus:outline-none focus:border-gray-500 transition-colors placeholder:text-gray-600"
-                            />
+                            <input type="text" placeholder={t('app.searchOres')} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-lg py-2 pl-9 pr-4 text-sm text-gray-200 focus:outline-none focus:border-gray-500 transition-colors placeholder:text-gray-600" />
                         </div>
-
                         <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
                             {(['stonewake', 'kingdom', 'goblin', 'enemy'] as Area[]).map(area => (
-                                <button
-                                    key={area}
-                                    onClick={() => setActiveArea(area)}
-                                    className={`
-px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all
-                                ${activeArea === area
-                                            ? 'bg-white/10 text-white border-white/20'
-                                            : 'text-gray-600 border-transparent hover:text-gray-400'
-                                        }
-`}
-                                >
+                                <button key={area} onClick={() => setActiveArea(area)} className={`px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all ${activeArea === area ? 'bg-white/10 text-white border-white/20' : 'text-gray-600 border-transparent hover:text-gray-400'}`}>
                                     {area}
                                 </button>
                             ))}
@@ -528,54 +415,33 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
                     <div className="flex-1 bg-card border border-card-border rounded-xl overflow-hidden shadow-lg flex flex-col">
                         <div className="flex-1 overflow-y-auto p-2 grid grid-cols-4 gap-2 content-start">
                             {areaOres.map(ore => (
-                                <button
-                                    key={ore.id}
-                                    onClick={() => handleAddOre(ore)}
-                                    className="group flex flex-col items-center p-2 rounded-lg hover:bg-white/5 border border-transparent hover:border-white/5 transition-all relative overflow-hidden"
-                                >
+                                <button key={ore.id} onClick={() => handleAddOre(ore)} className="group flex flex-col items-center p-2 rounded-lg hover:bg-white/5 border border-transparent hover:border-white/5 transition-all relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-700" />
-
                                     <OreIcon ore={ore} />
-
                                     <div className="mt-1 text-center w-full">
-                                        <div className="text-[9px] font-bold truncate leading-tight w-full" style={{ color: ore.color }} title={ore.name}>
-                                            {ore.name}
-                                        </div>
+                                        <div className="text-[9px] font-bold truncate leading-tight w-full" style={{ color: ore.color }} title={ore.name}>{ore.name}</div>
                                         <div className="text-[8px] text-gray-500">{ore.multiplier}x</div>
                                     </div>
                                 </button>
                             ))}
-                            {areaOres.length === 0 && (
-                                <div className="col-span-4 p-8 text-center text-gray-600 text-sm">
-                                    No ores found.
-                                </div>
-                            )}
+                            {areaOres.length === 0 && (<div className="col-span-4 p-8 text-center text-gray-600 text-sm">{t('app.noOres')}</div>)}
                         </div>
                     </div>
                 </div>
-
             </main>
 
             {/* --- MODAL: Forge Result --- */}
             {forgeResult && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
                     <div className="bg-card border border-white/10 rounded-2xl w-full max-w-md shadow-2xl relative overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 max-h-[90vh]">
-                        {/* Glow Effect based on main ore color */}
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent" style={{ color: forgeResult.mainOre.color }} />
-
-                        <button onClick={() => setForgeResult(null)} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10">
-                            <X size={20} />
-                        </button>
-
+                        <button onClick={() => setForgeResult(null)} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"><X size={20} /></button>
                         <div className="p-8 text-center overflow-y-auto custom-scrollbar">
                             <div className="mb-6 flex justify-center">
-                                <div
-                                    className="w-24 h-24 rounded-xl shadow-[0_0_30px_-5px_var(--glow)] flex items-center justify-center bg-black border border-white/10 relative"
-                                    style={{ '--glow': forgeResult.mainOre.color } as React.CSSProperties}
-                                >
+                                <div className="w-24 h-24 rounded-xl shadow-[0_0_30px_-5px_var(--glow)] flex items-center justify-center bg-black border border-white/10 relative" style={{ '--glow': forgeResult.mainOre.color } as React.CSSProperties}>
                                     <div className="absolute inset-0 bg-white/5 rounded-xl" />
                                     {ITEM_VARIANTS[activeTab]?.[forgeResult.itemType]?.[activeArea]?.find(v => v.name === forgeResult.itemName) ? (
-                                        <div className="text-4xl">⚔️</div> // Placeholder for item variant image
+                                        <div className="text-4xl">⚔️</div>
                                     ) : (
                                         <div className="text-4xl" style={{ color: forgeResult.mainOre.color }}>
                                             {activeTab === 'weapon' ? <Sword size={40} /> : <Shield size={40} />}
@@ -583,11 +449,8 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
                                     )}
                                 </div>
                             </div>
-
-                            <h2 className="text-2xl font-cinzel font-bold text-white mb-1">{forgeResult.itemName}</h2>
+                            <h2 className="text-2xl font-fredoka font-bold text-white mb-1">{forgeResult.itemName}</h2>
                             <div className="text-sm text-gray-500 uppercase tracking-widest mb-6 font-bold">{forgeResult.itemType}</div>
-
-                            {/* Stats Grid */}
                             <div className="grid grid-cols-2 gap-3 mb-6">
                                 {Object.entries(forgeResult.stats).filter(([k]) => k !== 'type').map(([key, value]) => (
                                     <div key={key} className="bg-white/5 rounded-lg p-2 border border-white/5">
@@ -600,34 +463,24 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
                                     </div>
                                 ))}
                             </div>
-
-                            {/* Traits Section */}
                             {forgeResult.traits.length > 0 && (
                                 <div className="mb-6 text-left bg-white/5 p-4 rounded-xl border border-white/5">
-                                    <h3 className="text-xs uppercase text-gray-500 font-bold mb-3 flex items-center gap-2">
-                                        <Sparkles size={12} className="text-yellow-500" /> Active Traits
-                                    </h3>
+                                    <h3 className="text-xs uppercase text-gray-500 font-bold mb-3 flex items-center gap-2"><Sparkles size={12} className="text-yellow-500" /> {t('app.activeTraits')}</h3>
                                     <div className="space-y-3">
-                                        {forgeResult.traits.map((t, i) => (
-                                            <div key={i} className="text-sm border-l-2 pl-3 py-0.5" style={{ borderColor: t.color }}>
+                                        {forgeResult.traits.map((t_item, i) => (
+                                            <div key={i} className="text-sm border-l-2 pl-3 py-0.5" style={{ borderColor: t_item.color }}>
                                                 <div className="flex justify-between items-baseline mb-1">
-                                                    <span style={{ color: t.color }} className="font-bold">{t.oreName}</span>
-                                                    <span className="text-[10px] bg-white/10 px-1.5 rounded text-gray-400">{t.percentage.toFixed(0)}%</span>
+                                                    <span style={{ color: t_item.color }} className="font-bold">{t_item.oreName}</span>
+                                                    <span className="text-[10px] bg-white/10 px-1.5 rounded text-gray-400">{t_item.percentage.toFixed(0)}%</span>
                                                 </div>
-                                                <p className="text-gray-300 text-xs leading-relaxed opacity-90">{t.description}</p>
+                                                <p className="text-gray-300 text-xs leading-relaxed opacity-90">{t_item.description}</p>
                                             </div>
                                         ))}
                                     </div>
                                 </div>
                             )}
-
                             <div className="flex gap-2 justify-center mt-4">
-                                <button
-                                    onClick={() => { setForgeResult(null); handleForge(); }}
-                                    className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors w-full"
-                                >
-                                    Forge Again
-                                </button>
+                                <button onClick={() => { setForgeResult(null); handleForge(); }} className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors w-full">{t('app.forgeAgain')}</button>
                             </div>
                         </div>
                     </div>
@@ -639,14 +492,9 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in">
                     <div className="bg-card border border-card-border rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl relative">
                         <div className="p-6 border-b border-white/5 flex justify-between items-center">
-                            <h2 className="text-xl font-cinzel font-bold flex items-center gap-2">
-                                <Coins className="text-yellow-500" /> Forge History
-                            </h2>
-                            <button onClick={() => setShowInventory(false)} className="text-gray-500 hover:text-white">
-                                <X size={24} />
-                            </button>
+                            <h2 className="text-xl font-fredoka font-bold flex items-center gap-2"><Coins className="text-yellow-500" /> {t('app.forgeHistory')}</h2>
+                            <button onClick={() => setShowInventory(false)} className="text-gray-500 hover:text-white"><X size={24} /></button>
                         </div>
-
                         <div className="flex-1 overflow-y-auto p-6">
                             {inventory.length > 0 ? (
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -659,35 +507,20 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
                                                 <div className="font-bold text-white truncate">{item.itemName}</div>
                                                 <div className="text-xs text-gray-500 mb-2">{item.timestamp}</div>
                                                 <div className="flex gap-2">
-                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300">
-                                                        {item.multiplier.toFixed(2)}x
-                                                    </span>
-                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300 truncate max-w-[100px]">
-                                                        {item.mainOre.name}
-                                                    </span>
+                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300">{item.multiplier.toFixed(2)}x</span>
+                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300 truncate max-w-[100px]">{item.mainOre.name}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             ) : (
-                                <div className="h-full flex flex-col items-center justify-center text-gray-600">
-                                    <Sword size={48} className="mb-4 opacity-20" />
-                                    <p>No items forged yet.</p>
-                                </div>
+                                <div className="h-full flex flex-col items-center justify-center text-gray-600"><Sword size={48} className="mb-4 opacity-20" /><p>{t('app.noItems')}</p></div>
                             )}
                         </div>
-
                         <div className="p-4 border-t border-white/5 flex justify-between items-center bg-black/20 rounded-b-2xl">
-                            <div className="text-sm text-gray-500">
-                                Total Value: <span className="text-yellow-500 font-bold">${inventory.reduce((a, b) => a + (b.stats.price || 0), 0).toLocaleString()}</span>
-                            </div>
-                            <button
-                                onClick={() => setInventory([])}
-                                className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"
-                            >
-                                <Trash2 size={12} /> Clear History
-                            </button>
+                            <div className="text-sm text-gray-500">{t('app.totalValue')}: <span className="text-yellow-500 font-bold">${inventory.reduce((a, b) => a + (b.stats.price || 0), 0).toLocaleString()}</span></div>
+                            <button onClick={() => setInventory([])} className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"><Trash2 size={12} /> {t('app.clearHistory')}</button>
                         </div>
                     </div>
                 </div>
@@ -695,7 +528,20 @@ px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transi
 
             {/* --- ChatBot --- */}
             <ChatBot />
-
         </div>
+    );
+}
+
+// --- Main App with Router ---
+export default function App() {
+    return (
+        <LanguageProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/calculator" element={<Calculator />} />
+                </Routes>
+            </Router>
+        </LanguageProvider>
     );
 }
