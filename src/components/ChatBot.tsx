@@ -118,7 +118,8 @@ export default function ChatBot() {
 
             if (isVectorSearchAvailable()) {
                 // Use semantic vector search
-                const vectorResults = await searchVectorDocuments(userMessage.content, 0.6, 6);
+                const vectorResults = await searchVectorDocuments(userMessage.content, 0.6, 10);
+
                 if (vectorResults.length > 0) {
                     contextText = formatVectorContext(vectorResults);
                     searchMethod = '🔍 Semantic Search';

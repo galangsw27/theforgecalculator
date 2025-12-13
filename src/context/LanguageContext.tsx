@@ -12,7 +12,7 @@ const translations: Record<Language, Record<string, string>> = {
     en: {
         // Landing Page
         'landing.badge': 'Powered by AI • Version 2.0',
-        'landing.title1': 'The Ultimate',
+        'landing.title1': 'Ultimate',
         'landing.title2': 'The Forge Roblox',
         'landing.title3': 'Assistant',
         'landing.subtitle': 'Master the art of forging with',
