@@ -2,122 +2,144 @@ import { Ore, ItemStat } from './types';
 
 export const ORE_DATA: Ore[] = [
     // Stonewake's Cross
-    { id: 1, name: "Stone", multiplier: 0.2, rarity: "common", area: "stonewake", color: "#7b7773", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/stone-the-forge-calculator.png" },
-    { id: 2, name: "Sand Stone", multiplier: 0.25, rarity: "common", area: "stonewake", color: "#c3a777", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/sand-stone-the-forge-calculator.png" },
-    { id: 3, name: "Copper", multiplier: 0.3, rarity: "common", area: "stonewake", color: "#925d3e", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/copper-the-forge-calculator.png" },
-    { id: 4, name: "Iron", multiplier: 0.35, rarity: "common", area: "stonewake", color: "#827356", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/iron-the-forge-calculator.png" },
-    { id: 5, name: "Tin", multiplier: 0.425, rarity: "uncommon", area: "stonewake", color: "#69707b", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/tin-the-forge-calculator.png" },
-    { id: 6, name: "Silver", multiplier: 0.5, rarity: "uncommon", area: "stonewake", color: "#bad0e0", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/silver-the-forge-calculator.png" },
-    { id: 7, name: "Gold", multiplier: 0.65, rarity: "uncommon", area: "stonewake", color: "#c89d40", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/gold-the-forge-calculator.png" },
-    { id: 8, name: "Mushroomite", multiplier: 0.8, rarity: "rare", area: "stonewake", color: "#9b8768", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/mushroomite-the-forge-calculator.png" },
-    { id: 9, name: "Platinum", multiplier: 0.8, rarity: "rare", area: "stonewake", color: "#d6dee6", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/platinum-the-forge-calculator.png" },
-    { id: 10, name: "Bananite", multiplier: 0.85, rarity: "uncommon", area: "stonewake", color: "#edbe70", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/bananite-the-forge-calculator.png" },
-    { id: 11, name: "Cardboardite", multiplier: 0.7, rarity: "common", area: "stonewake", color: "#a28161", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/carboardite-the-forge-calculator.png" },
-    { id: 12, name: "Aite", multiplier: 1.0, rarity: "epic", area: "stonewake", color: "#f0d2a7", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/aite-the-forge-calculator.png" },
+    { id: 1, name: "Stone", multiplier: 0.2, rarity: "common", area: "stonewake", color: "#7b7773", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/stone-the-forge-calculator.png", description: "It's a rock. What more do you want?", dropChance: "1/1", price: 3 },
+    { id: 2, name: "Sand Stone", multiplier: 0.25, rarity: "common", area: "stonewake", color: "#c3a777", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/sand-stone-the-forge-calculator.png", description: "Crumbly yet sturdy enough to build with. Not great with water.", dropChance: "1/2", price: 3.75 },
+    { id: 3, name: "Copper", multiplier: 0.3, rarity: "common", area: "stonewake", color: "#925d3e", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/copper-the-forge-calculator.png", description: "Basic but dependable. A beginner's best friend in the forge.", dropChance: "1/3", price: 4.5 },
+    { id: 4, name: "Iron", multiplier: 0.35, rarity: "common", area: "stonewake", color: "#827356", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/iron-the-forge-calculator.png", description: "The workhorse of the forge. Reliable, versatile and a classic choice.", dropChance: "1/5", price: 5.25 },
+    { id: 5, name: "Tin", multiplier: 0.425, rarity: "uncommon", area: "stonewake", color: "#69707b", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/tin-the-forge-calculator.png", description: "Weak on its own, but blends beautifully with others.", dropChance: "1/7", price: 6.38 },
+    { id: 6, name: "Silver", multiplier: 0.5, rarity: "uncommon", area: "stonewake", color: "#bad0e0", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/silver-the-forge-calculator.png", description: "Malleable and pure. Naturally anti-curse, anti-werewolf, anti-everything-bad.", dropChance: "1/12", price: 7.5 },
+    { id: 7, name: "Gold", multiplier: 0.65, rarity: "uncommon", area: "stonewake", color: "#c89d40", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/gold-the-forge-calculator.png", description: "Not the strongest, but hey–it's gold. Fancy never goes out of style.", dropChance: "1/16", price: 19.5 },
+    { id: 8, name: "Mushroomite", multiplier: 0.8, rarity: "rare", area: "stonewake", color: "#9b8768", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/mushroomite-the-forge-calculator.png", description: "Grows in damp places. Sometimes glows. Sometimes talks. Probably fine.", dropChance: "1/22", price: 12 },
+    { id: 9, name: "Platinum", multiplier: 0.8, rarity: "rare", area: "stonewake", color: "#d6dee6", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/platinum-the-forge-calculator.png", description: "Smooth, silvery, and highly conductive. Rare and sought-after.", dropChance: "1/28", price: 12 },
+    { id: 10, name: "Bananite", multiplier: 0.85, rarity: "uncommon", area: "stonewake", color: "#edbe70", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/bananite-the-forge-calculator.png", description: "Yellow, slippery, looks and smells like banana yet surprisingly durable.", dropChance: "1/30", price: 12.75 },
+    { id: 11, name: "Cardboardite", multiplier: 0.7, rarity: "common", area: "stonewake", color: "#a28161", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/carboardite-the-forge-calculator.png", description: "Looks like trash, feels like trash... but somehow incredibly useful.", dropChance: "1/31", price: 10.5 },
+    { id: 12, name: "Aite", multiplier: 1.0, rarity: "epic", area: "stonewake", color: "#f0d2a7", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/aite-the-forge-calculator.png", description: "It's an ore made out of A's – but actually lightweight and razor sharp.", dropChance: "1/44", price: 16.5 },
     {
         id: 13, name: "Poopite", multiplier: 1.2, rarity: "epic", area: "stonewake", color: "#5f4937", traitType: "all", traits: [
-            {
-                description: "Deal {damage}% Poison DMG in AoE for {duration}s. Activates when HP < 35%.",
-                scaling: { damage: { min: 1.5, max: 15 }, duration: { min: 0.5, max: 5 } }, type: "all"
-            }
+            { description: "15% poison for 5s when below 35% HP", scaling: { damage: { min: 1.5, max: 15 }, duration: { min: 0.5, max: 5 } }, type: "all" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/poopite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/poopite-the-forge-calculator.png",
+        description: "Ew. Why is this even mineable?",
+        dropChance: "1/131",
+        price: 18
     },
+    { id: 43, name: "Fichillium", multiplier: 0, rarity: "relic", area: "stonewake", color: "#000000", traitType: null, traits: [], description: "PLAY ABYSS!", dropChance: "1/1", price: 0 },
+
     // Forgotten Kingdom
-    { id: 14, name: "Cobalt", multiplier: 1.0, rarity: "uncommon", area: "kingdom", color: "#579de7", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/cobalt-the-forge-calculator.png" },
-    { id: 15, name: "Titanium", multiplier: 1.15, rarity: "uncommon", area: "kingdom", color: "#aca895", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/titanium-the-forge-calculator.png" },
-    { id: 16, name: "Volcanic Rock", multiplier: 1.55, rarity: "rare", area: "kingdom", color: "#504b44", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/volcanic-rock-the-forge-calculator.png" },
-    { id: 17, name: "Lapis Lazuli", multiplier: 1.3, rarity: "uncommon", area: "kingdom", color: "#5c89dc", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/lapis-lazuli-the-forge-calculator.png" },
-    { id: 18, name: "Quartz", multiplier: 1.5, rarity: "rare", area: "kingdom", color: "#b6dffd", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/quartz-the-forge-calculator.png" },
-    { id: 19, name: "Amethyst", multiplier: 1.65, rarity: "rare", area: "kingdom", color: "#957aed", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/amethyst-the-forge-calculator.png" },
-    { id: 20, name: "Topaz", multiplier: 1.75, rarity: "rare", area: "kingdom", color: "#deb7a4", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/topaz-the-forge-calculator.png" },
-    { id: 21, name: "Diamond", multiplier: 2.0, rarity: "rare", area: "kingdom", color: "#aef8fa", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/diamond-the-forge-calculator.png" },
-    { id: 22, name: "Sapphire", multiplier: 2.25, rarity: "rare", area: "kingdom", color: "#7bbdfa", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/sapphire-the-forge-calculator.png" },
-    { id: 23, name: "Cuprite", multiplier: 2.43, rarity: "epic", area: "kingdom", color: "#7a3034", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/cuprite-the-forge-calculator.png" },
+    { id: 14, name: "Cobalt", multiplier: 1.0, rarity: "uncommon", area: "kingdom", color: "#579de7", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/cobalt-the-forge-calculator.png", description: "A sturdy bluish metal known for its resilience and sharp edges.", dropChance: "1/37", price: 15 },
+    { id: 15, name: "Titanium", multiplier: 1.15, rarity: "uncommon", area: "kingdom", color: "#aca895", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/titanium-the-forge-calculator.png", description: "One of the strongest metals. Lightweight, almost unbreakable.", dropChance: "1/50", price: 17.25 },
+    { id: 17, name: "Lapis Lazuli", multiplier: 1.3, rarity: "uncommon", area: "kingdom", color: "#5c89dc", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/lapis-lazuli-the-forge-calculator.png", description: "Deep blue with ancient markings. Scholars say it stores memories.", dropChance: "1/73", price: 22.5 },
+    { id: 44, name: "Boneite", multiplier: 1.2, rarity: "rare", area: "kingdom", color: "#e3e3e3", traitType: null, traits: [], description: "A pale, brittle ore formed from shattered skeleton remains, still carrying faint undead energy.", dropChance: "1/222", price: 18 },
+    { id: 16, name: "Volcanic Rock", multiplier: 1.55, rarity: "rare", area: "kingdom", color: "#504b44", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/volcanic-rock-the-forge-calculator.png", description: "It's not a just a rock. What more do you want?", dropChance: "1/55", price: 23.25 },
+    { id: 18, name: "Quartz", multiplier: 1.5, rarity: "rare", area: "kingdom", color: "#b6dffd", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/quartz-the-forge-calculator.png", description: "Translucent and mystical. Often used to amplify rune energy.", dropChance: "1/90", price: 22.5 },
+    { id: 19, name: "Amethyst", multiplier: 1.65, rarity: "rare", area: "kingdom", color: "#957aed", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/amethyst-the-forge-calculator.png", description: "A shimmering purple gem, pulsing with magical energy.", dropChance: "1/115", price: 24.75 },
+    { id: 20, name: "Topaz", multiplier: 1.75, rarity: "rare", area: "kingdom", color: "#deb7a4", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/topaz-the-forge-calculator.png", description: "Golden yellow and warm. Used in enchanting precision tools.", dropChance: "1/143", price: 26.25 },
+    { id: 21, name: "Diamond", multiplier: 2.0, rarity: "rare", area: "kingdom", color: "#aef8fa", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/diamond-the-forge-calculator.png", description: "The hardest known material.", dropChance: "1/192", price: 30 },
+    { id: 45, name: "Dark boneite", multiplier: 2.25, rarity: "rare", area: "kingdom", color: "#2b2b2b", traitType: null, traits: [], description: "A pale, brittle ore formed from shattered skeleton remains, still carrying faint undead energy", dropChance: "1/555", price: 33.75 },
+    { id: 22, name: "Sapphire", multiplier: 2.25, rarity: "rare", area: "kingdom", color: "#7bbdfa", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/sapphire-the-forge-calculator.png", description: "Deep blue and ice-cold. Sold to sharpen senses when worn.", dropChance: "1/247", price: 33.75 },
+    { id: 23, name: "Cuprite", multiplier: 2.43, rarity: "epic", area: "kingdom", color: "#7a3034", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/cuprite-the-forge-calculator.png", description: "A bright red metallic ore found near river rocks.", dropChance: "1/303", price: 36.45 },
     {
         id: 24, name: "Obsidian", multiplier: 2.35, rarity: "epic", area: "kingdom", color: "#4b2e87", traitType: "armor", traits: [
-            { description: "+{health}% extra health.", scaling: { health: { min: 3, max: 30 } }, type: "armor" }
+            { description: "30% extra defense on Armor", scaling: { health: { min: 3, max: 30 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/obsidian-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/obsidian-the-forge-calculator.png",
+        description: "Volcanic glass as sharp as it is strong.",
+        dropChance: "1/333",
+        price: 35.25
     },
-    { id: 25, name: "Emerald", multiplier: 2.55, rarity: "epic", area: "kingdom", color: "#5fb172", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/emerald-the-forge-calculator.png" },
-    { id: 26, name: "Ruby", multiplier: 2.95, rarity: "epic", area: "kingdom", color: "#cc4a53", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/ruby-the-forge-calculator.png" },
+    { id: 25, name: "Emerald", multiplier: 2.55, rarity: "epic", area: "kingdom", color: "#5fb172", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/emerald-the-forge-calculator.png", description: "Vivid green and unnaturally smooth.", dropChance: "1/363", price: 38.25 },
+    { id: 26, name: "Ruby", multiplier: 2.95, rarity: "epic", area: "kingdom", color: "#cc4a53", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/ruby-the-forge-calculator.png", description: "A blood-red gem that gleams with fury.", dropChance: "1/487", price: 44.25 },
     {
         id: 27, name: "Rivalite", multiplier: 3.33, rarity: "epic", area: "kingdom", color: "#8e4a4c", traitType: "weapon", traits: [
-            { description: "+{crit}% critical chance.", scaling: { crit: { min: 2, max: 20 } }, type: "weapon" }
+            { description: "+20% crit chance on Weapons", scaling: { crit: { min: 2, max: 20 } }, type: "weapon" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/rivalite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/rivalite-the-forge-calculator.png",
+        description: "A reactive ore that strengthens when near other powerful metals.",
+        dropChance: "1/569",
+        price: 49.95
     },
+    { id: 46, name: "Slimite", multiplier: 2.25, rarity: "epic", area: "kingdom", color: "#66ff66", traitType: null, traits: [], description: "A slime-like ore that wiggles, and leaves a faint slime glow.", dropChance: "1/247", price: 33.75 },
     {
         id: 28, name: "Uranium", multiplier: 3.0, rarity: "legendary", area: "kingdom", color: "#97c889", traitType: "armor", traits: [
-            { description: "Deal {damage}% of max health as AoE DMG while in-combat.", scaling: { damage: { min: 0.5, max: 5 } }, type: "armor" }
+            { description: "5% max HP AOE dmg on Armor", scaling: { damage: { min: 0.5, max: 5 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/uranium-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/uranium-the-forge-calculator.png",
+        description: "Dangerous, unstable, and glowing green.",
+        dropChance: "1/777",
+        price: 66
     },
     {
         id: 29, name: "Mythril", multiplier: 3.5, rarity: "legendary", area: "kingdom", color: "#9f61fa", traitType: "armor", traits: [
-            { description: "+{health}% extra health.", scaling: { health: { min: 1.5, max: 15 } }, type: "armor" }
+            { description: "15% extra defense on Armor", scaling: { health: { min: 1.5, max: 15 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/mythril-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/mythril-the-forge-calculator.png",
+        description: "Lightweight and insanely durable.",
+        dropChance: "1/813",
+        price: 52.5
     },
     {
         id: 30, name: "Eye Ore", multiplier: 4.0, rarity: "legendary", area: "kingdom", color: "#fab67f", traitType: "all", traits: [
-            {
-                description: "Increase physical damage by +{damage}% and decrease health by -{health}%.",
-                scaling: { damage: { min: 1.5, max: 15 }, health: { min: 1, max: 10 } }, type: "all"
-            }
+            { description: "-10% HP, +15% dmg on Weapons/Armor", scaling: { damage: { min: 1.5, max: 15 }, health: { min: 1, max: 10 } }, type: "all" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/eye-ore-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/eye-ore-the-forge-calculator.png",
+        description: "A strange ore with a blinking core.",
+        dropChance: "1/1333",
+        price: 37.5
     },
     {
         id: 31, name: "Fireite", multiplier: 4.5, rarity: "legendary", area: "kingdom", color: "#a4532e", traitType: "weapon", traits: [
-            {
-                description: "Deals {damage}% of weapon damage as fire per second for 2 seconds.",
-                scaling: { damage: { min: 2, max: 20 } }, type: "weapon"
-            }
+            { description: "20% burn chance on Weapons", scaling: { damage: { min: 2, max: 20 } }, type: "weapon" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/fireite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/fireite-the-forge-calculator.png",
+        description: "A red-hot ore that crackles with inner flames.",
+        dropChance: "1/2187",
+        price: 67.5
     },
     {
         id: 32, name: "Magmaite", multiplier: 5.0, rarity: "legendary", area: "kingdom", color: "#f77b61", traitType: "weapon", traits: [
-            {
-                description: "Cause an explosion on hit, dealing {damage}% of weapon damage as AoE damage.",
-                scaling: { damage: { min: 5, max: 50 } }, type: "weapon"
-            }
+            { description: "50.00% of weapon dmg as AOE Explosion with 35.00% chance on weapons", scaling: { damage: { min: 5, max: 50 } }, type: "weapon" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/magmaite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/magmaite-the-forge-calculator.png",
+        description: "A volatile ore bubbling with veins.",
+        dropChance: "1/3003",
+        price: 75
     },
     {
         id: 33, name: "Lightite", multiplier: 4.6, rarity: "legendary", area: "kingdom", color: "#9ac9fa", traitType: "armor", traits: [
-            { description: "+{speed}% extra movement speed.", scaling: { speed: { min: 1.5, max: 15 } }, type: "armor" }
+            { description: "15% extra movement speed on Armor", scaling: { speed: { min: 1.5, max: 15 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/lightite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/lightite-the-forge-calculator.png",
+        description: "So bright it almost floats.",
+        dropChance: "1/3333",
+        price: 69
     },
     {
         id: 34, name: "Demonite", multiplier: 5.5, rarity: "mythical", area: "kingdom", color: "#7d1b1d", traitType: "armor", traits: [
-            {
-                description: "Deals {damage}% of weapon damage as fire per second for 2 seconds. 15% chance.",
-                scaling: { damage: { min: 2, max: 20 } }, type: "armor"
-            }
+            { description: "25.00% to Burn Enemy when Damage is Taken. On Armor.", scaling: { damage: { min: 2, max: 20 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/demonite-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/demonite-the-forge-calculator.png",
+        description: "A dark, heat-pulsing ore that leaks dark red sparks.",
+        dropChance: "1/3666",
+        price: 82.5
     },
     {
         id: 35, name: "Darkryte", multiplier: 6.3, rarity: "mythical", area: "kingdom", color: "#f0f0f0", traitType: "armor", traits: [
-            {
-                description: "Upon taking damage, there is a {chance}% chance to turn into a shadow and dodge.",
-                scaling: { chance: { min: 1.5, max: 15 } }, type: "armor"
-            }
+            { description: "15.00% Chance to Dodge Damage (Negate Fully). On Armor.", scaling: { chance: { min: 1.5, max: 15 } }, type: "armor" }
         ],
-        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/darkryte-the-forge-calculator.png"
+        image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/darkryte-the-forge-calculator.png",
+        description: "A shadowy ore that absorbs light.",
+        dropChance: "1/6655",
+        price: 94.5
     },
-    { id: 36, name: "Magenta Crystal", multiplier: 3.1, rarity: "epic", area: "goblin", color: "#795ef8", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/magenta-crystal-the-forge-calculator.png" },
-    { id: 37, name: "Crimson Crystal", multiplier: 3.3, rarity: "epic", area: "goblin", color: "#9a5065", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/crimson-crystal-the-forge-calculator.png" },
-    { id: 38, name: "Green Crystal", multiplier: 3.2, rarity: "epic", area: "goblin", color: "#68c87b", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/green-crystal-the-forge-calculator.png" },
-    { id: 39, name: "Orange Crystal", multiplier: 3.0, rarity: "epic", area: "goblin", color: "#d8792a", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/orange-crystal-the-forge-calculator.png" },
-    { id: 40, name: "Blue Crystal", multiplier: 3.4, rarity: "epic", area: "goblin", color: "#699cf1", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/blue-crystal-the-forge-calculator.png" },
-    { id: 41, name: "Rainbow Crystal", multiplier: 5.25, rarity: "legendary", area: "goblin", color: "#1b7c3a", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/rainbow-crystal-the-forge-calculator.png" },
-    { id: 42, name: "Arcane Crystal", multiplier: 7.5, rarity: "mythical", area: "goblin", color: "#c8dbf5", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/arcane-crystal-the-forge-calculator.png" }
+    // Goblin Area
+    { id: 39, name: "Orange Crystal Ore", multiplier: 3.0, rarity: "epic", area: "goblin", color: "#d8792a", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/orange-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 45 },
+    { id: 36, name: "Magenta Crystal Ore", multiplier: 3.1, rarity: "epic", area: "goblin", color: "#795ef8", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/magenta-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 46.5 },
+    { id: 38, name: "Green Crystal Ore", multiplier: 3.2, rarity: "epic", area: "goblin", color: "#68c87b", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/green-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 48 },
+    { id: 37, name: "Crimson Crystal Ore", multiplier: 3.3, rarity: "epic", area: "goblin", color: "#9a5065", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/crimson-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 49.5 },
+    { id: 40, name: "Blue Crystal Ore", multiplier: 3.4, rarity: "epic", area: "goblin", color: "#699cf1", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/blue-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 51 },
+    { id: 41, name: "Rainbow Crystal Ore", multiplier: 5.25, rarity: "legendary", area: "goblin", color: "#1b7c3a", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/rainbow-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/5000", price: 78.75 },
+    { id: 42, name: "Arcane Crystal Ore", multiplier: 7.5, rarity: "mythical", area: "goblin", color: "#c8dbf5", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/arcane-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/100000", price: 112.5 },
+    { id: 47, name: "Galaxite", multiplier: 11.5, rarity: "relic", area: "goblin", color: "#220033", traitType: null, traits: [], description: "Sparkling like a chunk of space.", dropChance: "1/1M", price: 0 }
 ];
 
 export const WEAPON_PROBABILITIES: Record<number, Record<string, number>> = {
@@ -410,5 +432,46 @@ export const BEST_ARMOR_RECIPES = {
         { piece: "Helmet", recipe: [{ ore: "Ruby", count: 9 }, { ore: "Emerald", count: 9 }, { ore: "Cuprite", count: 9 }], multiplier: 2.67, chance: 47 },
         { piece: "Leggings", recipe: [{ ore: "Ruby", count: 12 }, { ore: "Emerald", count: 10 }, { ore: "Cuprite", count: 8 }], multiplier: 2.80, chance: 49 }
     ]
+};
+
+export const ITEM_IMAGES: Record<string, string> = {
+    "Boxing Gloves": "https://static.wikitide.net/theforgewiki/thumb/f/ff/Boxingglove.png/80px-Boxingglove.png",
+    "Chaos": "https://static.wikitide.net/theforgewiki/thumb/8/8f/Chaos.png/80px-Chaos.png",
+    "Comically Large Spoon": "https://static.wikitide.net/theforgewiki/thumb/9/98/ComicallyLargeSpoon.png/80px-ComicallyLargeSpoon.png",
+    "Crusader Sword": "https://static.wikitide.net/theforgewiki/thumb/7/7b/CrusaderSword.png/80px-CrusaderSword.png",
+    "Cutlass": "https://static.wikitide.net/theforgewiki/thumb/1/1e/Cutlass.png/80px-Cutlass.png",
+    "Dagger": "https://static.wikitide.net/theforgewiki/thumb/9/99/DaggerIcon.png/80px-DaggerIcon.png",
+    "Double Battle Axe": "https://static.wikitide.net/theforgewiki/thumb/0/09/DoubleBattleAxe.png/80px-DoubleBattleAxe.png",
+    "Dragon Slayer": "https://static.wikitide.net/theforgewiki/thumb/f/fb/DragonSlayer.png/80px-DragonSlayer.png",
+    "Falchion Knife": "https://static.wikitide.net/theforgewiki/thumb/0/02/FalchionKnife.png/80px-FalchionKnife.png",
+    "Falchion": "https://static.wikitide.net/theforgewiki/thumb/9/98/FalchionSword.png/80px-FalchionSword.png",
+    "Gladius Dagger": "https://static.wikitide.net/theforgewiki/thumb/7/71/GladiusDagger.png/80px-GladiusDagger.png",
+    "Gladius": "https://static.wikitide.net/theforgewiki/thumb/9/93/GladiusSword.png/80px-GladiusSword.png",
+    "Great Sword": "https://static.wikitide.net/theforgewiki/thumb/2/22/GreatSword.png/80px-GreatSword.png",
+    "Hammer": "https://static.wikitide.net/theforgewiki/thumb/8/81/Hammer.png/80px-Hammer.png",
+    "Hook": "https://static.wikitide.net/theforgewiki/thumb/4/47/Hook.png/80px-Hook.png",
+    "Ironhand": "https://static.wikitide.net/theforgewiki/thumb/7/72/Ironhand.png/80px-Ironhand.png",
+    "Long Sword": "https://static.wikitide.net/theforgewiki/thumb/7/73/LongSword.png/80px-LongSword.png",
+    "Rapier": "https://static.wikitide.net/theforgewiki/thumb/7/7b/Rapier.png/80px-Rapier.png",
+    "Relevator": "https://static.wikitide.net/theforgewiki/thumb/b/bf/Relevator.png/80px-Relevator.png",
+    "Scythe": "https://static.wikitide.net/theforgewiki/thumb/c/cd/Scythe.png/80px-Scythe.png",
+    "Skull Crusher": "https://static.wikitide.net/theforgewiki/thumb/5/52/SkullCrusher.png/80px-SkullCrusher.png",
+    "Tachi": "https://static.wikitide.net/theforgewiki/thumb/5/54/Tachi.png/80px-Tachi.png",
+    "Uchigatana": "https://static.wikitide.net/theforgewiki/thumb/4/46/Uchigatana.png/80px-Uchigatana.png",
+    "Dark Knight Chestplate": "https://static.wikitide.net/theforgewiki/thumb/e/e6/DarkKnightChestplate.png/64px-DarkKnightChestplate.png",
+    "Dark Knight Helmet": "https://static.wikitide.net/theforgewiki/thumb/8/8d/DarkKnightHelmet.png/64px-DarkKnightHelmet.png",
+    "Dark Knight Leggings": "https://static.wikitide.net/theforgewiki/thumb/6/65/DarkKnightLeggings.png/64px-DarkKnightLeggings.png",
+    "Knight Chestplate": "https://static.wikitide.net/theforgewiki/thumb/d/da/KnightChestplate.png/64px-KnightChestplate.png",
+    "Knight Helmet": "https://static.wikitide.net/theforgewiki/thumb/c/c3/KnightHelmet.png/64px-KnightHelmet.png",
+    "Knight Leggings": "https://static.wikitide.net/theforgewiki/thumb/a/a4/KnightLeggings.png/64px-KnightLeggings.png",
+    "Light Chestplate": "https://static.wikitide.net/theforgewiki/thumb/7/75/LightChestplate.png/64px-LightChestplate.png",
+    "Light Helmet": "https://static.wikitide.net/theforgewiki/thumb/d/d6/LightHelmet.png/64px-LightHelmet.png",
+    "Light Leggings": "https://static.wikitide.net/theforgewiki/thumb/f/fd/LightLeggings.png/64px-LightLeggings.png",
+    "Medium Chestplate": "https://static.wikitide.net/theforgewiki/thumb/a/a0/MediumChestplate.png/64px-MediumChestplate.png",
+    "Medium Helmet": "https://static.wikitide.net/theforgewiki/thumb/7/7e/MediumHelmet.png/64px-MediumHelmet.png",
+    "Medium Leggings": "https://static.wikitide.net/theforgewiki/thumb/d/d4/MediumLeggings.png/63px-MediumLeggings.png",
+    "Samurai Chestplate": "https://static.wikitide.net/theforgewiki/thumb/a/a3/SamuraiChestplate.png/64px-SamuraiChestplate.png",
+    "Samurai Helmet": "https://static.wikitide.net/theforgewiki/thumb/b/b8/SamuraiHelmet.png/64px-SamuraiHelmet.png",
+    "Samurai Leggings": "https://static.wikitide.net/theforgewiki/thumb/a/a4/SamuraiLeggings.png/63px-SamuraiLeggings.png"
 };
 

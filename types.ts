@@ -23,6 +23,9 @@ export interface Ore {
   traitType: TraitType;
   traits: Trait[];
   image?: string;
+  description?: string;
+  dropChance?: string;
+  price?: number;
 }
 
 export interface Slot {

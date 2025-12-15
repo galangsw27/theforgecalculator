@@ -4,7 +4,7 @@ import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, 
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
 import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
-import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES } from './constants';
+import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES } from './constants';
 import { Ore, Slot, ForgeMode, Area, ForgedItem } from './types';
 
 // --- Helper Components ---
@@ -239,6 +239,8 @@ function Calculator() {
             <main className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* --- LEFT COLUMN: Chances --- */}
                 <div className="lg:col-span-3 space-y-6 order-2 lg:order-1">
+
+
                     <div className="bg-card border border-card-border rounded-xl overflow-hidden shadow-2xl">
                         <div className="p-4 border-b border-white/5 bg-white/5 flex justify-between items-center">
                             <h2 className={`font-fredoka font-bold ${themeColor} flex items-center gap-2`}>
@@ -246,24 +248,56 @@ function Calculator() {
                             </h2>
                             <span className="text-xs text-gray-500">{t('app.basedOn')} {totalOres} {t('app.ores')}</span>
                         </div>
-                        <div className="p-2">
-                            <div className="space-y-1">
-                                {Object.entries(probabilities).length > 0 ? (
-                                    Object.entries(probabilities).map(([type, prob]: [string, number]) => (
-                                        <div key={type} className="relative group p-2 rounded-lg hover:bg-white/5 transition-colors cursor-default">
-                                            <div className="flex justify-between items-center mb-1 relative z-10">
-                                                <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">{type}</span>
-                                                <span className={`text-xs font-bold font-mono ${themeColor}`}>{(prob * 100).toFixed(1)}%</span>
+                        <div className="p-2 space-y-2 max-h-[500px] overflow-y-auto custom-scrollbar">
+                            {Object.entries(probabilities).length > 0 ? (
+                                Object.entries(probabilities)
+                                    .sort(([, a], [, b]) => (b as number) - (a as number))
+                                    .map(([type, prob]: [string, number]) => {
+                                        const variants = ITEM_VARIANTS[activeTab]?.[type]?.[activeArea] || [];
+                                        const hasVariants = variants.length > 0;
+
+                                        return (
+                                            <div key={type} className="bg-black/20 rounded-lg p-3 border border-white/5">
+                                                <div className="flex justify-between items-center mb-2">
+                                                    <span className="text-sm font-bold text-gray-300">{type}</span>
+                                                    <span className={`text-xs font-mono font-bold ${themeColor}`}>{(prob * 100).toFixed(0)}%</span>
+                                                </div>
+
+                                                <div className="flex flex-col lg:flex-row lg:flex-wrap gap-2">
+                                                    {hasVariants ? (
+                                                        variants.map((variant, idx) => (
+                                                            <div key={idx} className="flex flex-row lg:flex-col items-center gap-3 lg:gap-1 group w-full lg:w-16 p-2 lg:p-0 bg-white/5 lg:bg-transparent rounded-lg lg:rounded-none transition-colors hover:bg-white/10 lg:hover:bg-transparent" title={variant.name}>
+                                                                <div className="w-12 h-12 shrink-0 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-white/30 transition-colors">
+                                                                    {ITEM_IMAGES[variant.name] ? (
+                                                                        <img src={ITEM_IMAGES[variant.name]} alt={variant.name} className="w-10 h-10 object-contain drop-shadow-md" />
+                                                                    ) : (
+                                                                        <div className="text-xs text-gray-600">?</div>
+                                                                    )}
+                                                                </div>
+                                                                <span className="text-sm lg:text-[9px] text-gray-300 lg:text-gray-400 text-left lg:text-center leading-tight line-clamp-2 lg:w-full order-2 lg:order-3">{variant.name}</span>
+                                                                <span className="text-xs lg:text-[10px] text-gray-500 font-mono leading-none order-3 lg:order-2 ml-auto lg:ml-0">{variant.chance}</span>
+                                                            </div>
+                                                        ))
+                                                    ) : (
+                                                        <div className="flex flex-row lg:flex-col items-center gap-3 lg:gap-1 group w-full lg:w-16 p-2 lg:p-0 bg-white/5 lg:bg-transparent rounded-lg lg:rounded-none transition-colors hover:bg-white/10 lg:hover:bg-transparent" title={type}>
+                                                            <div className="w-12 h-12 shrink-0 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-white/30 transition-colors">
+                                                                {ITEM_IMAGES[type] ? (
+                                                                    <img src={ITEM_IMAGES[type]} alt={type} className="w-10 h-10 object-contain drop-shadow-md" />
+                                                                ) : (
+                                                                    <div className="text-xs text-gray-600">?</div>
+                                                                )}
+                                                            </div>
+                                                            <span className="text-sm lg:text-[9px] text-gray-300 lg:text-gray-400 text-left lg:text-center leading-tight line-clamp-2 lg:w-full order-2 lg:order-3">{type}</span>
+                                                            <span className="text-xs lg:text-[10px] text-gray-500 font-mono leading-none order-3 lg:order-2 ml-auto lg:ml-0">1/1</span>
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
-                                            <div className="h-1.5 w-full bg-black/50 rounded-full overflow-hidden">
-                                                <div className={`h-full rounded-full transition-all duration-500 ${themeBg}`} style={{ width: `${prob * 100}%` }} />
-                                            </div>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div className="p-8 text-center text-gray-600 text-sm italic">{t('app.addOres')}</div>
-                                )}
-                            </div>
+                                        );
+                                    })
+                            ) : (
+                                <div className="p-8 text-center text-gray-600 text-sm italic">{t('app.addOres')}</div>
+                            )}
                         </div>
                     </div>
 
@@ -392,6 +426,9 @@ function Calculator() {
                             </div>
                         )}
                     </div>
+
+                    {/* Forge Chances (Moved) */}
+
                 </div>
 
                 {/* --- RIGHT COLUMN: Ore Selection --- */}
@@ -415,12 +452,16 @@ function Calculator() {
                     <div className="flex-1 bg-card border border-card-border rounded-xl overflow-hidden shadow-lg flex flex-col">
                         <div className="flex-1 overflow-y-auto p-2 grid grid-cols-4 gap-2 content-start">
                             {areaOres.map(ore => (
-                                <button key={ore.id} onClick={() => handleAddOre(ore)} className="group flex flex-col items-center p-2 rounded-lg hover:bg-white/5 border border-transparent hover:border-white/5 transition-all relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-700" />
-                                    <OreIcon ore={ore} />
-                                    <div className="mt-1 text-center w-full">
-                                        <div className="text-[9px] font-bold truncate leading-tight w-full" style={{ color: ore.color }} title={ore.name}>{ore.name}</div>
-                                        <div className="text-[8px] text-gray-500">{ore.multiplier}x</div>
+                                <button key={ore.id} onClick={() => handleAddOre(ore)} className="group relative flex flex-col items-center p-2 rounded-xl bg-black/20 border border-white/5 hover:bg-white/5 transition-all overflow-hidden">
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                                    <div className="absolute bottom-0 left-0 right-0 h-0.5 opacity-50 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: ore.color }} />
+
+                                    <div className="relative z-10 flex flex-col items-center w-full">
+                                        <OreIcon ore={ore} />
+                                        <div className="mt-2 text-center w-full">
+                                            <div className="text-[10px] font-bold text-gray-100 leading-tight line-clamp-2 drop-shadow-md" title={ore.name}>{ore.name}</div>
+                                            <div className="text-[9px] text-gray-400 mt-0.5 font-mono">{ore.multiplier}x</div>
+                                        </div>
                                     </div>
                                 </button>
                             ))}
