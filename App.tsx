@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home } from 'lucide-react';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink } from 'lucide-react';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
 import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
@@ -212,6 +212,15 @@ function Calculator() {
                     </div>
                     <div className="flex items-center gap-4">
                         <LanguageSwitcher />
+                        <a
+                            href="https://link-target.net/2492847/7rwwj5aW1gZy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/40 transition-colors text-xs font-medium text-indigo-300"
+                        >
+                            <ExternalLink size={14} />
+                            <span>Join Private Server</span>
+                        </a>
                         <button
                             onClick={() => setShowInventory(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-medium"

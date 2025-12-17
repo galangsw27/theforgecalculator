@@ -51,6 +51,15 @@ const LandingPage: React.FC = () => {
                         <a href="#about" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.about')}</a>
                         <LanguageSwitcher />
                         <a
+                            href="https://link-target.net/2492847/7rwwj5aW1gZy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden sm:flex px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all hover:-translate-y-0.5 items-center gap-2 whitespace-nowrap"
+                        >
+                            Join Private Server
+                            <ExternalLink size={14} />
+                        </a>
+                        <a
                             href="https://www.roblox.com/games/76558904092080/The-Forge"
                             target="_blank"
                             rel="noopener noreferrer"
