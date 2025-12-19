@@ -1,11 +1,18 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink } from 'lucide-react';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu } from 'lucide-react';
+import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
 import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
 import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES } from './constants';
-import { Ore, Slot, ForgeMode, Area, ForgedItem } from './types';
+import { Ore, Slot, ForgeMode, Area, ForgedItem, Rune } from './types';
+import { AuthProvider, useAuth } from './src/context/AuthContext';
+import Login from './src/components/Auth/Login';
+import Signup from './src/components/Auth/Signup';
+import DamageTester from './src/components/DamageTester';
+import PrivateServerTutorial from './src/components/PrivateServerTutorial';
+import runesData from './src/data/runes.json';
 
 // --- Helper Components ---
 
@@ -25,6 +32,7 @@ const OreIcon = ({ ore }: { ore: Ore }) => (
 // --- Calculator Component ---
 function Calculator() {
     const { t } = useLanguage();
+    const { user, profile, refreshProfile, signOut } = useAuth();
     const [activeTab, setActiveTab] = useState<ForgeMode>('weapon');
     const [activeArea, setActiveArea] = useState<Area>('kingdom');
     const [slots, setSlots] = useState<Slot[]>([
@@ -39,6 +47,94 @@ function Calculator() {
     const [inventory, setInventory] = useState<ForgedItem[]>([]);
     const [showInventory, setShowInventory] = useState(false);
     const [showBestRecipes, setShowBestRecipes] = useState(false);
+    const [savedBuilds, setSavedBuilds] = useState<any[]>([]);
+    const [showSavedBuilds, setShowSavedBuilds] = useState(false);
+    const [showRuneModal, setShowRuneModal] = useState(false);
+    const [selectedRuneSlot, setSelectedRuneSlot] = useState<number | null>(null);
+
+    const [viewingBuildId, setViewingBuildId] = useState<number | null>(null); // To track which build we are enhancing in the modal
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (user) {
+            fetchSavedBuilds();
+        } else {
+            setSavedBuilds([]);
+        }
+    }, [user]);
+
+    const fetchSavedBuilds = async () => {
+        if (!supabase || !user) return;
+        const { data, error } = await supabase
+            .from('builds')
+            .select('*')
+            .order('created_at', { ascending: false });
+        if (!error && data) {
+            setSavedBuilds(data);
+        }
+    };
+
+    const handleSaveBuild = async () => {
+        if (!user) {
+            alert("Please login to save builds.");
+            return;
+        }
+        if (!profile?.is_premium) {
+            alert("This is a Premium feature. Please upgrade to save builds.");
+            return;
+        }
+        if (!forgeResult) return;
+
+        const buildName = prompt("Enter a name for this build:", forgeResult.itemName);
+        if (!buildName) return;
+
+        const { error } = await supabase
+            .from('builds')
+            .insert({
+                user_id: user.id,
+                name: buildName,
+                build_data: forgeResult
+            });
+
+        if (error) {
+            alert("Error saving build: " + error.message);
+        } else {
+            alert("Build saved successfully!");
+            fetchSavedBuilds();
+        }
+    };
+
+    const handleTogglePremium = async () => {
+        if (!user || !profile) return;
+        const newStatus = !profile.is_premium;
+        const { error } = await supabase
+            .from('profiles')
+            .update({ is_premium: newStatus })
+            .eq('id', user.id);
+
+        if (!error) {
+            await refreshProfile();
+            alert(`Premium status ${newStatus ? 'activated' : 'deactivated'}!`);
+        } else {
+            alert("Error updating premium status");
+        }
+    };
+
+    const loadBuild = (build: any) => {
+        setForgeResult(build.build_data);
+        setShowSavedBuilds(false);
+    };
+
+    const deleteBuild = async (id: number) => {
+        if (!confirm("Are you sure you want to delete this build?")) return;
+        const { error } = await supabase
+            .from('builds')
+            .delete()
+            .eq('id', id);
+        if (!error) {
+            fetchSavedBuilds();
+        }
+    };
 
     // Theme Colors
     const themeColor = activeTab === 'weapon' ? 'text-weapon' : 'text-armor';
@@ -109,6 +205,70 @@ function Calculator() {
         });
         return traitsList;
     }, [oreMix, totalOres, activeTab]);
+
+    const handleEnhance = async (buildId: number, delta: number = 1) => {
+        if (!user) return;
+        const build = savedBuilds.find(b => b.id === buildId);
+        if (!build) return;
+
+        const currentLevel = build.build_data.enhancementLevel || 0;
+        const newLevel = Math.max(0, currentLevel + delta);
+
+        // Update local state for immediate feedback
+        const updatedBuildData = {
+            ...build.build_data,
+            enhancementLevel: newLevel
+        };
+
+        const { error } = await supabase
+            .from('builds')
+            .update({ build_data: updatedBuildData })
+            .eq('id', buildId);
+
+        if (!error) {
+            fetchSavedBuilds();
+        } else {
+            alert("Error enhancing: " + error.message);
+        }
+    };
+
+    const handleEquipRune = async (rune: Rune) => {
+        if (!user || viewingBuildId === null || selectedRuneSlot === null) return;
+        const build = savedBuilds.find(b => b.id === viewingBuildId);
+        if (!build) return;
+
+        const currentRunes = build.build_data.equippedRunes || [];
+        const newRunes = [...currentRunes];
+
+        // Ensure array is big enough
+        while (newRunes.length <= selectedRuneSlot) {
+            newRunes.push(null as any);
+        }
+        newRunes[selectedRuneSlot] = rune;
+
+        const updatedBuildData = {
+            ...build.build_data,
+            equippedRunes: newRunes
+        };
+
+        const { error } = await supabase
+            .from('builds')
+            .update({ build_data: updatedBuildData })
+            .eq('id', viewingBuildId);
+
+        if (!error) {
+            fetchSavedBuilds();
+            setShowRuneModal(false);
+        } else {
+            alert("Error equipping rune: " + error.message);
+        }
+    };
+
+    const openRuneModal = (buildId: number, slotIndex: number) => {
+        setViewingBuildId(buildId);
+        setSelectedRuneSlot(slotIndex);
+        setShowRuneModal(true);
+    };
 
     // --- Actions ---
     const handleAddOre = (ore: Ore) => {
@@ -207,20 +367,30 @@ function Calculator() {
                             <Home className="text-white" size={16} />
                         </Link>
                         <h1 className="font-fredoka font-bold text-xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                            The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2">{t('app.calculator')}</span>
+                            The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2 hidden sm:inline">{t('app.calculator')}</span>
                         </h1>
+                        <Link to="/damage-tester" className="ml-2 sm:ml-4 px-3 py-1 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-bold transition-colors flex items-center gap-1">
+                            <Zap size={12} /> <span className="hidden sm:inline">Damage Test</span><span className="sm:hidden">Test</span>
+                        </Link>
                     </div>
-                    <div className="flex items-center gap-4">
+
+                    {/* Desktop Menu */}
+                    <div className="hidden md:flex items-center gap-4">
                         <LanguageSwitcher />
-                        <a
-                            href="https://link-target.net/2492847/7rwwj5aW1gZy"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/40 transition-colors text-xs font-medium text-indigo-300"
+                        <Link
+                            to="/private-server"
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/40 transition-colors text-xs font-medium text-indigo-300"
                         >
                             <ExternalLink size={14} />
                             <span>Join Private Server</span>
-                        </a>
+                        </Link>
+                        <button
+                            onClick={() => setShowSavedBuilds(true)}
+                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors text-xs font-medium text-blue-300"
+                        >
+                            <Save size={14} />
+                            <span>Saved Builds</span>
+                        </button>
                         <button
                             onClick={() => setShowInventory(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-medium"
@@ -228,8 +398,102 @@ function Calculator() {
                             <Coins size={14} className="text-yellow-500" />
                             <span>{t('app.inventory')} ({inventory.length})</span>
                         </button>
+                        {user ? (
+                            <div className="flex items-center gap-3">
+                                <button
+                                    onClick={handleTogglePremium}
+                                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold border transition-colors ${profile?.is_premium ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' : 'bg-gray-700 text-gray-400 border-gray-600'}`}
+                                    title="Toggle Premium Status (Mock Payment)"
+                                >
+                                    <Crown size={12} />
+                                    {profile?.is_premium ? 'PREMIUM' : 'FREE'}
+                                </button>
+                                <span className="text-xs text-gray-400 hidden lg:inline">{user.email}</span>
+                                <button
+                                    onClick={() => signOut()}
+                                    className="px-3 py-1.5 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-medium transition-colors"
+                                >
+                                    Sign Out
+                                </button>
+                            </div>
+                        ) : (
+                            <Link
+                                to="/login"
+                                className="px-4 py-1.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold transition-colors shadow-lg shadow-amber-900/20"
+                            >
+                                Login
+                            </Link>
+                        )}
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <div className="md:hidden flex items-center gap-2">
+                        <LanguageSwitcher />
+                        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-gray-400 hover:text-white">
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
                 </div>
+
+                {/* Mobile Menu Dropdown */}
+                {isMenuOpen && (
+                    <div className="md:hidden bg-black/90 border-b border-white/10 backdrop-blur-xl p-4 flex flex-col gap-4 animate-in slide-in-from-top-5">
+                        <Link
+                            to="/private-server"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-sm font-medium text-indigo-300"
+                        >
+                            <ExternalLink size={16} />
+                            <span>Join Private Server</span>
+                        </Link>
+                        <button
+                            onClick={() => { setShowSavedBuilds(true); setIsMenuOpen(false); }}
+                            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-sm font-medium text-blue-300"
+                        >
+                            <Save size={16} />
+                            <span>Saved Builds</span>
+                        </button>
+                        <button
+                            onClick={() => { setShowInventory(true); setIsMenuOpen(false); }}
+                            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-medium"
+                        >
+                            <Coins size={16} className="text-yellow-500" />
+                            <span>{t('app.inventory')} ({inventory.length})</span>
+                        </button>
+
+                        <div className="h-px bg-white/10 my-1" />
+
+                        {user ? (
+                            <div className="flex flex-col gap-3">
+                                <div className="flex items-center justify-between px-2">
+                                    <span className="text-xs text-gray-400">{user.email}</span>
+                                    <button
+                                        onClick={handleTogglePremium}
+                                        className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold border transition-colors ${profile?.is_premium ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' : 'bg-gray-700 text-gray-400 border-gray-600'}`}
+                                    >
+                                        <Crown size={12} />
+                                        {profile?.is_premium ? 'PREMIUM' : 'FREE'}
+                                    </button>
+                                </div>
+                                <button
+                                    onClick={() => { signOut(); setIsMenuOpen(false); }}
+                                    className="w-full px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm font-medium text-center"
+                                >
+                                    Sign Out
+                                </button>
+                            </div>
+                        ) : (
+                            <Link
+                                to="/login"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="w-full px-4 py-3 rounded-xl bg-amber-600 text-white text-sm font-bold text-center shadow-lg shadow-amber-900/20"
+                            >
+                                Login
+                            </Link>
+                        )}
+                    </div>
+                )}
+
                 {/* Marquee Animation */}
                 <div className="bg-black/40 border-b border-white/5 overflow-hidden py-1 flex">
                     <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex-shrink-0 flex">
@@ -481,117 +745,296 @@ function Calculator() {
             </main>
 
             {/* --- MODAL: Forge Result --- */}
-            {forgeResult && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-                    <div className="bg-card border border-white/10 rounded-2xl w-full max-w-md shadow-2xl relative overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 max-h-[90vh]">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent" style={{ color: forgeResult.mainOre.color }} />
-                        <button onClick={() => setForgeResult(null)} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"><X size={20} /></button>
-                        <div className="p-8 text-center overflow-y-auto custom-scrollbar">
-                            <div className="mb-6 flex justify-center">
-                                <div className="w-24 h-24 rounded-xl shadow-[0_0_30px_-5px_var(--glow)] flex items-center justify-center bg-black border border-white/10 relative" style={{ '--glow': forgeResult.mainOre.color } as React.CSSProperties}>
-                                    <div className="absolute inset-0 bg-white/5 rounded-xl" />
-                                    {ITEM_VARIANTS[activeTab]?.[forgeResult.itemType]?.[activeArea]?.find(v => v.name === forgeResult.itemName) ? (
-                                        <div className="text-4xl">⚔️</div>
-                                    ) : (
-                                        <div className="text-4xl" style={{ color: forgeResult.mainOre.color }}>
-                                            {activeTab === 'weapon' ? <Sword size={40} /> : <Shield size={40} />}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                            <h2 className="text-2xl font-fredoka font-bold text-white mb-1">{forgeResult.itemName}</h2>
-                            <div className="text-sm text-gray-500 uppercase tracking-widest mb-6 font-bold">{forgeResult.itemType}</div>
-                            <div className="grid grid-cols-2 gap-3 mb-6">
-                                {Object.entries(forgeResult.stats).filter(([k]) => k !== 'type').map(([key, value]) => (
-                                    <div key={key} className="bg-white/5 rounded-lg p-2 border border-white/5">
-                                        <div className="text-[10px] uppercase text-gray-500 font-bold mb-0.5">{key}</div>
-                                        <div className="text-lg font-bold text-white">
-                                            {typeof value === 'number' ? value.toFixed(key === 'atkSpeed' ? 2 : 0) : value}
-                                            {key === 'atkSpeed' && 's'}
-                                            {key === 'health' && '%'}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            {forgeResult.traits.length > 0 && (
-                                <div className="mb-6 text-left bg-white/5 p-4 rounded-xl border border-white/5">
-                                    <h3 className="text-xs uppercase text-gray-500 font-bold mb-3 flex items-center gap-2"><Sparkles size={12} className="text-yellow-500" /> {t('app.activeTraits')}</h3>
-                                    <div className="space-y-3">
-                                        {forgeResult.traits.map((t_item, i) => (
-                                            <div key={i} className="text-sm border-l-2 pl-3 py-0.5" style={{ borderColor: t_item.color }}>
-                                                <div className="flex justify-between items-baseline mb-1">
-                                                    <span style={{ color: t_item.color }} className="font-bold">{t_item.oreName}</span>
-                                                    <span className="text-[10px] bg-white/10 px-1.5 rounded text-gray-400">{t_item.percentage.toFixed(0)}%</span>
-                                                </div>
-                                                <p className="text-gray-300 text-xs leading-relaxed opacity-90">{t_item.description}</p>
+            {
+                forgeResult && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+                        <div className="bg-card border border-white/10 rounded-2xl w-full max-w-md shadow-2xl relative overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 max-h-[90vh]">
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-current to-transparent" style={{ color: forgeResult.mainOre.color }} />
+                            <button onClick={() => setForgeResult(null)} className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"><X size={20} /></button>
+                            <div className="p-8 text-center overflow-y-auto custom-scrollbar">
+                                <div className="mb-6 flex justify-center">
+                                    <div className="w-24 h-24 rounded-xl shadow-[0_0_30px_-5px_var(--glow)] flex items-center justify-center bg-black border border-white/10 relative" style={{ '--glow': forgeResult.mainOre.color } as React.CSSProperties}>
+                                        <div className="absolute inset-0 bg-white/5 rounded-xl" />
+                                        {ITEM_VARIANTS[activeTab]?.[forgeResult.itemType]?.[activeArea]?.find(v => v.name === forgeResult.itemName) ? (
+                                            <div className="text-4xl">⚔️</div>
+                                        ) : (
+                                            <div className="text-4xl" style={{ color: forgeResult.mainOre.color }}>
+                                                {activeTab === 'weapon' ? <Sword size={40} /> : <Shield size={40} />}
                                             </div>
-                                        ))}
+                                        )}
                                     </div>
                                 </div>
-                            )}
-                            <div className="flex gap-2 justify-center mt-4">
-                                <button onClick={() => { setForgeResult(null); handleForge(); }} className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors w-full">{t('app.forgeAgain')}</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* --- MODAL: Inventory --- */}
-            {showInventory && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in">
-                    <div className="bg-card border border-card-border rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl relative">
-                        <div className="p-6 border-b border-white/5 flex justify-between items-center">
-                            <h2 className="text-xl font-fredoka font-bold flex items-center gap-2"><Coins className="text-yellow-500" /> {t('app.forgeHistory')}</h2>
-                            <button onClick={() => setShowInventory(false)} className="text-gray-500 hover:text-white"><X size={24} /></button>
-                        </div>
-                        <div className="flex-1 overflow-y-auto p-6">
-                            {inventory.length > 0 ? (
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    {inventory.map(item => (
-                                        <div key={item.id} className="bg-black/40 border border-white/10 rounded-xl p-4 flex gap-4 hover:border-white/20 transition-colors">
-                                            <div className="w-16 h-16 rounded-lg bg-white/5 shrink-0 flex items-center justify-center border border-white/5">
-                                                {item.mode === 'weapon' ? <Sword size={24} className="text-gray-500" /> : <Shield size={24} className="text-gray-500" />}
-                                            </div>
-                                            <div className="min-w-0">
-                                                <div className="font-bold text-white truncate">{item.itemName}</div>
-                                                <div className="text-xs text-gray-500 mb-2">{item.timestamp}</div>
-                                                <div className="flex gap-2">
-                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300">{item.multiplier.toFixed(2)}x</span>
-                                                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300 truncate max-w-[100px]">{item.mainOre.name}</span>
-                                                </div>
+                                <h2 className="text-2xl font-fredoka font-bold text-white mb-1">{forgeResult.itemName}</h2>
+                                <div className="text-sm text-gray-500 uppercase tracking-widest mb-6 font-bold">{forgeResult.itemType}</div>
+                                <div className="grid grid-cols-2 gap-3 mb-6">
+                                    {Object.entries(forgeResult.stats).filter(([k]) => k !== 'type').map(([key, value]) => (
+                                        <div key={key} className="bg-white/5 rounded-lg p-2 border border-white/5">
+                                            <div className="text-[10px] uppercase text-gray-500 font-bold mb-0.5">{key}</div>
+                                            <div className="text-lg font-bold text-white">
+                                                {typeof value === 'number' ? value.toFixed(key === 'atkSpeed' ? 2 : 0) : value}
+                                                {key === 'atkSpeed' && 's'}
+                                                {key === 'health' && '%'}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
-                            ) : (
-                                <div className="h-full flex flex-col items-center justify-center text-gray-600"><Sword size={48} className="mb-4 opacity-20" /><p>{t('app.noItems')}</p></div>
-                            )}
-                        </div>
-                        <div className="p-4 border-t border-white/5 flex justify-between items-center bg-black/20 rounded-b-2xl">
-                            <div className="text-sm text-gray-500">{t('app.totalValue')}: <span className="text-yellow-500 font-bold">${inventory.reduce((a, b) => a + (b.stats.price || 0), 0).toLocaleString()}</span></div>
-                            <button onClick={() => setInventory([])} className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"><Trash2 size={12} /> {t('app.clearHistory')}</button>
+                                {forgeResult.traits.length > 0 && (
+                                    <div className="mb-6 text-left bg-white/5 p-4 rounded-xl border border-white/5">
+                                        <h3 className="text-xs uppercase text-gray-500 font-bold mb-3 flex items-center gap-2"><Sparkles size={12} className="text-yellow-500" /> {t('app.activeTraits')}</h3>
+                                        <div className="space-y-3">
+                                            {forgeResult.traits.map((t_item, i) => (
+                                                <div key={i} className="text-sm border-l-2 pl-3 py-0.5" style={{ borderColor: t_item.color }}>
+                                                    <div className="flex justify-between items-baseline mb-1">
+                                                        <span style={{ color: t_item.color }} className="font-bold">{t_item.oreName}</span>
+                                                        <span className="text-[10px] bg-white/10 px-1.5 rounded text-gray-400">{t_item.percentage.toFixed(0)}%</span>
+                                                    </div>
+                                                    <p className="text-gray-300 text-xs leading-relaxed opacity-90">{t_item.description}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                                <div className="flex gap-2 justify-center mt-4">
+                                    <button onClick={() => { setForgeResult(null); handleForge(); }} className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors flex-1">{t('app.forgeAgain')}</button>
+                                    <button onClick={handleSaveBuild} className="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-700 transition-colors flex items-center gap-2">
+                                        <Save size={18} />
+                                        {profile?.is_premium ? 'Save' : 'Save (Premium)'}
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )
+            }
+
+            {/* --- MODAL: Inventory --- */}
+            {
+                showInventory && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in">
+                        <div className="bg-card border border-card-border rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl relative">
+                            <div className="p-6 border-b border-white/5 flex justify-between items-center">
+                                <h2 className="text-xl font-fredoka font-bold flex items-center gap-2"><Coins className="text-yellow-500" /> {t('app.forgeHistory')}</h2>
+                                <button onClick={() => setShowInventory(false)} className="text-gray-500 hover:text-white"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto p-6">
+                                {inventory.length > 0 ? (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        {inventory.map(item => (
+                                            <div key={item.id} className="bg-black/40 border border-white/10 rounded-xl p-4 flex gap-4 hover:border-white/20 transition-colors">
+                                                <div className="w-16 h-16 rounded-lg bg-white/5 shrink-0 flex items-center justify-center border border-white/5">
+                                                    {item.mode === 'weapon' ? <Sword size={24} className="text-gray-500" /> : <Shield size={24} className="text-gray-500" />}
+                                                </div>
+                                                <div className="min-w-0">
+                                                    <div className="font-bold text-white truncate">{item.itemName}</div>
+                                                    <div className="text-xs text-gray-500 mb-2">{item.timestamp}</div>
+                                                    <div className="flex gap-2">
+                                                        <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300">{item.multiplier.toFixed(2)}x</span>
+                                                        <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-gray-300 truncate max-w-[100px]">{item.mainOre.name}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="h-full flex flex-col items-center justify-center text-gray-600"><Sword size={48} className="mb-4 opacity-20" /><p>{t('app.noItems')}</p></div>
+                                )}
+                            </div>
+                            <div className="p-4 border-t border-white/5 flex justify-between items-center bg-black/20 rounded-b-2xl">
+                                <div className="text-sm text-gray-500">{t('app.totalValue')}: <span className="text-yellow-500 font-bold">${inventory.reduce((a, b) => a + (b.stats.price || 0), 0).toLocaleString()}</span></div>
+                                <button onClick={() => setInventory([])} className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1"><Trash2 size={12} /> {t('app.clearHistory')}</button>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+
+
+            {/* --- MODAL: Saved Builds --- */}
+            {
+                showSavedBuilds && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in">
+                        <div className="bg-card border border-card-border rounded-2xl w-full max-w-4xl h-[80vh] flex flex-col shadow-2xl relative">
+                            <div className="p-6 border-b border-white/5 flex justify-between items-center">
+                                <h2 className="text-xl font-fredoka font-bold flex items-center gap-2"><Save className="text-blue-500" /> Saved Builds</h2>
+                                <button onClick={() => setShowSavedBuilds(false)} className="text-gray-500 hover:text-white"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto p-6">
+                                {!user ? (
+                                    <div className="h-full flex flex-col items-center justify-center text-gray-600">
+                                        <p>Please login to view saved builds.</p>
+                                        <Link to="/login" className="mt-4 text-amber-500 hover:underline">Login</Link>
+                                    </div>
+                                ) : savedBuilds.length > 0 ? (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        {savedBuilds.map(build => {
+                                            const item = build.build_data as ForgedItem;
+                                            const level = item.enhancementLevel || 0;
+                                            const damageMultiplier = 1 + (level * 0.10);
+                                            const displayDamage = item.stats.damage ? (item.stats.damage * damageMultiplier).toFixed(1) : null;
+                                            const runeSlots = level >= 6 ? 2 : level >= 3 ? 1 : 0;
+                                            const equippedRunes = item.equippedRunes || [];
+
+                                            return (
+                                                <div key={build.id} className="bg-black/40 border border-white/10 rounded-xl p-4 flex flex-col gap-3 hover:border-white/20 transition-colors">
+                                                    <div className="flex justify-between items-start">
+                                                        <div className="font-bold text-white truncate text-lg flex items-center gap-2">
+                                                            {build.name}
+                                                            {level > 0 && <span className="text-xs bg-amber-500/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-500/30">+{level}</span>}
+                                                        </div>
+                                                        <button onClick={() => deleteBuild(build.id)} className="text-gray-600 hover:text-red-400"><Trash2 size={16} /></button>
+                                                    </div>
+                                                    <div className="flex gap-3">
+                                                        <div className="w-12 h-12 rounded-lg bg-white/5 shrink-0 flex items-center justify-center border border-white/5 relative">
+                                                            {item.mode === 'weapon' ? <Sword size={20} className="text-gray-500" /> : <Shield size={20} className="text-gray-500" />}
+                                                            {level > 0 && <div className="absolute -top-1 -right-1 w-4 h-4 bg-amber-600 rounded-full text-[8px] flex items-center justify-center font-bold text-white border border-black">+{level}</div>}
+                                                        </div>
+                                                        <div className="min-w-0">
+                                                            <div className="text-sm text-gray-300 truncate">{item.itemName}</div>
+                                                            {displayDamage && <div className="text-xs text-red-400 font-bold">{displayDamage} DMG</div>}
+                                                            <div className="text-xs text-gray-500">{new Date(build.created_at).toLocaleDateString()}</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="grid grid-cols-2 gap-2 mb-3">
+                                                        {Object.entries(build.build_data.stats).filter(([k]) => k !== 'type' && k !== 'price').map(([key, value]) => {
+                                                            let displayValue = value;
+                                                            if (key === 'damage' && typeof value === 'number') {
+                                                                displayValue = value * (1 + level * 0.10);
+                                                            }
+                                                            return (
+                                                                <div key={key} className="bg-black/40 rounded p-1.5 flex justify-between items-center">
+                                                                    <span className="text-[10px] uppercase text-gray-500 font-bold">{key}</span>
+                                                                    <span className={`text-xs font-bold ${key === 'damage' && level > 0 ? 'text-amber-400' : 'text-white'}`}>
+                                                                        {typeof displayValue === 'number' ? (displayValue as number).toFixed(key === 'atkSpeed' ? 2 : 0) : (displayValue as React.ReactNode)}
+                                                                        {key === 'atkSpeed' && 's'}
+                                                                        {key === 'health' && '%'}
+                                                                    </span>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+
+                                                    {/* Rune Slots */}
+                                                    {(build.build_data.enhancementLevel || 0) >= 3 && (
+                                                        <div className="flex gap-2 mb-3">
+                                                            {[0, 1].map(slotIdx => {
+                                                                if (slotIdx === 1 && (build.build_data.enhancementLevel || 0) < 6) return null;
+                                                                const rune = build.build_data.equippedRunes?.[slotIdx];
+                                                                return (
+                                                                    <button
+                                                                        key={slotIdx}
+                                                                        onClick={() => openRuneModal(build.id, slotIdx)}
+                                                                        className="w-8 h-8 rounded bg-black/40 border border-white/10 flex items-center justify-center hover:border-purple-500/50 transition-colors relative group"
+                                                                        title={rune ? rune.name : "Empty Rune Slot"}
+                                                                    >
+                                                                        {rune ? (
+                                                                            <img src={rune.image} className="w-full h-full object-cover rounded" />
+                                                                        ) : (
+                                                                            <div className="w-2 h-2 rounded-full bg-white/10 group-hover:bg-purple-500/50" />
+                                                                        )}
+                                                                    </button>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    )}
+
+                                                    <div className="flex gap-2 mt-auto">
+                                                        <div className="flex items-center bg-amber-600/20 rounded-lg">
+                                                            <button
+                                                                onClick={() => handleEnhance(build.id, -1)}
+                                                                className="px-3 py-2 text-amber-300 hover:bg-amber-600/20 rounded-l-lg transition-colors"
+                                                                disabled={(build.build_data.enhancementLevel || 0) <= 0}
+                                                            >
+                                                                -
+                                                            </button>
+                                                            <div className="text-xs font-bold text-amber-300 px-1 flex items-center gap-1">
+                                                                <Zap size={12} />
+                                                                <span>Enhance</span>
+                                                            </div>
+                                                            <button
+                                                                onClick={() => handleEnhance(build.id, 1)}
+                                                                className="px-3 py-2 text-amber-300 hover:bg-amber-600/20 rounded-r-lg transition-colors"
+                                                            >
+                                                                +
+                                                            </button>
+                                                        </div>
+                                                        <button onClick={() => loadBuild(build)} className="flex-1 py-2 bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1">
+                                                            <Download size={12} /> Load
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                ) : (
+                                    <div className="h-full flex flex-col items-center justify-center text-gray-600"><Save size={48} className="mb-4 opacity-20" /><p>No saved builds yet.</p></div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+
+            {/* --- MODAL: Rune Selection --- */}
+            {
+                showRuneModal && (
+                    <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in">
+                        <div className="bg-card border border-card-border rounded-2xl w-full max-w-2xl h-[70vh] flex flex-col shadow-2xl relative">
+                            <div className="p-6 border-b border-white/5 flex justify-between items-center">
+                                <h2 className="text-xl font-fredoka font-bold flex items-center gap-2"><Sparkles className="text-purple-500" /> Select Rune</h2>
+                                <button onClick={() => setShowRuneModal(false)} className="text-gray-500 hover:text-white"><X size={24} /></button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto p-6 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                {runesData
+                                    .filter(rune => ["Flame Spark", "Blast Chip", "Drain Edge", "Venom Crumb"].includes(rune.name))
+                                    .map((rune, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => handleEquipRune(rune as Rune)}
+                                            className="bg-black/40 border border-white/10 rounded-xl p-3 flex flex-col items-center gap-3 hover:bg-white/5 hover:border-white/20 transition-all group text-left"
+                                        >
+                                            <div className="w-16 h-16 rounded-lg bg-black/60 border border-white/10 flex items-center justify-center overflow-hidden">
+                                                {rune.image ? (
+                                                    <img src={rune.image} alt={rune.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                                ) : (
+                                                    <div className="w-8 h-8 rotate-45 bg-purple-500/50" />
+                                                )}
+                                            </div>
+                                            <div className="w-full">
+                                                <div className="font-bold text-white text-sm mb-1">{rune.name}</div>
+                                                <div className="text-[10px] text-gray-400 line-clamp-3">{rune.description}</div>
+                                            </div>
+                                        </button>
+                                    ))}
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
 
             {/* --- ChatBot --- */}
             <ChatBot />
-        </div>
+        </div >
     );
 }
 
 // --- Main App with Router ---
 export default function App() {
     return (
-        <LanguageProvider>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/calculator" element={<Calculator />} />
-                </Routes>
-            </Router>
-        </LanguageProvider>
+        <AuthProvider>
+            <LanguageProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<LandingPage />} />
+                        <Route path="/calculator" element={<Calculator />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/damage-tester" element={<DamageTester />} />
+                        <Route path="/private-server" element={<PrivateServerTutorial />} />
+                    </Routes>
+                </Router>
+            </LanguageProvider>
+        </AuthProvider>
     );
 }
