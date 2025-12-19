@@ -50,13 +50,7 @@ const LandingPage: React.FC = () => {
                         <a href="#features" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.features')}</a>
                         <a href="#about" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.about')}</a>
                         <LanguageSwitcher />
-                        <Link
-                            to="/private-server"
-                            className="hidden sm:flex px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-all hover:-translate-y-0.5 items-center gap-2 whitespace-nowrap"
-                        >
-                            Join Private Server
-                            <ExternalLink size={14} />
-                        </Link>
+
                         <a
                             href="https://www.roblox.com/games/76558904092080/The-Forge"
                             target="_blank"
@@ -119,6 +113,13 @@ const LandingPage: React.FC = () => {
                             {t('landing.playGame')}
                             <ExternalLink size={18} />
                         </a>
+                        <Link
+                            to="/private-server"
+                            className="group px-8 py-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-bold text-lg flex items-center justify-center gap-3 hover:bg-indigo-500/20 transition-all backdrop-blur-sm"
+                        >
+                            <ExternalLink className="text-indigo-400" />
+                            Join Private Server
+                        </Link>
                     </div>
 
                     {/* Preview Cards */}
