@@ -369,9 +369,9 @@ function Calculator() {
                         <h1 className="font-fredoka font-bold text-xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                             The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2 hidden sm:inline">{t('app.calculator')}</span>
                         </h1>
-                        {/* <Link to="/damage-tester" className="ml-2 sm:ml-4 px-3 py-1 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-bold transition-colors flex items-center gap-1">
+                        <Link to="/damage-tester" className="ml-2 sm:ml-4 px-3 py-1 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-bold transition-colors flex items-center gap-1">
                             <Zap size={12} /> <span className="hidden sm:inline">Damage Test</span><span className="sm:hidden">Test</span>
-                        </Link> */}
+                        </Link>
                     </div>
 
                     {/* Desktop Menu */}
@@ -384,13 +384,13 @@ function Calculator() {
                             <ExternalLink size={14} />
                             <span>Join Private Server</span>
                         </Link>
-                        {/* <button
+                        <button
                             onClick={() => setShowSavedBuilds(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors text-xs font-medium text-blue-300"
                         >
                             <Save size={14} />
                             <span>Saved Builds</span>
-                        </button> */}
+                        </button>
                         <button
                             onClick={() => setShowInventory(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-medium"
@@ -398,7 +398,7 @@ function Calculator() {
                             <Coins size={14} className="text-yellow-500" />
                             <span>{t('app.inventory')} ({inventory.length})</span>
                         </button>
-                        {/* {user ? (
+                        {user ? (
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={handleTogglePremium}
@@ -423,7 +423,7 @@ function Calculator() {
                             >
                                 Login
                             </Link>
-                        )} */}
+                        )}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -446,13 +446,13 @@ function Calculator() {
                             <ExternalLink size={16} />
                             <span>Join Private Server</span>
                         </Link>
-                        {/* <button
+                        <button
                             onClick={() => { setShowSavedBuilds(true); setIsMenuOpen(false); }}
                             className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-sm font-medium text-blue-300"
                         >
                             <Save size={16} />
                             <span>Saved Builds</span>
-                        </button> */}
+                        </button>
                         <button
                             onClick={() => { setShowInventory(true); setIsMenuOpen(false); }}
                             className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-medium"
@@ -463,7 +463,7 @@ function Calculator() {
 
                         <div className="h-px bg-white/10 my-1" />
 
-                        {/* {user ? (
+                        {user ? (
                             <div className="flex flex-col gap-3">
                                 <div className="flex items-center justify-between px-2">
                                     <span className="text-xs text-gray-400">{user.email}</span>
@@ -490,7 +490,7 @@ function Calculator() {
                             >
                                 Login
                             </Link>
-                        )} */}
+                        )}
                     </div>
                 )}
 
@@ -796,10 +796,10 @@ function Calculator() {
                                 )}
                                 <div className="flex gap-2 justify-center mt-4">
                                     <button onClick={() => { setForgeResult(null); handleForge(); }} className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors flex-1">{t('app.forgeAgain')}</button>
-                                    {/* <button onClick={handleSaveBuild} className="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-700 transition-colors flex items-center gap-2">
+                                    <button onClick={handleSaveBuild} className="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-700 transition-colors flex items-center gap-2">
                                         <Save size={18} />
                                         {profile?.is_premium ? 'Save' : 'Save (Premium)'}
-                                    </button> */}
+                                    </button>
                                 </div>
                             </div>
                         </div>
