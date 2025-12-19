@@ -13,6 +13,29 @@ export interface Trait {
   type: TraitType;
 }
 
+export interface Rune {
+  name: string;
+  url: string;
+  Rarity: string;
+  abilities: Record<string, string>;
+  obtainment: string;
+  description: string;
+  image?: string;
+  simulation?: {
+    type: 'dot' | 'instant' | 'buff';
+    damagePercentMin?: number;
+    damagePercentMax?: number;
+    durationMin?: number;
+    durationMax?: number;
+    chanceMin?: number;
+    chanceMax?: number;
+    element?: string;
+    damageBoostMin?: number;
+    damageBoostMax?: number;
+    condition?: string;
+  };
+}
+
 export interface Ore {
   id: number;
   name: string;
@@ -54,4 +77,12 @@ export interface ForgedItem {
   traits: { oreName: string; description: string; percentage: number; color: string }[];
   timestamp: string;
   mode: ForgeMode;
+  enhancementLevel?: number;
+  equippedRunes?: Rune[];
+}
+
+export interface UserProfile {
+  id: string;
+  email: string;
+  is_premium: boolean;
 }

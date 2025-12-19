@@ -10,7 +10,8 @@
       "Mine Power": "8-15% extra mine damage"
     },
     "obtainment": "Delver Zombie, Bomber",
-    "description": "A mining-focused rune that enhances luck, ore yield, mining speed, and mining power."
+    "description": "A mining-focused rune that enhances luck, ore yield, mining speed, and mining power.",
+    "image": "https://forgewiki.org/wiki/Special:Redirect/file/Miner_Shard.png"
   },
   {
     "name": "Frost Speck",
@@ -30,7 +31,18 @@
       "Burn": "Deals 5-10% of weapon damage as fire per second for 1-2 seconds. 15-25% chance on hit"
     },
     "obtainment": "Deathaxe Skeleton, Elite Deathaxe Skeleton, Blazing Slime, Reaper",
-    "description": "A fire rune that inflicts burning damage over time on hit."
+    "description": "A fire rune that inflicts burning damage over time on hit.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/5/52/FlamingSpark.png/120px-FlamingSpark.png",
+    "simulation": {
+      "type": "dot",
+      "damagePercentMin": 0.05,
+      "damagePercentMax": 0.10,
+      "durationMin": 1,
+      "durationMax": 2,
+      "chanceMin": 0.15,
+      "chanceMax": 0.25,
+      "element": "Fire"
+    }
   },
   {
     "name": "Venom Crumb",
@@ -40,7 +52,18 @@
       "Poison": "Deals 4-7% of weapon damage as poison per second for 3-6 seconds. 25-35% chance on hit"
     },
     "obtainment": "Blight Pyromancer",
-    "description": "A poison rune that inflicts toxic damage over an extended duration."
+    "description": "A poison rune that inflicts toxic damage over an extended duration.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/4/4b/VenomCrumb.png/120px-VenomCrumb.png",
+    "simulation": {
+      "type": "dot",
+      "damagePercentMin": 0.04,
+      "damagePercentMax": 0.07,
+      "durationMin": 3,
+      "durationMax": 6,
+      "chanceMin": 0.25,
+      "chanceMax": 0.35,
+      "element": "Poison"
+    }
   },
   {
     "name": "Chill Dust",
@@ -50,7 +73,8 @@
       "Snow": "Slows enemy movement and attack speed"
     },
     "obtainment": "Unobtainable",
-    "description": "A cold rune that slows enemies, currently unobtainable in-game."
+    "description": "A cold rune that slows enemies, currently unobtainable in-game.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/d/d4/ChillDust.png/120px-ChillDust.png"
   },
   {
     "name": "Blast Chip",
@@ -60,7 +84,16 @@
       "Explosion": "Causes an explosion at location of victim, dealing 20-40% of weapon damage as AOE damage. 8-20% chance on hit"
     },
     "obtainment": "Bomber",
-    "description": "An explosive rune that creates area-of-effect damage on hit."
+    "description": "An explosive rune that creates area-of-effect damage on hit.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/4/4c/BlastChip.png/120px-BlastChip.png",
+    "simulation": {
+      "type": "instant",
+      "damagePercentMin": 0.20,
+      "damagePercentMax": 0.40,
+      "chanceMin": 0.08,
+      "chanceMax": 0.20,
+      "element": "Explosive"
+    }
   },
   {
     "name": "Drain Edge",
@@ -70,7 +103,8 @@
       "Heal": "Heal 5-13% of physical damage dealt on-hit"
     },
     "obtainment": "Reaper",
-    "description": "A lifesteal rune that heals the user based on damage dealt."
+    "description": "A lifesteal rune that heals the user based on damage dealt.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/0/0f/DrainEdge.png/120px-DrainEdge.png"
   },
   {
     "name": "Briar Notch",
@@ -80,7 +114,8 @@
       "Thorns": "Reflect 2-10% physical damage taken. Maximum damage given limits at 5% max health of user. 0.05 seconds cooldown"
     },
     "obtainment": "Deathaxe Skeleton, Elite Deathaxe Skeleton",
-    "description": "A defensive rune that reflects damage back to attackers."
+    "description": "A defensive rune that reflects damage back to attackers.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/2/22/BriarNotch.png/120px-BriarNotch.png"
   },
   {
     "name": "Rage Mark",
@@ -90,7 +125,14 @@
       "Berserk": "Boosts physical damage and movement speed by 12-26% for 4-7 seconds. Has 50-60 seconds cooldown. Activates when health is below 35%"
     },
     "obtainment": "Elite Skeleton Rogue",
-    "description": "A berserker rune that triggers when low on health, boosting damage and speed."
+    "description": "A berserker rune that triggers when low on health, boosting damage and speed.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/b/be/RageMark.png/120px-RageMark.png",
+    "simulation": {
+      "type": "buff",
+      "damageBoostMin": 0.12,
+      "damageBoostMax": 0.26,
+      "condition": "Low Health (<35%)"
+    }
   },
   {
     "name": "Ward Patch",
@@ -100,7 +142,8 @@
       "Shield": "Reduces incoming damage by 6-14% with a 5-15% chance per hit"
     },
     "obtainment": "Obtainable in tutorial",
-    "description": "A defensive rune that has a chance to reduce incoming damage."
+    "description": "A defensive rune that has a chance to reduce incoming damage.",
+    "image": "https://static.wikitide.net/theforgewiki/thumb/0/05/WardPatch.png/120px-WardPatch.png"
   },
   {
     "name": "Rot Stitch",
@@ -110,6 +153,7 @@
       "Toxic Veins": "Deals poison damage around the user while health is below 35%"
     },
     "obtainment": "Unobtainable",
-    "description": "A poison aura rune that activates when low on health, currently unobtainable."
+    "description": "A poison aura rune that activates when low on health, currently unobtainable.",
+    "image": "https://forgewiki.org/wiki/Special:Redirect/file/Rot_Stitch.png"
   }
 ]
