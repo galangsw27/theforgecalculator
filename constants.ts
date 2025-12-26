@@ -139,28 +139,60 @@ export const ORE_DATA: Ore[] = [
     { id: 40, name: "Blue Crystal Ore", multiplier: 3.4, rarity: "epic", area: "goblin", color: "#699cf1", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/blue-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/255", price: 51 },
     { id: 41, name: "Rainbow Crystal Ore", multiplier: 5.25, rarity: "legendary", area: "goblin", color: "#1b7c3a", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/rainbow-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/5000", price: 78.75 },
     { id: 42, name: "Arcane Crystal Ore", multiplier: 7.5, rarity: "mythical", area: "goblin", color: "#c8dbf5", traitType: null, traits: [], image: "https://cms.bloxinformer.com/wp-content/uploads/2025/04/arcane-crystal-the-forge-calculator.png", description: "No description available.", dropChance: "1/100000", price: 112.5 },
-    { id: 47, name: "Galaxite", multiplier: 11.5, rarity: "relic", area: "goblin", color: "#220033", traitType: null, traits: [], description: "Sparkling like a chunk of space.", dropChance: "1/1M", price: 0 }
+    { id: 47, name: "Galaxite", multiplier: 11.5, rarity: "relic", area: "goblin", color: "#220033", traitType: null, traits: [], description: "Sparkling like a chunk of space.", dropChance: "1/1M", price: 0 },
+
+    // Frostpire Area
+    { id: 48, name: "Tungsten Ore", multiplier: 2.6, rarity: "common", area: "frostpire", color: "#4a4a4a", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/tungsten-ore-the-forge.jpg", description: "Unyielding and absurdly dense. You feel more motivated just holding it.", dropChance: "1/180", price: 48.75 },
+    { id: 49, name: "Sulfur Ore", multiplier: 2.75, rarity: "uncommon", area: "frostpire", color: "#E6E65C", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/sulfur-ore-the-forge.jpg", description: "Yellow, brittle, and smells exactly how you expect. Useful, dangerous, and easy to regret.", dropChance: "1/215", price: 51.56 },
+    { id: 50, name: "Pumice Ore", multiplier: 2.9, rarity: "rare", area: "frostpire", color: "#D3D3D3", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/pumice-ore-the-forge.jpg", description: "Light, brittle, and full of air pockets. Floats briefly before remembering it’s a rock.", dropChance: "1/265", price: 54.38 },
+    { id: 51, name: "Graphite Ore", multiplier: 3.1, rarity: "rare", area: "frostpire", color: "#2F4F4F", traitType: "all", traits: [{ description: "+5% Increased Vitality, and has a 20% chance to reduce Incoming Damage by 12%.", scaling: {}, type: "all" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/graphite-ore-the-forge.jpg", description: "Plain, dark, and deceptively useful. Not flashy, but it gets the job done without complaints.", dropChance: "1/315", price: 58.13 },
+    { id: 52, name: "Aetherit Ore", multiplier: 3.4, rarity: "rare", area: "frostpire", color: "#9370DB", traitType: "all", traits: [{ description: "+5% Increased Movement Speed.", scaling: {}, type: "all" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/aetherit-ore-the-forge.jpg", description: "A broken piece of raw magic. Sharp, unstable, and absolutely not safe to pocket.", dropChance: "1/390", price: 63.75 },
+    { id: 53, name: "Scheelite Ore", multiplier: 3.3, rarity: "rare", area: "frostpire", color: "#FFA500", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/scheelite-ore-the-forge.jpg", description: "Dull at first glance, valuable once refined. The kind of ore that rewards patience.", dropChance: "1/247", price: 69.38 },
+    { id: 54, name: "Larimar Ore", multiplier: 4.1, rarity: "epic", area: "frostpire", color: "#00BFFF", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/larimar-updated-ore-the-forge.jpg", description: "Soft blue stone infused with calm energy. Holding it makes the caves feel less hostile, briefly.", dropChance: "1/575", price: 76.88 },
+    { id: 55, name: "Neurotite Ore", multiplier: 4.3, rarity: "epic", area: "frostpire", color: "#FF69B4", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/neurotite-updated-ore-the-forge.jpg", description: "Warm and faintly organic in texture. Staying near it too long gives you strange ideas.", dropChance: "1/690", price: 80.63 },
+    { id: 56, name: "Frost Fossil Ore", multiplier: 4.5, rarity: "epic", area: "frostpire", color: "#E0FFFF", traitType: "all", traits: [{ description: "+17.5% Increased Physical Damage and -5% reduced Movement Speed.", scaling: {}, type: "all" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/frost-fossil-updated-ore-the-forge.jpg", description: "Ancient remains frozen solid in eternal ice. Whatever it once was, it never got to finish dying.", dropChance: "1/820", price: 84.38 },
+    { id: 57, name: "Tide Carve Ore", multiplier: 4.7, rarity: "epic", area: "frostpire", color: "#4682B4", traitType: null, traits: [], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/tide-carve-updated-ore-the-forge.jpg", description: "Shaped by relentless water pressure. Every edge tells a story of erosion and survival.", dropChance: "1/980", price: 88.13 },
+    { id: 58, name: "Velchire Ore", multiplier: 5.5, rarity: "legendary", area: "frostpire", color: "#4169E1", traitType: "all", traits: [{ description: "+20% Increased Movement Speed.", scaling: {}, type: "all" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/velchire-ore-the-forge.jpg", description: "Smooth, refined, and unnaturally cold. Looks expensive even before forging.", dropChance: "1/1450", price: 103.13 },
+    { id: 59, name: "Sanctis Ore", multiplier: 6, rarity: "legendary", area: "frostpire", color: "#FFFACD", traitType: "all", traits: [{ description: "+18% Increased Stamina.", scaling: {}, type: "all" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/sanctis-ore-the-forge.jpg", description: "Clean, radiant, and unnervingly pure. Feels wrong to break, but you do it anyway.", dropChance: "1/1830", price: 112.5 },
+    { id: 60, name: "Snowite Ore", multiplier: 8, rarity: "legendary", area: "frostpire", color: "#FFFAFA", traitType: "weapon", traits: [{ description: "+15% to Attack Speed of your Weapon, and reduces Movement Speed of Enemies for 3 Seconds. 30% Chance to Hit.", scaling: {}, type: "weapon" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/snowite-ore-the-forge.jpg", description: "Light, sharp, and infused with wind energy. It almost floats when freshly mined.", dropChance: "1/4325", price: 150 },
+    { id: 61, name: "Iceite", multiplier: 10.5, rarity: "mythical", area: "frostpire", color: "#00FFFF", traitType: "weapon", traits: [{ description: "25% Chance to Freeze Enemies for 2 seconds, 12 second Cooldown.", scaling: {}, type: "weapon" }], image: "https://bloxinformer-cdn.b-cdn.net/wp-content/uploads/2025/10/iceite-ore-the-forge.jpg", description: "Light, sharp, and infused with wind energy. It almost floats when freshly mined.", dropChance: "1/9898", price: 196.88 },
+
+    // The Peak Area
+    { id: 62, name: "Mistvein", multiplier: 7.2, rarity: "rare", area: "peak", color: "#A9A9A9", traitType: null, traits: [], description: "Veiled in eternal mist.", dropChance: "1/2625", price: 135 },
+    { id: 63, name: "Lgarite", multiplier: 7.5, rarity: "rare", area: "peak", color: "#708090", traitType: null, traits: [], description: "A strange, shifting stone.", dropChance: "1/3131", price: 140.63 },
+    { id: 64, name: "Voidfractal", multiplier: 8, rarity: "rare", area: "peak", color: "#483D8B", traitType: null, traits: [], description: "Fractured pieces of the void.", dropChance: "1/3456", price: 150 },
+    { id: 65, name: "Moltenfrost", multiplier: 8.3, rarity: "epic", area: "peak", color: "#FF4500", traitType: null, traits: [], description: "Burning cold to the touch.", dropChance: "1/4004", price: 155.63 },
+    { id: 66, name: "Crimsonite", multiplier: 8.5, rarity: "epic", area: "peak", color: "#DC143C", traitType: "weapon", traits: [{ description: "Increases your Weapons Physical Damage by +20%.", scaling: {}, type: "weapon" }], description: "Pulsing with crimson energy.", dropChance: "1/4540", price: 159.38 },
+    { id: 67, name: "Malachite", multiplier: 8.8, rarity: "epic", area: "peak", color: "#00FA9A", traitType: "weapon", traits: [{ description: "Deals 10% of your Weapons Damage per second as Poison for 3 seconds. 33% Chance to hit.", scaling: {}, type: "weapon" }], description: "Toxic beauty.", dropChance: "1/5123", price: 165 },
+    { id: 68, name: "Aquajade", multiplier: 9, rarity: "epic", area: "peak", color: "#7FFFD4", traitType: null, traits: [], description: "Crystal clear water solidified.", dropChance: "1/5555", price: 168.75 },
+    { id: 69, name: "Cryptex", multiplier: 9.3, rarity: "epic", area: "peak", color: "#8A2BE2", traitType: null, traits: [], description: "Encoded with ancient secrets.", dropChance: "1/6060", price: 174.38 },
+    { id: 70, name: "Galestor", multiplier: 9.5, rarity: "epic", area: "peak", color: "#87CEEB", traitType: null, traits: [], description: "Harnesses the power of gales.", dropChance: "1/6666", price: 178.13 },
+    { id: 71, name: "Voidstar", multiplier: 10, rarity: "legendary", area: "peak", color: "#191970", traitType: "weapon", traits: [{ description: "Increases your Weapon’s Critical Chance by +33% and Critical Damage by +15%, but lowers you Vitality by -15%.", scaling: {}, type: "weapon" }], description: "A star collapsed into void.", dropChance: "1/8170", price: 187.5 },
+    { id: 72, name: "Etherealite", multiplier: 11.1, rarity: "mythical", area: "peak", color: "#E6E6FA", traitType: "all", traits: [{ description: "Increases Vitality by +35%.", scaling: {}, type: "all" }], description: "Barely exists in this realm.", dropChance: "1/11111", price: 208.13 },
+    { id: 73, name: "Suryafal", multiplier: 17.5, rarity: "relic", area: "peak", color: "#FFD700", traitType: null, traits: [], description: "Radiant as the sun.", dropChance: "1/50050", price: 328.13 },
+    { id: 74, name: "Heavenite", multiplier: 25, rarity: "relic", area: "peak", color: "#F0F8FF", traitType: null, traits: [], description: "Divine material from the heavens.", dropChance: "1/157775", price: 0 },
+    { id: 75, name: "Gargantuan", multiplier: 33.3, rarity: "relic", area: "peak", color: "#2F4F4F", traitType: null, traits: [], description: "Massive and imposing.", dropChance: "1/333333", price: 624.38 }
 ];
 
 export const WEAPON_PROBABILITIES: Record<number, Record<string, number>> = {
     3: { "Dagger": 1.0 },
-    4: { "Dagger": 0.86, "Straight Sword": 0.14 },
-    5: { "Dagger": 0.35, "Straight Sword": 0.65 },
-    6: { "Dagger": 0.14, "Straight Sword": 0.86 },
-    7: { "Dagger": 0.06, "Straight Sword": 0.74, "Gauntlet": 0.2 },
-    8: { "Dagger": 0.02, "Straight Sword": 0.44, "Gauntlet": 0.54 },
-    9: { "Dagger": 0.01, "Straight Sword": 0.24, "Gauntlet": 0.65, "Katana": 0.1 },
-    10: { "Straight Sword": 0.11, "Gauntlet": 0.47, "Katana": 0.42 },
-    11: { "Straight Sword": 0.05, "Gauntlet": 0.32, "Katana": 0.63 },
-    12: { "Straight Sword": 0.03, "Gauntlet": 0.22, "Katana": 0.72, "Great Sword": 0.03 },
-    13: { "Straight Sword": 0.01, "Gauntlet": 0.15, "Katana": 0.62, "Great Sword": 0.22 },
-    14: { "Straight Sword": 0.01, "Gauntlet": 0.08, "Katana": 0.46, "Great Sword": 0.45 },
-    15: { "Gauntlet": 0.05, "Katana": 0.35, "Great Sword": 0.6 },
-    16: { "Gauntlet": 0.03, "Katana": 0.26, "Great Sword": 0.70, "Great Axe": 0.01 },
-    17: { "Gauntlet": 0.02, "Katana": 0.19, "Great Sword": 0.68, "Great Axe": 0.11 },
-    18: { "Gauntlet": 0.02, "Katana": 0.13, "Great Sword": 0.57, "Great Axe": 0.28 },
-    19: { "Gauntlet": 0.01, "Katana": 0.08, "Great Sword": 0.46, "Great Axe": 0.45 },
-    20: { "Gauntlet": 0.01, "Katana": 0.06, "Great Sword": 0.36, "Great Axe": 0.57 },
+    4: { "Dagger": 0.86, "Straight Sword": 0.07, "Spear": 0.07 },
+    5: { "Dagger": 0.35, "Straight Sword": 0.325, "Spear": 0.325 },
+    6: { "Dagger": 0.14, "Straight Sword": 0.43, "Spear": 0.43 },
+    7: { "Dagger": 0.06, "Straight Sword": 0.37, "Spear": 0.37, "Gauntlet": 0.1, "Mace": 0.1 },
+    8: { "Dagger": 0.02, "Straight Sword": 0.22, "Spear": 0.22, "Gauntlet": 0.27, "Mace": 0.27 },
+    9: { "Dagger": 0.01, "Straight Sword": 0.12, "Spear": 0.12, "Gauntlet": 0.325, "Mace": 0.325, "Katana": 0.1 },
+    10: { "Straight Sword": 0.055, "Spear": 0.055, "Gauntlet": 0.235, "Mace": 0.235, "Katana": 0.42 },
+    11: { "Straight Sword": 0.025, "Spear": 0.025, "Gauntlet": 0.16, "Mace": 0.16, "Katana": 0.63 },
+    12: { "Straight Sword": 0.015, "Spear": 0.015, "Gauntlet": 0.11, "Mace": 0.11, "Katana": 0.72, "Great Sword": 0.03 },
+    13: { "Straight Sword": 0.005, "Spear": 0.005, "Gauntlet": 0.075, "Mace": 0.075, "Katana": 0.62, "Great Sword": 0.22 },
+    14: { "Straight Sword": 0.005, "Spear": 0.005, "Gauntlet": 0.04, "Mace": 0.04, "Katana": 0.46, "Great Sword": 0.45 },
+    15: { "Gauntlet": 0.025, "Mace": 0.025, "Katana": 0.35, "Great Sword": 0.6 },
+    16: { "Gauntlet": 0.015, "Mace": 0.015, "Katana": 0.26, "Great Sword": 0.70, "Great Axe": 0.01 },
+    17: { "Gauntlet": 0.01, "Mace": 0.01, "Katana": 0.19, "Great Sword": 0.68, "Great Axe": 0.11 },
+    18: { "Gauntlet": 0.01, "Mace": 0.01, "Katana": 0.13, "Great Sword": 0.57, "Great Axe": 0.28 },
+    19: { "Gauntlet": 0.005, "Mace": 0.005, "Katana": 0.08, "Great Sword": 0.46, "Great Axe": 0.45 },
+    20: { "Gauntlet": 0.005, "Mace": 0.005, "Katana": 0.06, "Great Sword": 0.36, "Great Axe": 0.57 },
     21: { "Katana": 0.04, "Great Sword": 0.29, "Great Axe": 0.65, "Colossal Sword": 0.02 },
     22: { "Katana": 0.03, "Great Sword": 0.23, "Great Axe": 0.67, "Colossal Sword": 0.07 },
     23: { "Katana": 0.02, "Great Sword": 0.19, "Great Axe": 0.66, "Colossal Sword": 0.13 },
@@ -230,7 +262,14 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
         "Dragon Slayer": { damage: 44, atkSpeed: 1.12, range: 10, price: 1355, type: "Colossal Sword" },
         "Hammer": { damage: 44, atkSpeed: 1.24, range: 10, price: 1355, type: "Colossal Sword" },
         "Skull Crusher": { damage: 48, atkSpeed: 1.4, range: 10, price: 1355, type: "Colossal Sword" },
-        "Comically Large Spoon": { damage: 36, atkSpeed: 1.12, range: 10, price: 1355, type: "Colossal Sword" }
+        "Comically Large Spoon": { damage: 36, atkSpeed: 1.12, range: 10, price: 1355, type: "Colossal Sword" },
+        "Mace": { damage: 6, atkSpeed: 0.46, range: 8, price: 205, type: "Mace" },
+        "Winged Mace": { damage: 6, atkSpeed: 0.46, range: 8, price: 205, type: "Mace" },
+        "Spiked Mace": { damage: 6, atkSpeed: 0.46, range: 8, price: 205, type: "Mace" },
+        "Spear": { damage: 7.5, atkSpeed: 0.45, range: 11, price: 120, type: "Spear" },
+        "Demonic Spear": { damage: 9, atkSpeed: 0.56, range: 11, price: 120, type: "Spear" },
+        "Angelic Spear": { damage: 9.75, atkSpeed: 0.41, range: 11, price: 120, type: "Spear" },
+        "Trident": { damage: 7.5, atkSpeed: 0.45, range: 11, price: 120, type: "Spear" }
     },
     armor: {
         "Light Helmet": { health: 3.75, price: 65, def: 8, type: "Light Helmet" },
@@ -247,115 +286,163 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
         "Knight Leggings": { health: 13.75, price: 1200, def: 28, type: "Heavy Leggings" },
         "Dark Knight Leggings": { health: 21.875, price: 1440, def: 44, type: "Heavy Leggings" },
         "Knight Chestplate": { health: 16.25, price: 1355, def: 32, type: "Heavy Chestplate" },
-        "Dark Knight Chestplate": { health: 25, price: 1626, def: 50, type: "Heavy Chestplate" }
+        "Dark Knight Chestplate": { health: 25, price: 1626, def: 50, type: "Heavy Chestplate" },
+        "Viking Helmet": { health: 10.5, price: 335, def: 14, type: "Medium Helmet" },
+        "Viking Chestplate": { health: 16, price: 525, def: 20, type: "Medium Chestplate" },
+        "Viking Leggings": { health: 11, price: 485, def: 16, type: "Medium Leggings" },
+        "Wolf Helmet": { health: 25, price: 1355, def: 40, type: "Heavy Helmet" },
+        "Wolf Chestplate": { health: 35, price: 1355, def: 55, type: "Heavy Chestplate" },
+        "Wolf Leggings": { health: 28, price: 1200, def: 48, type: "Heavy Leggings" }
     }
 };
 
 export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name: string, chance: string, probability: number }[]>>> = {
     weapon: {
         "Dagger": {
-            "kingdom": [
-                { name: "Dagger", chance: "1/1", probability: 1.0 },
-                { name: "Falchion Knife", chance: "1/2", probability: 0.5 },
-                { name: "Gladius Dagger", chance: "1/4", probability: 0.25 },
-                { name: "Hook", chance: "1/16", probability: 0.0625 }
-            ]
+            "stonewake": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }],
+            "kingdom": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }],
+            "goblin": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }],
+            "enemy": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }],
+            "frostpire": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }],
+            "peak": [{ name: "Dagger", chance: "1/1", probability: 1.0 }, { name: "Falchion Knife", chance: "1/2", probability: 0.5 }, { name: "Gladius Dagger", chance: "1/4", probability: 0.25 }, { name: "Hook", chance: "1/16", probability: 0.0625 }]
         },
         "Straight Sword": {
-            "kingdom": [
-                { name: "Falchion", chance: "1/1", probability: 1.0 },
-                { name: "Gladius", chance: "1/2", probability: 0.5 },
-                { name: "Cutlass", chance: "1/4", probability: 0.25 },
-                { name: "Rapier", chance: "1/8", probability: 0.125 },
-                { name: "Chaos", chance: "1/16", probability: 0.0625 }
-            ]
+            "stonewake": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }],
+            "kingdom": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }],
+            "goblin": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }],
+            "enemy": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }],
+            "frostpire": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }],
+            "peak": [{ name: "Falchion", chance: "1/1", probability: 1.0 }, { name: "Gladius", chance: "1/2", probability: 0.5 }, { name: "Cutlass", chance: "1/4", probability: 0.25 }, { name: "Rapier", chance: "1/8", probability: 0.125 }, { name: "Chaos", chance: "1/16", probability: 0.0625 }]
         },
         "Gauntlet": {
-            "kingdom": [
-                { name: "Ironhand", chance: "1/1", probability: 1.0 },
-                { name: "Boxing Gloves", chance: "1/4", probability: 0.25 },
-                { name: "Relevator", chance: "1/16", probability: 0.0625 }
-            ]
+            "stonewake": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }],
+            "kingdom": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }],
+            "goblin": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }],
+            "enemy": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }],
+            "frostpire": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }],
+            "peak": [{ name: "Ironhand", chance: "1/1", probability: 1.0 }, { name: "Boxing Gloves", chance: "1/4", probability: 0.25 }, { name: "Relevator", chance: "1/16", probability: 0.0625 }]
         },
         "Katana": {
-            "kingdom": [
-                { name: "Uchigatana", chance: "1/1", probability: 1.0 },
-                { name: "Tachi", chance: "1/2", probability: 0.5 }
-            ]
+            "stonewake": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Uchigatana", chance: "1/1", probability: 1.0 }, { name: "Tachi", chance: "1/2", probability: 0.5 }]
         },
         "Great Sword": {
-            "kingdom": [
-                { name: "Crusader Sword", chance: "1/1", probability: 1.0 },
-                { name: "Long Sword", chance: "1/2", probability: 0.5 }
-            ]
+            "stonewake": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }]
         },
         "Great Axe": {
-            "kingdom": [
-                { name: "Double Battle Axe", chance: "1/1", probability: 1.0 },
-                { name: "Scythe", chance: "1/2", probability: 0.5 }
-            ]
+            "stonewake": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/2", probability: 0.5 }]
         },
         "Colossal Sword": {
-            "kingdom": [
-                { name: "Great Sword", chance: "1/1", probability: 1.0 },
-                { name: "Hammer", chance: "1/2", probability: 0.5 },
-                { name: "Skull Crusher", chance: "1/2", probability: 0.5 },
-                { name: "Dragon Slayer", chance: "1/3", probability: 0.333 },
-                { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }
-            ]
+            "stonewake": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }],
+            "kingdom": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }],
+            "goblin": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }],
+            "enemy": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }],
+            "frostpire": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }],
+            "peak": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }]
+        },
+        "Mace": {
+            "stonewake": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }]
+        },
+        "Spear": {
+            "stonewake": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }]
         }
     },
     armor: {
         "Light Helmet": {
-            "kingdom": [
-                { name: "Light Helmet", chance: "1/1", probability: 1.0 }
-            ]
+            "stonewake": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }],
+            "kingdom": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }],
+            "goblin": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }],
+            "enemy": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }],
+            "frostpire": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }],
+            "peak": [{ name: "Light Helmet", chance: "1/1", probability: 1.0 }]
         },
         "Light Leggings": {
-            "kingdom": [
-                { name: "Light Leggings", chance: "1/2", probability: 0.5 }
-            ]
+            "stonewake": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Light Leggings", chance: "1/2", probability: 0.5 }]
         },
         "Light Chestplate": {
-            "kingdom": [
-                { name: "Light Chestplate", chance: "1/3", probability: 0.333 }
-            ]
+            "stonewake": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }],
+            "kingdom": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }],
+            "goblin": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }],
+            "enemy": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }],
+            "frostpire": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }],
+            "peak": [{ name: "Light Chestplate", chance: "1/3", probability: 0.333 }]
         },
         "Medium Helmet": {
-            "kingdom": [
-                { name: "Medium Helmet", chance: "1/1", probability: 1.0 },
-                { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }
-            ]
+            "stonewake": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Medium Helmet", chance: "1/1", probability: 1.0 }, { name: "Samurai Helmet", chance: "1/5", probability: 0.2 }, { name: "Viking Helmet", chance: "1/4", probability: 0.25 }]
         },
         "Medium Leggings": {
-            "kingdom": [
-                { name: "Medium Leggings", chance: "1/2", probability: 0.5 },
-                { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }
-            ]
+            "stonewake": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Medium Leggings", chance: "1/2", probability: 0.5 }, { name: "Samurai Leggings", chance: "1/5", probability: 0.2 }, { name: "Viking Leggings", chance: "1/4", probability: 0.25 }]
         },
         "Medium Chestplate": {
-            "kingdom": [
-                { name: "Medium Chestplate", chance: "1/3", probability: 0.333 },
-                { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }
-            ]
+            "stonewake": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Medium Chestplate", chance: "1/3", probability: 0.333 }, { name: "Samurai Chestplate", chance: "1/5", probability: 0.2 }, { name: "Viking Chestplate", chance: "1/4", probability: 0.25 }]
         },
         "Heavy Helmet": {
-            "kingdom": [
-                { name: "Knight Helmet", chance: "1/1", probability: 1.0 },
-                { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }
-            ]
+            "stonewake": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Dark Knight Helmet", chance: "1/1", probability: 1.0 }, { name: "Wolf Helmet", chance: "1/4", probability: 0.25 }]
         },
         "Heavy Leggings": {
-            "kingdom": [
-                { name: "Knight Leggings", chance: "1/2", probability: 0.5 },
-                { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }
-            ]
+            "stonewake": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Dark Knight Leggings", chance: "1/2", probability: 0.5 }, { name: "Wolf Leggings", chance: "1/4", probability: 0.25 }]
         },
         "Heavy Chestplate": {
-            "kingdom": [
-                { name: "Knight Chestplate", chance: "1/3", probability: 0.333 },
-                { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }
-            ]
+            "stonewake": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }],
+            "kingdom": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }],
+            "goblin": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }],
+            "enemy": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }],
+            "frostpire": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }],
+            "peak": [{ name: "Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Dark Knight Chestplate", chance: "1/3", probability: 0.333 }, { name: "Wolf Chestplate", chance: "1/4", probability: 0.25 }]
         }
     }
 };

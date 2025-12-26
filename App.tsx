@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu } from 'lucide-react';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu, ChevronLeft, ChevronRight } from 'lucide-react';
 import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
@@ -34,7 +34,7 @@ function Calculator() {
     const { t } = useLanguage();
     const { user, profile, refreshProfile, signOut } = useAuth();
     const [activeTab, setActiveTab] = useState<ForgeMode>('weapon');
-    const [activeArea, setActiveArea] = useState<Area>('kingdom');
+    const [activeArea, setActiveArea] = useState<Area>('frostpire');
     const [slots, setSlots] = useState<Slot[]>([
         { id: 1, oreId: null, count: 0 },
         { id: 2, oreId: null, count: 0 },
@@ -54,6 +54,18 @@ function Calculator() {
 
     const [viewingBuildId, setViewingBuildId] = useState<number | null>(null); // To track which build we are enhancing in the modal
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const tabsRef = React.useRef<HTMLDivElement>(null);
+
+    const scrollTabs = (direction: 'left' | 'right') => {
+        if (tabsRef.current) {
+            const scrollAmount = 150;
+            tabsRef.current.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
 
     useEffect(() => {
         if (user) {
@@ -324,13 +336,21 @@ function Calculator() {
                 const base = Object.entries(BASE_ITEM_STATS[activeTab]).find(([_, stat]) => stat.type === rolledType);
                 if (base) itemName = base[0];
             }
-            const baseStats = BASE_ITEM_STATS[activeTab][itemName] || BASE_ITEM_STATS[activeTab][rolledType] || { price: 0, type: rolledType };
+            const baseStats = BASE_ITEM_STATS[activeTab][itemName] || BASE_ITEM_STATS[activeTab][rolledType] || (() => {
+                // Fallback with proper default stats
+                if (activeTab === 'armor') {
+                    return { health: 5, price: 100, def: 10, type: rolledType };
+                } else {
+                    return { damage: 10, atkSpeed: 0.5, range: 8, price: 100, type: rolledType };
+                }
+            })();
             const finalStats = { ...baseStats };
             if (activeTab === 'weapon') {
                 finalStats.damage = (baseStats.damage || 0) * totalMultiplier;
                 finalStats.price = baseStats.price * totalMultiplier;
             } else {
                 finalStats.def = (baseStats.def || 0) * totalMultiplier;
+                finalStats.health = (baseStats.health || 0) * totalMultiplier;
                 finalStats.price = baseStats.price * totalMultiplier;
             }
             const mainOre = oreMix.sort((a, b) => b.count - a.count)[0]?.ore || ORE_DATA[0];
@@ -712,12 +732,34 @@ function Calculator() {
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={14} />
                             <input type="text" placeholder={t('app.searchOres')} value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full bg-black/40 border border-white/10 rounded-lg py-2 pl-9 pr-4 text-sm text-gray-200 focus:outline-none focus:border-gray-500 transition-colors placeholder:text-gray-600" />
                         </div>
-                        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-                            {(['stonewake', 'kingdom', 'goblin', 'enemy'] as Area[]).map(area => (
-                                <button key={area} onClick={() => setActiveArea(area)} className={`px-3 py-1 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all ${activeArea === area ? 'bg-white/10 text-white border-white/20' : 'text-gray-600 border-transparent hover:text-gray-400'}`}>
-                                    {area}
-                                </button>
-                            ))}
+
+                        <div className="relative flex items-center">
+                            <button
+                                onClick={() => scrollTabs('left')}
+                                className="absolute left-0 z-10 bg-black/80 p-1.5 rounded-l-md border-y border-l border-white/10 text-gray-400 hover:text-white transition-colors h-full flex items-center justify-center"
+                                aria-label="Scroll Left"
+                            >
+                                <ChevronLeft size={14} />
+                            </button>
+
+                            <div ref={tabsRef} className="flex gap-2 overflow-x-auto pb-2 pt-2 scrollbar-hide px-8 w-full scroll-smooth">
+                                {(['peak', 'frostpire', 'stonewake', 'kingdom', 'goblin', 'enemy'] as Area[]).map(area => (
+                                    <button key={area} onClick={() => setActiveArea(area)} className={`relative px-4 py-1.5 text-xs font-bold uppercase rounded-md whitespace-nowrap border transition-all flex-shrink-0 ${activeArea === area ? 'bg-white/10 text-white border-white/20' : 'text-gray-600 border-transparent hover:text-gray-400'}`}>
+                                        {area}
+                                        {(area === 'frostpire' || area === 'peak') && (
+                                            <span className="absolute -top-1.5 -right-1.5 z-10 bg-red-600 text-white text-[9px] px-1.5 py-0.5 rounded-full shadow-sm animate-pulse border border-black">NEW</span>
+                                        )}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <button
+                                onClick={() => scrollTabs('right')}
+                                className="absolute right-0 z-10 bg-black/80 p-1.5 rounded-r-md border-y border-r border-white/10 text-gray-400 hover:text-white transition-colors h-full flex items-center justify-center"
+                                aria-label="Scroll Right"
+                            >
+                                <ChevronRight size={14} />
+                            </button>
                         </div>
                     </div>
 
