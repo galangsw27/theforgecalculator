@@ -162,5 +162,82 @@
     "Region": "Forgotten Kingdom",
     "Drops": "Flame Spark",
     "description": "A volatile variation of the Slime, its molten body scorches the ground it touches. Each attack splashes burning goo, turning the battlefield into a fiery trap."
+  },
+  {
+    "name": "Crystal Spider",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "600-720 HP",
+    "Damage": "55 DMG",
+    "Level": "1-5",
+    "Gold": "80-160$",
+    "Experience": "125-250 XP",
+    "Region": "Frostpire Expanses",
+    "description": "A crystalline arachnid formed from frozen mana, striking with sharp, brittle precision."
+  },
+  {
+    "name": "Diamond Spider",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "1000-1300 HP",
+    "Damage": "70 DMG",
+    "Level": "1-5",
+    "Gold": "95-190$",
+    "Experience": "145-290 XP",
+    "Region": "Frostpire Expanses",
+    "description": "A hardened crystal spider with diamond-like plating that deflects weaker blows."
+  },
+  {
+    "name": "Prismarine Spider",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "7500-11500 HP",
+    "Damage": "90 DMG",
+    "Level": "1-5",
+    "Gold": "110-220$",
+    "Experience": "170-340 XP",
+    "Region": "Frostpire Expanses",
+    "description": "An ancient spider grown from layered frost crystals, radiating extreme cold."
+  },
+  {
+    "name": "Common Orc",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "800-1000 HP",
+    "Damage": "85 DMG",
+    "Level": "1-5",
+    "Gold": "100-200$",
+    "Experience": "150-300 XP",
+    "Region": "Frostpire Expanses",
+    "description": "A hardened orc warrior adapted to frozen terrain, striking with brute strength and relentless aggression."
+  },
+  {
+    "name": "Elite Orc",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "2000-2200 HP",
+    "Damage": "100 DMG",
+    "Level": "1-5",
+    "Gold": "145-290$",
+    "Experience": "200-400 XP",
+    "Region": "Frostpire Expanses",
+    "description": "A heavily armored orc elite wielding overwhelming force, capable of shattering defenses with ease."
+  },
+  {
+    "name": "Yeti",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "10000-14000 HP",
+    "Damage": "125 DMG",
+    "Level": "1-5",
+    "Gold": "180-360$",
+    "Experience": "250-500 XP",
+    "Region": "Frostpire Expanses",
+    "description": "A colossal beast of ice and fury, roaming frozen lands and crushing foes with raw power."
+  },
+  {
+    "name": "Crystal Golem",
+    "url": "https://forgewiki.org/wiki/Enemies",
+    "Health": "3000-4000 HP",
+    "Damage": "125 DMG",
+    "Level": "1-5",
+    "Gold": "150-300$",
+    "Experience": "225-450 XP",
+    "Region": "Frostpire",
+    "description": "A towering construct of enchanted crystal, slow but devastating, forged to guard the frozen depths."
   }
 ]

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
@@ -91,10 +91,6 @@ function Calculator() {
             alert("Please login to save builds.");
             return;
         }
-        if (!profile?.is_premium) {
-            alert("This is a Premium feature. Please upgrade to save builds.");
-            return;
-        }
         if (!forgeResult) return;
 
         const buildName = prompt("Enter a name for this build:", forgeResult.itemName);
@@ -116,21 +112,7 @@ function Calculator() {
         }
     };
 
-    const handleTogglePremium = async () => {
-        if (!user || !profile) return;
-        const newStatus = !profile.is_premium;
-        const { error } = await supabase
-            .from('profiles')
-            .update({ is_premium: newStatus })
-            .eq('id', user.id);
 
-        if (!error) {
-            await refreshProfile();
-            alert(`Premium status ${newStatus ? 'activated' : 'deactivated'}!`);
-        } else {
-            alert("Error updating premium status");
-        }
-    };
 
     const loadBuild = (build: any) => {
         setForgeResult(build.build_data);
@@ -389,9 +371,10 @@ function Calculator() {
                         <h1 className="font-fredoka font-bold text-xl tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                             The Forge <span className="text-xs text-gray-500 font-sans tracking-normal ml-2 hidden sm:inline">{t('app.calculator')}</span>
                         </h1>
-                        {/* <Link to="/damage-tester" className="ml-2 sm:ml-4 px-3 py-1 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-bold transition-colors flex items-center gap-1">
+                        <Link to="/damage-tester" className="ml-2 sm:ml-4 px-3 py-1 rounded-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-300 text-xs font-bold transition-colors flex items-center gap-1">
                             <Zap size={12} /> <span className="hidden sm:inline">Damage Test</span><span className="sm:hidden">Test</span>
-                        </Link> */}
+                            <span className="ml-1 px-1.5 py-0.5 rounded-md bg-red-500 text-[8px] text-white uppercase tracking-tighter">BETA</span>
+                        </Link>
                     </div>
 
                     {/* Desktop Menu */}
@@ -404,13 +387,14 @@ function Calculator() {
                             <ExternalLink size={14} />
                             <span>Join Private Server</span>
                         </Link>
-                        {/* <button
+                        <button
                             onClick={() => setShowSavedBuilds(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors text-xs font-medium text-blue-300"
                         >
                             <Save size={14} />
                             <span>Saved Builds</span>
-                        </button> */}
+                            <span className="px-1 py-0.5 rounded bg-blue-500 text-[8px] text-white uppercase tracking-tighter">BETA</span>
+                        </button>
                         <button
                             onClick={() => setShowInventory(true)}
                             className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-xs font-medium"
@@ -418,16 +402,8 @@ function Calculator() {
                             <Coins size={14} className="text-yellow-500" />
                             <span>{t('app.inventory')} ({inventory.length})</span>
                         </button>
-                        {/* {user ? (
+                        {user ? (
                             <div className="flex items-center gap-3">
-                                <button
-                                    onClick={handleTogglePremium}
-                                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold border transition-colors ${profile?.is_premium ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' : 'bg-gray-700 text-gray-400 border-gray-600'}`}
-                                    title="Toggle Premium Status (Mock Payment)"
-                                >
-                                    <Crown size={12} />
-                                    {profile?.is_premium ? 'PREMIUM' : 'FREE'}
-                                </button>
                                 <span className="text-xs text-gray-400 hidden lg:inline">{user.email}</span>
                                 <button
                                     onClick={() => signOut()}
@@ -443,7 +419,7 @@ function Calculator() {
                             >
                                 Login
                             </Link>
-                        )} */}
+                        )}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -466,13 +442,14 @@ function Calculator() {
                             <ExternalLink size={16} />
                             <span>Join Private Server</span>
                         </Link>
-                        {/* <button
+                        <button
                             onClick={() => { setShowSavedBuilds(true); setIsMenuOpen(false); }}
                             className="flex items-center gap-2 px-4 py-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-sm font-medium text-blue-300"
                         >
                             <Save size={16} />
                             <span>Saved Builds</span>
-                        </button> */}
+                            <span className="ml-auto px-1.5 py-0.5 rounded bg-blue-500 text-[10px] text-white uppercase font-bold">BETA</span>
+                        </button>
                         <button
                             onClick={() => { setShowInventory(true); setIsMenuOpen(false); }}
                             className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-medium"
@@ -483,17 +460,10 @@ function Calculator() {
 
                         <div className="h-px bg-white/10 my-1" />
 
-                        {/* {user ? (
+                        {user ? (
                             <div className="flex flex-col gap-3">
                                 <div className="flex items-center justify-between px-2">
                                     <span className="text-xs text-gray-400">{user.email}</span>
-                                    <button
-                                        onClick={handleTogglePremium}
-                                        className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] font-bold border transition-colors ${profile?.is_premium ? 'bg-amber-500/20 text-amber-300 border-amber-500/50' : 'bg-gray-700 text-gray-400 border-gray-600'}`}
-                                    >
-                                        <Crown size={12} />
-                                        {profile?.is_premium ? 'PREMIUM' : 'FREE'}
-                                    </button>
                                 </div>
                                 <button
                                     onClick={() => { signOut(); setIsMenuOpen(false); }}
@@ -510,7 +480,7 @@ function Calculator() {
                             >
                                 Login
                             </Link>
-                        )} */}
+                        )}
                     </div>
                 )}
 
@@ -838,10 +808,10 @@ function Calculator() {
                                 )}
                                 <div className="flex gap-2 justify-center mt-4">
                                     <button onClick={() => { setForgeResult(null); handleForge(); }} className="bg-white text-black px-6 py-2 rounded-lg font-bold hover:bg-gray-200 transition-colors flex-1">{t('app.forgeAgain')}</button>
-                                    {/* <button onClick={handleSaveBuild} className="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-700 transition-colors flex items-center gap-2">
+                                    <button onClick={handleSaveBuild} className="bg-amber-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-amber-700 transition-colors flex items-center gap-2">
                                         <Save size={18} />
-                                        {profile?.is_premium ? 'Save' : 'Save (Premium)'}
-                                    </button> */}
+                                        Save
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1061,12 +1031,82 @@ function Calculator() {
     );
 }
 
+// --- Support Popup Component ---
+const SupportPopup = ({ onClose }: { onClose: () => void }) => {
+    return (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+            <div className="bg-gray-900 border border-white/10 rounded-3xl p-8 max-w-md w-full shadow-2xl relative overflow-hidden group">
+                {/* Decorative background glow */}
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-red-500/20 rounded-full blur-3xl group-hover:bg-red-500/30 transition-colors duration-500" />
+                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-500/30 transition-colors duration-500" />
+
+                <div className="relative flex flex-col items-center text-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/20 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                        <Heart size={40} className="text-white fill-white/20" />
+                    </div>
+
+                    <h2 className="text-2xl font-fredoka font-bold text-white mb-3">
+                        Support Me for better Website
+                    </h2>
+
+                    <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+                        Your support helps me keep the servers running and add new features to the Forge Calculator!
+                    </p>
+
+                    <div className="flex flex-col w-full gap-3">
+                        <a
+                            href="https://sociabuzz.com/galangsw_/tribe"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-red-500/25 flex items-center justify-center gap-2 group"
+                        >
+                            Support Now
+                            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
+
+                        <button
+                            onClick={onClose}
+                            className="w-full py-3 text-gray-500 hover:text-gray-300 text-sm font-medium transition-colors"
+                        >
+                            Maybe Later
+                        </button>
+                    </div>
+                </div>
+
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
+                >
+                    <X size={20} />
+                </button>
+            </div>
+        </div>
+    );
+};
+
 // --- Main App with Router ---
 export default function App() {
+    const [showSupport, setShowSupport] = useState(false);
+
+    useEffect(() => {
+        const lastShown = localStorage.getItem('support_popup_last_shown');
+        const now = Date.now();
+        const TWO_HOURS = 2 * 60 * 60 * 1000;
+
+        if (!lastShown || (now - parseInt(lastShown)) > TWO_HOURS) {
+            const timer = setTimeout(() => {
+                setShowSupport(true);
+                localStorage.setItem('support_popup_last_shown', now.toString());
+            }, 2000); // Show after 2 seconds
+            return () => clearTimeout(timer);
+        }
+    }, []);
+
     return (
         <AuthProvider>
             <LanguageProvider>
                 <Router>
+                    {showSupport && <SupportPopup onClose={() => setShowSupport(false)} />}
                     <Routes>
                         <Route path="/" element={<LandingPage />} />
                         <Route path="/calculator" element={<Calculator />} />
