@@ -674,10 +674,11 @@ function Calculator() {
 
                     {/* Best Recipes Section */}
                     <div className="mt-6">
-                        <button onClick={() => setShowBestRecipes(!showBestRecipes)} className="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-purple-500/50">
+                        <button onClick={() => setShowBestRecipes(!showBestRecipes)} className="relative w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-purple-500/50">
                             <Sparkles size={20} />
                             {showBestRecipes ? t('app.hideRecipes') : t('app.showRecipes')} {t('app.bestRecipes')}
                             <ArrowRight size={16} className={`transition-transform ${showBestRecipes ? 'rotate-90' : ''}`} />
+                            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded-full shadow-lg animate-pulse border border-black font-bold">NEW</span>
                         </button>
                         {showBestRecipes && (
                             <div className="mt-4 bg-card border border-card-border rounded-xl p-6 shadow-2xl">
@@ -685,7 +686,83 @@ function Calculator() {
                                     <button onClick={() => setActiveTab('weapon')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'weapon' ? 'bg-orange-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Sword size={16} className="inline mr-2" />{t('app.weapons')}</button>
                                     <button onClick={() => setActiveTab('armor')} className={`flex-1 px-4 py-2 rounded-lg font-bold text-sm transition-all ${activeTab === 'armor' ? 'bg-teal-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'}`}><Shield size={16} className="inline mr-2" />{t('app.armor')}</button>
                                 </div>
-                                {activeTab === 'weapon' ? (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_WEAPONS_RECIPES).map(([weaponType, recipes]) => (<div key={weaponType} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-fredoka font-bold text-orange-400 mb-3">{weaponType}</h3><div className="space-y-2">{recipes.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.tier}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>) : (<div className="space-y-6 max-h-[600px] overflow-y-auto">{Object.entries(BEST_ARMOR_RECIPES).map(([setName, pieces]) => (<div key={setName} className="bg-black/20 rounded-lg p-4 border border-white/5"><h3 className="text-lg font-fredoka font-bold text-teal-400 mb-3">{setName}</h3><div className="space-y-2">{pieces.map((recipe: any, idx: number) => (<div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors"><div className="flex justify-between items-start mb-2"><span className="text-sm font-bold text-gray-300">{recipe.piece}</span><div className="flex gap-2"><span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span><span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span></div></div><div className="flex flex-wrap gap-2">{recipe.recipe.map((ingredient: any, i: number) => { const ore = ORE_DATA.find(o => o.name === ingredient.ore); return (<div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}><div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} /><span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span><span className="text-xs text-gray-400">{ingredient.ore}</span></div>); })}</div></div>))}</div></div>))}</div>)}
+                                {activeTab === 'weapon' ? (
+                                    <div className="space-y-6 max-h-[600px] overflow-y-auto">
+                                        {Object.entries(BEST_WEAPONS_RECIPES).map(([weaponType, recipes]) => (
+                                            <div key={weaponType} className="bg-black/20 rounded-lg p-4 border border-white/5">
+                                                <h3 className="text-lg font-fredoka font-bold text-orange-400 mb-3 flex items-center gap-2">
+                                                    {weaponType}
+                                                    {["Icy Boulder (Mid Tier)", "Small Ice Crystals (Low-Mid Tier)", "Medium Ice Crystals (High Tier)", "Large Ice Crystals (Higher Tier)", "Large Ice Crystals (Crazy Tier)"].includes(weaponType) && (
+                                                        <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded-full animate-pulse">NEW</span>
+                                                    )}
+                                                </h3>
+                                                <div className="space-y-2">
+                                                    {recipes.map((recipe: any, idx: number) => (
+                                                        <div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
+                                                            <div className="flex justify-between items-start mb-2">
+                                                                <span className="text-sm font-bold text-gray-300">{recipe.tier}</span>
+                                                                <div className="flex gap-2">
+                                                                    <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span>
+                                                                    <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {recipe.recipe.map((ingredient: any, i: number) => {
+                                                                    const ore = ORE_DATA.find(o => o.name === ingredient.ore);
+                                                                    return (
+                                                                        <div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}>
+                                                                            <div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} />
+                                                                            <span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span>
+                                                                            <span className="text-xs text-gray-400">{ingredient.ore}</span>
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <div className="space-y-6 max-h-[600px] overflow-y-auto">
+                                        {Object.entries(BEST_ARMOR_RECIPES).map(([setName, pieces]) => (
+                                            <div key={setName} className="bg-black/20 rounded-lg p-4 border border-white/5">
+                                                <h3 className="text-lg font-fredoka font-bold text-teal-400 mb-3 flex items-center gap-2">
+                                                    {setName}
+                                                    {["BEST RECIPE", "Speed Set", "Damage Set", "Late Island 3 Set", "Mid Island 3 Set", "Early Island 3 Set"].includes(setName) && (
+                                                        <span className="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded-full animate-pulse">NEW</span>
+                                                    )}
+                                                </h3>
+                                                <div className="space-y-2">
+                                                    {pieces.map((recipe: any, idx: number) => (
+                                                        <div key={idx} className="bg-white/5 rounded-lg p-3 hover:bg-white/10 transition-colors">
+                                                            <div className="flex justify-between items-start mb-2">
+                                                                <span className="text-sm font-bold text-gray-300">{recipe.piece}</span>
+                                                                <div className="flex gap-2">
+                                                                    <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded font-mono">{recipe.multiplier}x</span>
+                                                                    <span className="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded font-mono">{recipe.chance}%</span>
+                                                                </div>
+                                                            </div>
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {recipe.recipe.map((ingredient: any, i: number) => {
+                                                                    const ore = ORE_DATA.find(o => o.name === ingredient.ore);
+                                                                    return (
+                                                                        <div key={i} className="flex items-center gap-1 bg-black/40 rounded px-2 py-1 border border-white/10" style={{ borderColor: ore?.color + '40' }}>
+                                                                            <div className="w-4 h-4 rounded" style={{ backgroundColor: ore?.color || '#666' }} />
+                                                                            <span className="text-xs font-bold" style={{ color: ore?.color }}>{ingredient.count}</span>
+                                                                            <span className="text-xs text-gray-400">{ingredient.ore}</span>
+                                                                        </div>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>

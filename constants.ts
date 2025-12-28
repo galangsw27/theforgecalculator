@@ -450,6 +450,36 @@ export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name:
 
 // Best Weapons Recipes
 export const BEST_WEAPONS_RECIPES = {
+    "Icy Boulder (Mid Tier)": [
+        { tier: "Straight Sword", recipe: [{ ore: "Iceite", count: 4 }, { ore: "Snowite", count: 2 }], multiplier: 9.67, chance: 75 },
+        { tier: "Gauntlet", recipe: [{ ore: "Iceite", count: 6 }, { ore: "Snowite", count: 3 }], multiplier: 9.67, chance: 75 },
+        { tier: "Greataxe", recipe: [{ ore: "Iceite", count: 15 }, { ore: "Snowite", count: 7 }], multiplier: 9.70, chance: 75 },
+        { tier: "Colossal Sword", recipe: [{ ore: "Iceite", count: 35 }, { ore: "Snowite", count: 15 }], multiplier: 9.75, chance: 75 }
+    ],
+    "Small Ice Crystals (Low-Mid Tier)": [
+        { tier: "Straight Sword", recipe: [{ ore: "Iceite", count: 2 }, { ore: "Crimsonite", count: 2 }, { ore: "Snowite", count: 2 }], multiplier: 9.0, chance: 75 },
+        { tier: "Gauntlet", recipe: [{ ore: "Iceite", count: 3 }, { ore: "Crimsonite", count: 3 }, { ore: "Snowite", count: 3 }], multiplier: 9.0, chance: 75 },
+        { tier: "Greataxe", recipe: [{ ore: "Iceite", count: 8 }, { ore: "Crimsonite", count: 7 }, { ore: "Snowite", count: 7 }], multiplier: 9.07, chance: 75 },
+        { tier: "Colossal Sword", recipe: [{ ore: "Iceite", count: 17 }, { ore: "Crimsonite", count: 16 }, { ore: "Snowite", count: 16 }], multiplier: 9.03, chance: 75 }
+    ],
+    "Medium Ice Crystals (High Tier)": [
+        { tier: "Straight Sword", recipe: [{ ore: "Suryafal", count: 2 }, { ore: "Iceite", count: 2 }, { ore: "Voidstar", count: 2 }], multiplier: 12.67, chance: 75 },
+        { tier: "Gauntlet", recipe: [{ ore: "Suryafal", count: 3 }, { ore: "Iceite", count: 3 }, { ore: "Voidstar", count: 3 }], multiplier: 12.67, chance: 75 },
+        { tier: "Greataxe", recipe: [{ ore: "Suryafal", count: 8 }, { ore: "Iceite", count: 7 }, { ore: "Voidstar", count: 7 }], multiplier: 12.89, chance: 75 },
+        { tier: "Colossal Sword", recipe: [{ ore: "Suryafal", count: 17 }, { ore: "Iceite", count: 16 }, { ore: "Voidstar", count: 16 }], multiplier: 12.77, chance: 75 }
+    ],
+    "Large Ice Crystals (Higher Tier)": [
+        { tier: "Straight Sword", recipe: [{ ore: "Gargantuan", count: 2 }, { ore: "Voidstar", count: 2 }, { ore: "Iceite", count: 2 }], multiplier: 17.93, chance: 75 },
+        { tier: "Gauntlet", recipe: [{ ore: "Gargantuan", count: 3 }, { ore: "Voidstar", count: 3 }, { ore: "Iceite", count: 3 }], multiplier: 17.93, chance: 75 },
+        { tier: "Greataxe", recipe: [{ ore: "Gargantuan", count: 8 }, { ore: "Voidstar", count: 7 }, { ore: "Iceite", count: 7 }], multiplier: 18.63, chance: 75 },
+        { tier: "Colossal Sword", recipe: [{ ore: "Gargantuan", count: 17 }, { ore: "Voidstar", count: 16 }, { ore: "Iceite", count: 16 }], multiplier: 18.25, chance: 75 }
+    ],
+    "Large Ice Crystals (Crazy Tier)": [
+        { tier: "Straight Sword", recipe: [{ ore: "Gargantuan", count: 6 }], multiplier: 33.3, chance: 75 },
+        { tier: "Gauntlet", recipe: [{ ore: "Gargantuan", count: 9 }], multiplier: 33.3, chance: 75 },
+        { tier: "Greataxe", recipe: [{ ore: "Gargantuan", count: 22 }], multiplier: 33.3, chance: 75 },
+        { tier: "Colossal Sword", recipe: [{ ore: "Gargantuan", count: 49 }], multiplier: 33.3, chance: 75 }
+    ],
     "Uchi Katana": [
         { tier: "Top 1", recipe: [{ ore: "Darkryte", count: 9 }, { ore: "Magmaite", count: 4 }], multiplier: 5.8, chance: 62 },
         { tier: "Top 2", recipe: [{ ore: "Darkryte", count: 6 }, { ore: "Demonite", count: 4 }, { ore: "Eye Ore", count: 3 }], multiplier: 5.5, chance: 64 },
@@ -485,6 +515,36 @@ export const BEST_WEAPONS_RECIPES = {
 
 // Best Armor Recipes
 export const BEST_ARMOR_RECIPES = {
+    "BEST RECIPE": [
+        { piece: "Chestplate", recipe: [{ ore: "Gargantuan", count: 28 }, { ore: "Etherealite", count: 12 }], multiplier: 26.64, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Gargantuan", count: 18 }, { ore: "Etherealite", count: 8 }], multiplier: 26.47, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Gargantuan", count: 21 }, { ore: "Etherealite", count: 9 }], multiplier: 26.64, chance: 50 }
+    ],
+    "Speed Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Gargantuan", count: 16 }, { ore: "Lightite", count: 12 }, { ore: "Velchire", count: 12 }], multiplier: 16.35, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Gargantuan", count: 10 }, { ore: "Lightite", count: 8 }, { ore: "Velchire", count: 8 }], multiplier: 15.91, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Gargantuan", count: 12 }, { ore: "Lightite", count: 9 }, { ore: "Velchire", count: 9 }], multiplier: 16.35, chance: 50 }
+    ],
+    "Damage Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Gargantuan", count: 16 }, { ore: "Frost Fossil", count: 12 }, { ore: "Eye Ore", count: 12 }], multiplier: 15.87, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Gargantuan", count: 10 }, { ore: "Frost Fossil", count: 8 }, { ore: "Eye Ore", count: 8 }], multiplier: 15.42, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Gargantuan", count: 12 }, { ore: "Frost Fossil", count: 9 }, { ore: "Eye Ore", count: 9 }], multiplier: 15.87, chance: 50 }
+    ],
+    "Late Island 3 Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Suryafal", count: 16 }, { ore: "Frost Fossil", count: 12 }, { ore: "Etherealite", count: 12 }], multiplier: 11.68, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Suryafal", count: 10 }, { ore: "Frost Fossil", count: 8 }, { ore: "Etherealite", count: 8 }], multiplier: 11.53, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Suryafal", count: 12 }, { ore: "Frost Fossil", count: 9 }, { ore: "Etherealite", count: 9 }], multiplier: 11.68, chance: 50 }
+    ],
+    "Mid Island 3 Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Etherealite", count: 16 }, { ore: "Frost Fossil", count: 12 }, { ore: "Velchire", count: 12 }], multiplier: 7.44, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Etherealite", count: 10 }, { ore: "Frost Fossil", count: 8 }, { ore: "Velchire", count: 8 }], multiplier: 7.34, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Etherealite", count: 12 }, { ore: "Frost Fossil", count: 9 }, { ore: "Velchire", count: 9 }], multiplier: 7.44, chance: 50 }
+    ],
+    "Early Island 3 Set": [
+        { piece: "Chestplate", recipe: [{ ore: "Snowite", count: 16 }, { ore: "Frost Fossil", count: 12 }, { ore: "Velchire", count: 12 }], multiplier: 6.20, chance: 75 },
+        { piece: "Helmet", recipe: [{ ore: "Snowite", count: 10 }, { ore: "Frost Fossil", count: 8 }, { ore: "Velchire", count: 8 }], multiplier: 6.15, chance: 50 },
+        { piece: "Leggings", recipe: [{ ore: "Snowite", count: 12 }, { ore: "Frost Fossil", count: 9 }, { ore: "Velchire", count: 9 }], multiplier: 6.20, chance: 50 }
+    ],
     "INSANE": [
         { piece: "Chestplate", recipe: [{ ore: "Darkryte", count: 20 }, { ore: "Demonite", count: 13 }, { ore: "Mythril", count: 6 }], multiplier: 5.80, chance: 73 },
         { piece: "Helmet", recipe: [{ ore: "Darkryte", count: 12 }, { ore: "Demonite", count: 8 }, { ore: "Mythril", count: 6 }], multiplier: 5.41, chance: 51 },
