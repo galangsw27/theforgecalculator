@@ -1,5 +1,6 @@
 export type Rarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'mythical' | 'relic' | 'divine' | 'exotic';
 export type Area = 'stonewake' | 'kingdom' | 'goblin' | 'enemy' | 'frostpire' | 'peak';
+export type World = 'W1' | 'W2' | 'W3';
 export type TraitType = 'weapon' | 'armor' | 'all' | null;
 export type ForgeMode = 'weapon' | 'armor';
 

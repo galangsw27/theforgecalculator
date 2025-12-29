@@ -5,8 +5,8 @@ import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
 import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
-import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES } from './constants';
-import { Ore, Slot, ForgeMode, Area, ForgedItem, Rune } from './types';
+import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES, WORLD_WEAPON_DATA } from './constants';
+import { Ore, Slot, ForgeMode, Area, ForgedItem, Rune, World } from './types';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 import Login from './src/components/Auth/Login';
 import Signup from './src/components/Auth/Signup';
@@ -41,6 +41,7 @@ function Calculator() {
     const { user, profile, refreshProfile, signOut } = useAuth();
     const [activeTab, setActiveTab] = useState<ForgeMode>('weapon');
     const [activeArea, setActiveArea] = useState<Area>('frostpire');
+    const [activeWorld, setActiveWorld] = useState<World>('W1');
     const [slots, setSlots] = useState<Slot[]>([
         { id: 1, oreId: null, count: 0 },
         { id: 2, oreId: null, count: 0 },
@@ -161,8 +162,7 @@ function Calculator() {
     }, [oreMix, totalOres]);
 
     const probabilities = useMemo<Record<string, number>>(() => {
-        const table = activeTab === 'weapon' ? WEAPON_PROBABILITIES : ARMOR_PROBABILITIES;
-        const counts = Object.keys(table).map(Number).sort((a, b) => a - b);
+        const counts = Object.keys(activeTab === 'weapon' ? WORLD_WEAPON_DATA : ARMOR_PROBABILITIES).map(Number).sort((a, b) => a - b);
         let closest = counts[0];
         for (const c of counts) {
             if (Math.abs(c - totalOres) <= Math.abs(closest - totalOres)) {
@@ -171,8 +171,87 @@ function Calculator() {
         }
         if (totalOres > counts[counts.length - 1]) closest = counts[counts.length - 1];
         if (totalOres < 3) return {};
-        return table[closest] || {};
-    }, [activeTab, totalOres]);
+
+        if (activeTab === 'weapon') {
+            const baseProbs = WEAPON_PROBABILITIES[closest] || {};
+            const worldVariants = WORLD_WEAPON_DATA[closest]?.[activeWorld] || {};
+
+            const merged: Record<string, number> = {};
+            const usedTypes = new Set<string>();
+
+            // 1. Process base types and replace peaks with variants
+            Object.entries(baseProbs).forEach(([type, prob]) => {
+                const variantsForType = Object.entries(worldVariants).filter(([name]) => {
+                    const itemType = BASE_ITEM_STATS.weapon[name]?.type || name;
+                    return itemType === type;
+                });
+
+                if (variantsForType.length > 0) {
+                    variantsForType.forEach(([name, vProb]) => {
+                        merged[name] = vProb;
+                    });
+                    usedTypes.add(type);
+                } else {
+                    // If it's a world-exclusive peak type and has no variants in this world, skip it
+                    const isPeakType = ["Gauntlet", "Mace", "Katana", "Axe", "Great Sword", "Spear"].includes(type);
+                    if (!isPeakType) {
+                        merged[type] = prob;
+                    }
+                }
+            });
+
+            // 2. Add any world variants whose types weren't in baseProbs
+            Object.entries(worldVariants).forEach(([name, vProb]) => {
+                const type = BASE_ITEM_STATS.weapon[name]?.type || name;
+                if (!usedTypes.has(type)) {
+                    merged[name] = vProb;
+                }
+            });
+
+            // 3. Handle special cases like Spear_Other
+            if (merged["Spear_Other"]) {
+                merged["Spear"] = (merged["Spear"] || 0) + merged["Spear_Other"];
+                delete merged["Spear_Other"];
+            }
+
+            // 4. Normalize to 1.0 (ensure no failure chance)
+            const total = Object.values(merged).reduce((a, b) => a + b, 0);
+            if (total > 0) {
+                for (const key in merged) {
+                    merged[key] /= total;
+                }
+            }
+
+            return merged;
+        }
+        return ARMOR_PROBABILITIES[closest] || {};
+    }, [activeTab, totalOres, activeWorld]);
+
+    const groupedProbabilities = useMemo(() => {
+        const groups: Record<string, { total: number; variants: { name: string; chance: number; displayChance: string }[] }> = {};
+
+        Object.entries(probabilities).forEach(([name, prob]) => {
+            const type = activeTab === 'weapon' ? (BASE_ITEM_STATS.weapon[name]?.type || name) : name;
+            if (!groups[type]) {
+                groups[type] = { total: 0, variants: [] };
+            }
+            groups[type].total += prob;
+
+            // Find the display chance (e.g., "1/1", "1/8") from ITEM_VARIANTS or WORLD_WEAPON_DATA logic
+            let displayChance = "1/1";
+            if (activeTab === 'weapon') {
+                const areaVariants = ITEM_VARIANTS.weapon[type]?.[activeArea] || [];
+                const variant = areaVariants.find(v => v.name === name);
+                if (variant) {
+                    displayChance = variant.chance;
+                }
+            }
+
+            groups[type].variants.push({ name, chance: prob, displayChance });
+        });
+
+        return groups;
+    }, [probabilities, activeTab, activeArea]);
 
     const activeTraits = useMemo(() => {
         const traitsList: { oreName: string; description: string; percentage: number; color: string, type: any }[] = [];
@@ -303,31 +382,22 @@ function Calculator() {
         if (totalOres < 3) return;
         setIsForging(true);
         setTimeout(() => {
-            let rolledType = Object.keys(probabilities)[0];
+            let itemName = "";
             const rand = Math.random();
             let cumulative = 0;
-            for (const [type, prob] of Object.entries(probabilities)) {
+
+            for (const [name, prob] of Object.entries(probabilities)) {
                 cumulative += prob as number;
                 if (rand <= cumulative) {
-                    rolledType = type;
+                    itemName = name;
                     break;
                 }
             }
-            let itemName = rolledType;
-            const variants = ITEM_VARIANTS[activeTab]?.[rolledType]?.[activeArea];
-            if (variants && variants.length > 0) {
-                const sortedVariants = [...variants].sort((a, b) => a.probability - b.probability);
-                for (const variant of sortedVariants) {
-                    if (Math.random() <= variant.probability) {
-                        itemName = variant.name;
-                        break;
-                    }
-                }
-            } else {
-                const base = Object.entries(BASE_ITEM_STATS[activeTab]).find(([_, stat]) => stat.type === rolledType);
-                if (base) itemName = base[0];
-            }
-            const baseStats = BASE_ITEM_STATS[activeTab][itemName] || BASE_ITEM_STATS[activeTab][rolledType] || (() => {
+
+            if (!itemName) itemName = Object.keys(probabilities)[0];
+
+            const rolledType = BASE_ITEM_STATS[activeTab][itemName]?.type || itemName;
+            const baseStats = BASE_ITEM_STATS[activeTab][itemName] || (() => {
                 // Fallback with proper default stats
                 if (activeTab === 'armor') {
                     return { health: 5, price: 100, def: 10, type: rolledType };
@@ -547,48 +617,37 @@ function Calculator() {
                             <span className="text-xs text-gray-500">{t('app.basedOn')} {totalOres} {t('app.ores')}</span>
                         </div>
                         <div className="p-2 space-y-2 max-h-[500px] overflow-y-auto custom-scrollbar">
-                            {Object.entries(probabilities).length > 0 ? (
-                                Object.entries(probabilities)
-                                    .sort(([, a], [, b]) => (b as number) - (a as number))
-                                    .map(([type, prob]: [string, number]) => {
-                                        const variants = ITEM_VARIANTS[activeTab]?.[type]?.[activeArea] || [];
-                                        const hasVariants = variants.length > 0;
+                            {Object.entries(groupedProbabilities).length > 0 ? (
+                                Object.entries(groupedProbabilities)
+                                    .sort(([, a], [, b]) => b.total - a.total)
+                                    .map(([type, group]) => {
+                                        const isSingle = group.variants.length === 1;
 
                                         return (
                                             <div key={type} className="bg-black/20 rounded-lg p-3 border border-white/5">
                                                 <div className="flex justify-between items-center mb-2">
                                                     <span className="text-sm font-bold text-gray-300">{type}</span>
-                                                    <span className={`text-xs font-mono font-bold ${themeColor}`}>{(prob * 100).toFixed(0)}%</span>
+                                                    <span className={`text-xs font-mono font-bold ${themeColor}`}>{(group.total * 100).toFixed(0)}%</span>
                                                 </div>
 
                                                 <div className="flex flex-col lg:flex-row lg:flex-wrap gap-2">
-                                                    {hasVariants ? (
-                                                        variants.map((variant, idx) => (
-                                                            <div key={idx} className="flex flex-row lg:flex-col items-center gap-3 lg:gap-1 group w-full lg:w-16 p-2 lg:p-0 bg-white/5 lg:bg-transparent rounded-lg lg:rounded-none transition-colors hover:bg-white/10 lg:hover:bg-transparent" title={variant.name}>
-                                                                <div className="w-12 h-12 shrink-0 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-white/30 transition-colors">
-                                                                    {ITEM_IMAGES[variant.name] ? (
-                                                                        <img src={ITEM_IMAGES[variant.name]} alt={variant.name} className="w-10 h-10 object-contain drop-shadow-md" />
-                                                                    ) : (
-                                                                        <div className="text-xs text-gray-600">?</div>
-                                                                    )}
-                                                                </div>
-                                                                <span className="text-sm lg:text-[9px] text-gray-300 lg:text-gray-400 text-left lg:text-center leading-tight line-clamp-2 lg:w-full order-2 lg:order-3">{variant.name}</span>
-                                                                <span className="text-xs lg:text-[10px] text-gray-500 font-mono leading-none order-3 lg:order-2 ml-auto lg:ml-0">{variant.chance}</span>
-                                                            </div>
-                                                        ))
-                                                    ) : (
-                                                        <div className="flex flex-row lg:flex-col items-center gap-3 lg:gap-1 group w-full lg:w-16 p-2 lg:p-0 bg-white/5 lg:bg-transparent rounded-lg lg:rounded-none transition-colors hover:bg-white/10 lg:hover:bg-transparent" title={type}>
+                                                    {group.variants.map((variant, idx) => (
+                                                        <div key={idx} className="flex flex-row lg:flex-col items-center gap-3 lg:gap-1 group w-full lg:w-16 p-2 lg:p-0 bg-white/5 lg:bg-transparent rounded-lg lg:rounded-none transition-colors hover:bg-white/10 lg:hover:bg-transparent" title={variant.name}>
                                                             <div className="w-12 h-12 shrink-0 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center relative overflow-hidden group-hover:border-white/30 transition-colors">
-                                                                {ITEM_IMAGES[type] ? (
-                                                                    <img src={ITEM_IMAGES[type]} alt={type} className="w-10 h-10 object-contain drop-shadow-md" />
+                                                                {ITEM_IMAGES[variant.name] ? (
+                                                                    <img src={ITEM_IMAGES[variant.name]} alt={variant.name} className="w-10 h-10 object-contain drop-shadow-md" />
                                                                 ) : (
                                                                     <div className="text-xs text-gray-600">?</div>
                                                                 )}
                                                             </div>
-                                                            <span className="text-sm lg:text-[9px] text-gray-300 lg:text-gray-400 text-left lg:text-center leading-tight line-clamp-2 lg:w-full order-2 lg:order-3">{type}</span>
-                                                            <span className="text-xs lg:text-[10px] text-gray-500 font-mono leading-none order-3 lg:order-2 ml-auto lg:ml-0">1/1</span>
+                                                            <span className="text-sm lg:text-[9px] text-gray-300 lg:text-gray-400 text-left lg:text-center leading-tight line-clamp-2 lg:w-full order-2 lg:order-3">
+                                                                {isSingle ? type : variant.name}
+                                                            </span>
+                                                            <span className="text-xs lg:text-[10px] text-gray-500 font-mono leading-none order-3 lg:order-2 ml-auto lg:ml-0">
+                                                                {variant.displayChance}
+                                                            </span>
                                                         </div>
-                                                    )}
+                                                    ))}
                                                 </div>
                                             </div>
                                         );
@@ -639,6 +698,21 @@ function Calculator() {
                             >
                                 <Shield size={16} /> {t('app.armor')}
                             </button>
+                        </div>
+                    </div>
+
+                    {/* World Switcher */}
+                    <div className="flex justify-center">
+                        <div className="p-1 bg-black/40 border border-white/10 rounded-full flex gap-1 backdrop-blur-md">
+                            {(['W1', 'W2', 'W3'] as World[]).map((w) => (
+                                <button
+                                    key={w}
+                                    onClick={() => setActiveWorld(w)}
+                                    className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${activeWorld === w ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/50' : 'text-gray-500 hover:text-gray-300'}`}
+                                >
+                                    {w}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
@@ -802,8 +876,27 @@ function Calculator() {
                         )}
                     </div>
 
-                    {/* Forge Chances (Moved) */}
-
+                    {/* Forge Chances */}
+                    <div className="bg-card border border-card-border rounded-xl overflow-hidden shadow-xl">
+                        <div className="p-4 border-b border-white/5 flex justify-between items-center">
+                            <h2 className="font-fredoka font-bold text-gray-400 text-sm">{t('app.forgeChances')}</h2>
+                            <span className="text-[10px] bg-white/5 px-2 py-0.5 rounded text-gray-500 uppercase tracking-tighter font-bold">{activeWorld}</span>
+                        </div>
+                        <div className="p-4 space-y-2">
+                            {Object.entries(probabilities).length > 0 ? (
+                                Object.entries(probabilities)
+                                    .sort(([, a], [, b]) => (b as number) - (a as number))
+                                    .map(([name, prob]) => (
+                                        <div key={name} className="flex justify-between items-center text-xs">
+                                            <span className="text-gray-300">{name}</span>
+                                            <span className="font-mono text-indigo-400 font-bold">{(prob as number * 100).toFixed(2)}%</span>
+                                        </div>
+                                    ))
+                            ) : (
+                                <div className="text-center text-gray-600 text-xs py-2">Add more ores to see chances</div>
+                            )}
+                        </div>
+                    </div>
                 </div>
 
                 {/* --- RIGHT COLUMN: Ore Selection --- */}
@@ -1139,7 +1232,7 @@ function Calculator() {
 
             {/* --- ChatBot --- */}
             <ChatBot />
-        </div >
+        </div>
     );
 }
 
