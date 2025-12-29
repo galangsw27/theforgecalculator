@@ -5,12 +5,12 @@
     "Type": "Ore",
     "Rarity": "Common",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Pebble",
     "Chance": "1/1",
     "Multiplier": "0.2x",
     "Sell Value": "3$",
     "Trait": "None",
-    "description": "Stone"
+    "description": "It's a rock. What more do you want?",
+    "image": "/assets/images/ores/stone.png"
   },
   {
     "name": "Sand Stone",
@@ -18,12 +18,12 @@
     "Type": "Ore",
     "Rarity": "Common",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Pebble,Rock",
     "Chance": "1/2",
-    "Multiplier": "0.2x",
+    "Multiplier": "0.25x",
     "Sell Value": "3.75$",
     "Trait": "None",
-    "description": ""
+    "description": "Crumbly yet sturdy enough to build with. Not great with water.",
+    "image": "/assets/images/ores/sand-stone.png"
   },
   {
     "name": "Copper",
@@ -31,12 +31,12 @@
     "Type": "Ore",
     "Rarity": "Common",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Pebble, Rock, Boulder",
-    "Chance": "1/2",
-    "Multiplier": "0.2x",
-    "Sell Value": "3.75$",
+    "Chance": "1/3",
+    "Multiplier": "0.3x",
+    "Sell Value": "4.5$",
     "Trait": "None",
-    "description": "Copper"
+    "description": "Basic but dependable. A beginner's best friend in the forge.",
+    "image": "/assets/images/ores/copper.png"
   },
   {
     "name": "Iron",
@@ -44,12 +44,12 @@
     "Type": "Ore",
     "Rarity": "Common",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Pebble, Rock, Boulder",
     "Chance": "1/5",
     "Multiplier": "0.35x",
     "Sell Value": "5.25$",
     "Trait": "None",
-    "description": ""
+    "description": "The workhorse of the forge. Reliable, versatile and a classic choice.",
+    "image": "/assets/images/ores/iron.png"
   },
   {
     "name": "Tin",
@@ -57,12 +57,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock, Boulder",
     "Chance": "1/7",
     "Multiplier": "0.425x",
     "Sell Value": "6.38$",
     "Trait": "None",
-    "description": ""
+    "description": "Weak on its own, but blends beautifully with others.",
+    "image": "/assets/images/ores/tin.png"
   },
   {
     "name": "Silver",
@@ -70,12 +70,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock, Boulder",
     "Chance": "1/12",
     "Multiplier": "0.5x",
     "Sell Value": "7.5$",
     "Trait": "None",
-    "description": ""
+    "description": "Malleable and pure. Naturally anti-curse, anti-werewolf, anti-everything-bad.",
+    "image": "/assets/images/ores/silver.png"
   },
   {
     "name": "Gold",
@@ -83,12 +83,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock, Boulder",
-    "Chance": "1/7",
-    "Multiplier": "0.425x",
-    "Sell Value": "6.38$",
+    "Chance": "1/16",
+    "Multiplier": "0.65x",
+    "Sell Value": "19.5$",
     "Trait": "None",
-    "description": "Gold"
+    "description": "Not the strongest, but hey–it's gold. Fancy never goes out of style.",
+    "image": "/assets/images/ores/gold.png"
   },
   {
     "name": "Mushroomite",
@@ -96,12 +96,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock, Boulder",
     "Chance": "1/22",
     "Multiplier": "0.8x",
     "Sell Value": "12$",
     "Trait": "None",
-    "description": ""
+    "description": "Grows in damp places. Sometimes glows. Sometimes talks. Probably fine.",
+    "image": "/assets/images/ores/mushroomite.png"
   },
   {
     "name": "Platinum",
@@ -109,12 +109,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Boulder",
     "Chance": "1/28",
     "Multiplier": "0.8x",
     "Sell Value": "12$",
     "Trait": "None",
-    "description": ""
+    "description": "Smooth, silvery, and highly conductive. Rare and sought-after.",
+    "image": "/assets/images/ores/platinum.png"
   },
   {
     "name": "Bananite",
@@ -122,12 +122,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock,Boulder",
     "Chance": "1/30",
     "Multiplier": "0.85x",
     "Sell Value": "12.75$",
     "Trait": "None",
-    "description": ""
+    "description": "Yellow, slippery, looks and smells like banana yet surprisingly durable.",
+    "image": "/assets/images/ores/bananite.png"
   },
   {
     "name": "Cardboardite",
@@ -135,12 +135,12 @@
     "Type": "Ore",
     "Rarity": "Common",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Rock,Boulder",
     "Chance": "1/31",
     "Multiplier": "0.7x",
     "Sell Value": "10.5$",
     "Trait": "None",
-    "description": ""
+    "description": "Looks like trash, feels like trash... but somehow incredibly useful.",
+    "image": "/assets/images/ores/cardboardite.png"
   },
   {
     "name": "Aite",
@@ -148,12 +148,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Boulder",
     "Chance": "1/44",
     "Multiplier": "1x",
     "Sell Value": "16.5$",
     "Trait": "None",
-    "description": ""
+    "description": "It's an ore made out of A's – but actually lightweight and razor sharp.",
+    "image": "/assets/images/ores/aite.png"
   },
   {
     "name": "Poopite",
@@ -161,12 +161,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Pebble, Rock, Boulder",
     "Chance": "1/131",
     "Multiplier": "1.2x",
     "Sell Value": "18$",
     "Trait": "15% poison for 5s when below 35% HP",
-    "description": "?? Ew. Why is this even mineable? Smells awful, but apparently makes great fertilizer-fused armor. ??"
+    "description": "Ew. Why is this even mineable?",
+    "image": "/assets/images/ores/poopite.png"
   },
   {
     "name": "Fichillium",
@@ -174,12 +174,11 @@
     "Type": "Ore",
     "Rarity": "Relic",
     "Area": "Stonewake's Cross",
-    "Rock Type": "Lucky Block",
     "Chance": "1/1",
     "Multiplier": "0x",
     "Sell Value": "0$",
     "Trait": "None",
-    "description": ""
+    "description": "PLAY ABYSS!"
   },
   {
     "name": "Cobalt",
@@ -187,12 +186,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Rock",
     "Chance": "1/37",
     "Multiplier": "1x",
     "Sell Value": "15$",
     "Trait": "None",
-    "description": "?? A sturdy bluish metal known for its resilience and sharp edges. Cold to the touch, cool in combat. ??"
+    "description": "A sturdy bluish metal known for its resilience and sharp edges.",
+    "image": "/assets/images/ores/cobalt.png"
   },
   {
     "name": "Titanium",
@@ -200,12 +199,12 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Rock, Basalt Core",
     "Chance": "1/50",
     "Multiplier": "1.15x",
     "Sell Value": "17.25$",
     "Trait": "None",
-    "description": "?? One of the strongest metals. Lightweight, almost unbreakable. ??"
+    "description": "One of the strongest metals. Lightweight, almost unbreakable.",
+    "image": "/assets/images/ores/titanium.png"
   },
   {
     "name": "Lapis Lazuli",
@@ -213,12 +212,25 @@
     "Type": "Ore",
     "Rarity": "Uncommon",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Rock",
     "Chance": "1/73",
     "Multiplier": "1.3x",
     "Sell Value": "22.5$",
     "Trait": "None",
-    "description": "Deep blue with ancient markings. Scholars say it stores memories."
+    "description": "Deep blue with ancient markings. Scholars say it stores memories.",
+    "image": "/assets/images/ores/lapis-lazuli.png"
+  },
+  {
+    "name": "Boneite",
+    "url": "https://www.theforgewiki.org/ores/boneite.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Forgotten Kingdom",
+    "Chance": "1/222",
+    "Multiplier": "1.2x",
+    "Sell Value": "18$",
+    "Trait": "None",
+    "description": "A pale, brittle ore formed from shattered skeleton remains, still carrying faint undead energy.",
+    "image": "/assets/images/ores/boneite.jpg"
   },
   {
     "name": "Volcanic Rock",
@@ -226,12 +238,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock (Rock)",
     "Chance": "1/55",
     "Multiplier": "1.55x",
     "Sell Value": "23.25$",
     "Trait": "None",
-    "description": ""
+    "description": "It's not a just a rock. What more do you want?",
+    "image": "/assets/images/ores/volcanic-rock.png"
   },
   {
     "name": "Quartz",
@@ -239,12 +251,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein",
     "Chance": "1/90",
     "Multiplier": "1.5x",
     "Sell Value": "22.5$",
     "Trait": "None",
-    "description": "Translucent and mystical. Often used to amplify rune energy.\""
+    "description": "Translucent and mystical. Often used to amplify rune energy.",
+    "image": "/assets/images/ores/quartz.png"
   },
   {
     "name": "Amethyst",
@@ -252,12 +264,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein",
     "Chance": "1/115",
     "Multiplier": "1.65x",
     "Sell Value": "24.75$",
     "Trait": "None",
-    "description": "?? A shimmering purple gem, pulsing with magical energy. Popular among mystics and stylish warriors alike. ??"
+    "description": "A shimmering purple gem, pulsing with magical energy.",
+    "image": "/assets/images/ores/amethyst.png"
   },
   {
     "name": "Topaz",
@@ -265,12 +277,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein, Volcanic Rock",
     "Chance": "1/143",
     "Multiplier": "1.75x",
     "Sell Value": "26.25$",
     "Trait": "None",
-    "description": "?? Golden yellow and warm. Used in enchanting precision tools. ??"
+    "description": "Golden yellow and warm. Used in enchanting precision tools.",
+    "image": "/assets/images/ores/topaz.png"
   },
   {
     "name": "Diamond",
@@ -278,12 +290,25 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein",
     "Chance": "1/192",
     "Multiplier": "2x",
     "Sell Value": "30$",
     "Trait": "None",
-    "description": "?? The hardest known material, but in the right hands, it's more than just shiny. ??"
+    "description": "The hardest known material.",
+    "image": "/assets/images/ores/diamond.png"
+  },
+  {
+    "name": "Dark boneite",
+    "url": "https://www.theforgewiki.org/ores/dark-boneite.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Forgotten Kingdom",
+    "Chance": "1/555",
+    "Multiplier": "2.25x",
+    "Sell Value": "33.75$",
+    "Trait": "None",
+    "description": "A pale, brittle ore formed from shattered skeleton remains, still carrying faint undead energy",
+    "image": "/assets/images/ores/dark-boneite.jpg"
   },
   {
     "name": "Sapphire",
@@ -291,12 +316,12 @@
     "Type": "Ore",
     "Rarity": "Rare",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein",
     "Chance": "1/247",
     "Multiplier": "2.25x",
     "Sell Value": "33.75$",
     "Trait": "None",
-    "description": "?? Deep blue and ice-cold. Sold to sharpen senses when worn. ??"
+    "description": "Deep blue and ice-cold. Sold to sharpen senses when worn.",
+    "image": "/assets/images/ores/sapphire.png"
   },
   {
     "name": "Cuprite",
@@ -304,12 +329,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein, Volcanic Rock",
     "Chance": "1/303",
     "Multiplier": "2.43x",
     "Sell Value": "36.45$",
     "Trait": "None",
-    "description": "?? A bright red metallic ore found near river rocks, known for its clean crisp shine. ??"
+    "description": "A bright red metallic ore found near river rocks.",
+    "image": "/assets/images/ores/cuprite.png"
   },
   {
     "name": "Obsidian",
@@ -317,12 +342,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock",
     "Chance": "1/333",
     "Multiplier": "2.35x",
     "Sell Value": "35.25$",
-    "Trait": "30% extra defense on Armor.",
-    "description": "Volcanic glass as sharp as it is strong. A little unstable in the wrong mix."
+    "Trait": "30% extra defense on Armor",
+    "description": "Volcanic glass as sharp as it is strong.",
+    "image": "/assets/images/ores/obsidian.png"
   },
   {
     "name": "Emerald",
@@ -330,12 +355,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Core, Basalt Vein",
     "Chance": "1/363",
     "Multiplier": "2.55x",
     "Sell Value": "38.25$",
     "Trait": "None",
-    "description": "?? Vivid green and unnaturally smooth. Said to bring luck- or curses. ??"
+    "description": "Vivid green and unnaturally smooth.",
+    "image": "/assets/images/ores/emerald.png"
   },
   {
     "name": "Ruby",
@@ -343,12 +368,12 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Vein",
     "Chance": "1/487",
     "Multiplier": "2.95x",
     "Sell Value": "44.25$",
     "Trait": "None",
-    "description": "?? A blood-red gem that gleams with fury. Enhances fiery traits. ??"
+    "description": "A blood-red gem that gleams with fury.",
+    "image": "/assets/images/ores/ruby.png"
   },
   {
     "name": "Rivalite",
@@ -356,12 +381,25 @@
     "Type": "Ore",
     "Rarity": "Epic",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Vein, Volcanic Rock",
     "Chance": "1/569",
     "Multiplier": "3.33x",
     "Sell Value": "49.95$",
-    "Trait": "+20% critical strike chance on Weapons.",
-    "description": "?? A reactive ore that strengthens when near other powerful metals. Forged for rivalry. ??"
+    "Trait": "+20% crit chance on Weapons",
+    "description": "A reactive ore that strengthens when near other powerful metals.",
+    "image": "/assets/images/ores/rivalite.png"
+  },
+  {
+    "name": "Slimite",
+    "url": "https://www.theforgewiki.org/ores/slimite.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Forgotten Kingdom",
+    "Chance": "1/247",
+    "Multiplier": "2.25x",
+    "Sell Value": "33.75$",
+    "Trait": "None",
+    "description": "A slime-like ore that wiggles, and leaves a faint slime glow.",
+    "image": "/assets/images/ores/slimite.jpg"
   },
   {
     "name": "Uranium",
@@ -369,12 +407,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Vein",
     "Chance": "1/777",
     "Multiplier": "3x",
     "Sell Value": "66$",
-    "Trait": "5% of player max health as AOE damage while in combat, on Armor.",
-    "description": "Dangerous, unstable, and glowing green. For endgame crafts only."
+    "Trait": "5% max HP AOE dmg on Armor",
+    "description": "Dangerous, unstable, and glowing green.",
+    "image": "/assets/images/ores/uranium.png"
   },
   {
     "name": "Mythril",
@@ -382,12 +420,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Vein",
     "Chance": "1/813",
     "Multiplier": "3.5x",
     "Sell Value": "52.5$",
-    "Trait": "15% extra defense on Armor.",
-    "description": "?? Lightweight and insanely durable. A favorite of elite smiths and legends. ??"
+    "Trait": "15% extra defense on Armor",
+    "description": "Lightweight and insanely durable.",
+    "image": "/assets/images/ores/mythril.png"
   },
   {
     "name": "Eye Ore",
@@ -395,12 +433,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Rock, Basalt Core, Basalt Vein, Volcanic Rock",
     "Chance": "1/1333",
     "Multiplier": "4x",
     "Sell Value": "37.5$",
-    "Trait": "-10% health, +15% damage boost on Weapons/Armor.",
-    "description": "?? A strange ore with a blinking core that follows movement in the dark. ??"
+    "Trait": "-10% HP, +15% dmg on Weapons/Armor",
+    "description": "A strange ore with a blinking core.",
+    "image": "/assets/images/ores/eye-ore.png"
   },
   {
     "name": "Fireite",
@@ -408,12 +446,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock",
     "Chance": "1/2187",
     "Multiplier": "4.5x",
     "Sell Value": "67.5$",
-    "Trait": "20% burn for 2 seconds with 30% chance on-hit on Weapons.",
-    "description": "?? A red-hot ore that crackles with inner flames. Handle with gloves. Or magic. ??"
+    "Trait": "20% burn chance on Weapons",
+    "description": "A red-hot ore that crackles with inner flames.",
+    "image": "/assets/images/ores/fireite.png"
   },
   {
     "name": "Magmaite",
@@ -421,12 +459,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock",
     "Chance": "1/3003",
     "Multiplier": "5x",
     "Sell Value": "75$",
-    "Trait": "50% AOE explosion damage with 35% chance on-hit on Weapons.",
-    "description": "?? A volatile ore bubbling with veins. Literally burns through weak tools. ??"
+    "Trait": "50.00% of weapon dmg as AOE Explosion with 35.00% chance on weapons",
+    "description": "A volatile ore bubbling with veins.",
+    "image": "/assets/images/ores/magmaite.png"
   },
   {
     "name": "Lightite",
@@ -434,12 +472,12 @@
     "Type": "Ore",
     "Rarity": "Legendary",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Basalt Vein",
     "Chance": "1/3333",
     "Multiplier": "4.6x",
     "Sell Value": "69$",
-    "Trait": "?",
-    "description": "?? So bright it almost floats. Forging it is said to cause hallucinations. ??"
+    "Trait": "15% extra movement speed on Armor",
+    "description": "So bright it almost floats.",
+    "image": "/assets/images/ores/lightite.png"
   },
   {
     "name": "Demonite",
@@ -447,12 +485,12 @@
     "Type": "Ore",
     "Rarity": "Mythical",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock",
-    "Chance": "1/3336",
+    "Chance": "1/3666",
     "Multiplier": "5.5x",
     "Sell Value": "82.5$",
-    "Trait": "20% burn for 2 seconds with 15% chance on-hit & Demon's Backfire passive on Armor.",
-    "description": ""
+    "Trait": "25.00% to Burn Enemy when Damage is Taken. On Armor.",
+    "description": "A dark, heat-pulsing ore that leaks dark red sparks.",
+    "image": "/assets/images/ores/demonite.png"
   },
   {
     "name": "Darkryte",
@@ -460,112 +498,491 @@
     "Type": "Ore",
     "Rarity": "Mythical",
     "Area": "Forgotten Kingdom",
-    "Rock Type": "Volcanic Rock",
-    "Chance": "1/5555",
+    "Chance": "1/6655",
     "Multiplier": "6.3x",
     "Sell Value": "94.5$",
-    "Trait": "Shadow's Phantom Step passive on Armor.",
-    "description": "Darkryte"
-  },
-  {
-    "name": "Magenta Crystal Ore",
-    "url": "https://www.theforgewiki.org/ores/magenta-crystal-ore.html",
-    "Type": "Crystal Ore",
-    "Rarity": "Epic",
-    "Area": "Goblin Cave",
-    "Chance": "1/255",
-    "Multiplier": "3.1x",
-    "Sell Value": "46.5$",
-    "description": "Magenta Crystal Ore is a striking magenta crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with a 3.1x multiplier, Magenta Crystal has unique magical properties for crafting."
-  },
-  {
-    "name": "Crimson Crystal Ore",
-    "url": "https://www.theforgewiki.org/ores/crimson-crystal-ore.html",
-    "Type": "Crystal Ore",
-    "Rarity": "Epic",
-    "Area": "Goblin Cave",
-    "Chance": "1/255",
-    "Multiplier": "3.3x",
-    "Sell Value": "49.5$",
-    "description": "Crimson Crystal Ore is a deep red crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with a 3.3x multiplier, Crimson Crystal is ideal for crafting fire-based equipment."
-  },
-  {
-    "name": "Green Crystal Ore",
-    "url": "https://www.theforgewiki.org/ores/green-crystal-ore.html",
-    "Type": "Crystal Ore",
-    "Rarity": "Epic",
-    "Area": "Goblin Cave",
-    "Chance": "1/255",
-    "Multiplier": "3.2x",
-    "Sell Value": "48$",
-    "description": "Green Crystal Ore is a vibrant green crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with a 3.2x multiplier, Green Crystal is useful for crafting nature-based equipment."
+    "Trait": "15.00% Chance to Dodge Damage (Negate Fully). On Armor.",
+    "description": "A shadowy ore that absorbs light.",
+    "image": "/assets/images/ores/darkryte.png"
   },
   {
     "name": "Orange Crystal Ore",
     "url": "https://www.theforgewiki.org/ores/orange-crystal-ore.html",
-    "Type": "Crystal Ore",
+    "Type": "Ore",
     "Rarity": "Epic",
-    "Area": "Goblin Cave",
+    "Area": "Goblin Area",
     "Chance": "1/255",
     "Multiplier": "3x",
     "Sell Value": "45$",
-    "description": "Orange Crystal Ore is a warm orange crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with a 3x multiplier, Orange Crystal is the most common of the crystal ores."
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/orange-crystal-ore.png"
+  },
+  {
+    "name": "Magenta Crystal Ore",
+    "url": "https://www.theforgewiki.org/ores/magenta-crystal-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Goblin Area",
+    "Chance": "1/255",
+    "Multiplier": "3.1x",
+    "Sell Value": "46.5$",
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/magenta-crystal-ore.png"
+  },
+  {
+    "name": "Green Crystal Ore",
+    "url": "https://www.theforgewiki.org/ores/green-crystal-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Goblin Area",
+    "Chance": "1/255",
+    "Multiplier": "3.2x",
+    "Sell Value": "48$",
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/green-crystal-ore.png"
+  },
+  {
+    "name": "Crimson Crystal Ore",
+    "url": "https://www.theforgewiki.org/ores/crimson-crystal-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Goblin Area",
+    "Chance": "1/255",
+    "Multiplier": "3.3x",
+    "Sell Value": "49.5$",
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/crimson-crystal-ore.png"
   },
   {
     "name": "Blue Crystal Ore",
     "url": "https://www.theforgewiki.org/ores/blue-crystal-ore.html",
-    "Type": "Crystal Ore",
+    "Type": "Ore",
     "Rarity": "Epic",
-    "Area": "Goblin Cave",
+    "Area": "Goblin Area",
     "Chance": "1/255",
     "Multiplier": "3.4x",
     "Sell Value": "51$",
-    "description": "Blue Crystal Ore is a brilliant ice-blue crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with a solid 3.4x multiplier, Blue Crystal is great for crafting frost-based equipment."
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/blue-crystal-ore.png"
   },
   {
     "name": "Rainbow Crystal Ore",
     "url": "https://www.theforgewiki.org/ores/rainbow-crystal-ore.html",
-    "Type": "Crystal Ore",
+    "Type": "Ore",
     "Rarity": "Legendary",
-    "Area": "Goblin Cave",
-    "Chance": "1/5,000",
+    "Area": "Goblin Area",
+    "Chance": "1/5000",
     "Multiplier": "5.25x",
     "Sell Value": "78.75$",
-    "description": "Rainbow Crystal Ore is an extremely rare crystal displaying all colors of the spectrum, found exclusively in the Goblin Cave. As a Legendary-tier crystal with a 5.25x multiplier, Rainbow Crystal is highly sought after for endgame crafting."
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/rainbow-crystal-ore.png"
   },
   {
     "name": "Arcane Crystal Ore",
     "url": "https://www.theforgewiki.org/ores/arcane-crystal-ore.html",
-    "Type": "Crystal Ore",
-    "Rarity": "Epic",
-    "Area": "Goblin Cave",
-    "Chance": "1/100,000",
+    "Type": "Ore",
+    "Rarity": "Mythical",
+    "Area": "Goblin Area",
+    "Chance": "1/100000",
     "Multiplier": "7.5x",
     "Sell Value": "112.5$",
-    "description": "Arcane Crystal Ore is a mystical purple crystal found exclusively in the Goblin Cave. As an Epic-tier crystal with an exceptional 7.5x multiplier, Arcane Crystal is one of the most valuable crafting materials in the game."
+    "Trait": "None",
+    "description": "No description available.",
+    "image": "/assets/images/ores/arcane-crystal-ore.png"
   },
   {
     "name": "Galaxite",
     "url": "https://www.theforgewiki.org/ores/galaxite.html",
     "Type": "Ore",
-    "Rarity": "Divine",
-    "Area": "Unknown",
-    "Rock Type": "Unknown",
-    "Chance": "1/1000000",
+    "Rarity": "Relic",
+    "Area": "Goblin Area",
+    "Chance": "1/1M",
     "Multiplier": "11.5x",
-    "Sell Value": "Unknown",
+    "Sell Value": "0$",
     "Trait": "None",
-    "description": "\"Sparkling like a fragment of the night sky, this impossibly rare ore hums with raw cosmic power. Even a sliver of Galaxite can twist mortal steel into something that feels almost unfair.\""
+    "description": "Sparkling like a chunk of space."
   },
   {
-    "name": "Vooite",
-    "url": "https://www.theforgewiki.org/ores/vooite.html",
+    "name": "Tungsten Ore",
+    "url": "https://www.theforgewiki.org/ores/tungsten-ore.html",
     "Type": "Ore",
-    "Rarity": "???",
-    "Area": "???",
-    "Chance": "???",
-    "Multiplier": "???",
-    "Sell Value": "???",
-    "description": "?? Vooite is not yet released in The Forge!This ore has been teased by the developers but is not currently obtainable in-game. Check back later for updates when this ore becomes available."
+    "Rarity": "Common",
+    "Area": "Frostpire Area",
+    "Chance": "1/180",
+    "Multiplier": "2.6x",
+    "Sell Value": "48.75$",
+    "Trait": "None",
+    "description": "Unyielding and absurdly dense. You feel more motivated just holding it.",
+    "image": "/assets/images/ores/tungsten-ore.jpg"
+  },
+  {
+    "name": "Sulfur Ore",
+    "url": "https://www.theforgewiki.org/ores/sulfur-ore.html",
+    "Type": "Ore",
+    "Rarity": "Uncommon",
+    "Area": "Frostpire Area",
+    "Chance": "1/215",
+    "Multiplier": "2.75x",
+    "Sell Value": "51.56$",
+    "Trait": "None",
+    "description": "Yellow, brittle, and smells exactly how you expect. Useful, dangerous, and easy to regret.",
+    "image": "/assets/images/ores/sulfur-ore.jpg"
+  },
+  {
+    "name": "Pumice Ore",
+    "url": "https://www.theforgewiki.org/ores/pumice-ore.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Frostpire Area",
+    "Chance": "1/265",
+    "Multiplier": "2.9x",
+    "Sell Value": "54.38$",
+    "Trait": "None",
+    "description": "Light, brittle, and full of air pockets. Floats briefly before remembering it’s a rock.",
+    "image": "/assets/images/ores/pumice-ore.jpg"
+  },
+  {
+    "name": "Graphite Ore",
+    "url": "https://www.theforgewiki.org/ores/graphite-ore.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Frostpire Area",
+    "Chance": "1/315",
+    "Multiplier": "3.1x",
+    "Sell Value": "58.13$",
+    "Trait": "+5% Increased Vitality, and has a 20% chance to reduce Incoming Damage by 12%.",
+    "description": "Plain, dark, and deceptively useful. Not flashy, but it gets the job done without complaints.",
+    "image": "/assets/images/ores/graphite-ore.jpg"
+  },
+  {
+    "name": "Aetherit Ore",
+    "url": "https://www.theforgewiki.org/ores/aetherit-ore.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Frostpire Area",
+    "Chance": "1/390",
+    "Multiplier": "3.4x",
+    "Sell Value": "63.75$",
+    "Trait": "+5% Increased Movement Speed.",
+    "description": "A broken piece of raw magic. Sharp, unstable, and absolutely not safe to pocket.",
+    "image": "/assets/images/ores/aetherit-ore.jpg"
+  },
+  {
+    "name": "Scheelite Ore",
+    "url": "https://www.theforgewiki.org/ores/scheelite-ore.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "Frostpire Area",
+    "Chance": "1/247",
+    "Multiplier": "3.3x",
+    "Sell Value": "69.38$",
+    "Trait": "None",
+    "description": "Dull at first glance, valuable once refined. The kind of ore that rewards patience.",
+    "image": "/assets/images/ores/scheelite-ore.jpg"
+  },
+  {
+    "name": "Larimar Ore",
+    "url": "https://www.theforgewiki.org/ores/larimar-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Frostpire Area",
+    "Chance": "1/575",
+    "Multiplier": "4.1x",
+    "Sell Value": "76.88$",
+    "Trait": "None",
+    "description": "Soft blue stone infused with calm energy. Holding it makes the caves feel less hostile, briefly.",
+    "image": "/assets/images/ores/larimar-ore.jpg"
+  },
+  {
+    "name": "Neurotite Ore",
+    "url": "https://www.theforgewiki.org/ores/neurotite-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Frostpire Area",
+    "Chance": "1/690",
+    "Multiplier": "4.3x",
+    "Sell Value": "80.63$",
+    "Trait": "None",
+    "description": "Warm and faintly organic in texture. Staying near it too long gives you strange ideas.",
+    "image": "/assets/images/ores/neurotite-ore.jpg"
+  },
+  {
+    "name": "Frost Fossil Ore",
+    "url": "https://www.theforgewiki.org/ores/frost-fossil-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Frostpire Area",
+    "Chance": "1/820",
+    "Multiplier": "4.5x",
+    "Sell Value": "84.38$",
+    "Trait": "+17.5% Increased Physical Damage and -5% reduced Movement Speed.",
+    "description": "Ancient remains frozen solid in eternal ice. Whatever it once was, it never got to finish dying.",
+    "image": "/assets/images/ores/frost-fossil-ore.jpg"
+  },
+  {
+    "name": "Tide Carve Ore",
+    "url": "https://www.theforgewiki.org/ores/tide-carve-ore.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "Frostpire Area",
+    "Chance": "1/980",
+    "Multiplier": "4.7x",
+    "Sell Value": "88.13$",
+    "Trait": "None",
+    "description": "Shaped by relentless water pressure. Every edge tells a story of erosion and survival.",
+    "image": "/assets/images/ores/tide-carve-ore.jpg"
+  },
+  {
+    "name": "Velchire Ore",
+    "url": "https://www.theforgewiki.org/ores/velchire-ore.html",
+    "Type": "Ore",
+    "Rarity": "Legendary",
+    "Area": "Frostpire Area",
+    "Chance": "1/1450",
+    "Multiplier": "5.5x",
+    "Sell Value": "103.13$",
+    "Trait": "+20% Increased Movement Speed.",
+    "description": "Smooth, refined, and unnaturally cold. Looks expensive even before forging.",
+    "image": "/assets/images/ores/velchire-ore.jpg"
+  },
+  {
+    "name": "Sanctis Ore",
+    "url": "https://www.theforgewiki.org/ores/sanctis-ore.html",
+    "Type": "Ore",
+    "Rarity": "Legendary",
+    "Area": "Frostpire Area",
+    "Chance": "1/1830",
+    "Multiplier": "6x",
+    "Sell Value": "112.5$",
+    "Trait": "+18% Increased Stamina.",
+    "description": "Clean, radiant, and unnervingly pure. Feels wrong to break, but you do it anyway.",
+    "image": "/assets/images/ores/sanctis-ore.jpg"
+  },
+  {
+    "name": "Snowite Ore",
+    "url": "https://www.theforgewiki.org/ores/snowite-ore.html",
+    "Type": "Ore",
+    "Rarity": "Legendary",
+    "Area": "Frostpire Area",
+    "Chance": "1/4325",
+    "Multiplier": "8x",
+    "Sell Value": "150$",
+    "Trait": "+15% to Attack Speed of your Weapon, and reduces Movement Speed of Enemies for 3 Seconds. 30% Chance to Hit.",
+    "description": "Light, sharp, and infused with wind energy. It almost floats when freshly mined.",
+    "image": "/assets/images/ores/snowite-ore.jpg"
+  },
+  {
+    "name": "Iceite",
+    "url": "https://www.theforgewiki.org/ores/iceite.html",
+    "Type": "Ore",
+    "Rarity": "Mythical",
+    "Area": "Frostpire Area",
+    "Chance": "1/9898",
+    "Multiplier": "10.5x",
+    "Sell Value": "196.88$",
+    "Trait": "25% Chance to Freeze Enemies for 2 seconds, 12 second Cooldown.",
+    "description": "Light, sharp, and infused with wind energy. It almost floats when freshly mined.",
+    "image": "/assets/images/ores/iceite.jpg"
+  },
+  {
+    "name": "Mistvein",
+    "url": "https://www.theforgewiki.org/ores/mistvein.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "The Peak Area",
+    "Chance": "1/2626",
+    "Multiplier": "7.2x",
+    "Sell Value": "135$",
+    "Trait": "None",
+    "description": "Veined with drifting fog trapped inside the rock. Crack it open and the mist escapes instantly.",
+    "image": "/assets/images/ores/mistvein.png"
+  },
+  {
+    "name": "Lgarite",
+    "url": "https://www.theforgewiki.org/ores/lgarite.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "The Peak Area",
+    "Chance": "1/3131",
+    "Multiplier": "7.5x",
+    "Sell Value": "140.63$",
+    "Trait": "None",
+    "description": "Jagged and oddly refined at the same time. Looks artificial, but no one remembers making it.",
+    "image": "/assets/images/ores/lgarite.png"
+  },
+  {
+    "name": "Voidfractal",
+    "url": "https://www.theforgewiki.org/ores/voidfractal.html",
+    "Type": "Ore",
+    "Rarity": "Rare",
+    "Area": "The Peak Area",
+    "Chance": "1/3456",
+    "Multiplier": "8x",
+    "Sell Value": "150$",
+    "Trait": "None",
+    "description": "Endless patterns folded into solid matter. Staring too long makes your head hurt.",
+    "image": "/assets/images/ores/voidfractal.png"
+  },
+  {
+    "name": "Moltenfrost",
+    "url": "https://www.theforgewiki.org/ores/moltenfrost.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/4004",
+    "Multiplier": "8.3x",
+    "Sell Value": "155.63$",
+    "Trait": "None",
+    "description": "Burns and freezes at the same time. Physics gave up trying to explain this one.",
+    "image": "/assets/images/ores/moltenfrost.png"
+  },
+  {
+    "name": "Crimsonite",
+    "url": "https://www.theforgewiki.org/ores/crimsonite.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/4540",
+    "Multiplier": "8.5x",
+    "Sell Value": "159.38$",
+    "Trait": "+20% Physical Damage (BOTH)",
+    "description": "A deep red ore that radiates heat and anger. Miners swear it pulses when blood is nearby.",
+    "image": "/assets/images/ores/crimsonite.png"
+  },
+  {
+    "name": "Malachite",
+    "url": "https://www.theforgewiki.org/ores/malachite.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/5123",
+    "Multiplier": "8.8x",
+    "Sell Value": "165$",
+    "Trait": "Deals +10% of weapon damage as poison per second for 3 seconds. 33% chance on hit (Weapon)",
+    "description": "Green, layered, and rich with minerals. Breaks cleanly, like it's used to being harvested.",
+    "image": "/assets/images/ores/malachite.png"
+  },
+  {
+    "name": "Aquajade",
+    "url": "https://www.theforgewiki.org/ores/aquajade.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/5555",
+    "Multiplier": "9x",
+    "Sell Value": "168.75$",
+    "Trait": "None",
+    "description": "Smooth, cool and heavy with ocean energy. Feels like it's been underwater longer than history.",
+    "image": "/assets/images/ores/aquajade.png"
+  },
+  {
+    "name": "Cryptex",
+    "url": "https://www.theforgewiki.org/ores/cryptex.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/6060",
+    "Multiplier": "9.3x",
+    "Sell Value": "174.38$",
+    "Trait": "None",
+    "description": "Layered with shifting patterns that never stay the same. No one agrees on what's inside, or if its watching.",
+    "image": "/assets/images/ores/cryptex.png"
+  },
+  {
+    "name": "Galestor",
+    "url": "https://www.theforgewiki.org/ores/galestor.html",
+    "Type": "Ore",
+    "Rarity": "Epic",
+    "Area": "The Peak Area",
+    "Chance": "1/6666",
+    "Multiplier": "9.5x",
+    "Sell Value": "178.13$",
+    "Trait": "None",
+    "description": "Lightweight and charged with constant motion. Even at rest, it feels like it wants to escape",
+    "image": "/assets/images/ores/galestor.png"
+  },
+  {
+    "name": "Voidstar",
+    "url": "https://www.theforgewiki.org/ores/voidstar.html",
+    "Type": "Ore",
+    "Rarity": "Legendary",
+    "Area": "The Peak Area",
+    "Chance": "1/8179",
+    "Multiplier": "10x",
+    "Sell Value": "187.5$",
+    "Trait": "+33 crit chance | +15% crit damage | -15% vitality (Weapon)",
+    "description": "A collapsed point of pure darkness. It absorbs light, sound and occasionally hope.",
+    "image": "/assets/images/ores/voidstar.png"
+  },
+  {
+    "name": "Etherealite",
+    "url": "https://www.theforgewiki.org/ores/etherealite.html",
+    "Type": "Ore",
+    "Rarity": "Mythical",
+    "Area": "The Peak Area",
+    "Chance": "1/11111",
+    "Multiplier": "11.1x",
+    "Sell Value": "208.13$",
+    "Trait": "+35% Vitality (Armor)",
+    "description": "Almost invisible unless the light hits it just right. It flickers between existing and not bothering to.",
+    "image": "/assets/images/ores/etherealite.png"
+  },
+  {
+    "name": "Suryafal",
+    "url": "https://www.theforgewiki.org/ores/suryafal.html",
+    "Type": "Ore",
+    "Rarity": "Relic",
+    "Area": "The Peak Area",
+    "Chance": "1/50050",
+    "Multiplier": "15x",
+    "Sell Value": "328.13$",
+    "Trait": "None",
+    "description": "Sun-charged stone that radiates steady heat. Mining it feels like standing too close to daylight",
+    "image": "/assets/images/ores/suryafal.png"
+  },
+  {
+    "name": "Heavenite",
+    "url": "https://www.theforgewiki.org/ores/heavenite.html",
+    "Type": "Ore",
+    "Rarity": "Divine",
+    "Area": "The Peak Area",
+    "Chance": "1/157775",
+    "Multiplier": "20x",
+    "Sell Value": "0$",
+    "Trait": "None",
+    "description": "Warm to the touch and faintly glowing. Some say it fell from the sky, others say it was pushed.",
+    "image": "/assets/images/ores/heavenite.png"
+  },
+  {
+    "name": "Gargantuan",
+    "url": "https://www.theforgewiki.org/ores/gargantuan.html",
+    "Type": "Ore",
+    "Rarity": "Divine",
+    "Area": "The Peak Area",
+    "Chance": "1/333333",
+    "Multiplier": "25x",
+    "Sell Value": "624.38$",
+    "Trait": "Deals 20% of weapon damage as fire per seconds for 2 seconds. 20% chance on hit. Cause an explosion at location of victim, dealing 50% of weapon damage as AOE damage. 35% chance on hit (WEAPON)",
+    "description": "Dense, oversized, and brutally heavy. It takes effort just to remind it who's holding the pickaxe.",
+    "image": "/assets/images/ores/gargantuan.png"
+  },
+  {
+    "name": "Mosasaursit",
+    "url": "https://www.theforgewiki.org/ores/mosasaursit.html",
+    "Type": "Ore",
+    "Rarity": "Exotic",
+    "Area": "The Peak Area",
+    "Chance": "1/1",
+    "Multiplier": "7x",
+    "Sell Value": "135.25$",
+    "Trait": "-25% swiftness and +65% vitality",
+    "description": "A fossilized skeleton of a prehistoric sea creature, its bones preserved by the cold waters of the island..",
+    "image": "/assets/images/ores/mosasaursit.png"
   }
 ]

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Hammer, Sparkles, Bot, Sword, Shield, Zap, ArrowRight, ChevronDown, ExternalLink } from 'lucide-react';
+import { Hammer, Sparkles, Bot, Sword, Shield, Zap, ArrowRight, ChevronDown, ExternalLink, Book } from 'lucide-react';
 import { useLanguage, LanguageSwitcher } from '../context/LanguageContext';
 
 const LandingPage: React.FC = () => {
@@ -48,7 +48,13 @@ const LandingPage: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-2 sm:gap-4">
                         <a href="#features" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.features')}</a>
+                        <a href="#how-to-play" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.howtoplay')}</a>
+                        <a href="#tips" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.tips')}</a>
                         <a href="#about" className="text-sm text-gray-400 hover:text-white transition-colors hidden sm:block">{t('landing.nav.about')}</a>
+                        <Link to="/wiki" className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors hidden sm:block font-bold flex items-center gap-1">
+                            <Book size={14} />
+                            Wiki
+                        </Link>
                         <LanguageSwitcher />
 
                         <a
@@ -119,6 +125,13 @@ const LandingPage: React.FC = () => {
                         >
                             <ExternalLink className="text-indigo-400" />
                             Join Private Server
+                        </Link>
+                        <Link
+                            to="/wiki"
+                            className="group px-8 py-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 font-bold text-lg flex items-center justify-center gap-3 hover:bg-purple-500/20 transition-all backdrop-blur-sm"
+                        >
+                            <Book className="text-purple-400" />
+                            Forge Wiki
                         </Link>
                     </div>
 
@@ -231,6 +244,76 @@ const LandingPage: React.FC = () => {
                             <p className="text-gray-400 text-sm leading-relaxed">
                                 {t('landing.inventoryTrackerDesc')}
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* How to Play Section */}
+            <section id="how-to-play" className="relative z-10 py-24 px-8 bg-black/30">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-fredoka font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                            {t('landing.howtoplay.title')}
+                        </h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="glass-card rounded-3xl p-8 border-orange-500/10">
+                            <div className="text-4xl font-fredoka font-bold text-orange-500/20 mb-4">01</div>
+                            <h3 className="text-xl font-bold text-white mb-4">{t('landing.howtoplay.step1.title')}</h3>
+                            <p className="text-gray-400 leading-relaxed">{t('landing.howtoplay.step1.desc')}</p>
+                        </div>
+                        <div className="glass-card rounded-3xl p-8 border-teal-500/10">
+                            <div className="text-4xl font-fredoka font-bold text-teal-500/20 mb-4">02</div>
+                            <h3 className="text-xl font-bold text-white mb-4">{t('landing.howtoplay.step2.title')}</h3>
+                            <p className="text-gray-400 leading-relaxed">{t('landing.howtoplay.step2.desc')}</p>
+                        </div>
+                        <div className="glass-card rounded-3xl p-8 border-purple-500/10">
+                            <div className="text-4xl font-fredoka font-bold text-purple-500/20 mb-4">03</div>
+                            <h3 className="text-xl font-bold text-white mb-4">{t('landing.howtoplay.step3.title')}</h3>
+                            <p className="text-gray-400 leading-relaxed">{t('landing.howtoplay.step3.desc')}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Tips Section */}
+            <section id="tips" className="relative z-10 py-24 px-8">
+                <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-fredoka font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                            {t('landing.tips.title')}
+                        </h2>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="glass-card rounded-3xl p-8 flex gap-6 items-start">
+                            <div className="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center shrink-0">
+                                <Zap className="text-orange-400" size={24} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white mb-2">{t('landing.tips.tip1.title')}</h3>
+                                <p className="text-gray-400 leading-relaxed">{t('landing.tips.tip1.desc')}</p>
+                            </div>
+                        </div>
+                        <div className="glass-card rounded-3xl p-8 flex gap-6 items-start">
+                            <div className="w-12 h-12 rounded-2xl bg-teal-500/20 flex items-center justify-center shrink-0">
+                                <Sparkles className="text-teal-400" size={24} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white mb-2">{t('landing.tips.tip2.title')}</h3>
+                                <p className="text-gray-400 leading-relaxed">{t('landing.tips.tip2.desc')}</p>
+                            </div>
+                        </div>
+                        <div className="glass-card rounded-3xl p-8 flex gap-6 items-start md:col-span-2">
+                            <div className="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center shrink-0">
+                                <Book className="text-purple-400" size={24} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white mb-2">{t('landing.tips.tip3.title')}</h3>
+                                <p className="text-gray-400 leading-relaxed">{t('landing.tips.tip3.desc')}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

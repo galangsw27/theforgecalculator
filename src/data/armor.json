@@ -2,181 +2,274 @@
   {
     "name": "Light Helmet",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Light",
+    "type": "Light Helmet",
     "stats": {
-      "Health": "+3.75%"
+      "Health": "+3.75%",
+      "Defense": "8"
     },
     "rarity": "Common",
     "cost": "65$",
     "chance": "100%",
-    "description": "Basic light armor headgear."
-  },
-  {
-    "name": "Light Chestplate",
-    "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Light",
-    "stats": {
-      "Health": "+5%"
-    },
-    "rarity": "Common",
-    "cost": "225$",
-    "chance": "100%",
-    "description": "Basic light armor for the chest."
+    "description": "Protective light helmet."
   },
   {
     "name": "Light Leggings",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Light",
+    "type": "Light Leggings",
     "stats": {
-      "Health": "+4.375%"
+      "Health": "+4.375%",
+      "Defense": "9"
     },
     "rarity": "Common",
     "cost": "112.5$",
     "chance": "100%",
-    "description": "Basic light armor for the legs."
+    "description": "Protective light leggings."
+  },
+  {
+    "name": "Light Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Light Chestplate",
+    "stats": {
+      "Health": "+5%",
+      "Defense": "10"
+    },
+    "rarity": "Common",
+    "cost": "225$",
+    "chance": "100%",
+    "description": "Protective light chestplate."
   },
   {
     "name": "Medium Helmet",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
+    "type": "Medium Helmet",
     "stats": {
-      "Health": "+6.25%"
+      "Health": "+6.25%",
+      "Defense": "12"
     },
     "rarity": "Common",
     "cost": "335$",
-    "chance": "50%",
-    "description": "Standard medium armor headgear."
-  },
-  {
-    "name": "Medium Chestplate",
-    "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
-    "stats": {
-      "Health": "+8.75%"
-    },
-    "rarity": "Common",
-    "cost": "850$",
-    "chance": "50%",
-    "description": "Standard medium armor for the chest."
-  },
-  {
-    "name": "Medium Leggings",
-    "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
-    "stats": {
-      "Health": "+7.5%"
-    },
-    "rarity": "Common",
-    "cost": "485$",
-    "chance": "50%",
-    "description": "Standard medium armor for the legs."
+    "chance": "100%",
+    "description": "Protective medium helmet."
   },
   {
     "name": "Samurai Helmet",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
+    "type": "Medium Helmet",
     "stats": {
-      "Health": "+8%"
+      "Health": "+8%",
+      "Defense": "16"
     },
-    "rarity": "Uncommon",
+    "rarity": "Common",
     "cost": "335$",
-    "chance": "50%",
-    "description": "Traditional samurai headgear."
+    "chance": "100%",
+    "description": "Protective medium helmet."
   },
   {
-    "name": "Samurai Chestplate",
+    "name": "Medium Leggings",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
+    "type": "Medium Leggings",
     "stats": {
-      "Health": "+12.75%"
+      "Health": "+7.5%",
+      "Defense": "15"
     },
-    "rarity": "Uncommon",
-    "cost": "850$",
-    "chance": "50%",
-    "description": "Traditional samurai chest armor."
+    "rarity": "Common",
+    "cost": "485$",
+    "chance": "100%",
+    "description": "Protective medium leggings."
   },
   {
     "name": "Samurai Leggings",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Medium",
+    "type": "Medium Leggings",
     "stats": {
-      "Health": "+9%"
+      "Health": "+9%",
+      "Defense": "20"
     },
-    "rarity": "Uncommon",
+    "rarity": "Common",
     "cost": "485$",
-    "chance": "50%",
-    "description": "Traditional samurai leg armor."
+    "chance": "100%",
+    "description": "Protective medium leggings."
+  },
+  {
+    "name": "Medium Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Medium Chestplate",
+    "stats": {
+      "Health": "+8.75%",
+      "Defense": "18"
+    },
+    "rarity": "Common",
+    "cost": "850$",
+    "chance": "100%",
+    "description": "Protective medium chestplate."
+  },
+  {
+    "name": "Samurai Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Medium Chestplate",
+    "stats": {
+      "Health": "+12.75%",
+      "Defense": "24"
+    },
+    "rarity": "Common",
+    "cost": "850$",
+    "chance": "100%",
+    "description": "Protective medium chestplate."
   },
   {
     "name": "Knight Helmet",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
+    "type": "Heavy Helmet",
     "stats": {
-      "Health": "+12.5%"
+      "Health": "+12.5%",
+      "Defense": "24"
     },
-    "rarity": "Rare",
+    "rarity": "Common",
     "cost": "1020$",
-    "chance": "50%",
-    "description": "Heavy knight headgear offering good protection."
-  },
-  {
-    "name": "Knight Chestplate",
-    "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
-    "stats": {
-      "Health": "+16.25%"
-    },
-    "rarity": "Rare",
-    "cost": "1355$",
-    "chance": "50%",
-    "description": "Heavy knight chest armor offering good protection."
-  },
-  {
-    "name": "Knight Leggings",
-    "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
-    "stats": {
-      "Health": "+13.75%"
-    },
-    "rarity": "Rare",
-    "cost": "1200$",
-    "chance": "50%",
-    "description": "Heavy knight leg armor offering good protection."
+    "chance": "100%",
+    "description": "Protective heavy helmet."
   },
   {
     "name": "Dark Knight Helmet",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
+    "type": "Heavy Helmet",
     "stats": {
-      "Health": "+18.75%"
+      "Health": "+18.75%",
+      "Defense": "38"
     },
-    "rarity": "Epic",
-    "cost": "1020$",
-    "chance": "50%",
-    "description": "Darkened heavy helmet with superior protection."
+    "rarity": "Common",
+    "cost": "1224$",
+    "chance": "100%",
+    "description": "Protective heavy helmet."
   },
   {
-    "name": "Dark Knight Chestplate",
+    "name": "Knight Leggings",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
+    "type": "Heavy Leggings",
     "stats": {
-      "Health": "+25%"
+      "Health": "+13.75%",
+      "Defense": "28"
     },
-    "rarity": "Epic",
-    "cost": "1355$",
-    "chance": "50%",
-    "description": "Darkened heavy chestplate with superior protection."
+    "rarity": "Common",
+    "cost": "1200$",
+    "chance": "100%",
+    "description": "Protective heavy leggings."
   },
   {
     "name": "Dark Knight Leggings",
     "url": "https://forgewiki.org/wiki/Armor",
-    "type": "Heavy",
+    "type": "Heavy Leggings",
     "stats": {
-      "Health": "+21.875%"
+      "Health": "+21.875%",
+      "Defense": "44"
     },
-    "rarity": "Epic",
+    "rarity": "Common",
+    "cost": "1440$",
+    "chance": "100%",
+    "description": "Protective heavy leggings."
+  },
+  {
+    "name": "Knight Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Heavy Chestplate",
+    "stats": {
+      "Health": "+16.25%",
+      "Defense": "32"
+    },
+    "rarity": "Common",
+    "cost": "1355$",
+    "chance": "100%",
+    "description": "Protective heavy chestplate."
+  },
+  {
+    "name": "Dark Knight Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Heavy Chestplate",
+    "stats": {
+      "Health": "+25%",
+      "Defense": "50"
+    },
+    "rarity": "Common",
+    "cost": "1626$",
+    "chance": "100%",
+    "description": "Protective heavy chestplate."
+  },
+  {
+    "name": "Viking Helmet",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Medium Helmet",
+    "stats": {
+      "Health": "+10.5%",
+      "Defense": "14"
+    },
+    "rarity": "Common",
+    "cost": "335$",
+    "chance": "100%",
+    "description": "Protective medium helmet."
+  },
+  {
+    "name": "Viking Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Medium Chestplate",
+    "stats": {
+      "Health": "+16%",
+      "Defense": "20"
+    },
+    "rarity": "Common",
+    "cost": "525$",
+    "chance": "100%",
+    "description": "Protective medium chestplate."
+  },
+  {
+    "name": "Viking Leggings",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Medium Leggings",
+    "stats": {
+      "Health": "+11%",
+      "Defense": "16"
+    },
+    "rarity": "Common",
+    "cost": "485$",
+    "chance": "100%",
+    "description": "Protective medium leggings."
+  },
+  {
+    "name": "Wolf Helmet",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Heavy Helmet",
+    "stats": {
+      "Health": "+25%",
+      "Defense": "40"
+    },
+    "rarity": "Common",
+    "cost": "1355$",
+    "chance": "100%",
+    "description": "Protective heavy helmet."
+  },
+  {
+    "name": "Wolf Chestplate",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Heavy Chestplate",
+    "stats": {
+      "Health": "+35%",
+      "Defense": "55"
+    },
+    "rarity": "Common",
+    "cost": "1355$",
+    "chance": "100%",
+    "description": "Protective heavy chestplate."
+  },
+  {
+    "name": "Wolf Leggings",
+    "url": "https://forgewiki.org/wiki/Armor",
+    "type": "Heavy Leggings",
+    "stats": {
+      "Health": "+28%",
+      "Defense": "48"
+    },
+    "rarity": "Common",
     "cost": "1200$",
-    "chance": "50%",
-    "description": "Darkened heavy leggings with superior protection."
+    "chance": "100%",
+    "description": "Protective heavy leggings."
   }
 ]

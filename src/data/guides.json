@@ -1,37 +1,20 @@
 [
   {
-    "name": "Quick Tips",
-    "category": "Beginner's Guide",
-    "content": "Luck Stat & Race Rerolls: The Luck stat does NOT affect your race reroll chances. It only impacts mining drops and loot.\nSave Your Runes: Don't apply runes until you get the Arcane Pickaxe. Lower-tier pickaxes will be replaced quickly."
+    "id": "beginners-guide",
+    "name": "Beginner's Guide to The Forge",
+    "category": "Basics",
+    "author": "Forge Master",
+    "date": "2024-12-29",
+    "readTime": "5 min",
+    "content": "Welcome to The Forge! This guide will help you understand the core mechanics of the game and get you started on your journey to becoming a master blacksmith.\n\n### 1. Mining Your First Ores\nYour journey begins at Stonewake's Cross. Here, you'll find basic ores like Stone, Copper, and Iron. Use your pickaxe to mine these resources. Remember, each area has different drop rates for ores. As you progress, you'll unlock new areas like the Forgotten Kingdom and Frostpire, where rarer and more powerful ores await.\n\n### 2. The Forging Process\nOnce you have enough ores, head to the forge. Forging is the heart of the game. You can combine up to 4 different ores to create weapons and armor. The combination you choose determines the final stats, traits, and type of item you create.\n\n### 3. Understanding Multipliers\nEvery ore has a multiplier. The total multiplier of your forged item is the average of the multipliers of all ores used in the recipe. For example, if you use four ores with a 1.0x multiplier, your item will have a 1.0x multiplier. If you mix high and low multiplier ores, the average will be somewhere in between.\n\n### 4. Your First Craft\nFor your first craft, try to focus on getting a consistent multiplier. A simple mix of Iron and Copper is a great start. Don't worry about rare traits just yet; focus on understanding how the ores blend together.\n\n### 5. Progression Tips\n- Always upgrade your pickaxe as soon as possible to mine faster.\n- Explore new areas to find better ores.\n- Use our Forge Calculator to preview your results before you craft!"
   },
   {
-    "name": "Pickaxe Progression",
-    "category": "Beginner's Guide",
-    "content": "Recommended Upgrade Path: Iron Pickaxe (World 1 Shop) -> Stonewake's Pickaxe (World 1 Cave) -> Cobalt Pickaxe (World 2 Shop) -> Titanium Pickaxe (World 2 Shop) -> Mythril Pickaxe (World 2 Shop) -> Arcane Pickaxe (Bard Quest World 1).\n\nMoney-Saving Tip: Before upgrading to your next pickaxe, buy a Bronze Pickaxe first. Then sell your current pickaxe to recover gold. This lets you keep mining while freeing up funds to afford the next tier faster.\n\nRune Tip: Only apply runes to the Arcane Pickaxe. Equip all 3 Luck Runes for maximum luck (up to 16% bonus each).\n\nEarning Money for Arcane Pickaxe: Complete Monkey Quest, Line's Quest, and work on Rowan's and Moro's quests. Farm high-tier mobs for Essence or forge/sell Heavy Armor/Colossal Swords."
-  },
-  {
-    "name": "Money Making Methods",
-    "category": "Beginner's Guide",
-    "content": "1. Farm High-Tier Mobs for Essence: Kill high-tier enemies to collect Essence, then sell it for significant profit.\n2. Forge & Sell Heavy Armor or Colossal Swords: These high-tier items fetch the best prices and are ideal for converting ores into gold."
-  },
-  {
-    "name": "Best Races",
-    "category": "Beginner's Guide",
-    "content": "Mining: 1st: Angel (+30% Luck), 2nd: Dwarf (+15% Mining Damage).\nCombat: Demon (Best for fighting enemies).\nUtility: Dwarf (+5% Forge Quality), Goblin (-12% Shop Prices)."
-  },
-  {
-    "name": "Best Gamepasses",
-    "category": "Beginner's Guide",
-    "content": "Recommended Purchase Order:\n1. Double Storage: Doubles inventory capacity.\n2. Fast Forge: Significantly speeds up forging time.\n3. Sell Anywhere: Sell items from anywhere.\n4. Better Forge: Essential for improving forge quality.\n5. Supporter: Increases luck and xp gain by 10%.\n6. Forge Anywhere: Access forge from any location."
-  },
-  {
-    "name": "Runes Guide",
-    "category": "Beginner's Guide",
-    "content": "Farming Miner Runes: Kill Bombers in World 2.\n\nWeapon Rune Optimization:\n- Fast Attack Speed: Use Lethality substats.\n- Slow Attack Speed: Use Attack Speed substats.\n- Universal: One Drain Rune and one Blast Rune.\n\nArmor Rune Optimization:\n- Substats: Vitality or Movement Speed.\n- Recommended: Briar Runes.\n\nRune Recommendations by Gear:\n- Dagger: Drain Edge + Blast Chip (AS/Lethality or Crit)\n- Straight Sword: Blast Chip + Drain Edge/Blast Chip (AS/Lethality or Crit)\n- Gauntlet: Drain Edge + Blast Chip (AS/Lethality or Crit)\n- Katana: Blast Chip + Drain Edge/Blast Chip (AS/Lethality or Crit)\n- Colossal Sword: Blast Chip + Blast Chip (Lethality)\n- Armor: Any (Mainly Vitality and Surge)\n- Pickaxe: Luck > Mine Power/Speed > Yield"
-  },
-  {
-    "name": "Quest Priority Guide",
-    "category": "Beginner's Guide",
-    "content": "World 1 Priorities:\n1. Sensei Moro Quest (Top priority)\n2. Bard Quest (Required for Arcane Pickaxe)\n! Cat Quest (Very low priority)\n\nWorld 2 Priorities:\n1. Sensei Moro Quest (Top priority)\n2. Masked Stranger Daily Quests (High priority)\n3. Captain Rowan Quest (Prioritize in World 2)\n4. Line's Quest (High priority)\n5. Monkey Quest (Good for quick money)\n! Goblin King Quest (Very low priority)"
+    "id": "advanced-multipliers",
+    "name": "Advanced Multiplier Strategies",
+    "category": "Advanced",
+    "author": "Forge Master",
+    "date": "2024-12-29",
+    "readTime": "8 min",
+    "content": "Ready to take your forging to the next level? This guide covers advanced strategies for maximizing your damage multipliers and creating god-tier gear.\n\n### 1. The Power of Rare Ores\nTo achieve multipliers above 50x or even 100x, you need to use the rarest ores in the game. Ores like Heavenite, Voidfractal, and Galaxite have massive base multipliers. However, they are extremely rare and often found only in the deepest parts of the mines or dropped by powerful bosses.\n\n### 2. Balancing Rarity and Stability\nWhile it's tempting to use only the rarest ores, you often need to balance them with more stable materials to achieve specific item types. Some high-tier weapons require a specific percentage of 'base' ores to maintain their form. Use our calculator to find the 'sweet spot' where you get the maximum multiplier without losing the item type you want.\n\n### 3. Trait Synergy\nMultipliers aren't everything. A 100x multiplier weapon without good traits might be weaker than an 80x weapon with powerful offensive traits like 'Burn' or 'Critical Strike'. When planning your recipe, consider how the traits of your ores will complement your high multiplier.\n\n### 4. The 10% Rule\nRemember that most traits require at least a 10% concentration of that ore in the final mix. If you're using a very rare ore for its trait, make sure it makes up at least 10% of the total ore count in your recipe.\n\n### 5. Area Bonuses\nCertain areas provide hidden bonuses to specific ore combinations. For example, forging in the Frostpire area with ice-based ores might yield better results than forging them in a volcanic area. Experiment with different locations to find the best environment for your crafts."
   }
 ]

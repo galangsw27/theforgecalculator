@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { Shield, Sword, Hammer, Sparkles, Trash2, Search, ArrowRight, X, Coins, Zap, Home, ExternalLink, Save, Crown, Download, Menu, ChevronLeft, ChevronRight, Heart, Book } from 'lucide-react';
 import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
@@ -13,6 +13,12 @@ import Signup from './src/components/Auth/Signup';
 import DamageTester from './src/components/DamageTester';
 import PrivateServerTutorial from './src/components/PrivateServerTutorial';
 import runesData from './src/data/runes.json';
+import WikiLayout from './src/components/Wiki/WikiLayout';
+import WikiHome from './src/components/Wiki/WikiHome';
+import WikiOres from './src/components/Wiki/WikiOres';
+import WikiWeapons from './src/components/Wiki/WikiWeapons';
+import WikiArmor from './src/components/Wiki/WikiArmor';
+import WikiGuides from './src/components/Wiki/WikiGuides';
 
 // --- Helper Components ---
 
@@ -176,6 +182,7 @@ function Calculator() {
                 slot.ore.traits.forEach(trait => {
                     if (trait.type === 'all' || trait.type === activeTab) {
                         let desc = trait.description;
+                        const scalingValues: Record<string, number> = {};
                         for (const [key, rawScale] of Object.entries(trait.scaling)) {
                             const scale = rawScale as { min: number; max: number };
                             let value = scale.min;
@@ -184,15 +191,17 @@ function Calculator() {
                                 const factor = (percentage - 10) / 20;
                                 value = scale.min + (scale.max - scale.min) * factor;
                             }
-                            desc = desc.replace(`{${key} } `, value.toFixed(1));
+                            scalingValues[key] = value;
+                            desc = desc.replace(`{${key}}`, value.toFixed(1));
                         }
                         traitsList.push({
                             oreName: slot.ore.name,
                             description: desc,
                             percentage,
                             color: slot.ore.color,
-                            type: trait.type
-                        });
+                            type: trait.type,
+                            scalingValues
+                        } as any);
                     }
                 });
             }
@@ -327,12 +336,38 @@ function Calculator() {
                 }
             })();
             const finalStats = { ...baseStats };
+
+            // Calculate trait bonuses
+            let damageBonus = 0;
+            let healthBonus = 0;
+            let defBonus = 0;
+            let atkSpeedBonus = 0;
+
+            activeTraits.forEach((trait: any) => {
+                const sv = trait.scalingValues || {};
+                const chance = sv.chance !== undefined ? sv.chance : 1.0;
+
+                if (sv.damage !== undefined) {
+                    damageBonus += sv.damage * chance;
+                }
+                if (sv.health !== undefined) {
+                    healthBonus += sv.health * chance;
+                }
+                if (sv.def !== undefined) {
+                    defBonus += sv.def * chance;
+                }
+                if (sv.atkSpeed !== undefined) {
+                    atkSpeedBonus += sv.atkSpeed * chance;
+                }
+            });
+
             if (activeTab === 'weapon') {
-                finalStats.damage = (baseStats.damage || 0) * totalMultiplier;
+                finalStats.damage = (baseStats.damage || 0) * totalMultiplier * (1 + damageBonus);
+                finalStats.atkSpeed = (baseStats.atkSpeed || 1.0) / (1 + atkSpeedBonus);
                 finalStats.price = baseStats.price * totalMultiplier;
             } else {
-                finalStats.def = (baseStats.def || 0) * totalMultiplier;
-                finalStats.health = (baseStats.health || 0) * totalMultiplier;
+                finalStats.def = (baseStats.def || 0) * totalMultiplier * (1 + defBonus);
+                finalStats.health = (baseStats.health || 0) * totalMultiplier * (1 + healthBonus);
                 finalStats.price = baseStats.price * totalMultiplier;
             }
             const mainOre = oreMix.sort((a, b) => b.count - a.count)[0]?.ore || ORE_DATA[0];
@@ -1191,6 +1226,13 @@ export default function App() {
                         <Route path="/signup" element={<Signup />} />
                         <Route path="/damage-tester" element={<DamageTester />} />
                         <Route path="/private-server" element={<PrivateServerTutorial />} />
+                        <Route path="/wiki" element={<WikiLayout />}>
+                            <Route index element={<WikiHome />} />
+                            <Route path="ores" element={<WikiOres />} />
+                            <Route path="weapons" element={<WikiWeapons />} />
+                            <Route path="armor" element={<WikiArmor />} />
+                            <Route path="guides" element={<WikiGuides />} />
+                        </Route>
                     </Routes>
                 </Router>
             </LanguageProvider>

@@ -4,275 +4,359 @@
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Dagger",
     "stats": {
-      "Damage": "4.3",
+      "Damage": "8.6",
       "Attack Speed": "0.35s",
       "Range": "6 Studs"
     },
     "cost": "68$",
-    "description": "A lightweight and deadly dagger made for true assassins."
+    "description": "A powerful dagger weapon."
   },
   {
     "name": "Falchion Knife",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Dagger",
     "stats": {
-      "Damage": "4.3",
+      "Damage": "8.6",
       "Attack Speed": "0.35s",
       "Range": "6 Studs"
     },
     "cost": "68$",
-    "description": "A knife that stands out for its characteristic curvature."
+    "description": "A powerful dagger weapon."
   },
   {
-    "name": "Gladius Daggers",
+    "name": "Gladius Dagger",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Dagger",
     "stats": {
-      "Damage": "4.3",
+      "Damage": "8.6",
       "Attack Speed": "0.35s",
       "Range": "6 Studs"
     },
     "cost": "68$",
-    "description": "A lightweight and deadly dagger with the design of the famous Roman sword."
+    "description": "A powerful dagger weapon."
   },
   {
     "name": "Hook",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Dagger",
     "stats": {
-      "Damage": "4.73",
+      "Damage": "9.46",
       "Attack Speed": "0.39s",
       "Range": "6 Studs"
     },
     "cost": "68$",
-    "description": "A sharp hook used for close combat."
+    "description": "A powerful dagger weapon."
   },
   {
-    "name": "Falchion Sword",
+    "name": "Falchion",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Straight Sword",
     "stats": {
-      "Damage": "7.5",
+      "Damage": "15",
       "Attack Speed": "0.59s",
       "Range": "8 Studs"
     },
     "cost": "120$",
-    "description": "A curved, slightly heavier sword for stronger attacks."
+    "description": "A powerful straight sword weapon."
   },
   {
-    "name": "Gladius Sword",
+    "name": "Gladius",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Straight Sword",
     "stats": {
-      "Damage": "7.5",
-      "Attack Speed": "0.5s",
+      "Damage": "15.75",
+      "Attack Speed": "0.62s",
       "Range": "8 Studs"
     },
-    "cost": "84$",
-    "description": "The most deadly sword according to experts during the Roman Empire."
+    "cost": "120$",
+    "description": "A powerful straight sword weapon."
   },
   {
     "name": "Cutlass",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Straight Sword",
     "stats": {
-      "Damage": "9.375",
+      "Damage": "18.75",
       "Attack Speed": "0.66s",
       "Range": "8 Studs"
     },
     "cost": "120$",
-    "description": "A pirate's favorite weapon."
+    "description": "A powerful straight sword weapon."
   },
   {
     "name": "Rapier",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Straight Sword",
     "stats": {
-      "Damage": "7.5",
+      "Damage": "15",
       "Attack Speed": "0.49s",
       "Range": "8 Studs"
     },
     "cost": "120$",
-    "description": "A slender sword designed for thrusting attacks."
+    "description": "A powerful straight sword weapon."
   },
   {
     "name": "Chaos",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Straight Sword",
     "stats": {
-      "Damage": "9.375",
+      "Damage": "18.75",
       "Attack Speed": "0.59s",
       "Range": "8 Studs"
     },
     "cost": "120$",
-    "description": "A sword imbued with chaotic energy."
-  },
-  {
-    "name": "Crusader Sword",
-    "url": "https://forgewiki.org/wiki/Weapons",
-    "type": "Great Sword",
-    "stats": {
-      "Damage": "12",
-      "Attack Speed": "1s",
-      "Range": "9 Studs"
-    },
-    "cost": "485$",
-    "description": "A holy sword used by crusaders."
-  },
-  {
-    "name": "Long Sword",
-    "url": "https://forgewiki.org/wiki/Weapons",
-    "type": "Great Sword",
-    "stats": {
-      "Damage": "12",
-      "Attack Speed": "1.11s",
-      "Range": "9 Studs"
-    },
-    "cost": "485$",
-    "description": "A versatile two-handed sword."
+    "description": "A powerful straight sword weapon."
   },
   {
     "name": "Ironhand",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Gauntlet",
     "stats": {
-      "Damage": "7.6",
+      "Damage": "15.2",
       "Attack Speed": "0.51s",
       "Range": "6 Studs"
     },
     "cost": "205$",
-    "description": "Heavy iron gauntlets for punching."
+    "description": "A powerful gauntlet weapon."
   },
   {
     "name": "Boxing Gloves",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Gauntlet",
     "stats": {
-      "Damage": "8",
+      "Damage": "16",
       "Attack Speed": "0.59s",
       "Range": "6 Studs"
     },
-    "cost": "153$",
-    "description": "Standard boxing gloves."
+    "cost": "205$",
+    "description": "A powerful gauntlet weapon."
   },
   {
     "name": "Relevator",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Gauntlet",
     "stats": {
-      "Damage": "9.6",
+      "Damage": "19.2",
       "Attack Speed": "0.69s",
       "Range": "6 Studs"
     },
     "cost": "205$",
-    "description": "Advanced gauntlets with high impact."
+    "description": "A powerful gauntlet weapon."
   },
   {
     "name": "Uchigatana",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Katana",
     "stats": {
-      "Damage": "8.5",
+      "Damage": "17",
       "Attack Speed": "0.6s",
       "Range": "9 Studs"
     },
     "cost": "324$",
-    "description": "A traditional Japanese sword."
+    "description": "A powerful katana weapon."
   },
   {
     "name": "Tachi",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Katana",
     "stats": {
-      "Damage": "8.925",
+      "Damage": "17.85",
       "Attack Speed": "0.63s",
       "Range": "9 Studs"
     },
     "cost": "324$",
-    "description": "A longer, more curved katana."
+    "description": "A powerful katana weapon."
   },
   {
-    "name": "Double Battle Axe",
+    "name": "Crusader Sword",
     "url": "https://forgewiki.org/wiki/Weapons",
-    "type": "Great Axe",
+    "type": "Great Sword",
     "stats": {
-      "Damage": "15.75",
-      "Attack Speed": "1.05s",
+      "Damage": "24",
+      "Attack Speed": "1s",
       "Range": "9 Studs"
     },
-    "cost": "850$",
-    "description": "A massive double-headed axe."
+    "cost": "485$",
+    "description": "A powerful great sword weapon."
+  },
+  {
+    "name": "Long Sword",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Great Sword",
+    "stats": {
+      "Damage": "24",
+      "Attack Speed": "1.11s",
+      "Range": "9 Studs"
+    },
+    "cost": "485$",
+    "description": "A powerful great sword weapon."
   },
   {
     "name": "Scythe",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Great Axe",
     "stats": {
-      "Damage": "14.25",
+      "Damage": "28.5",
       "Attack Speed": "0.95s",
       "Range": "9 Studs"
     },
     "cost": "850$",
-    "description": "A reaping tool turned weapon."
+    "description": "A powerful great axe weapon."
+  },
+  {
+    "name": "Double Battle Axe",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Great Axe",
+    "stats": {
+      "Damage": "31.5",
+      "Attack Speed": "1.05s",
+      "Range": "9 Studs"
+    },
+    "cost": "850$",
+    "description": "A powerful great axe weapon."
   },
   {
     "name": "Great Sword",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Colossal Sword",
     "stats": {
-      "Damage": "20",
+      "Damage": "40",
       "Attack Speed": "1.12s",
       "Range": "10 Studs"
     },
     "cost": "1355$",
-    "description": "An enormous sword requiring immense strength."
-  },
-  {
-    "name": "Hammer",
-    "url": "https://forgewiki.org/wiki/Weapons",
-    "type": "Colossal Sword",
-    "stats": {
-      "Damage": "22",
-      "Attack Speed": "1.24s",
-      "Range": "10 Studs"
-    },
-    "cost": "1355$",
-    "description": "A giant hammer for crushing foes."
-  },
-  {
-    "name": "Skull Crusher",
-    "url": "https://forgewiki.org/wiki/Weapons",
-    "type": "Colossal Sword",
-    "stats": {
-      "Damage": "24",
-      "Attack Speed": "1.4s",
-      "Range": "10 Studs"
-    },
-    "cost": "1355$",
-    "description": "A weapon designed to shatter bones."
+    "description": "A powerful colossal sword weapon."
   },
   {
     "name": "Dragon Slayer",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Colossal Sword",
     "stats": {
-      "Damage": "22",
+      "Damage": "44",
       "Attack Speed": "1.12s",
       "Range": "10 Studs"
     },
     "cost": "1355$",
-    "description": "A legendary sword capable of slaying dragons."
+    "description": "A powerful colossal sword weapon."
+  },
+  {
+    "name": "Hammer",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Colossal Sword",
+    "stats": {
+      "Damage": "44",
+      "Attack Speed": "1.24s",
+      "Range": "10 Studs"
+    },
+    "cost": "1355$",
+    "description": "A powerful colossal sword weapon."
+  },
+  {
+    "name": "Skull Crusher",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Colossal Sword",
+    "stats": {
+      "Damage": "48",
+      "Attack Speed": "1.4s",
+      "Range": "10 Studs"
+    },
+    "cost": "1355$",
+    "description": "A powerful colossal sword weapon."
   },
   {
     "name": "Comically Large Spoon",
     "url": "https://forgewiki.org/wiki/Weapons",
     "type": "Colossal Sword",
     "stats": {
-      "Damage": "18",
+      "Damage": "36",
       "Attack Speed": "1.12s",
       "Range": "10 Studs"
     },
     "cost": "1355$",
-    "description": "Exactly what it sounds like."
+    "description": "A powerful colossal sword weapon."
+  },
+  {
+    "name": "Mace",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Mace",
+    "stats": {
+      "Damage": "6",
+      "Attack Speed": "0.46s",
+      "Range": "8 Studs"
+    },
+    "cost": "205$",
+    "description": "A powerful mace weapon."
+  },
+  {
+    "name": "Winged Mace",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Mace",
+    "stats": {
+      "Damage": "6",
+      "Attack Speed": "0.46s",
+      "Range": "8 Studs"
+    },
+    "cost": "205$",
+    "description": "A powerful mace weapon."
+  },
+  {
+    "name": "Spiked Mace",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Mace",
+    "stats": {
+      "Damage": "6",
+      "Attack Speed": "0.46s",
+      "Range": "8 Studs"
+    },
+    "cost": "205$",
+    "description": "A powerful mace weapon."
+  },
+  {
+    "name": "Spear",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Spear",
+    "stats": {
+      "Damage": "7.5",
+      "Attack Speed": "0.45s",
+      "Range": "11 Studs"
+    },
+    "cost": "120$",
+    "description": "A powerful spear weapon."
+  },
+  {
+    "name": "Demonic Spear",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Spear",
+    "stats": {
+      "Damage": "9",
+      "Attack Speed": "0.56s",
+      "Range": "11 Studs"
+    },
+    "cost": "120$",
+    "description": "A powerful spear weapon."
+  },
+  {
+    "name": "Angelic Spear",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Spear",
+    "stats": {
+      "Damage": "9.75",
+      "Attack Speed": "0.41s",
+      "Range": "11 Studs"
+    },
+    "cost": "120$",
+    "description": "A powerful spear weapon."
+  },
+  {
+    "name": "Trident",
+    "url": "https://forgewiki.org/wiki/Weapons",
+    "type": "Spear",
+    "stats": {
+      "Damage": "7.5",
+      "Attack Speed": "0.45s",
+      "Range": "11 Studs"
+    },
+    "cost": "120$",
+    "description": "A powerful spear weapon."
   }
 ]
