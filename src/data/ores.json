@@ -10,7 +10,10 @@
     "Sell Value": "3$",
     "Trait": "None",
     "description": "It's a rock. What more do you want?",
-    "image": "/assets/images/ores/stone.png"
+    "image": "/assets/images/ores/stone.png",
+    "sources": [
+      "Pebble"
+    ]
   },
   {
     "name": "Sand Stone",
@@ -23,7 +26,11 @@
     "Sell Value": "3.75$",
     "Trait": "None",
     "description": "Crumbly yet sturdy enough to build with. Not great with water.",
-    "image": "/assets/images/ores/sand-stone.png"
+    "image": "/assets/images/ores/sand-stone.png",
+    "sources": [
+      "Pebble",
+      "Rock"
+    ]
   },
   {
     "name": "Copper",
@@ -36,7 +43,12 @@
     "Sell Value": "4.5$",
     "Trait": "None",
     "description": "Basic but dependable. A beginner's best friend in the forge.",
-    "image": "/assets/images/ores/copper.png"
+    "image": "/assets/images/ores/copper.png",
+    "sources": [
+      "Pebble",
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Iron",
@@ -49,7 +61,12 @@
     "Sell Value": "5.25$",
     "Trait": "None",
     "description": "The workhorse of the forge. Reliable, versatile and a classic choice.",
-    "image": "/assets/images/ores/iron.png"
+    "image": "/assets/images/ores/iron.png",
+    "sources": [
+      "Pebble",
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Tin",
@@ -62,7 +79,11 @@
     "Sell Value": "6.38$",
     "Trait": "None",
     "description": "Weak on its own, but blends beautifully with others.",
-    "image": "/assets/images/ores/tin.png"
+    "image": "/assets/images/ores/tin.png",
+    "sources": [
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Silver",
@@ -75,7 +96,11 @@
     "Sell Value": "7.5$",
     "Trait": "None",
     "description": "Malleable and pure. Naturally anti-curse, anti-werewolf, anti-everything-bad.",
-    "image": "/assets/images/ores/silver.png"
+    "image": "/assets/images/ores/silver.png",
+    "sources": [
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Gold",
@@ -88,7 +113,10 @@
     "Sell Value": "19.5$",
     "Trait": "None",
     "description": "Not the strongest, but hey–it's gold. Fancy never goes out of style.",
-    "image": "/assets/images/ores/gold.png"
+    "image": "/assets/images/ores/gold.png",
+    "sources": [
+      "Boulder"
+    ]
   },
   {
     "name": "Mushroomite",
@@ -101,7 +129,11 @@
     "Sell Value": "12$",
     "Trait": "None",
     "description": "Grows in damp places. Sometimes glows. Sometimes talks. Probably fine.",
-    "image": "/assets/images/ores/mushroomite.png"
+    "image": "/assets/images/ores/mushroomite.png",
+    "sources": [
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Platinum",
@@ -114,7 +146,10 @@
     "Sell Value": "12$",
     "Trait": "None",
     "description": "Smooth, silvery, and highly conductive. Rare and sought-after.",
-    "image": "/assets/images/ores/platinum.png"
+    "image": "/assets/images/ores/platinum.png",
+    "sources": [
+      "Boulder"
+    ]
   },
   {
     "name": "Bananite",
@@ -127,7 +162,11 @@
     "Sell Value": "12.75$",
     "Trait": "None",
     "description": "Yellow, slippery, looks and smells like banana yet surprisingly durable.",
-    "image": "/assets/images/ores/bananite.png"
+    "image": "/assets/images/ores/bananite.png",
+    "sources": [
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Cardboardite",
@@ -140,7 +179,11 @@
     "Sell Value": "10.5$",
     "Trait": "None",
     "description": "Looks like trash, feels like trash... but somehow incredibly useful.",
-    "image": "/assets/images/ores/cardboardite.png"
+    "image": "/assets/images/ores/cardboardite.png",
+    "sources": [
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Aite",
@@ -153,7 +196,10 @@
     "Sell Value": "16.5$",
     "Trait": "None",
     "description": "It's an ore made out of A's – but actually lightweight and razor sharp.",
-    "image": "/assets/images/ores/aite.png"
+    "image": "/assets/images/ores/aite.png",
+    "sources": [
+      "Boulder"
+    ]
   },
   {
     "name": "Poopite",
@@ -166,7 +212,12 @@
     "Sell Value": "18$",
     "Trait": "15% poison for 5s when below 35% HP",
     "description": "Ew. Why is this even mineable?",
-    "image": "/assets/images/ores/poopite.png"
+    "image": "/assets/images/ores/poopite.png",
+    "sources": [
+      "Pebble",
+      "Rock",
+      "Boulder"
+    ]
   },
   {
     "name": "Fichillium",
@@ -178,7 +229,10 @@
     "Multiplier": "0x",
     "Sell Value": "0$",
     "Trait": "None",
-    "description": "PLAY ABYSS!"
+    "description": "PLAY ABYSS!",
+    "sources": [
+      "Secret section of a House in Stonewake’s Cross"
+    ]
   },
   {
     "name": "Cobalt",
@@ -191,7 +245,11 @@
     "Sell Value": "15$",
     "Trait": "None",
     "description": "A sturdy bluish metal known for its resilience and sharp edges.",
-    "image": "/assets/images/ores/cobalt.png"
+    "image": "/assets/images/ores/cobalt.png",
+    "sources": [
+      "Basalt Rock",
+      "Basalt Core"
+    ]
   },
   {
     "name": "Titanium",
@@ -204,7 +262,11 @@
     "Sell Value": "17.25$",
     "Trait": "None",
     "description": "One of the strongest metals. Lightweight, almost unbreakable.",
-    "image": "/assets/images/ores/titanium.png"
+    "image": "/assets/images/ores/titanium.png",
+    "sources": [
+      "Basalt Rock",
+      "Basalt Core"
+    ]
   },
   {
     "name": "Lapis Lazuli",
@@ -217,7 +279,11 @@
     "Sell Value": "22.5$",
     "Trait": "None",
     "description": "Deep blue with ancient markings. Scholars say it stores memories.",
-    "image": "/assets/images/ores/lapis-lazuli.png"
+    "image": "/assets/images/ores/lapis-lazuli.png",
+    "sources": [
+      "Basalt Rock",
+      "Basalt Core"
+    ]
   },
   {
     "name": "Boneite",
@@ -230,7 +296,12 @@
     "Sell Value": "18$",
     "Trait": "None",
     "description": "A pale, brittle ore formed from shattered skeleton remains, still carrying faint undead energy.",
-    "image": "/assets/images/ores/boneite.jpg"
+    "image": "/assets/images/ores/boneite.jpg",
+    "sources": [
+      "Skeleton Rogue [1/8]",
+      "Axe Skeleton [1/6]",
+      "Deathaxe Skeleton [1/5]"
+    ]
   },
   {
     "name": "Volcanic Rock",
@@ -243,7 +314,10 @@
     "Sell Value": "23.25$",
     "Trait": "None",
     "description": "It's not a just a rock. What more do you want?",
-    "image": "/assets/images/ores/volcanic-rock.png"
+    "image": "/assets/images/ores/volcanic-rock.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Quartz",
@@ -256,7 +330,11 @@
     "Sell Value": "22.5$",
     "Trait": "None",
     "description": "Translucent and mystical. Often used to amplify rune energy.",
-    "image": "/assets/images/ores/quartz.png"
+    "image": "/assets/images/ores/quartz.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein"
+    ]
   },
   {
     "name": "Amethyst",
@@ -269,7 +347,11 @@
     "Sell Value": "24.75$",
     "Trait": "None",
     "description": "A shimmering purple gem, pulsing with magical energy.",
-    "image": "/assets/images/ores/amethyst.png"
+    "image": "/assets/images/ores/amethyst.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein"
+    ]
   },
   {
     "name": "Topaz",
@@ -282,7 +364,12 @@
     "Sell Value": "26.25$",
     "Trait": "None",
     "description": "Golden yellow and warm. Used in enchanting precision tools.",
-    "image": "/assets/images/ores/topaz.png"
+    "image": "/assets/images/ores/topaz.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein",
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Diamond",
@@ -295,7 +382,11 @@
     "Sell Value": "30$",
     "Trait": "None",
     "description": "The hardest known material.",
-    "image": "/assets/images/ores/diamond.png"
+    "image": "/assets/images/ores/diamond.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein"
+    ]
   },
   {
     "name": "Dark boneite",
@@ -321,7 +412,11 @@
     "Sell Value": "33.75$",
     "Trait": "None",
     "description": "Deep blue and ice-cold. Sold to sharpen senses when worn.",
-    "image": "/assets/images/ores/sapphire.png"
+    "image": "/assets/images/ores/sapphire.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein"
+    ]
   },
   {
     "name": "Cuprite",
@@ -334,7 +429,12 @@
     "Sell Value": "36.45$",
     "Trait": "None",
     "description": "A bright red metallic ore found near river rocks.",
-    "image": "/assets/images/ores/cuprite.png"
+    "image": "/assets/images/ores/cuprite.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein",
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Obsidian",
@@ -347,7 +447,10 @@
     "Sell Value": "35.25$",
     "Trait": "30% extra defense on Armor",
     "description": "Volcanic glass as sharp as it is strong.",
-    "image": "/assets/images/ores/obsidian.png"
+    "image": "/assets/images/ores/obsidian.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Emerald",
@@ -360,7 +463,12 @@
     "Sell Value": "38.25$",
     "Trait": "None",
     "description": "Vivid green and unnaturally smooth.",
-    "image": "/assets/images/ores/emerald.png"
+    "image": "/assets/images/ores/emerald.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein",
+      "Icy Pebble"
+    ]
   },
   {
     "name": "Ruby",
@@ -373,7 +481,12 @@
     "Sell Value": "44.25$",
     "Trait": "None",
     "description": "A blood-red gem that gleams with fury.",
-    "image": "/assets/images/ores/ruby.png"
+    "image": "/assets/images/ores/ruby.png",
+    "sources": [
+      "Basalt Core",
+      "Basalt Vein",
+      "Icy Pebble"
+    ]
   },
   {
     "name": "Rivalite",
@@ -386,7 +499,12 @@
     "Sell Value": "49.95$",
     "Trait": "+20% crit chance on Weapons",
     "description": "A reactive ore that strengthens when near other powerful metals.",
-    "image": "/assets/images/ores/rivalite.png"
+    "image": "/assets/images/ores/rivalite.png",
+    "sources": [
+      "Basalt Vein",
+      "Volcanic Rock",
+      "Icy Pebble"
+    ]
   },
   {
     "name": "Slimite",
@@ -399,7 +517,11 @@
     "Sell Value": "33.75$",
     "Trait": "None",
     "description": "A slime-like ore that wiggles, and leaves a faint slime glow.",
-    "image": "/assets/images/ores/slimite.jpg"
+    "image": "/assets/images/ores/slimite.jpg",
+    "sources": [
+      "Slime [1/6]",
+      "Burning Slime [1/6]"
+    ]
   },
   {
     "name": "Uranium",
@@ -412,7 +534,12 @@
     "Sell Value": "66$",
     "Trait": "5% max HP AOE dmg on Armor",
     "description": "Dangerous, unstable, and glowing green.",
-    "image": "/assets/images/ores/uranium.png"
+    "image": "/assets/images/ores/uranium.png",
+    "sources": [
+      "Basalt Vein",
+      "Icy Pebble",
+      "Icy Rock"
+    ]
   },
   {
     "name": "Mythril",
@@ -425,7 +552,12 @@
     "Sell Value": "52.5$",
     "Trait": "15% extra defense on Armor",
     "description": "Lightweight and insanely durable.",
-    "image": "/assets/images/ores/mythril.png"
+    "image": "/assets/images/ores/mythril.png",
+    "sources": [
+      "Basalt Vein",
+      "Icy Pebble",
+      "Icy Rock"
+    ]
   },
   {
     "name": "Eye Ore",
@@ -438,7 +570,13 @@
     "Sell Value": "37.5$",
     "Trait": "-10% HP, +15% dmg on Weapons/Armor",
     "description": "A strange ore with a blinking core.",
-    "image": "/assets/images/ores/eye-ore.png"
+    "image": "/assets/images/ores/eye-ore.png",
+    "sources": [
+      "Basalt Rock",
+      "Basalt Core",
+      "Basalt Vein",
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Fireite",
@@ -451,7 +589,10 @@
     "Sell Value": "67.5$",
     "Trait": "20% burn chance on Weapons",
     "description": "A red-hot ore that crackles with inner flames.",
-    "image": "/assets/images/ores/fireite.png"
+    "image": "/assets/images/ores/fireite.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Magmaite",
@@ -464,7 +605,10 @@
     "Sell Value": "75$",
     "Trait": "50.00% of weapon dmg as AOE Explosion with 35.00% chance on weapons",
     "description": "A volatile ore bubbling with veins.",
-    "image": "/assets/images/ores/magmaite.png"
+    "image": "/assets/images/ores/magmaite.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Lightite",
@@ -477,7 +621,12 @@
     "Sell Value": "69$",
     "Trait": "15% extra movement speed on Armor",
     "description": "So bright it almost floats.",
-    "image": "/assets/images/ores/lightite.png"
+    "image": "/assets/images/ores/lightite.png",
+    "sources": [
+      "Basalt Vein",
+      "Icy Pebble",
+      "Icy Rock"
+    ]
   },
   {
     "name": "Demonite",
@@ -490,7 +639,10 @@
     "Sell Value": "82.5$",
     "Trait": "25.00% to Burn Enemy when Damage is Taken. On Armor.",
     "description": "A dark, heat-pulsing ore that leaks dark red sparks.",
-    "image": "/assets/images/ores/demonite.png"
+    "image": "/assets/images/ores/demonite.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Darkryte",
@@ -503,7 +655,10 @@
     "Sell Value": "94.5$",
     "Trait": "15.00% Chance to Dodge Damage (Negate Fully). On Armor.",
     "description": "A shadowy ore that absorbs light.",
-    "image": "/assets/images/ores/darkryte.png"
+    "image": "/assets/images/ores/darkryte.png",
+    "sources": [
+      "Volcanic Rock"
+    ]
   },
   {
     "name": "Orange Crystal Ore",
@@ -516,7 +671,14 @@
     "Sell Value": "45$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/orange-crystal-ore.png"
+    "image": "/assets/images/ores/orange-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal",
+      "Violet Crystal"
+    ]
   },
   {
     "name": "Magenta Crystal Ore",
@@ -529,7 +691,14 @@
     "Sell Value": "46.5$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/magenta-crystal-ore.png"
+    "image": "/assets/images/ores/magenta-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal",
+      "Violet Crystal"
+    ]
   },
   {
     "name": "Green Crystal Ore",
@@ -542,7 +711,14 @@
     "Sell Value": "48$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/green-crystal-ore.png"
+    "image": "/assets/images/ores/green-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal",
+      "Violet Crystal"
+    ]
   },
   {
     "name": "Crimson Crystal Ore",
@@ -555,7 +731,14 @@
     "Sell Value": "49.5$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/crimson-crystal-ore.png"
+    "image": "/assets/images/ores/crimson-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal",
+      "Violet Crystal"
+    ]
   },
   {
     "name": "Blue Crystal Ore",
@@ -568,7 +751,14 @@
     "Sell Value": "51$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/blue-crystal-ore.png"
+    "image": "/assets/images/ores/blue-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal",
+      "Violet Crystal"
+    ]
   },
   {
     "name": "Rainbow Crystal Ore",
@@ -581,7 +771,13 @@
     "Sell Value": "78.75$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/rainbow-crystal-ore.png"
+    "image": "/assets/images/ores/rainbow-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal"
+    ]
   },
   {
     "name": "Arcane Crystal Ore",
@@ -594,7 +790,13 @@
     "Sell Value": "112.5$",
     "Trait": "None",
     "description": "No description available.",
-    "image": "/assets/images/ores/arcane-crystal-ore.png"
+    "image": "/assets/images/ores/arcane-crystal-ore.png",
+    "sources": [
+      "Earth Crystal",
+      "Cyan Crystal",
+      "Light Crystal",
+      "Crimson Crystal"
+    ]
   },
   {
     "name": "Galaxite",
@@ -619,7 +821,12 @@
     "Sell Value": "48.75$",
     "Trait": "None",
     "description": "Unyielding and absurdly dense. You feel more motivated just holding it.",
-    "image": "/assets/images/ores/tungsten-ore.jpg"
+    "image": "/assets/images/ores/tungsten-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder"
+    ]
   },
   {
     "name": "Sulfur Ore",
@@ -632,7 +839,12 @@
     "Sell Value": "51.56$",
     "Trait": "None",
     "description": "Yellow, brittle, and smells exactly how you expect. Useful, dangerous, and easy to regret.",
-    "image": "/assets/images/ores/sulfur-ore.jpg"
+    "image": "/assets/images/ores/sulfur-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder"
+    ]
   },
   {
     "name": "Pumice Ore",
@@ -645,7 +857,12 @@
     "Sell Value": "54.38$",
     "Trait": "None",
     "description": "Light, brittle, and full of air pockets. Floats briefly before remembering it’s a rock.",
-    "image": "/assets/images/ores/pumice-ore.jpg"
+    "image": "/assets/images/ores/pumice-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder"
+    ]
   },
   {
     "name": "Graphite Ore",
@@ -658,7 +875,12 @@
     "Sell Value": "58.13$",
     "Trait": "+5% Increased Vitality, and has a 20% chance to reduce Incoming Damage by 12%.",
     "description": "Plain, dark, and deceptively useful. Not flashy, but it gets the job done without complaints.",
-    "image": "/assets/images/ores/graphite-ore.jpg"
+    "image": "/assets/images/ores/graphite-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder"
+    ]
   },
   {
     "name": "Aetherit Ore",
@@ -671,7 +893,13 @@
     "Sell Value": "63.75$",
     "Trait": "+5% Increased Movement Speed.",
     "description": "A broken piece of raw magic. Sharp, unstable, and absolutely not safe to pocket.",
-    "image": "/assets/images/ores/aetherit-ore.jpg"
+    "image": "/assets/images/ores/aetherit-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal"
+    ]
   },
   {
     "name": "Scheelite Ore",
@@ -684,7 +912,12 @@
     "Sell Value": "69.38$",
     "Trait": "None",
     "description": "Dull at first glance, valuable once refined. The kind of ore that rewards patience.",
-    "image": "/assets/images/ores/scheelite-ore.jpg"
+    "image": "/assets/images/ores/scheelite-ore.jpg",
+    "sources": [
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal"
+    ]
   },
   {
     "name": "Larimar Ore",
@@ -697,7 +930,12 @@
     "Sell Value": "76.88$",
     "Trait": "None",
     "description": "Soft blue stone infused with calm energy. Holding it makes the caves feel less hostile, briefly.",
-    "image": "/assets/images/ores/larimar-ore.jpg"
+    "image": "/assets/images/ores/larimar-ore.jpg",
+    "sources": [
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal"
+    ]
   },
   {
     "name": "Neurotite Ore",
@@ -710,7 +948,12 @@
     "Sell Value": "80.63$",
     "Trait": "None",
     "description": "Warm and faintly organic in texture. Staying near it too long gives you strange ideas.",
-    "image": "/assets/images/ores/neurotite-ore.jpg"
+    "image": "/assets/images/ores/neurotite-ore.jpg",
+    "sources": [
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal"
+    ]
   },
   {
     "name": "Frost Fossil Ore",
@@ -723,7 +966,12 @@
     "Sell Value": "84.38$",
     "Trait": "+17.5% Increased Physical Damage and -5% reduced Movement Speed.",
     "description": "Ancient remains frozen solid in eternal ice. Whatever it once was, it never got to finish dying.",
-    "image": "/assets/images/ores/frost-fossil-ore.jpg"
+    "image": "/assets/images/ores/frost-fossil-ore.jpg",
+    "sources": [
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal"
+    ]
   },
   {
     "name": "Tide Carve Ore",
@@ -736,7 +984,12 @@
     "Sell Value": "88.13$",
     "Trait": "None",
     "description": "Shaped by relentless water pressure. Every edge tells a story of erosion and survival.",
-    "image": "/assets/images/ores/tide-carve-ore.jpg"
+    "image": "/assets/images/ores/tide-carve-ore.jpg",
+    "sources": [
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal"
+    ]
   },
   {
     "name": "Velchire Ore",
@@ -749,7 +1002,14 @@
     "Sell Value": "103.13$",
     "Trait": "+20% Increased Movement Speed.",
     "description": "Smooth, refined, and unnaturally cold. Looks expensive even before forging.",
-    "image": "/assets/images/ores/velchire-ore.jpg"
+    "image": "/assets/images/ores/velchire-ore.jpg",
+    "sources": [
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Sanctis Ore",
@@ -762,7 +1022,14 @@
     "Sell Value": "112.5$",
     "Trait": "+18% Increased Stamina.",
     "description": "Clean, radiant, and unnervingly pure. Feels wrong to break, but you do it anyway.",
-    "image": "/assets/images/ores/sanctis-ore.jpg"
+    "image": "/assets/images/ores/sanctis-ore.jpg",
+    "sources": [
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Snowite Ore",
@@ -775,7 +1042,15 @@
     "Sell Value": "150$",
     "Trait": "+15% to Attack Speed of your Weapon, and reduces Movement Speed of Enemies for 3 Seconds. 30% Chance to Hit.",
     "description": "Light, sharp, and infused with wind energy. It almost floats when freshly mined.",
-    "image": "/assets/images/ores/snowite-ore.jpg"
+    "image": "/assets/images/ores/snowite-ore.jpg",
+    "sources": [
+      "Icy Pebble",
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal"
+    ]
   },
   {
     "name": "Iceite",
@@ -788,7 +1063,15 @@
     "Sell Value": "196.88$",
     "Trait": "25% Chance to Freeze Enemies for 2 seconds, 12 second Cooldown.",
     "description": "Light, sharp, and infused with wind energy. It almost floats when freshly mined.",
-    "image": "/assets/images/ores/iceite.jpg"
+    "image": "/assets/images/ores/iceite.jpg",
+    "sources": [
+      "Icy Rock",
+      "Icy Boulder",
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Mistvein",
@@ -801,7 +1084,13 @@
     "Sell Value": "135$",
     "Trait": "None",
     "description": "Veined with drifting fog trapped inside the rock. Crack it open and the mist escapes instantly.",
-    "image": "/assets/images/ores/mistvein.png"
+    "image": "/assets/images/ores/mistvein.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Lgarite",
@@ -814,7 +1103,13 @@
     "Sell Value": "140.63$",
     "Trait": "None",
     "description": "Jagged and oddly refined at the same time. Looks artificial, but no one remembers making it.",
-    "image": "/assets/images/ores/lgarite.png"
+    "image": "/assets/images/ores/lgarite.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Voidfractal",
@@ -827,7 +1122,13 @@
     "Sell Value": "150$",
     "Trait": "None",
     "description": "Endless patterns folded into solid matter. Staring too long makes your head hurt.",
-    "image": "/assets/images/ores/voidfractal.png"
+    "image": "/assets/images/ores/voidfractal.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Moltenfrost",
@@ -840,7 +1141,13 @@
     "Sell Value": "155.63$",
     "Trait": "None",
     "description": "Burns and freezes at the same time. Physics gave up trying to explain this one.",
-    "image": "/assets/images/ores/moltenfrost.png"
+    "image": "/assets/images/ores/moltenfrost.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Crimsonite",
@@ -853,7 +1160,13 @@
     "Sell Value": "159.38$",
     "Trait": "+20% Physical Damage (BOTH)",
     "description": "A deep red ore that radiates heat and anger. Miners swear it pulses when blood is nearby.",
-    "image": "/assets/images/ores/crimsonite.png"
+    "image": "/assets/images/ores/crimsonite.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Malachite",
@@ -866,7 +1179,12 @@
     "Sell Value": "165$",
     "Trait": "Deals +10% of weapon damage as poison per second for 3 seconds. 33% chance on hit (Weapon)",
     "description": "Green, layered, and rich with minerals. Breaks cleanly, like it's used to being harvested.",
-    "image": "/assets/images/ores/malachite.png"
+    "image": "/assets/images/ores/malachite.png",
+    "sources": [
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Aquajade",
@@ -879,7 +1197,12 @@
     "Sell Value": "168.75$",
     "Trait": "None",
     "description": "Smooth, cool and heavy with ocean energy. Feels like it's been underwater longer than history.",
-    "image": "/assets/images/ores/aquajade.png"
+    "image": "/assets/images/ores/aquajade.png",
+    "sources": [
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Cryptex",
@@ -892,7 +1215,12 @@
     "Sell Value": "174.38$",
     "Trait": "None",
     "description": "Layered with shifting patterns that never stay the same. No one agrees on what's inside, or if its watching.",
-    "image": "/assets/images/ores/cryptex.png"
+    "image": "/assets/images/ores/cryptex.png",
+    "sources": [
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Galestor",
@@ -905,7 +1233,12 @@
     "Sell Value": "178.13$",
     "Trait": "None",
     "description": "Lightweight and charged with constant motion. Even at rest, it feels like it wants to escape",
-    "image": "/assets/images/ores/galestor.png"
+    "image": "/assets/images/ores/galestor.png",
+    "sources": [
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Voidstar",
@@ -918,7 +1251,12 @@
     "Sell Value": "187.5$",
     "Trait": "+33 crit chance | +15% crit damage | -15% vitality (Weapon)",
     "description": "A collapsed point of pure darkness. It absorbs light, sound and occasionally hope.",
-    "image": "/assets/images/ores/voidstar.png"
+    "image": "/assets/images/ores/voidstar.png",
+    "sources": [
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Etherealite",
@@ -931,7 +1269,11 @@
     "Sell Value": "208.13$",
     "Trait": "+35% Vitality (Armor)",
     "description": "Almost invisible unless the light hits it just right. It flickers between existing and not bothering to.",
-    "image": "/assets/images/ores/etherealite.png"
+    "image": "/assets/images/ores/etherealite.png",
+    "sources": [
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Suryafal",
@@ -944,7 +1286,13 @@
     "Sell Value": "328.13$",
     "Trait": "None",
     "description": "Sun-charged stone that radiates steady heat. Mining it feels like standing too close to daylight",
-    "image": "/assets/images/ores/suryafal.png"
+    "image": "/assets/images/ores/suryafal.png",
+    "sources": [
+      "Small Ice Crystal",
+      "Medium Ice Crystal",
+      "Large Ice Crystal",
+      "Floating Ice Crystal"
+    ]
   },
   {
     "name": "Heavenite",
@@ -957,7 +1305,10 @@
     "Sell Value": "0$",
     "Trait": "None",
     "description": "Warm to the touch and faintly glowing. Some say it fell from the sky, others say it was pushed.",
-    "image": "/assets/images/ores/heavenite.png"
+    "image": "/assets/images/ores/heavenite.png",
+    "sources": [
+      "Large Ice Crystal"
+    ]
   },
   {
     "name": "Gargantuan",
@@ -970,7 +1321,10 @@
     "Sell Value": "624.38$",
     "Trait": "Deals 20% of weapon damage as fire per seconds for 2 seconds. 20% chance on hit. Cause an explosion at location of victim, dealing 50% of weapon damage as AOE damage. 35% chance on hit (WEAPON)",
     "description": "Dense, oversized, and brutally heavy. It takes effort just to remind it who's holding the pickaxe.",
-    "image": "/assets/images/ores/gargantuan.png"
+    "image": "/assets/images/ores/gargantuan.png",
+    "sources": [
+      "Large Ice Crystal"
+    ]
   },
   {
     "name": "Mosasaursit",
@@ -983,6 +1337,9 @@
     "Sell Value": "135.25$",
     "Trait": "-25% swiftness and +65% vitality",
     "description": "A fossilized skeleton of a prehistoric sea creature, its bones preserved by the cold waters of the island..",
-    "image": "/assets/images/ores/mosasaursit.png"
+    "image": "/assets/images/ores/mosasaursit.png",
+    "sources": [
+      "Obtained by mining the Ice Wall in-front of the Prismatic Pickaxe"
+    ]
   }
 ]

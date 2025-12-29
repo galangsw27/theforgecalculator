@@ -8,7 +8,8 @@ import {
     TrendingUp,
     DollarSign,
     Zap,
-    Info
+    Info,
+    Box
 } from 'lucide-react';
 
 const WikiOres: React.FC = () => {
@@ -172,6 +173,19 @@ const WikiOres: React.FC = () => {
                                 )}
                             </div>
                         </div>
+
+                        {(ore as any).sources && (
+                            <div className="mt-4 pt-4 border-t border-white/5">
+                                <div className="text-[9px] font-bold text-gray-500 uppercase mb-2 tracking-wider">Obtained From</div>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {(ore as any).sources.map((source: string, sIdx: number) => (
+                                        <span key={sIdx} className="px-2 py-0.5 rounded-lg bg-white/5 border border-white/10 text-[9px] text-gray-400 group-hover:border-indigo-500/30 group-hover:text-gray-300 transition-colors">
+                                            {source}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>
