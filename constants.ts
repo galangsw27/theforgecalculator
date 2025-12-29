@@ -180,9 +180,9 @@ export const WEAPON_PROBABILITIES: Record<number, Record<string, number>> = {
     6: { "Straight Sword": 0.86, "Dagger": 0.14 },
     9: { "Gauntlet": 0.65, "Mace": 0.65, "Straight Sword": 0.12, "Spear": 0.12, "Katana": 0.10, "Dagger": 0.01 },
     12: { "Katana": 0.72, "Axe": 0.72, "Straight Sword": 0.015, "Spear": 0.015, "Gauntlet": 0.11, "Mace": 0.11, "Great Sword": 0.03 },
-    16: { "Great Sword": 0.69, "Spear": 0.69, "Katana": 0.26, "Gauntlet": 0.015, "Mace": 0.015, "Great Axe": 0.01, "Straight Sword": 0.005, "Spear_Other": 0.005 },
-    22: { "Great Axe": 0.67, "Great Sword": 0.23, "Katana": 0.03, "Colossal Sword": 0.07 },
-    49: { "Colossal Sword": 0.70, "Great Axe": 0.28, "Great Sword": 0.02 }
+    16: { "Great Sword": 0.69, "Spear": 0.69, "Katana": 0.26, "Gauntlet": 0.015, "Mace": 0.015, "Great Axe": 0.01, "Straight Sword": 0.005 },
+    22: { "Great Axe": 0.67, "Great Sword": 0.23, "Katana": 0.03, "Colossal Sword": 0.04, "Spear": 0.01, "Mace": 0.01, "Straight Sword": 0.005, "Gauntlet": 0.005 },
+    49: { "Colossal Sword": 0.70, "Great Axe": 0.285, "Katana": 0.005, "Spear": 0.005, "Mace": 0.005 }
 };
 
 export const WORLD_WEAPON_DATA: Record<number, Record<string, Record<string, number>>> = {
@@ -217,7 +217,7 @@ export const WORLD_WEAPON_DATA: Record<number, Record<string, Record<string, num
         "W3": { "Double Battle Axe": 0.1675, "Scythe": 0.1675, "Greater Battleaxe": 0.1675, "Wyvern Axe": 0.1675 }
     },
     49: {
-        "W1": { "Great Sword": 0.4813, "Hammer": 0.175, "Spoon": 0.0438 },
+        "W1": { "Great Sword": 0.4812, "Hammer": 0.175, "Comically Large Spoon": 0.0438 },
         "W2": { "Great Sword": 0.3937, "Dragon Slayer": 0.0438, "Hammer": 0.175, "Skull Crusher": 0.0875 },
         "W3": { "Great Sword": 0.393, "Dragon Slayer": 0.0438, "Hammer": 0.175, "Skull Crusher": 0.0875, "Excalibur": 0.0007 }
     }
@@ -289,7 +289,8 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
         "Hammer": { damage: 44, atkSpeed: 1.24, range: 10, price: 1355, type: "Colossal Sword" },
         "Skull Crusher": { damage: 48, atkSpeed: 1.4, range: 10, price: 1355, type: "Colossal Sword" },
         "Comically Large Spoon": { damage: 36, atkSpeed: 1.12, range: 10, price: 1355, type: "Colossal Sword" },
-        "Wyvern Axe": { damage: 46, atkSpeed: 1.3, range: 10, price: 1355, type: "Colossal Sword" },
+        "Wyvern Axe": { damage: 46, atkSpeed: 1.3, range: 10, price: 1355, type: "Great Axe" },
+        "Scythe": { damage: 32, atkSpeed: 1.0, range: 10, price: 850, type: "Great Axe" },
         "Excalibur": { damage: 50, atkSpeed: 1.45, range: 10, price: 1355, type: "Colossal Sword" },
         "Mace": { damage: 6, atkSpeed: 0.46, range: 8, price: 205, type: "Mace" },
         "Winged Mace": { damage: 6, atkSpeed: 0.46, range: 8, price: 205, type: "Mace" },
@@ -297,7 +298,6 @@ export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
         "Hammerhead Mace": { damage: 6.5, atkSpeed: 0.48, range: 8, price: 205, type: "Mace" },
         "Grave Maker": { damage: 18.5, atkSpeed: 0.65, range: 9, price: 324, type: "Mace" },
         "Spear": { damage: 7.5, atkSpeed: 0.45, range: 11, price: 120, type: "Spear" },
-        "Demonic Spear": { damage: 9, atkSpeed: 0.56, range: 11, price: 120, type: "Spear" },
         "Angelic Spear": { damage: 9.75, atkSpeed: 0.41, range: 11, price: 120, type: "Spear" },
         "Trident": { damage: 7.5, atkSpeed: 0.45, range: 11, price: 120, type: "Spear" }
     },
@@ -369,20 +369,20 @@ export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name:
             "peak": [{ name: "Crusader Sword", chance: "1/1", probability: 1.0 }, { name: "Long Sword", chance: "1/2", probability: 0.5 }]
         },
         "Great Axe": {
-            "stonewake": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
-            "kingdom": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
-            "goblin": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
-            "enemy": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
-            "frostpire": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
-            "peak": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/2", probability: 0.5 }, { name: "Scythe", chance: "1/3", probability: 0.333 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }]
+            "stonewake": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
+            "kingdom": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
+            "goblin": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
+            "enemy": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
+            "frostpire": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }],
+            "peak": [{ name: "Axe", chance: "1/1", probability: 1.0 }, { name: "Double Battle Axe", chance: "1/1", probability: 1.0 }, { name: "Scythe", chance: "1/1", probability: 1.0 }, { name: "Greater Battleaxe", chance: "1/1", probability: 1.0 }, { name: "Wyvern Axe", chance: "1/1", probability: 1.0 }, { name: "Curved Handle Axe", chance: "1/12", probability: 0.083 }, { name: "Spade Armed Axe", chance: "1/12", probability: 0.083 }]
         },
         "Colossal Sword": {
-            "stonewake": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
-            "kingdom": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
-            "goblin": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
-            "enemy": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
-            "frostpire": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
-            "peak": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Wyvern Axe", chance: "1/22", probability: 0.045 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }]
+            "stonewake": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
+            "kingdom": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
+            "goblin": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
+            "enemy": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
+            "frostpire": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }],
+            "peak": [{ name: "Great Sword", chance: "1/1", probability: 1.0 }, { name: "Hammer", chance: "1/2", probability: 0.5 }, { name: "Skull Crusher", chance: "1/2", probability: 0.5 }, { name: "Dragon Slayer", chance: "1/3", probability: 0.333 }, { name: "Comically Large Spoon", chance: "1/16", probability: 0.0625 }, { name: "Excalibur", chance: "1/49", probability: 0.020 }]
         },
         "Mace": {
             "stonewake": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }],
@@ -393,12 +393,12 @@ export const ITEM_VARIANTS: Record<string, Record<string, Record<string, { name:
             "peak": [{ name: "Mace", chance: "1/1", probability: 1.0 }, { name: "Winged Mace", chance: "1/4", probability: 0.25 }, { name: "Spiked Mace", chance: "1/2", probability: 0.5 }]
         },
         "Spear": {
-            "stonewake": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
-            "kingdom": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
-            "goblin": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
-            "enemy": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
-            "frostpire": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
-            "peak": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Demonic Spear", chance: "1/8", probability: 0.125 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }]
+            "stonewake": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "kingdom": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "goblin": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "enemy": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "frostpire": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }],
+            "peak": [{ name: "Spear", chance: "1/1", probability: 1.0 }, { name: "Angelic Spear", chance: "1/8", probability: 0.125 }, { name: "Trident", chance: "1/2", probability: 0.5 }]
         }
     },
     armor: {

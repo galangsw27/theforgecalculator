@@ -173,56 +173,98 @@ function Calculator() {
         if (totalOres < 3) return {};
 
         if (activeTab === 'weapon') {
+            const tiers = Object.keys(WEAPON_PROBABILITIES).map(Number).sort((a, b) => a - b);
             const baseProbs = WEAPON_PROBABILITIES[closest] || {};
             const worldVariants = WORLD_WEAPON_DATA[closest]?.[activeWorld] || {};
 
-            const merged: Record<string, number> = {};
-            const usedTypes = new Set<string>();
+            // 1. World-exclusive types mapping
+            const worldExclusives: Record<string, World[]> = {
+                "Gauntlet": ["W1", "W2"],
+                "Mace": ["W3"],
+                "Katana": ["W1", "W2"],
+                "Axe": ["W3"],
+                "Great Sword": ["W1", "W2"],
+                "Spear": ["W3"]
+            };
 
-            // 1. Process base types and replace peaks with variants
+            // 2. Map weapon types to their "optimal" tier (maxOre)
+            const typeToMaxOre: Record<string, number> = {
+                "Dagger": 3, "Straight Sword": 6, "Gauntlet": 9, "Mace": 9,
+                "Katana": 12, "Axe": 12, "Great Sword": 16, "Spear": 16,
+                "Great Axe": 22, "Colossal Sword": 49
+            };
+
+            const mainWeights: Record<string, number> = {};
+            const offTargetWeights: Record<string, number> = {};
+            let totalMainBaseProb = 0;
+            let totalOffTargetBaseProb = 0;
+
             Object.entries(baseProbs).forEach(([type, prob]) => {
-                const variantsForType = Object.entries(worldVariants).filter(([name]) => {
+                // Skip if exclusive to other worlds
+                if (worldExclusives[type] && !worldExclusives[type].includes(activeWorld)) return;
+
+                const maxOre = typeToMaxOre[type] || closest;
+                // Infinite scaling for Colossal Sword (highest tier)
+                let scalingFactor = totalOres <= maxOre ? totalOres / maxOre : (type === "Colossal Sword" ? totalOres / maxOre : maxOre / totalOres);
+                const scaledProb = prob * scalingFactor;
+
+                const variants = Object.entries(worldVariants).filter(([name]) => {
                     const itemType = BASE_ITEM_STATS.weapon[name]?.type || name;
                     return itemType === type;
                 });
 
-                if (variantsForType.length > 0) {
-                    variantsForType.forEach(([name, vProb]) => {
-                        merged[name] = vProb;
+                if (variants.length > 0) {
+                    // This is a "main" weapon type for this tier if it has variants
+                    // We use the base scaled probability as the target for this group
+                    let totalVariantBaseProb = variants.reduce((acc, [, vProb]) => acc + vProb, 0);
+                    variants.forEach(([name, vProb]) => {
+                        const normalizedVProb = vProb / totalVariantBaseProb;
+                        mainWeights[name] = scaledProb * normalizedVProb;
                     });
-                    usedTypes.add(type);
+                    totalMainBaseProb += scaledProb;
                 } else {
-                    // If it's a world-exclusive peak type and has no variants in this world, skip it
-                    const isPeakType = ["Gauntlet", "Mace", "Katana", "Axe", "Great Sword", "Spear"].includes(type);
-                    if (!isPeakType) {
-                        merged[type] = prob;
-                    }
+                    offTargetWeights[type] = scaledProb;
+                    totalOffTargetBaseProb += scaledProb;
                 }
             });
 
-            // 2. Add any world variants whose types weren't in baseProbs
-            Object.entries(worldVariants).forEach(([name, vProb]) => {
-                const type = BASE_ITEM_STATS.weapon[name]?.type || name;
-                if (!usedTypes.has(type)) {
-                    merged[name] = vProb;
-                }
-            });
+            // 3. Target-based Normalization
+            const finalProbs: Record<string, number> = {};
 
-            // 3. Handle special cases like Spear_Other
-            if (merged["Spear_Other"]) {
-                merged["Spear"] = (merged["Spear"] || 0) + merged["Spear_Other"];
-                delete merged["Spear_Other"];
+            // We want main weapons to keep their exact scaled base probability
+            // and other available weapons to fill the remaining gap to 100%
+            // Cap totalMainBaseProb at 1.0 for end-game scaling
+            const cappedTotalMainBaseProb = Math.min(1.0, totalMainBaseProb);
+            const remainingProb = 1.0 - cappedTotalMainBaseProb;
+
+            if (cappedTotalMainBaseProb > 0) {
+                const mainScale = totalMainBaseProb > 1.0 ? 1.0 / totalMainBaseProb : 1.0;
+                Object.entries(mainWeights).forEach(([name, weight]) => {
+                    finalProbs[name] = weight * mainScale;
+                });
+
+                if (remainingProb > 0 && totalOffTargetBaseProb > 0) {
+                    const offTargetScale = remainingProb / totalOffTargetBaseProb;
+                    Object.entries(offTargetWeights).forEach(([name, weight]) => {
+                        finalProbs[name] = (finalProbs[name] || 0) + weight * offTargetScale;
+                    });
+                } else if (remainingProb > 0) {
+                    // If no off-target weapons but we have remaining prob, 
+                    // normalize main weapons to 100%
+                    const mainScale = 1.0 / totalMainBaseProb;
+                    Object.entries(mainWeights).forEach(([name, weight]) => {
+                        finalProbs[name] = weight * mainScale;
+                    });
+                }
+            } else if (totalOffTargetBaseProb > 0) {
+                // No main weapons, normalize off-target to 1.0
+                const offTargetScale = 1.0 / totalOffTargetBaseProb;
+                Object.entries(offTargetWeights).forEach(([name, weight]) => {
+                    finalProbs[name] = weight * offTargetScale;
+                });
             }
 
-            // 4. Normalize to 1.0 (ensure no failure chance)
-            const total = Object.values(merged).reduce((a, b) => a + b, 0);
-            if (total > 0) {
-                for (const key in merged) {
-                    merged[key] /= total;
-                }
-            }
-
-            return merged;
+            return finalProbs;
         }
         return ARMOR_PROBABILITIES[closest] || {};
     }, [activeTab, totalOres, activeWorld]);
