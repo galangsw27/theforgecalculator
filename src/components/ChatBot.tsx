@@ -140,11 +140,9 @@ export default function ChatBot() {
             }
 
             // 2. Call OpenRouter API
-            const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '';
-
-            if (apiKey) {
-                try {
-                    const prompt = `Kamu adalah **Forge Assistant**, teman yang ahli tentang game Roblox "The Forge". Jawab dengan gaya santai, fun, dan helpful seperti ngobrol sama teman.
+            // We now call our own backend API to hide the API key
+            try {
+                const prompt = `Kamu adalah **Forge Assistant**, teman yang ahli tentang game Roblox "The Forge". Jawab dengan gaya santai, fun, dan helpful seperti ngobrol sama teman.
 
 ## 📖 Data Wiki (${searchMethod}):
 ${contextText}
@@ -163,84 +161,71 @@ ${contextText}
 
 Jawab dengan natural dan membantu:`;
 
-                    // Create placeholder message for streaming
-                    const botMessageId = (Date.now() + 1).toString();
-                    setMessages(prev => [...prev, { id: botMessageId, role: 'assistant', content: '' }]);
+                // Create placeholder message for streaming
+                const botMessageId = (Date.now() + 1).toString();
+                setMessages(prev => [...prev, { id: botMessageId, role: 'assistant', content: '' }]);
 
-                    // Call API with retry logic
-                    await retryWithBackoff(async () => {
-                        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-                            method: "POST",
-                            headers: {
-                                "Authorization": `Bearer ${apiKey}`,
-                                "Content-Type": "application/json",
-                                "HTTP-Referer": window.location.origin,
-                                "X-Title": "Fantasy Forge Calculator",
-                            },
-                            body: JSON.stringify({
-                                "model": "google/gemini-2.5-flash",
-                                "messages": [
-                                    { "role": "user", "content": prompt }
-                                ],
-                                "stream": true
-                            })
-                        });
+                // Call API with retry logic
+                await retryWithBackoff(async () => {
+                    const response = await fetch("/api/chat", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            "messages": [
+                                { "role": "user", "content": prompt }
+                            ]
+                        })
+                    });
 
-                        if (!response.ok) {
-                            const errorData = await response.json().catch(() => ({}));
-                            throw new Error(`API Error: ${response.status} ${JSON.stringify(errorData)}`);
-                        }
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error(`API Error: ${response.status} ${JSON.stringify(errorData)}`);
+                    }
 
-                        if (!response.body) throw new Error("No response body");
+                    if (!response.body) throw new Error("No response body");
 
-                        const reader = response.body.getReader();
-                        const decoder = new TextDecoder("utf-8");
-                        let fullText = '';
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder("utf-8");
+                    let fullText = '';
 
-                        while (true) {
-                            const { done, value } = await reader.read();
-                            if (done) break;
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
 
-                            const chunk = decoder.decode(value, { stream: true });
-                            const lines = chunk.split('\n').filter(line => line.trim() !== '');
+                        const chunk = decoder.decode(value, { stream: true });
+                        const lines = chunk.split('\n').filter(line => line.trim() !== '');
 
-                            for (const line of lines) {
-                                if (line === 'data: [DONE]') return;
-                                if (line.startsWith('data: ')) {
-                                    try {
-                                        const json = JSON.parse(line.substring(6));
-                                        const content = json.choices[0]?.delta?.content || '';
-                                        if (content) {
-                                            fullText += content;
-                                            setMessages(prev => prev.map(msg =>
-                                                msg.id === botMessageId ? { ...msg, content: fullText } : msg
-                                            ));
-                                        }
-                                    } catch (e) {
-                                        console.error("Error parsing SSE message", e);
+                        for (const line of lines) {
+                            if (line === 'data: [DONE]') return;
+                            if (line.startsWith('data: ')) {
+                                try {
+                                    const json = JSON.parse(line.substring(6));
+                                    const content = json.choices[0]?.delta?.content || '';
+                                    if (content) {
+                                        fullText += content;
+                                        setMessages(prev => prev.map(msg =>
+                                            msg.id === botMessageId ? { ...msg, content: fullText } : msg
+                                        ));
                                     }
+                                } catch (e) {
+                                    console.error("Error parsing SSE message", e);
                                 }
                             }
                         }
-                    });
+                    }
+                });
 
-                } catch (apiError) {
-                    console.error("OpenRouter API Error:", apiError);
-                    // Remove the empty placeholder if it exists and failed completely
-                    setMessages(prev => prev.filter(msg => msg.content !== '' || msg.role !== 'assistant'));
+            } catch (apiError) {
+                console.error("API Error:", apiError);
+                // Remove the empty placeholder if it exists and failed completely
+                setMessages(prev => prev.filter(msg => msg.content !== '' || msg.role !== 'assistant'));
 
-                    const fallbackMessage: Message = {
-                        id: Date.now().toString(),
-                        role: 'assistant',
-                        content: `**The Forge Assistant is having trouble connecting, but here is what I found in the wiki:**\n\n${contextText}`
-                    };
-                    setMessages(prev => [...prev, fallbackMessage]);
-                }
-            } else {
                 const fallbackMessage: Message = {
                     id: Date.now().toString(),
                     role: 'assistant',
-                    content: `**I found some information that might help:**\n\n${contextText}\n\n*(Note: Add VITE_OPENROUTER_API_KEY to .env for full AI responses)*`
+                    content: `**The Forge Assistant is having trouble connecting, but here is what I found in the wiki:**\n\n${contextText}`
                 };
                 setMessages(prev => [...prev, fallbackMessage]);
             }

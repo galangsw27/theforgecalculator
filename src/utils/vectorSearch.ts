@@ -1,28 +1,17 @@
 import { supabase, ForgeDocument } from '../lib/supabaseClient';
 
-const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '';
-
 /**
- * Generate embedding using OpenRouter's OpenAI embedding model
+ * Generate embedding using Backend API (OpenRouter)
  */
 async function generateEmbedding(text: string): Promise<number[] | null> {
-    if (!OPENROUTER_API_KEY) {
-        console.warn('OpenRouter API key not found for embeddings');
-        return null;
-    }
-
     try {
-        const response = await fetch('https://openrouter.ai/api/v1/embeddings', {
+        const response = await fetch('/api/embeddings', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
                 'Content-Type': 'application/json',
-                'HTTP-Referer': typeof window !== 'undefined' ? window.location.origin : 'http://localhost',
-                'X-Title': 'Fantasy Forge Calculator',
             },
             body: JSON.stringify({
-                model: 'openai/text-embedding-ada-002',
-                input: text.substring(0, 8000), // Token limit safety
+                text: text,
             }),
         });
 
@@ -101,5 +90,5 @@ export function formatVectorContext(documents: ForgeDocument[]): string {
  * Check if vector search is available
  */
 export function isVectorSearchAvailable(): boolean {
-    return !!supabase && !!OPENROUTER_API_KEY;
+    return !!supabase;
 }
