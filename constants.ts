@@ -223,6 +223,10 @@ export const WORLD_WEAPON_DATA: Record<number, Record<string, Record<string, num
     }
 };
 
+export const WORLD_ARMOR_DATA: Record<number, Record<string, Record<string, number>>> = {
+    // Overrides can be added here if needed, but the default split logic in App.tsx handles the table's patterns.
+};
+
 export const ARMOR_PROBABILITIES: Record<number, Record<string, number>> = {
     3: { "Light Helmet": 1.0 },
     4: { "Light Helmet": 1.0 },
@@ -251,10 +255,11 @@ export const ARMOR_PROBABILITIES: Record<number, Record<string, number>> = {
     27: { "Medium Leggings": 0.04, "Medium Chestplate": 0.21, "Heavy Helmet": 0.47, "Heavy Leggings": 0.28 },
     28: { "Medium Leggings": 0.03, "Medium Chestplate": 0.16, "Heavy Helmet": 0.42, "Heavy Leggings": 0.39 },
     29: { "Medium Leggings": 0.02, "Medium Chestplate": 0.11, "Heavy Helmet": 0.35, "Heavy Leggings": 0.48, "Heavy Chestplate": 0.04 },
-    30: { "Medium Leggings": 0.01, "Medium Chestplate": 0.08, "Heavy Helmet": 0.28, "Heavy Leggings": 0.50, "Heavy Chestplate": 0.13 },
+    30: { "Medium Leggings": 0.01, "Medium Chestplate": 0.08, "Heavy Helmet": 0.28, "Heavy Leggings": 0.49, "Heavy Chestplate": 0.14 },
     35: { "Medium Chestplate": 0.02, "Heavy Helmet": 0.08, "Heavy Leggings": 0.3, "Heavy Chestplate": 0.6 },
-    40: { "Heavy Helmet": 0.04, "Heavy Leggings": 0.2, "Heavy Chestplate": 0.75 },
+    40: { "Heavy Helmet": 0.04, "Heavy Leggings": 0.2, "Heavy Chestplate": 0.76 },
     50: { "Heavy Helmet": 0.02, "Heavy Leggings": 0.14, "Heavy Chestplate": 0.84 },
+    52: { "Heavy Helmet": 0.02, "Heavy Leggings": 0.13, "Heavy Chestplate": 0.85 },
 };
 
 export const BASE_ITEM_STATS: Record<string, Record<string, ItemStat>> = {
@@ -655,6 +660,12 @@ export const ITEM_IMAGES: Record<string, string> = {
     "Medium Leggings": "/assets/images/items/medium-leggings.png",
     "Samurai Chestplate": "/assets/images/items/samurai-chestplate.png",
     "Samurai Helmet": "/assets/images/items/samurai-helmet.png",
-    "Samurai Leggings": "/assets/images/items/samurai-leggings.png"
+    "Samurai Leggings": "/assets/images/items/samurai-leggings.png",
+    "Viking Chestplate": "/assets/images/items/viking-chestplate.png",
+    "Viking Helmet": "/assets/images/items/viking-helmet.png",
+    "Viking Leggings": "/assets/images/items/viking-leggings.png",
+    "Wolf Chestplate": "/assets/images/items/wolf-chestplate.png",
+    "Wolf Helmet": "/assets/images/items/wolf-helmet.png",
+    "Wolf Leggings": "/assets/images/items/wolf-leggings.png"
 };
 

@@ -5,7 +5,7 @@ import { supabase } from './src/lib/supabaseClient';
 import ChatBot from './src/components/ChatBot';
 import LandingPage from './src/components/LandingPage';
 import { LanguageProvider, useLanguage, LanguageSwitcher } from './src/context/LanguageContext';
-import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES, WORLD_WEAPON_DATA } from './constants';
+import { ORE_DATA, WEAPON_PROBABILITIES, ARMOR_PROBABILITIES, BASE_ITEM_STATS, ITEM_VARIANTS, BEST_WEAPONS_RECIPES, BEST_ARMOR_RECIPES, ITEM_IMAGES, WORLD_WEAPON_DATA, WORLD_ARMOR_DATA } from './constants';
 import { Ore, Slot, ForgeMode, Area, ForgedItem, Rune, World } from './types';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 import Login from './src/components/Auth/Login';
@@ -266,30 +266,107 @@ function Calculator() {
 
             return finalProbs;
         }
-        return ARMOR_PROBABILITIES[closest] || {};
+        if (activeTab === 'armor') {
+            const baseProbs = ARMOR_PROBABILITIES[closest] || {};
+            const worldOverrides = WORLD_ARMOR_DATA[closest]?.[activeWorld] || {};
+            const finalProbs: Record<string, number> = {};
+
+            // 1. Identify types being overridden by WORLD_ARMOR_DATA
+            const overriddenBaseTypes = new Set<string>();
+            Object.keys(worldOverrides).forEach(name => {
+                const baseType = BASE_ITEM_STATS.armor[name]?.type || name;
+                overriddenBaseTypes.add(baseType);
+            });
+
+            Object.entries(worldOverrides).forEach(([name, prob]) => {
+                finalProbs[name] = prob;
+            });
+
+            // 2. Handle all other types (either default split or preserved)
+            const otherBaseProbs: Record<string, number> = {};
+            Object.entries(baseProbs).forEach(([type, prob]) => {
+                if (!overriddenBaseTypes.has(type)) {
+                    otherBaseProbs[type] = prob;
+                }
+            });
+
+            Object.entries(otherBaseProbs).forEach(([type, prob]) => {
+                let split: Record<string, number> = {};
+
+                if (type.startsWith("Medium")) {
+                    const piece = type.replace("Medium ", "");
+                    if (activeWorld === 'W1') {
+                        split = { [type]: 1.0 };
+                    } else if (activeWorld === 'W2') {
+                        split = { [type]: 0.5, [`Samurai ${piece}`]: 0.5 };
+                    } else {
+                        split = { [type]: 0.25, [`Samurai ${piece}`]: 0.5, [`Viking ${piece}`]: 0.25 };
+                    }
+                } else if (type.startsWith("Heavy")) {
+                    const piece = type.replace("Heavy ", "");
+                    const knight = `Knight ${piece}`;
+                    const darkKnight = `Dark Knight ${piece}`;
+                    const wolf = `Wolf ${piece}`;
+                    if (activeWorld === 'W1') {
+                        split = { [knight]: 1.0 };
+                    } else if (activeWorld === 'W2') {
+                        split = { [knight]: 0.5, [darkKnight]: 0.5 };
+                    } else {
+                        split = { [knight]: 0.25, [darkKnight]: 0.5, [wolf]: 0.25 };
+                    }
+                } else {
+                    split = { [type]: 1.0 };
+                }
+
+                Object.entries(split).forEach(([name, ratio]) => {
+                    finalProbs[name] = (finalProbs[name] || 0) + prob * ratio;
+                });
+            });
+
+            // 3. Final normalization to ensure total is 1.0
+            const total = Object.values(finalProbs).reduce((a, b) => a + b, 0);
+            if (total > 0 && Math.abs(total - 1.0) > 0.0001) {
+                Object.keys(finalProbs).forEach(name => {
+                    finalProbs[name] /= total;
+                });
+            }
+
+            return finalProbs;
+        }
+        return {};
     }, [activeTab, totalOres, activeWorld]);
 
     const groupedProbabilities = useMemo(() => {
         const groups: Record<string, { total: number; variants: { name: string; chance: number; displayChance: string }[] }> = {};
 
         Object.entries(probabilities).forEach(([name, prob]) => {
-            const type = activeTab === 'weapon' ? (BASE_ITEM_STATS.weapon[name]?.type || name) : name;
+            const type = activeTab === 'weapon' ? (BASE_ITEM_STATS.weapon[name]?.type || name) : (BASE_ITEM_STATS.armor[name]?.type || name);
             if (!groups[type]) {
                 groups[type] = { total: 0, variants: [] };
             }
             groups[type].total += prob;
 
-            // Find the display chance (e.g., "1/1", "1/8") from ITEM_VARIANTS or WORLD_WEAPON_DATA logic
-            let displayChance = "1/1";
-            if (activeTab === 'weapon') {
-                const areaVariants = ITEM_VARIANTS.weapon[type]?.[activeArea] || [];
-                const variant = areaVariants.find(v => v.name === name);
-                if (variant) {
-                    displayChance = variant.chance;
-                }
-            }
+            groups[type].variants.push({ name, chance: prob, displayChance: "1/1" });
+        });
 
-            groups[type].variants.push({ name, chance: prob, displayChance });
+        // Calculate displayChance for each variant within its group
+        Object.values(groups).forEach(group => {
+            group.variants.forEach(variant => {
+                const ratio = variant.chance / group.total;
+                if (Math.abs(ratio - 1.0) < 0.01) {
+                    variant.displayChance = "1/1";
+                } else if (Math.abs(ratio - 0.5) < 0.01) {
+                    variant.displayChance = "1/2";
+                } else if (Math.abs(ratio - 0.25) < 0.01) {
+                    variant.displayChance = "1/4";
+                } else if (Math.abs(ratio - 0.125) < 0.01) {
+                    variant.displayChance = "1/8";
+                } else if (Math.abs(ratio - 0.0625) < 0.01) {
+                    variant.displayChance = "1/16";
+                } else {
+                    variant.displayChance = `1/${Math.round(1 / ratio)}`;
+                }
+            });
         });
 
         return groups;
@@ -918,27 +995,6 @@ function Calculator() {
                         )}
                     </div>
 
-                    {/* Forge Chances */}
-                    <div className="bg-card border border-card-border rounded-xl overflow-hidden shadow-xl">
-                        <div className="p-4 border-b border-white/5 flex justify-between items-center">
-                            <h2 className="font-fredoka font-bold text-gray-400 text-sm">{t('app.forgeChances')}</h2>
-                            <span className="text-[10px] bg-white/5 px-2 py-0.5 rounded text-gray-500 uppercase tracking-tighter font-bold">{activeWorld}</span>
-                        </div>
-                        <div className="p-4 space-y-2">
-                            {Object.entries(probabilities).length > 0 ? (
-                                Object.entries(probabilities)
-                                    .sort(([, a], [, b]) => (b as number) - (a as number))
-                                    .map(([name, prob]) => (
-                                        <div key={name} className="flex justify-between items-center text-xs">
-                                            <span className="text-gray-300">{name}</span>
-                                            <span className="font-mono text-indigo-400 font-bold">{(prob as number * 100).toFixed(2)}%</span>
-                                        </div>
-                                    ))
-                            ) : (
-                                <div className="text-center text-gray-600 text-xs py-2">Add more ores to see chances</div>
-                            )}
-                        </div>
-                    </div>
                 </div>
 
                 {/* --- RIGHT COLUMN: Ore Selection --- */}
